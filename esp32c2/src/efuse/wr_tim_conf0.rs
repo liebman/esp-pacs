@@ -64,6 +64,19 @@ impl R {
         TPGM_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::WR_TIM_CONF0")
+            .field("thp_a", &format_args!("{}", self.thp_a().bits()))
+            .field(
+                "tpgm_inactive",
+                &format_args!("{}", self.tpgm_inactive().bits()),
+            )
+            .field("tpgm", &format_args!("{}", self.tpgm().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Configures hold time for efuse program."]
     #[inline(always)]

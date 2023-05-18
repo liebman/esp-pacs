@@ -46,6 +46,17 @@ impl R {
         CACHE_VADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_VADDR")
+            .field(
+                "cache_vaddr",
+                &format_args!("{}", self.cache_vaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Those bits stores the virtual address which will decide where inside the specified tag memory object will be accessed."]
     #[inline(always)]

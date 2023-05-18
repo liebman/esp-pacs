@@ -57,6 +57,37 @@ impl R {
         DMA_OUTFIFO_EMPTY_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_OUTSTATUS")
+            .field(
+                "dma_outdscr_addr",
+                &format_args!("{}", self.dma_outdscr_addr().bits()),
+            )
+            .field(
+                "dma_outdscr_state",
+                &format_args!("{}", self.dma_outdscr_state().bits()),
+            )
+            .field(
+                "dma_out_state",
+                &format_args!("{}", self.dma_out_state().bits()),
+            )
+            .field(
+                "dma_outfifo_cnt",
+                &format_args!("{}", self.dma_outfifo_cnt().bits()),
+            )
+            .field(
+                "dma_outfifo_full",
+                &format_args!("{}", self.dma_outfifo_full().bit()),
+            )
+            .field(
+                "dma_outfifo_empty",
+                &format_args!("{}", self.dma_outfifo_empty().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI DMA TX status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_outstatus](index.html) module"]
 pub struct DMA_OUTSTATUS_SPEC;
 impl crate::RegisterSpec for DMA_OUTSTATUS_SPEC {

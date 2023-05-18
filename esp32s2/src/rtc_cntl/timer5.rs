@@ -65,6 +65,25 @@ impl R {
         RTCMEM_POWERUP_TIMER_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER5")
+            .field(
+                "min_slp_val",
+                &format_args!("{}", self.min_slp_val().bits()),
+            )
+            .field(
+                "rtcmem_wait_timer",
+                &format_args!("{}", self.rtcmem_wait_timer().bits()),
+            )
+            .field(
+                "rtcmem_powerup_timer",
+                &format_args!("{}", self.rtcmem_powerup_timer().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:15 - Sets the minimal sleep cycles (using the RTC slow clock)."]
     #[inline(always)]

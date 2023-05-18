@@ -22,6 +22,17 @@ impl R {
         CORE_0_DRAM0_RECORDING_BYTEEN_1_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_DRAM0_EXCEPTION_MONITOR_4")
+            .field(
+                "core_0_dram0_recording_byteen_1",
+                &format_args!("{}", self.core_0_dram0_recording_byteen_1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "core0 bus busy configuration regsiter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_dram0_exception_monitor_4](index.html) module"]
 pub struct CORE_0_DRAM0_EXCEPTION_MONITOR_4_SPEC;
 impl crate::RegisterSpec for CORE_0_DRAM0_EXCEPTION_MONITOR_4_SPEC {

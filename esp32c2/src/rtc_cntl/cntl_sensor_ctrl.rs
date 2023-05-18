@@ -56,6 +56,21 @@ impl R {
         FORCE_XPD_SAR_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::CNTL_SENSOR_CTRL")
+            .field(
+                "sar2_pwdet_cct",
+                &format_args!("{}", self.sar2_pwdet_cct().bits()),
+            )
+            .field(
+                "force_xpd_sar",
+                &format_args!("{}", self.force_xpd_sar().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 27:29 - Need add desc"]
     #[inline(always)]

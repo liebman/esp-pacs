@@ -22,6 +22,17 @@ impl R {
         HOST_GPIO_SDIO_IN0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_GPIO_IN0")
+            .field(
+                "host_gpio_sdio_in0",
+                &format_args!("{}", self.host_gpio_sdio_in0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [host_slchost_gpio_in0](index.html) module"]
 pub struct HOST_SLCHOST_GPIO_IN0_SPEC;
 impl crate::RegisterSpec for HOST_SLCHOST_GPIO_IN0_SPEC {

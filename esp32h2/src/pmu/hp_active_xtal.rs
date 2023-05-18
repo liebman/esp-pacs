@@ -46,6 +46,17 @@ impl R {
         HP_ACTIVE_XPD_XTAL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_ACTIVE_XTAL")
+            .field(
+                "hp_active_xpd_xtal",
+                &format_args!("{}", self.hp_active_xpd_xtal().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

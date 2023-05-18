@@ -171,6 +171,28 @@ impl R {
         FREAD_QIO_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::CTRL")
+            .field("fdummy_out", &format_args!("{}", self.fdummy_out().bit()))
+            .field("fcmd_dual", &format_args!("{}", self.fcmd_dual().bit()))
+            .field("fcmd_quad", &format_args!("{}", self.fcmd_quad().bit()))
+            .field("fcs_crc_en", &format_args!("{}", self.fcs_crc_en().bit()))
+            .field("tx_crc_en", &format_args!("{}", self.tx_crc_en().bit()))
+            .field("fastrd_mode", &format_args!("{}", self.fastrd_mode().bit()))
+            .field("fread_dual", &format_args!("{}", self.fread_dual().bit()))
+            .field("resandres", &format_args!("{}", self.resandres().bit()))
+            .field("q_pol", &format_args!("{}", self.q_pol().bit()))
+            .field("d_pol", &format_args!("{}", self.d_pol().bit()))
+            .field("fread_quad", &format_args!("{}", self.fread_quad().bit()))
+            .field("wp", &format_args!("{}", self.wp().bit()))
+            .field("wrsr_2b", &format_args!("{}", self.wrsr_2b().bit()))
+            .field("fread_dio", &format_args!("{}", self.fread_dio().bit()))
+            .field("fread_qio", &format_args!("{}", self.fread_qio().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - In the dummy phase the signal level of spi is output by the spi controller."]
     #[inline(always)]

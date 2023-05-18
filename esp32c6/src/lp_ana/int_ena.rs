@@ -45,6 +45,17 @@ impl R {
         BOD_MODE0_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::INT_ENA")
+            .field(
+                "bod_mode0_int_ena",
+                &format_args!("{}", self.bod_mode0_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

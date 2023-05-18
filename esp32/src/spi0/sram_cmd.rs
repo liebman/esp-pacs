@@ -63,6 +63,16 @@ impl R {
         SRAM_RSTIO_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SRAM_CMD")
+            .field("sram_dio", &format_args!("{}", self.sram_dio().bit()))
+            .field("sram_qio", &format_args!("{}", self.sram_qio().bit()))
+            .field("sram_rstio", &format_args!("{}", self.sram_rstio().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - For SPI0 SRAM DIO mode enable . SRAM DIO enable command will be send when the bit is set. The bit will be cleared once the operation done."]
     #[inline(always)]

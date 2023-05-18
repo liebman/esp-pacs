@@ -45,6 +45,17 @@ impl R {
         CONSTANT_TIME_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA::CONSTANT_TIME")
+            .field(
+                "constant_time",
+                &format_args!("{}", self.constant_time().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Controls the CONSTANT_TIME option. 0: acceleration. 1: no acceleration(by default)."]
     #[inline(always)]

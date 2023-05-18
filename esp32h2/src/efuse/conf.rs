@@ -54,6 +54,18 @@ impl R {
         CFG_ECDSA_BLK_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::CONF")
+            .field("op_code", &format_args!("{}", self.op_code().bits()))
+            .field(
+                "cfg_ecdsa_blk",
+                &format_args!("{}", self.cfg_ecdsa_blk().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - 0x5A5A: programming operation command 0x5AA5: read operation command."]
     #[inline(always)]

@@ -47,6 +47,14 @@ impl R {
         SEL_R::new(self.bits & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::EXT_WAKEUP1")
+            .field("sel", &format_args!("{}", self.sel().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - Bitmap to select RTC pads for ext wakeup1"]
     #[inline(always)]

@@ -86,6 +86,33 @@ impl R {
         CLK_COEX_LP_DIV_NUM_R::new(((self.bits >> 4) & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_LPCON::COEX_LP_CLK_CONF")
+            .field(
+                "clk_coex_lp_sel_osc_slow",
+                &format_args!("{}", self.clk_coex_lp_sel_osc_slow().bit()),
+            )
+            .field(
+                "clk_coex_lp_sel_osc_fast",
+                &format_args!("{}", self.clk_coex_lp_sel_osc_fast().bit()),
+            )
+            .field(
+                "clk_coex_lp_sel_xtal",
+                &format_args!("{}", self.clk_coex_lp_sel_xtal().bit()),
+            )
+            .field(
+                "clk_coex_lp_sel_xtal32k",
+                &format_args!("{}", self.clk_coex_lp_sel_xtal32k().bit()),
+            )
+            .field(
+                "clk_coex_lp_div_num",
+                &format_args!("{}", self.clk_coex_lp_div_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         SAR_DEBUG_BIT_SEL_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_DEBUG_CONF")
+            .field(
+                "sar_debug_bit_sel",
+                &format_args!("{}", self.sar_debug_bit_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - no public"]
     #[inline(always)]

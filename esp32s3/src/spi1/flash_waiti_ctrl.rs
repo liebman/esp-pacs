@@ -74,6 +74,20 @@ impl R {
         WAITI_DUMMY_CYCLELEN_R::new(((self.bits >> 10) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::FLASH_WAITI_CTRL")
+            .field("waiti_en", &format_args!("{}", self.waiti_en().bit()))
+            .field("waiti_dummy", &format_args!("{}", self.waiti_dummy().bit()))
+            .field("waiti_cmd", &format_args!("{}", self.waiti_cmd().bits()))
+            .field(
+                "waiti_dummy_cyclelen",
+                &format_args!("{}", self.waiti_dummy_cyclelen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable auto-waiting flash idle operation when PP/SE/BE/CE/WRSR/PES command is sent."]
     #[inline(always)]

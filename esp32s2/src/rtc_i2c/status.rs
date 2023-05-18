@@ -85,6 +85,32 @@ impl R {
         SCL_STATE_LAST_R::new(((self.bits >> 28) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::STATUS")
+            .field("ack_rec", &format_args!("{}", self.ack_rec().bit()))
+            .field("slave_rw", &format_args!("{}", self.slave_rw().bit()))
+            .field("arb_lost", &format_args!("{}", self.arb_lost().bit()))
+            .field("bus_busy", &format_args!("{}", self.bus_busy().bit()))
+            .field(
+                "slave_addressed",
+                &format_args!("{}", self.slave_addressed().bit()),
+            )
+            .field("byte_trans", &format_args!("{}", self.byte_trans().bit()))
+            .field("op_cnt", &format_args!("{}", self.op_cnt().bits()))
+            .field("shift", &format_args!("{}", self.shift().bits()))
+            .field(
+                "scl_main_state_last",
+                &format_args!("{}", self.scl_main_state_last().bits()),
+            )
+            .field(
+                "scl_state_last",
+                &format_args!("{}", self.scl_state_last().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "RTC I2C status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {

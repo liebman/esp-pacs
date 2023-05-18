@@ -56,6 +56,21 @@ impl R {
         ROM_FORCE_PU_R::new(((self.bits >> 2) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::ROM_CTRL_1")
+            .field(
+                "rom_force_pd",
+                &format_args!("{}", self.rom_force_pd().bits()),
+            )
+            .field(
+                "rom_force_pu",
+                &format_args!("{}", self.rom_force_pu().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field is used to power down internal ROM."]
     #[inline(always)]

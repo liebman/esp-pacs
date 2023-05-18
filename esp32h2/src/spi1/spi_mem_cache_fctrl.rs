@@ -106,6 +106,41 @@ impl R {
         SPI_MEM_FADDR_QUAD_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_CACHE_FCTRL")
+            .field(
+                "spi_mem_cache_usr_addr_4byte",
+                &format_args!("{}", self.spi_mem_cache_usr_addr_4byte().bit()),
+            )
+            .field(
+                "spi_mem_fdin_dual",
+                &format_args!("{}", self.spi_mem_fdin_dual().bit()),
+            )
+            .field(
+                "spi_mem_fdout_dual",
+                &format_args!("{}", self.spi_mem_fdout_dual().bit()),
+            )
+            .field(
+                "spi_mem_faddr_dual",
+                &format_args!("{}", self.spi_mem_faddr_dual().bit()),
+            )
+            .field(
+                "spi_mem_fdin_quad",
+                &format_args!("{}", self.spi_mem_fdin_quad().bit()),
+            )
+            .field(
+                "spi_mem_fdout_quad",
+                &format_args!("{}", self.spi_mem_fdout_quad().bit()),
+            )
+            .field(
+                "spi_mem_faddr_quad",
+                &format_args!("{}", self.spi_mem_faddr_quad().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - For SPI1, cache read flash with 4 bytes address, 1: enable, 0:disable."]
     #[inline(always)]

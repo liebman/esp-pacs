@@ -45,6 +45,14 @@ impl R {
         TIME_R::new((self.bits & 0x3fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_STOP_HOLD")
+            .field("time", &format_args!("{}", self.time().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - This register is used to configure the delay after the STOP condition, in I2C module clock cycles."]
     #[inline(always)]

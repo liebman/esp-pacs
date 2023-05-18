@@ -46,6 +46,17 @@ impl R {
         RET_INV_CFG_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PAU::RETENTION_CFG")
+            .field(
+                "ret_inv_cfg",
+                &format_args!("{}", self.ret_inv_cfg().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - retention inv scan out"]
     #[inline(always)]

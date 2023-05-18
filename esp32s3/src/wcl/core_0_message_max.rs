@@ -46,6 +46,17 @@ impl R {
         CORE_0_MESSAGE_MAX_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_MESSAGE_MAX")
+            .field(
+                "core_0_message_max",
+                &format_args!("{}", self.core_0_message_max().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - This filed is used to set the max value of clear write_buffer"]
     #[inline(always)]

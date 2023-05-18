@@ -171,6 +171,34 @@ impl R {
         TXFIFO_RST_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::CONF0")
+            .field("parity", &format_args!("{}", self.parity().bit()))
+            .field("parity_en", &format_args!("{}", self.parity_en().bit()))
+            .field("bit_num", &format_args!("{}", self.bit_num().bits()))
+            .field(
+                "stop_bit_num",
+                &format_args!("{}", self.stop_bit_num().bits()),
+            )
+            .field("txd_brk", &format_args!("{}", self.txd_brk().bit()))
+            .field("loopback", &format_args!("{}", self.loopback().bit()))
+            .field("tx_flow_en", &format_args!("{}", self.tx_flow_en().bit()))
+            .field("rxd_inv", &format_args!("{}", self.rxd_inv().bit()))
+            .field("txd_inv", &format_args!("{}", self.txd_inv().bit()))
+            .field(
+                "dis_rx_dat_ovf",
+                &format_args!("{}", self.dis_rx_dat_ovf().bit()),
+            )
+            .field("err_wr_mask", &format_args!("{}", self.err_wr_mask().bit()))
+            .field("mem_clk_en", &format_args!("{}", self.mem_clk_en().bit()))
+            .field("sw_rts", &format_args!("{}", self.sw_rts().bit()))
+            .field("rxfifo_rst", &format_args!("{}", self.rxfifo_rst().bit()))
+            .field("txfifo_rst", &format_args!("{}", self.txfifo_rst().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This register is used to configure the parity check mode."]
     #[inline(always)]

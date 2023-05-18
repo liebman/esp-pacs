@@ -184,6 +184,41 @@ impl R {
         SAI_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CFG_DATA7")
+            .field("pin_state", &format_args!("{}", self.pin_state().bits()))
+            .field("chip_state", &format_args!("{}", self.chip_state().bits()))
+            .field("sdio_rst", &format_args!("{}", self.sdio_rst().bit()))
+            .field(
+                "sdio_ioready0",
+                &format_args!("{}", self.sdio_ioready0().bit()),
+            )
+            .field("sdio_mem_pd", &format_args!("{}", self.sdio_mem_pd().bit()))
+            .field(
+                "esdio_data1_int_en",
+                &format_args!("{}", self.esdio_data1_int_en().bit()),
+            )
+            .field(
+                "sdio_switch_volt_sw",
+                &format_args!("{}", self.sdio_switch_volt_sw().bit()),
+            )
+            .field(
+                "ddr50_blk_len_fix_en",
+                &format_args!("{}", self.ddr50_blk_len_fix_en().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field("sddr50", &format_args!("{}", self.sddr50().bit()))
+            .field("ssdr104", &format_args!("{}", self.ssdr104().bit()))
+            .field("ssdr50", &format_args!("{}", self.ssdr50().bit()))
+            .field("sdtd", &format_args!("{}", self.sdtd().bit()))
+            .field("sdta", &format_args!("{}", self.sdta().bit()))
+            .field("sdtc", &format_args!("{}", self.sdtc().bit()))
+            .field("sai", &format_args!("{}", self.sai().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - configure cis addr 318 and 574"]
     #[inline(always)]

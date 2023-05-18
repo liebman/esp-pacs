@@ -22,6 +22,17 @@ impl R {
         DBUS2_ABANDON_CNT_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DBUS2_ABANDON_CNT")
+            .field(
+                "dbus2_abandon_cnt",
+                &format_args!("{}", self.dbus2_abandon_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dbus2_abandon_cnt](index.html) module"]
 pub struct DBUS2_ABANDON_CNT_SPEC;
 impl crate::RegisterSpec for DBUS2_ABANDON_CNT_SPEC {

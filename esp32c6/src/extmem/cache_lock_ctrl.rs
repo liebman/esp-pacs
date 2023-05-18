@@ -70,6 +70,29 @@ impl R {
         CACHE_LOCK_RGID_R::new(((self.bits >> 3) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_LOCK_CTRL")
+            .field(
+                "cache_lock_ena",
+                &format_args!("{}", self.cache_lock_ena().bit()),
+            )
+            .field(
+                "cache_unlock_ena",
+                &format_args!("{}", self.cache_unlock_ena().bit()),
+            )
+            .field(
+                "cache_lock_done",
+                &format_args!("{}", self.cache_lock_done().bit()),
+            )
+            .field(
+                "cache_lock_rgid",
+                &format_args!("{}", self.cache_lock_rgid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable lock operation. It will be cleared by hardware after lock operation done"]
     #[inline(always)]

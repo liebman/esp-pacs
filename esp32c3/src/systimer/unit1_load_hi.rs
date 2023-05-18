@@ -46,6 +46,17 @@ impl R {
         TIMER_UNIT1_LOAD_HI_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::UNIT1_LOAD_HI")
+            .field(
+                "timer_unit1_load_hi",
+                &format_args!("{}", self.timer_unit1_load_hi().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - timer unit1 load high 32 bit"]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         SAR_I2C_SDA_SEL_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::SAR_I2C_IO")
+            .field(
+                "sar_debug_bit_sel",
+                &format_args!("{}", self.sar_debug_bit_sel().bits()),
+            )
+            .field(
+                "sar_i2c_scl_sel",
+                &format_args!("{}", self.sar_i2c_scl_sel().bits()),
+            )
+            .field(
+                "sar_i2c_sda_sel",
+                &format_args!("{}", self.sar_i2c_sda_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 23:27"]
     #[inline(always)]

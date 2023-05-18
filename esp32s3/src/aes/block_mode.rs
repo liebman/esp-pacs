@@ -45,6 +45,14 @@ impl R {
         BLOCK_MODE_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::BLOCK_MODE")
+            .field("block_mode", &format_args!("{}", self.block_mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Defines the block cipher mode of the AES accelerator operating under the DMA-AES working mode. 0x0: ECB, 0x1: CBC, 0x2: OFB, 0x3: CTR, 0x4: CFB-8, 0x5: CFB-128, 0x6: reserved, 0x7: reserved."]
     #[inline(always)]

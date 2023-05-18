@@ -50,6 +50,33 @@ impl R {
         L1_CACHE_FAIL_INT_ST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_ACS_FAIL_INT_ST")
+            .field(
+                "l1_icache0_fail_int_st",
+                &format_args!("{}", self.l1_icache0_fail_int_st().bit()),
+            )
+            .field(
+                "l1_icache1_fail_int_st",
+                &format_args!("{}", self.l1_icache1_fail_int_st().bit()),
+            )
+            .field(
+                "l1_icache2_fail_int_st",
+                &format_args!("{}", self.l1_icache2_fail_int_st().bit()),
+            )
+            .field(
+                "l1_icache3_fail_int_st",
+                &format_args!("{}", self.l1_icache3_fail_int_st().bit()),
+            )
+            .field(
+                "l1_cache_fail_int_st",
+                &format_args!("{}", self.l1_cache_fail_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache Access Fail Interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l1_cache_acs_fail_int_st](index.html) module"]
 pub struct L1_CACHE_ACS_FAIL_INT_ST_SPEC;
 impl crate::RegisterSpec for L1_CACHE_ACS_FAIL_INT_ST_SPEC {

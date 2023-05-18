@@ -33,6 +33,27 @@ impl R {
         CORE_0_DRAM0_PMS_MONITOR_VIOLATE_STATUS_BYTEEN_R::new(((self.bits >> 1) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_DRAM0_PMS_MONITOR_3")
+            .field(
+                "core_0_dram0_pms_monitor_violate_status_wr",
+                &format_args!(
+                    "{}",
+                    self.core_0_dram0_pms_monitor_violate_status_wr().bit()
+                ),
+            )
+            .field(
+                "core_0_dram0_pms_monitor_violate_status_byteen",
+                &format_args!(
+                    "{}",
+                    self.core_0_dram0_pms_monitor_violate_status_byteen().bits()
+                ),
+            )
+            .finish()
+    }
+}
 #[doc = "core0 dram0 permission monitor configuration register 3.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_dram0_pms_monitor_3](index.html) module"]
 pub struct CORE_0_DRAM0_PMS_MONITOR_3_SPEC;
 impl crate::RegisterSpec for CORE_0_DRAM0_PMS_MONITOR_3_SPEC {

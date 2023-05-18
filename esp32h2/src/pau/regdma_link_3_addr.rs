@@ -46,6 +46,17 @@ impl R {
         LINK_ADDR_3_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PAU::REGDMA_LINK_3_ADDR")
+            .field(
+                "link_addr_3",
+                &format_args!("{}", self.link_addr_3().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Link_3_addr reg"]
     #[inline(always)]

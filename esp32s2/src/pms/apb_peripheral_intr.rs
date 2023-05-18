@@ -63,6 +63,25 @@ impl R {
         APB_PERI_BYTE_ERROR_INTR_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::APB_PERIPHERAL_INTR")
+            .field(
+                "apb_peri_byte_error_clr",
+                &format_args!("{}", self.apb_peri_byte_error_clr().bit()),
+            )
+            .field(
+                "apb_peri_byte_error_en",
+                &format_args!("{}", self.apb_peri_byte_error_en().bit()),
+            )
+            .field(
+                "apb_peri_byte_error_intr",
+                &format_args!("{}", self.apb_peri_byte_error_intr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear signal for APB peripheral interrupt."]
     #[inline(always)]

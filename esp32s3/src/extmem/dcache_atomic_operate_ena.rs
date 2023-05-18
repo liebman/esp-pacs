@@ -46,6 +46,17 @@ impl R {
         DCACHE_ATOMIC_OPERATE_ENA_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_ATOMIC_OPERATE_ENA")
+            .field(
+                "dcache_atomic_operate_ena",
+                &format_args!("{}", self.dcache_atomic_operate_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to activate dcache atomic operation protection. In this case, sync/lock/occupy operation can not interrupt miss-work. This feature does not work during invalidateAll operation."]
     #[inline(always)]

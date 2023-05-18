@@ -97,6 +97,41 @@ impl R {
         SPI_MEM_CS_HOLD_DELAY_R::new(((self.bits >> 25) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_CTRL2")
+            .field(
+                "spi_mem_cs_setup_time",
+                &format_args!("{}", self.spi_mem_cs_setup_time().bits()),
+            )
+            .field(
+                "spi_mem_cs_hold_time",
+                &format_args!("{}", self.spi_mem_cs_hold_time().bits()),
+            )
+            .field(
+                "spi_mem_ecc_cs_hold_time",
+                &format_args!("{}", self.spi_mem_ecc_cs_hold_time().bits()),
+            )
+            .field(
+                "spi_mem_ecc_skip_page_corner",
+                &format_args!("{}", self.spi_mem_ecc_skip_page_corner().bit()),
+            )
+            .field(
+                "spi_mem_ecc_16to18_byte_en",
+                &format_args!("{}", self.spi_mem_ecc_16to18_byte_en().bit()),
+            )
+            .field(
+                "spi_mem_split_trans_en",
+                &format_args!("{}", self.spi_mem_split_trans_en().bit()),
+            )
+            .field(
+                "spi_mem_cs_hold_delay",
+                &format_args!("{}", self.spi_mem_cs_hold_delay().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - (cycles-1) of prepare phase by SPI Bus clock, this bits are combined with SPI_MEM_CS_SETUP bit."]
     #[inline(always)]

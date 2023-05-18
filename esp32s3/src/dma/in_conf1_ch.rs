@@ -65,6 +65,25 @@ impl R {
         IN_EXT_MEM_BK_SIZE_R::new(((self.bits >> 13) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_CONF1_CH")
+            .field(
+                "dma_infifo_full_thrs",
+                &format_args!("{}", self.dma_infifo_full_thrs().bits()),
+            )
+            .field(
+                "in_check_owner",
+                &format_args!("{}", self.in_check_owner().bit()),
+            )
+            .field(
+                "in_ext_mem_bk_size",
+                &format_args!("{}", self.in_ext_mem_bk_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - This register is used to generate the INFIFO_FULL_WM_INT interrupt when Rx channel 0 received byte number in Rx FIFO is up to the value of the register."]
     #[inline(always)]

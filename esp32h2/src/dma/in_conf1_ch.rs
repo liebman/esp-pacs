@@ -45,6 +45,17 @@ impl R {
         IN_CHECK_OWNER_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_CONF1_CH")
+            .field(
+                "in_check_owner",
+                &format_args!("{}", self.in_check_owner().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - Set this bit to enable checking the owner attribute of the link descriptor."]
     #[inline(always)]

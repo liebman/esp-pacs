@@ -22,6 +22,17 @@ impl R {
         LP_GPIO_IN_DATA_NEXT_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_IO::IN")
+            .field(
+                "lp_gpio_in_data_next",
+                &format_args!("{}", self.lp_gpio_in_data_next().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "need des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_](index.html) module"]
 pub struct IN_SPEC;
 impl crate::RegisterSpec for IN_SPEC {

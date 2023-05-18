@@ -46,6 +46,17 @@ impl R {
         USR_MOSI_DBITLEN_R::new(self.bits & 0x007f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::MOSI_DLEN")
+            .field(
+                "usr_mosi_dbitlen",
+                &format_args!("{}", self.usr_mosi_dbitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:22 - The length in bits of write-data. The register value shall be (bit_num-1). Can be configured in CONF state."]
     #[inline(always)]

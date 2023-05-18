@@ -45,6 +45,14 @@ impl R {
         CARD_RESET_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::RST_N")
+            .field("card_reset", &format_args!("{}", self.card_reset().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Hardware reset. 1: Active mode; 0: Reset. These bits cause the cards to enter pre-idle state, which requires them to be re-initialized. SDHOST_RST_CARD_RESET\\[0\\] should be set to 1'b0 to reset card0, SDHOST_RST_CARD_RESET\\[1\\] should be set to 1'b0 to reset card1."]
     #[inline(always)]

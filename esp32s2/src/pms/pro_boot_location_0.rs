@@ -46,6 +46,17 @@ impl R {
         PRO_BOOT_LOCATION_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_BOOT_LOCATION_0")
+            .field(
+                "pro_boot_location_lock",
+                &format_args!("{}", self.pro_boot_location_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Lock register. Setting to 1 locks boot remap permission control registers."]
     #[inline(always)]

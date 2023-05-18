@@ -96,6 +96,45 @@ impl R {
         OUT_FIFO_RESET_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::JFIFO_ST")
+            .field(
+                "in_fifo_cnt",
+                &format_args!("{}", self.in_fifo_cnt().bits()),
+            )
+            .field(
+                "in_fifo_empty",
+                &format_args!("{}", self.in_fifo_empty().bit()),
+            )
+            .field(
+                "in_fifo_full",
+                &format_args!("{}", self.in_fifo_full().bit()),
+            )
+            .field(
+                "out_fifo_cnt",
+                &format_args!("{}", self.out_fifo_cnt().bits()),
+            )
+            .field(
+                "out_fifo_empty",
+                &format_args!("{}", self.out_fifo_empty().bit()),
+            )
+            .field(
+                "out_fifo_full",
+                &format_args!("{}", self.out_fifo_full().bit()),
+            )
+            .field(
+                "in_fifo_reset",
+                &format_args!("{}", self.in_fifo_reset().bit()),
+            )
+            .field(
+                "out_fifo_reset",
+                &format_args!("{}", self.out_fifo_reset().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 8 - Write 1 to reset JTAG in fifo."]
     #[inline(always)]

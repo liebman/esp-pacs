@@ -22,6 +22,14 @@ impl R {
         TBBCNT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::TBBCNT")
+            .field("tbbcnt", &format_args!("{}", self.tbbcnt().bits()))
+            .finish()
+    }
+}
 #[doc = "Transferred byte count register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tbbcnt](index.html) module"]
 pub struct TBBCNT_SPEC;
 impl crate::RegisterSpec for TBBCNT_SPEC {

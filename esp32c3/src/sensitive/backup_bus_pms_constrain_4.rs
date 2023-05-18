@@ -96,6 +96,37 @@ impl R {
         BACKUP_BUS_PMS_CONSTRAIN_USB_DEVICE_R::new(((self.bits >> 14) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_CONSTRAIN_4")
+            .field(
+                "backup_bus_pms_constrain_usb_wrap",
+                &format_args!("{}", self.backup_bus_pms_constrain_usb_wrap().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_crypto_peri",
+                &format_args!("{}", self.backup_bus_pms_constrain_crypto_peri().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_crypto_dma",
+                &format_args!("{}", self.backup_bus_pms_constrain_crypto_dma().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_apb_adc",
+                &format_args!("{}", self.backup_bus_pms_constrain_apb_adc().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_bt_pwr",
+                &format_args!("{}", self.backup_bus_pms_constrain_bt_pwr().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_usb_device",
+                &format_args!("{}", self.backup_bus_pms_constrain_usb_device().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:3 - backup_bus_pms_constrain_usb_wrap"]
     #[inline(always)]

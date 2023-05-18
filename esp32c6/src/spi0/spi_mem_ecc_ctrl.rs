@@ -88,6 +88,41 @@ impl R {
         SPI_MEM_ECC_ERR_BITS_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_ECC_CTRL")
+            .field(
+                "spi_fmem_ecc_err_int_num",
+                &format_args!("{}", self.spi_fmem_ecc_err_int_num().bits()),
+            )
+            .field(
+                "spi_fmem_ecc_err_int_en",
+                &format_args!("{}", self.spi_fmem_ecc_err_int_en().bit()),
+            )
+            .field(
+                "spi_fmem_page_size",
+                &format_args!("{}", self.spi_fmem_page_size().bits()),
+            )
+            .field(
+                "spi_fmem_ecc_addr_en",
+                &format_args!("{}", self.spi_fmem_ecc_addr_en().bit()),
+            )
+            .field(
+                "spi_mem_usr_ecc_addr_en",
+                &format_args!("{}", self.spi_mem_usr_ecc_addr_en().bit()),
+            )
+            .field(
+                "spi_mem_ecc_continue_record_err_en",
+                &format_args!("{}", self.spi_mem_ecc_continue_record_err_en().bit()),
+            )
+            .field(
+                "spi_mem_ecc_err_bits",
+                &format_args!("{}", self.spi_mem_ecc_err_bits().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 18:19 - Set the page size of the flash accessed by MSPI. 0: 256 bytes. 1: 512 bytes. 2: 1024 bytes. 3: 2048 bytes."]
     #[inline(always)]

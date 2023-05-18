@@ -117,6 +117,22 @@ impl R {
         DOUTS_MODE_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DOUT_MODE")
+            .field("dout0_mode", &format_args!("{}", self.dout0_mode().bit()))
+            .field("dout1_mode", &format_args!("{}", self.dout1_mode().bit()))
+            .field("dout2_mode", &format_args!("{}", self.dout2_mode().bit()))
+            .field("dout3_mode", &format_args!("{}", self.dout3_mode().bit()))
+            .field("dout4_mode", &format_args!("{}", self.dout4_mode().bit()))
+            .field("dout5_mode", &format_args!("{}", self.dout5_mode().bit()))
+            .field("dout6_mode", &format_args!("{}", self.dout6_mode().bit()))
+            .field("dout7_mode", &format_args!("{}", self.dout7_mode().bit()))
+            .field("douts_mode", &format_args!("{}", self.douts_mode().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SPI_D output delay mode. 0: No delay. 1: Delay one cycle at MSPI_CORE_CLK negative edge."]
     #[inline(always)]

@@ -36,6 +36,25 @@ impl R {
         HP_PWR_ST_STATE_R::new(((self.bits >> 23) & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::PWR_STATE")
+            .field(
+                "backup_st_state",
+                &format_args!("{}", self.backup_st_state().bits()),
+            )
+            .field(
+                "lp_pwr_st_state",
+                &format_args!("{}", self.lp_pwr_st_state().bits()),
+            )
+            .field(
+                "hp_pwr_st_state",
+                &format_args!("{}", self.hp_pwr_st_state().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pwr_state](index.html) module"]
 pub struct PWR_STATE_SPEC;
 impl crate::RegisterSpec for PWR_STATE_SPEC {

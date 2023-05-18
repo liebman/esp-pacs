@@ -46,6 +46,17 @@ impl R {
         MAIN_TIMER_TAR_LOW1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_TIMER::TAR1_LOW")
+            .field(
+                "main_timer_tar_low1",
+                &format_args!("{}", self.main_timer_tar_low1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - need_des"]
     #[inline(always)]

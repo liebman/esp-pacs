@@ -46,6 +46,17 @@ impl R {
         SPI_XTS_PHYSICAL_ADDRESS_R::new(self.bits & 0x03ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_XTS_PHYSICAL_ADDRESS")
+            .field(
+                "spi_xts_physical_address",
+                &format_args!("{}", self.spi_xts_physical_address().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:25 - This bits stores the physical-address parameter which will be used in manual encryption calculation. This value should aligned with byte number decided by line-size parameter."]
     #[inline(always)]

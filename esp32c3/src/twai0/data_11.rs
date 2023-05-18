@@ -45,6 +45,14 @@ impl R {
         TX_BYTE_11_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::DATA_11")
+            .field("tx_byte_11", &format_args!("{}", self.tx_byte_11().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - In operation mode, it stores the 11th byte of the data to be transmitted or received. In operation mode, writing writes to the transmit buffer while reading reads from the receive buffer."]
     #[inline(always)]

@@ -112,6 +112,39 @@ impl R {
         OUTFIFO_UDF_L3_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_INT_RAW_CH")
+            .field("out_done", &format_args!("{}", self.out_done().bit()))
+            .field("out_eof", &format_args!("{}", self.out_eof().bit()))
+            .field(
+                "out_dscr_err",
+                &format_args!("{}", self.out_dscr_err().bit()),
+            )
+            .field(
+                "out_total_eof",
+                &format_args!("{}", self.out_total_eof().bit()),
+            )
+            .field(
+                "outfifo_ovf_l1",
+                &format_args!("{}", self.outfifo_ovf_l1().bit()),
+            )
+            .field(
+                "outfifo_udf_l1",
+                &format_args!("{}", self.outfifo_udf_l1().bit()),
+            )
+            .field(
+                "outfifo_ovf_l3",
+                &format_args!("{}", self.outfifo_ovf_l3().bit()),
+            )
+            .field(
+                "outfifo_udf_l3",
+                &format_args!("{}", self.outfifo_udf_l3().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw interrupt bit turns to high level when the last data pointed by one outlink descriptor has been transmitted to peripherals for Tx channel 0."]
     #[inline(always)]

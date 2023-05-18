@@ -60,6 +60,19 @@ impl R {
         USB_UART_CHIP_RST_DIS_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::CHIP_RST")
+            .field("rts", &format_args!("{}", self.rts().bit()))
+            .field("dtr", &format_args!("{}", self.dtr().bit()))
+            .field(
+                "usb_uart_chip_rst_dis",
+                &format_args!("{}", self.usb_uart_chip_rst_dis().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - Set this bit to disable chip reset from usb serial channel to reset chip."]
     #[inline(always)]

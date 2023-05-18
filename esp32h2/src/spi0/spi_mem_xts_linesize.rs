@@ -46,6 +46,17 @@ impl R {
         SPI_XTS_LINESIZE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_XTS_LINESIZE")
+            .field(
+                "spi_xts_linesize",
+                &format_args!("{}", self.spi_xts_linesize().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This bits stores the line-size parameter which will be used in manual encryption calculation. It decides how many bytes will be encrypted one time. 0: 16-bytes, 1: 32-bytes, 2: 64-bytes, 3:reserved."]
     #[inline(always)]

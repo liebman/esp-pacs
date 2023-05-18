@@ -71,6 +71,42 @@ impl R {
         IDLE_INT_ST_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::INTERRUPT")
+            .field(
+                "receive_int_st",
+                &format_args!("{}", self.receive_int_st().bit()),
+            )
+            .field(
+                "transmit_int_st",
+                &format_args!("{}", self.transmit_int_st().bit()),
+            )
+            .field(
+                "err_warning_int_st",
+                &format_args!("{}", self.err_warning_int_st().bit()),
+            )
+            .field(
+                "data_overrun_int_st",
+                &format_args!("{}", self.data_overrun_int_st().bit()),
+            )
+            .field(
+                "err_passive_int_st",
+                &format_args!("{}", self.err_passive_int_st().bit()),
+            )
+            .field(
+                "arbitration_lost_int_st",
+                &format_args!("{}", self.arbitration_lost_int_st().bit()),
+            )
+            .field(
+                "bus_err_int_st",
+                &format_args!("{}", self.bus_err_int_st().bit()),
+            )
+            .field("idle_int_st", &format_args!("{}", self.idle_int_st().bit()))
+            .finish()
+    }
+}
 #[doc = "Interrupt signals' register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interrupt](index.html) module"]
 pub struct INTERRUPT_SPEC;
 impl crate::RegisterSpec for INTERRUPT_SPEC {

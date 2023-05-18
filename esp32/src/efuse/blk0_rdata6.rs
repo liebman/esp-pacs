@@ -85,6 +85,53 @@ impl R {
         RD_KEY_STATUS_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_RDATA6")
+            .field(
+                "rd_coding_scheme",
+                &format_args!("{}", self.rd_coding_scheme().bits()),
+            )
+            .field(
+                "rd_console_debug_disable",
+                &format_args!("{}", self.rd_console_debug_disable().bit()),
+            )
+            .field(
+                "rd_disable_sdio_host",
+                &format_args!("{}", self.rd_disable_sdio_host().bit()),
+            )
+            .field(
+                "rd_abs_done_0",
+                &format_args!("{}", self.rd_abs_done_0().bit()),
+            )
+            .field(
+                "rd_abs_done_1",
+                &format_args!("{}", self.rd_abs_done_1().bit()),
+            )
+            .field(
+                "rd_disable_jtag",
+                &format_args!("{}", self.rd_disable_jtag().bit()),
+            )
+            .field(
+                "rd_disable_dl_encrypt",
+                &format_args!("{}", self.rd_disable_dl_encrypt().bit()),
+            )
+            .field(
+                "rd_disable_dl_decrypt",
+                &format_args!("{}", self.rd_disable_dl_decrypt().bit()),
+            )
+            .field(
+                "rd_disable_dl_cache",
+                &format_args!("{}", self.rd_disable_dl_cache().bit()),
+            )
+            .field(
+                "rd_key_status",
+                &format_args!("{}", self.rd_key_status().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [blk0_rdata6](index.html) module"]
 pub struct BLK0_RDATA6_SPEC;
 impl crate::RegisterSpec for BLK0_RDATA6_SPEC {

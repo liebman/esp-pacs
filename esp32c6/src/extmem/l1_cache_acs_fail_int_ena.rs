@@ -74,6 +74,33 @@ impl R {
         L1_CACHE_FAIL_INT_ENA_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_ACS_FAIL_INT_ENA")
+            .field(
+                "l1_icache0_fail_int_ena",
+                &format_args!("{}", self.l1_icache0_fail_int_ena().bit()),
+            )
+            .field(
+                "l1_icache1_fail_int_ena",
+                &format_args!("{}", self.l1_icache1_fail_int_ena().bit()),
+            )
+            .field(
+                "l1_icache2_fail_int_ena",
+                &format_args!("{}", self.l1_icache2_fail_int_ena().bit()),
+            )
+            .field(
+                "l1_icache3_fail_int_ena",
+                &format_args!("{}", self.l1_icache3_fail_int_ena().bit()),
+            )
+            .field(
+                "l1_cache_fail_int_ena",
+                &format_args!("{}", self.l1_cache_fail_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - The bit is used to enable interrupt of access fail that occurs in L1-DCache due to cpu accesses L1-DCache."]
     #[inline(always)]

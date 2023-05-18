@@ -65,6 +65,22 @@ impl R {
         TICK_ENABLE_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::TICK_CONF")
+            .field(
+                "xtal_tick_num",
+                &format_args!("{}", self.xtal_tick_num().bits()),
+            )
+            .field(
+                "ck8m_tick_num",
+                &format_args!("{}", self.ck8m_tick_num().bits()),
+            )
+            .field("tick_enable", &format_args!("{}", self.tick_enable().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - reg_xtal_tick_num"]
     #[inline(always)]

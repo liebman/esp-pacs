@@ -45,6 +45,14 @@ impl R {
         TX_BYTE_6_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::DATA_6")
+            .field("tx_byte_6", &format_args!("{}", self.tx_byte_6().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - In reset mode, it is acceptance mask register 2 with R/W Permission. In operation mode, it stores the 6th byte information of the data to be transmitted under operating mode."]
     #[inline(always)]

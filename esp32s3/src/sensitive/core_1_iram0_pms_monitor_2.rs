@@ -58,6 +58,46 @@ impl R {
         CORE_1_IRAM0_PMS_MONITOR_VIOLATE_STATUS_ADDR_R::new((self.bits >> 5) & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_IRAM0_PMS_MONITOR_2")
+            .field(
+                "core_1_iram0_pms_monitor_violate_intr",
+                &format_args!("{}", self.core_1_iram0_pms_monitor_violate_intr().bit()),
+            )
+            .field(
+                "core_1_iram0_pms_monitor_violate_status_wr",
+                &format_args!(
+                    "{}",
+                    self.core_1_iram0_pms_monitor_violate_status_wr().bit()
+                ),
+            )
+            .field(
+                "core_1_iram0_pms_monitor_violate_status_loadstore",
+                &format_args!(
+                    "{}",
+                    self.core_1_iram0_pms_monitor_violate_status_loadstore()
+                        .bit()
+                ),
+            )
+            .field(
+                "core_1_iram0_pms_monitor_violate_status_world",
+                &format_args!(
+                    "{}",
+                    self.core_1_iram0_pms_monitor_violate_status_world().bits()
+                ),
+            )
+            .field(
+                "core_1_iram0_pms_monitor_violate_status_addr",
+                &format_args!(
+                    "{}",
+                    self.core_1_iram0_pms_monitor_violate_status_addr().bits()
+                ),
+            )
+            .finish()
+    }
+}
 #[doc = "core1 iram0 permission monitor configuration register 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_1_iram0_pms_monitor_2](index.html) module"]
 pub struct CORE_1_IRAM0_PMS_MONITOR_2_SPEC;
 impl crate::RegisterSpec for CORE_1_IRAM0_PMS_MONITOR_2_SPEC {

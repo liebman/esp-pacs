@@ -63,6 +63,25 @@ impl R {
         ICACHE_PRELOAD_ORDER_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_PRELOAD_CTRL")
+            .field(
+                "icache_preload_ena",
+                &format_args!("{}", self.icache_preload_ena().bit()),
+            )
+            .field(
+                "icache_preload_done",
+                &format_args!("{}", self.icache_preload_done().bit()),
+            )
+            .field(
+                "icache_preload_order",
+                &format_args!("{}", self.icache_preload_order().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable preload operation. It will be cleared by hardware after preload operation done."]
     #[inline(always)]

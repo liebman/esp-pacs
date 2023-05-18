@@ -46,6 +46,17 @@ impl R {
         SEND_Q1_WORD1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::REG_Q1_WORD1")
+            .field(
+                "send_q1_word1",
+                &format_args!("{}", self.send_q1_word1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This register is used as a quick_sent register when specified by UHCI_ALWAYS_SEND_NUM or UHCI_SINGLE_SEND_NUM."]
     #[inline(always)]

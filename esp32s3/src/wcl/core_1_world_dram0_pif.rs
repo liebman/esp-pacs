@@ -46,6 +46,17 @@ impl R {
         CORE_1_WORLD_DRAM0_PIF_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_1_World_DRam0_PIF")
+            .field(
+                "core_1_world_dram0_pif",
+                &format_args!("{}", self.core_1_world_dram0_pif().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - this field is used to read current world of Dram0 bus and PIF bus"]
     #[inline(always)]

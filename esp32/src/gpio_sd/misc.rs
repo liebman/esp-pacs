@@ -45,6 +45,14 @@ impl R {
         SPI_SWAP_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::MISC")
+            .field("spi_swap", &format_args!("{}", self.spi_swap().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31"]
     #[inline(always)]

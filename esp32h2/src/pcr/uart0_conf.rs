@@ -61,6 +61,22 @@ impl R {
         UART0_READY_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::UART0_CONF")
+            .field(
+                "uart0_clk_en",
+                &format_args!("{}", self.uart0_clk_en().bit()),
+            )
+            .field(
+                "uart0_rst_en",
+                &format_args!("{}", self.uart0_rst_en().bit()),
+            )
+            .field("uart0_ready", &format_args!("{}", self.uart0_ready().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable uart0 apb clock"]
     #[inline(always)]

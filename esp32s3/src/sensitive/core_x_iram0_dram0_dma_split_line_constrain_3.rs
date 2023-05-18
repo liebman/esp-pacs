@@ -116,6 +116,45 @@ impl R {
         CORE_X_IRAM0_SRAM_LINE_1_SPLITADDR_R::new(((self.bits >> 14) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_X_IRAM0_DRAM0_DMA_SPLIT_LINE_CONSTRAIN_3")
+            .field(
+                "core_x_iram0_sram_line_1_category_0",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_0().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_category_1",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_1().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_category_2",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_2().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_category_3",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_3().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_category_4",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_4().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_category_5",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_5().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_category_6",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_category_6().bits()),
+            )
+            .field(
+                "core_x_iram0_sram_line_1_splitaddr",
+                &format_args!("{}", self.core_x_iram0_sram_line_1_splitaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - category0 of core_x_iram0_dram_dma_line, if the splitaddress in block0 of SRAM, configured as 0x10, else if the splitaddress below block0 of SRAM, configured as 0x11, else if splitaddress higher than block0 of SRAM, configured as 0x00"]
     #[inline(always)]

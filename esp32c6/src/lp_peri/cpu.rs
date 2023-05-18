@@ -45,6 +45,17 @@ impl R {
         LPCORE_DBGM_UNAVALIABLE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::CPU")
+            .field(
+                "lpcore_dbgm_unavaliable",
+                &format_args!("{}", self.lpcore_dbgm_unavaliable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

@@ -29,6 +29,18 @@ impl R {
         TX_RADDR_R::new(((self.bits >> 11) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::MEM_TX_STATUS")
+            .field(
+                "apb_tx_waddr",
+                &format_args!("{}", self.apb_tx_waddr().bits()),
+            )
+            .field("tx_raddr", &format_args!("{}", self.tx_raddr().bits()))
+            .finish()
+    }
+}
 #[doc = "Tx-FIFO write and read offset address.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mem_tx_status](index.html) module"]
 pub struct MEM_TX_STATUS_SPEC;
 impl crate::RegisterSpec for MEM_TX_STATUS_SPEC {

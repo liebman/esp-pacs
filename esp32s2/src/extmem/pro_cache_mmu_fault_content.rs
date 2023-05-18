@@ -29,6 +29,21 @@ impl R {
         PRO_CACHE_MMU_FAULT_CODE_R::new(((self.bits >> 17) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_CACHE_MMU_FAULT_CONTENT")
+            .field(
+                "pro_cache_mmu_fault_content",
+                &format_args!("{}", self.pro_cache_mmu_fault_content().bits()),
+            )
+            .field(
+                "pro_cache_mmu_fault_code",
+                &format_args!("{}", self.pro_cache_mmu_fault_code().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_cache_mmu_fault_content](index.html) module"]
 pub struct PRO_CACHE_MMU_FAULT_CONTENT_SPEC;
 impl crate::RegisterSpec for PRO_CACHE_MMU_FAULT_CONTENT_SPEC {

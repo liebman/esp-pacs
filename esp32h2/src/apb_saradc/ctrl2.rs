@@ -92,6 +92,37 @@ impl R {
         SARADC_TIMER_EN_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::CTRL2")
+            .field(
+                "saradc_meas_num_limit",
+                &format_args!("{}", self.saradc_meas_num_limit().bit()),
+            )
+            .field(
+                "saradc_max_meas_num",
+                &format_args!("{}", self.saradc_max_meas_num().bits()),
+            )
+            .field(
+                "saradc_sar1_inv",
+                &format_args!("{}", self.saradc_sar1_inv().bit()),
+            )
+            .field(
+                "saradc_sar2_inv",
+                &format_args!("{}", self.saradc_sar2_inv().bit()),
+            )
+            .field(
+                "saradc_timer_target",
+                &format_args!("{}", self.saradc_timer_target().bits()),
+            )
+            .field(
+                "saradc_timer_en",
+                &format_args!("{}", self.saradc_timer_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - enable max meas num"]
     #[inline(always)]

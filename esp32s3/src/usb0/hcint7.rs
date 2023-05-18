@@ -162,6 +162,39 @@ impl R {
         H_DESC_LST_ROLLINTR7_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCINT7")
+            .field(
+                "h_xfercompl7",
+                &format_args!("{}", self.h_xfercompl7().bit()),
+            )
+            .field("h_chhltd7", &format_args!("{}", self.h_chhltd7().bit()))
+            .field("h_ahberr7", &format_args!("{}", self.h_ahberr7().bit()))
+            .field("h_stall7", &format_args!("{}", self.h_stall7().bit()))
+            .field("h_nack7", &format_args!("{}", self.h_nack7().bit()))
+            .field("h_ack7", &format_args!("{}", self.h_ack7().bit()))
+            .field("h_nyet7", &format_args!("{}", self.h_nyet7().bit()))
+            .field("h_xacterr7", &format_args!("{}", self.h_xacterr7().bit()))
+            .field("h_bblerr7", &format_args!("{}", self.h_bblerr7().bit()))
+            .field("h_frmovrun7", &format_args!("{}", self.h_frmovrun7().bit()))
+            .field(
+                "h_datatglerr7",
+                &format_args!("{}", self.h_datatglerr7().bit()),
+            )
+            .field("h_bnaintr7", &format_args!("{}", self.h_bnaintr7().bit()))
+            .field(
+                "h_xcs_xact_err7",
+                &format_args!("{}", self.h_xcs_xact_err7().bit()),
+            )
+            .field(
+                "h_desc_lst_rollintr7",
+                &format_args!("{}", self.h_desc_lst_rollintr7().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

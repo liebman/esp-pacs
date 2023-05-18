@@ -54,6 +54,15 @@ impl R {
         CLK_BT_FO_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_SYSCON::CLK_CONF1_FORCE_ON")
+            .field("clk_fe_fo", &format_args!("{}", self.clk_fe_fo().bit()))
+            .field("clk_bt_fo", &format_args!("{}", self.clk_bt_fo().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - ."]
     #[inline(always)]

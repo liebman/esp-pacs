@@ -46,6 +46,17 @@ impl R {
         SLC0_RX_DSCR_REC_LIM_R::new((self.bits & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0_DSCR_REC_CONF")
+            .field(
+                "slc0_rx_dscr_rec_lim",
+                &format_args!("{}", self.slc0_rx_dscr_rec_lim().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9"]
     #[inline(always)]

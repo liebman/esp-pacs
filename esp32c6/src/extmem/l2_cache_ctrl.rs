@@ -29,6 +29,21 @@ impl R {
         L2_CACHE_UNDEF_OP_R::new(((self.bits >> 5) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_CTRL")
+            .field(
+                "l2_cache_shut_dma",
+                &format_args!("{}", self.l2_cache_shut_dma().bit()),
+            )
+            .field(
+                "l2_cache_undef_op",
+                &format_args!("{}", self.l2_cache_undef_op().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "L2 Cache(L2-Cache) control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l2_cache_ctrl](index.html) module"]
 pub struct L2_CACHE_CTRL_SPEC;
 impl crate::RegisterSpec for L2_CACHE_CTRL_SPEC {

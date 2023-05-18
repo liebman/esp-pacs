@@ -22,6 +22,17 @@ impl R {
         RPT4_RESERVED4_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA4")
+            .field(
+                "rpt4_reserved4",
+                &format_args!("{}", self.rpt4_reserved4().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "BLOCK0 data register 5.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data4](index.html) module"]
 pub struct RD_REPEAT_DATA4_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA4_SPEC {

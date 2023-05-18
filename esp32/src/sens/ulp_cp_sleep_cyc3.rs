@@ -46,6 +46,17 @@ impl R {
         SLEEP_CYCLES_S3_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::ULP_CP_SLEEP_CYC3")
+            .field(
+                "sleep_cycles_s3",
+                &format_args!("{}", self.sleep_cycles_s3().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

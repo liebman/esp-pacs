@@ -46,6 +46,17 @@ impl R {
         XTS_AES_KEY_UPDATE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::XTS_AES_KEY_UPDATE")
+            .field(
+                "xts_aes_key_update",
+                &format_args!("{}", self.xts_aes_key_update().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to update xts_aes key"]
     #[inline(always)]

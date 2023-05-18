@@ -46,6 +46,17 @@ impl R {
         SINGLE_DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::CONF_SIGLE_DATA")
+            .field(
+                "single_data",
+                &format_args!("{}", self.single_data().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The configured constant channel data to be sent out."]
     #[inline(always)]

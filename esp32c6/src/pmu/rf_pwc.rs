@@ -90,6 +90,34 @@ impl R {
         XPD_PLL_I2C_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::RF_PWC")
+            .field(
+                "perif_i2c_rstb",
+                &format_args!("{}", self.perif_i2c_rstb().bit()),
+            )
+            .field(
+                "xpd_perif_i2c",
+                &format_args!("{}", self.xpd_perif_i2c().bit()),
+            )
+            .field(
+                "xpd_txrf_i2c",
+                &format_args!("{}", self.xpd_txrf_i2c().bit()),
+            )
+            .field(
+                "xpd_rfrx_pbus",
+                &format_args!("{}", self.xpd_rfrx_pbus().bit()),
+            )
+            .field(
+                "xpd_ckgen_i2c",
+                &format_args!("{}", self.xpd_ckgen_i2c().bit()),
+            )
+            .field("xpd_pll_i2c", &format_args!("{}", self.xpd_pll_i2c().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 26 - need_des"]
     #[inline(always)]

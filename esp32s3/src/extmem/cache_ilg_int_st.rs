@@ -99,6 +99,61 @@ impl R {
         DBUS_ACS_SPIRAM_MISS_CNT_OVF_ST_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_ILG_INT_ST")
+            .field(
+                "icache_sync_op_fault_st",
+                &format_args!("{}", self.icache_sync_op_fault_st().bit()),
+            )
+            .field(
+                "icache_preload_op_fault_st",
+                &format_args!("{}", self.icache_preload_op_fault_st().bit()),
+            )
+            .field(
+                "dcache_sync_op_fault_st",
+                &format_args!("{}", self.dcache_sync_op_fault_st().bit()),
+            )
+            .field(
+                "dcache_preload_op_fault_st",
+                &format_args!("{}", self.dcache_preload_op_fault_st().bit()),
+            )
+            .field(
+                "dcache_write_flash_st",
+                &format_args!("{}", self.dcache_write_flash_st().bit()),
+            )
+            .field(
+                "mmu_entry_fault_st",
+                &format_args!("{}", self.mmu_entry_fault_st().bit()),
+            )
+            .field(
+                "dcache_occupy_exc_st",
+                &format_args!("{}", self.dcache_occupy_exc_st().bit()),
+            )
+            .field(
+                "ibus_acs_cnt_ovf_st",
+                &format_args!("{}", self.ibus_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.ibus_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus_acs_cnt_ovf_st",
+                &format_args!("{}", self.dbus_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus_acs_flash_miss_cnt_ovf_st",
+                &format_args!("{}", self.dbus_acs_flash_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus_acs_spiram_miss_cnt_ovf_st",
+                &format_args!("{}", self.dbus_acs_spiram_miss_cnt_ovf_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "******* Description ***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cache_ilg_int_st](index.html) module"]
 pub struct CACHE_ILG_INT_ST_SPEC;
 impl crate::RegisterSpec for CACHE_ILG_INT_ST_SPEC {

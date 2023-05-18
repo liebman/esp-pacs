@@ -43,6 +43,29 @@ impl R {
         HOST_SLCHOST_STATE7_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_STATE_W1")
+            .field(
+                "host_slchost_state4",
+                &format_args!("{}", self.host_slchost_state4().bits()),
+            )
+            .field(
+                "host_slchost_state5",
+                &format_args!("{}", self.host_slchost_state5().bits()),
+            )
+            .field(
+                "host_slchost_state6",
+                &format_args!("{}", self.host_slchost_state6().bits()),
+            )
+            .field(
+                "host_slchost_state7",
+                &format_args!("{}", self.host_slchost_state7().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [host_slchost_state_w1](index.html) module"]
 pub struct HOST_SLCHOST_STATE_W1_SPEC;
 impl crate::RegisterSpec for HOST_SLCHOST_STATE_W1_SPEC {

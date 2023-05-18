@@ -63,6 +63,19 @@ impl R {
         RST_TICK_CNT_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSCON::SYSCLK_CONF")
+            .field("clk_320m_en", &format_args!("{}", self.clk_320m_en().bit()))
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "rst_tick_cnt",
+                &format_args!("{}", self.rst_tick_cnt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 10"]
     #[inline(always)]

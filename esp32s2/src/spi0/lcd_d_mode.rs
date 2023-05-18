@@ -101,6 +101,26 @@ impl R {
         HS_BLANK_EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::LCD_D_MODE")
+            .field("d_dqs_mode", &format_args!("{}", self.d_dqs_mode().bits()))
+            .field("d_cd_mode", &format_args!("{}", self.d_cd_mode().bits()))
+            .field("d_de_mode", &format_args!("{}", self.d_de_mode().bits()))
+            .field(
+                "d_hsync_mode",
+                &format_args!("{}", self.d_hsync_mode().bits()),
+            )
+            .field(
+                "d_vsync_mode",
+                &format_args!("{}", self.d_vsync_mode().bits()),
+            )
+            .field("de_idle_pol", &format_args!("{}", self.de_idle_pol().bit()))
+            .field("hs_blank_en", &format_args!("{}", self.hs_blank_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - the output spi_dqs is delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the spi_clk. Can be configured in CONF state."]
     #[inline(always)]

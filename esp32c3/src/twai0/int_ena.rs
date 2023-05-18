@@ -99,6 +99,35 @@ impl R {
         BUS_ERR_INT_ENA_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::INT_ENA")
+            .field("rx_int_ena", &format_args!("{}", self.rx_int_ena().bit()))
+            .field("tx_int_ena", &format_args!("{}", self.tx_int_ena().bit()))
+            .field(
+                "err_warn_int_ena",
+                &format_args!("{}", self.err_warn_int_ena().bit()),
+            )
+            .field(
+                "overrun_int_ena",
+                &format_args!("{}", self.overrun_int_ena().bit()),
+            )
+            .field(
+                "err_passive_int_ena",
+                &format_args!("{}", self.err_passive_int_ena().bit()),
+            )
+            .field(
+                "arb_lost_int_ena",
+                &format_args!("{}", self.arb_lost_int_ena().bit()),
+            )
+            .field(
+                "bus_err_int_ena",
+                &format_args!("{}", self.bus_err_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to 1 to enable receive interrupt."]
     #[inline(always)]

@@ -66,6 +66,19 @@ impl R {
         HP_MEM_RA_R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::MEM_TEST_CONF")
+            .field(
+                "hp_mem_wpulse",
+                &format_args!("{}", self.hp_mem_wpulse().bits()),
+            )
+            .field("hp_mem_wa", &format_args!("{}", self.hp_mem_wa().bits()))
+            .field("hp_mem_ra", &format_args!("{}", self.hp_mem_ra().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - This field controls hp system memory WPULSE parameter."]
     #[inline(always)]

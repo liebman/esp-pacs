@@ -144,6 +144,40 @@ impl R {
         QUAD_DIN_PIN_SWAP_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::MISC")
+            .field("cs0_dis", &format_args!("{}", self.cs0_dis().bit()))
+            .field("cs1_dis", &format_args!("{}", self.cs1_dis().bit()))
+            .field("cs2_dis", &format_args!("{}", self.cs2_dis().bit()))
+            .field("cs3_dis", &format_args!("{}", self.cs3_dis().bit()))
+            .field("cs4_dis", &format_args!("{}", self.cs4_dis().bit()))
+            .field("cs5_dis", &format_args!("{}", self.cs5_dis().bit()))
+            .field("ck_dis", &format_args!("{}", self.ck_dis().bit()))
+            .field(
+                "master_cs_pol",
+                &format_args!("{}", self.master_cs_pol().bits()),
+            )
+            .field(
+                "slave_cs_pol",
+                &format_args!("{}", self.slave_cs_pol().bit()),
+            )
+            .field(
+                "ck_idle_edge",
+                &format_args!("{}", self.ck_idle_edge().bit()),
+            )
+            .field(
+                "cs_keep_active",
+                &format_args!("{}", self.cs_keep_active().bit()),
+            )
+            .field(
+                "quad_din_pin_swap",
+                &format_args!("{}", self.quad_din_pin_swap().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SPI CS0 pin enable, 1: disable CS0, 0: spi_cs0 signal is from/to CS0 pin. Can be configured in CONF state."]
     #[inline(always)]

@@ -78,6 +78,49 @@ impl R {
         L2_CACHE_AUTOLOAD_RGID_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_AUTOLOAD_CTRL")
+            .field(
+                "l2_cache_autoload_ena",
+                &format_args!("{}", self.l2_cache_autoload_ena().bit()),
+            )
+            .field(
+                "l2_cache_autoload_done",
+                &format_args!("{}", self.l2_cache_autoload_done().bit()),
+            )
+            .field(
+                "l2_cache_autoload_order",
+                &format_args!("{}", self.l2_cache_autoload_order().bit()),
+            )
+            .field(
+                "l2_cache_autoload_trigger_mode",
+                &format_args!("{}", self.l2_cache_autoload_trigger_mode().bits()),
+            )
+            .field(
+                "l2_cache_autoload_sct0_ena",
+                &format_args!("{}", self.l2_cache_autoload_sct0_ena().bit()),
+            )
+            .field(
+                "l2_cache_autoload_sct1_ena",
+                &format_args!("{}", self.l2_cache_autoload_sct1_ena().bit()),
+            )
+            .field(
+                "l2_cache_autoload_sct2_ena",
+                &format_args!("{}", self.l2_cache_autoload_sct2_ena().bit()),
+            )
+            .field(
+                "l2_cache_autoload_sct3_ena",
+                &format_args!("{}", self.l2_cache_autoload_sct3_ena().bit()),
+            )
+            .field(
+                "l2_cache_autoload_rgid",
+                &format_args!("{}", self.l2_cache_autoload_rgid().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "L2 Cache autoload-operation control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l2_cache_autoload_ctrl](index.html) module"]
 pub struct L2_CACHE_AUTOLOAD_CTRL_SPEC;
 impl crate::RegisterSpec for L2_CACHE_AUTOLOAD_CTRL_SPEC {

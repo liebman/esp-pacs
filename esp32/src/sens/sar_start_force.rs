@@ -142,6 +142,45 @@ impl R {
         SAR2_PWDET_EN_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_START_FORCE")
+            .field(
+                "sar1_bit_width",
+                &format_args!("{}", self.sar1_bit_width().bits()),
+            )
+            .field(
+                "sar2_bit_width",
+                &format_args!("{}", self.sar2_bit_width().bits()),
+            )
+            .field(
+                "sar2_en_test",
+                &format_args!("{}", self.sar2_en_test().bit()),
+            )
+            .field(
+                "sar2_pwdet_cct",
+                &format_args!("{}", self.sar2_pwdet_cct().bits()),
+            )
+            .field(
+                "ulp_cp_force_start_top",
+                &format_args!("{}", self.ulp_cp_force_start_top().bit()),
+            )
+            .field(
+                "ulp_cp_start_top",
+                &format_args!("{}", self.ulp_cp_start_top().bit()),
+            )
+            .field("sarclk_en", &format_args!("{}", self.sarclk_en().bit()))
+            .field("pc_init", &format_args!("{}", self.pc_init().bits()))
+            .field("sar2_stop", &format_args!("{}", self.sar2_stop().bit()))
+            .field("sar1_stop", &format_args!("{}", self.sar1_stop().bit()))
+            .field(
+                "sar2_pwdet_en",
+                &format_args!("{}", self.sar2_pwdet_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - 00: 9 bit 01: 10 bits 10: 11bits 11: 12bits"]
     #[inline(always)]

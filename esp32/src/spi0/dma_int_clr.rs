@@ -123,6 +123,49 @@ impl R {
         OUT_TOTAL_EOF_INT_CLR_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_INT_CLR")
+            .field(
+                "inlink_dscr_empty_int_clr",
+                &format_args!("{}", self.inlink_dscr_empty_int_clr().bit()),
+            )
+            .field(
+                "outlink_dscr_error_int_clr",
+                &format_args!("{}", self.outlink_dscr_error_int_clr().bit()),
+            )
+            .field(
+                "inlink_dscr_error_int_clr",
+                &format_args!("{}", self.inlink_dscr_error_int_clr().bit()),
+            )
+            .field(
+                "in_done_int_clr",
+                &format_args!("{}", self.in_done_int_clr().bit()),
+            )
+            .field(
+                "in_err_eof_int_clr",
+                &format_args!("{}", self.in_err_eof_int_clr().bit()),
+            )
+            .field(
+                "in_suc_eof_int_clr",
+                &format_args!("{}", self.in_suc_eof_int_clr().bit()),
+            )
+            .field(
+                "out_done_int_clr",
+                &format_args!("{}", self.out_done_int_clr().bit()),
+            )
+            .field(
+                "out_eof_int_clr",
+                &format_args!("{}", self.out_eof_int_clr().bit()),
+            )
+            .field(
+                "out_total_eof_int_clr",
+                &format_args!("{}", self.out_total_eof_int_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear bit for lack of enough inlink descriptors."]
     #[inline(always)]

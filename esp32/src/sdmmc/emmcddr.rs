@@ -54,6 +54,18 @@ impl R {
         HS400_MODE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::EMMCDDR")
+            .field(
+                "halfstartbit",
+                &format_args!("{}", self.halfstartbit().bits()),
+            )
+            .field("hs400_mode", &format_args!("{}", self.hs400_mode().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Control for start bit detection mechanism duration of start bit.Each bit refers to one slot.Set this bit to 1 for eMMC4.5 and above,set to 0 for SD applications.For eMMC4.5,start bit can be: 1'b0-Full cycle. 1'b1-less than one full cycle."]
     #[inline(always)]

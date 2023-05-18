@@ -118,6 +118,49 @@ impl R {
         APP_CTRL1_INT_ENA_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::INT_ENA")
+            .field(
+                "rx_start_int_ena",
+                &format_args!("{}", self.rx_start_int_ena().bit()),
+            )
+            .field(
+                "tx_start_int_ena",
+                &format_args!("{}", self.tx_start_int_ena().bit()),
+            )
+            .field(
+                "rx_hung_int_ena",
+                &format_args!("{}", self.rx_hung_int_ena().bit()),
+            )
+            .field(
+                "tx_hung_int_ena",
+                &format_args!("{}", self.tx_hung_int_ena().bit()),
+            )
+            .field(
+                "send_s_reg_q_int_ena",
+                &format_args!("{}", self.send_s_reg_q_int_ena().bit()),
+            )
+            .field(
+                "send_a_reg_q_int_ena",
+                &format_args!("{}", self.send_a_reg_q_int_ena().bit()),
+            )
+            .field(
+                "outlink_eof_err_int_ena",
+                &format_args!("{}", self.outlink_eof_err_int_ena().bit()),
+            )
+            .field(
+                "app_ctrl0_int_ena",
+                &format_args!("{}", self.app_ctrl0_int_ena().bit()),
+            )
+            .field(
+                "app_ctrl1_int_ena",
+                &format_args!("{}", self.app_ctrl1_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This is the interrupt enable bit for UHCI_RX_START_INT interrupt."]
     #[inline(always)]

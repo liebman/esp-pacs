@@ -53,6 +53,17 @@ impl R {
         SLC0_TOKEN1_R::new(((self.bits >> 16) & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0TOKEN1")
+            .field(
+                "slc0_token1",
+                &format_args!("{}", self.slc0_token1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11"]
     #[inline(always)]

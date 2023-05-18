@@ -54,6 +54,21 @@ impl R {
         MEM_TX_WRAP_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::APB_CONF")
+            .field(
+                "apb_fifo_mask",
+                &format_args!("{}", self.apb_fifo_mask().bit()),
+            )
+            .field(
+                "mem_tx_wrap_en",
+                &format_args!("{}", self.mem_tx_wrap_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to disable apb fifo access"]
     #[inline(always)]

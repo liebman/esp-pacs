@@ -66,6 +66,25 @@ impl R {
         TIMER1_PERIOD_UPMETHOD_R::new(((self.bits >> 24) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TIMER1_CFG0")
+            .field(
+                "timer1_prescale",
+                &format_args!("{}", self.timer1_prescale().bits()),
+            )
+            .field(
+                "timer1_period",
+                &format_args!("{}", self.timer1_period().bits()),
+            )
+            .field(
+                "timer1_period_upmethod",
+                &format_args!("{}", self.timer1_period_upmethod().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - period of PT0_clk = Period of PWM_clk * (PWM_timer1_PRESCALE + 1)"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         RETENTION_INV_CFG_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::RETENTION_CTRL4")
+            .field(
+                "retention_inv_cfg",
+                &format_args!("{}", self.retention_inv_cfg().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - ******* Description ***********"]
     #[inline(always)]

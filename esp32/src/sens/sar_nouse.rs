@@ -46,6 +46,14 @@ impl R {
         SAR_NOUSE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_NOUSE")
+            .field("sar_nouse", &format_args!("{}", self.sar_nouse().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

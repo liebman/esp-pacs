@@ -63,6 +63,25 @@ impl R {
         MEAS_STATUS_R::new(((self.bits >> 22) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_SLAVE_ADDR1")
+            .field(
+                "i2c_slave_addr1",
+                &format_args!("{}", self.i2c_slave_addr1().bits()),
+            )
+            .field(
+                "i2c_slave_addr0",
+                &format_args!("{}", self.i2c_slave_addr0().bits()),
+            )
+            .field(
+                "meas_status",
+                &format_args!("{}", self.meas_status().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - RTC I2C slave address 1"]
     #[inline(always)]

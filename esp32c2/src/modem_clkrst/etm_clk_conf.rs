@@ -54,6 +54,18 @@ impl R {
         ETM_CLK_ACTIVE_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_CLKRST::ETM_CLK_CONF")
+            .field("etm_clk_sel", &format_args!("{}", self.etm_clk_sel().bit()))
+            .field(
+                "etm_clk_active",
+                &format_args!("{}", self.etm_clk_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - ."]
     #[inline(always)]

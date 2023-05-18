@@ -74,6 +74,33 @@ impl R {
         L1_CACHE_PLD_RST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_PRELOAD_RST_CTRL")
+            .field(
+                "l1_icache0_pld_rst",
+                &format_args!("{}", self.l1_icache0_pld_rst().bit()),
+            )
+            .field(
+                "l1_icache1_pld_rst",
+                &format_args!("{}", self.l1_icache1_pld_rst().bit()),
+            )
+            .field(
+                "l1_icache2_pld_rst",
+                &format_args!("{}", self.l1_icache2_pld_rst().bit()),
+            )
+            .field(
+                "l1_icache3_pld_rst",
+                &format_args!("{}", self.l1_icache3_pld_rst().bit()),
+            )
+            .field(
+                "l1_cache_pld_rst",
+                &format_args!("{}", self.l1_cache_pld_rst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - set this bit to reset preload-logic inside L1-Cache. Recommend that this should only be used to initialize preload-logic when some fatal error of preload-logic occurs."]
     #[inline(always)]

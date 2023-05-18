@@ -71,6 +71,23 @@ impl R {
         TSENS_PU_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::APB_TSENS_CTRL")
+            .field("tsens_out", &format_args!("{}", self.tsens_out().bits()))
+            .field(
+                "tsens_in_inv",
+                &format_args!("{}", self.tsens_in_inv().bit()),
+            )
+            .field(
+                "tsens_clk_div",
+                &format_args!("{}", self.tsens_clk_div().bits()),
+            )
+            .field("tsens_pu", &format_args!("{}", self.tsens_pu().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 13 - invert temperature sensor data"]
     #[inline(always)]

@@ -106,6 +106,65 @@ impl R {
         OUT_REMAIN_UNDER_4B_L3_R::new(((self.bits >> 26) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUTFIFO_STATUS_CH")
+            .field(
+                "outfifo_full_l1",
+                &format_args!("{}", self.outfifo_full_l1().bit()),
+            )
+            .field(
+                "outfifo_empty_l1",
+                &format_args!("{}", self.outfifo_empty_l1().bit()),
+            )
+            .field(
+                "outfifo_full_l2",
+                &format_args!("{}", self.outfifo_full_l2().bit()),
+            )
+            .field(
+                "outfifo_empty_l2",
+                &format_args!("{}", self.outfifo_empty_l2().bit()),
+            )
+            .field(
+                "outfifo_full_l3",
+                &format_args!("{}", self.outfifo_full_l3().bit()),
+            )
+            .field(
+                "outfifo_empty_l3",
+                &format_args!("{}", self.outfifo_empty_l3().bit()),
+            )
+            .field(
+                "outfifo_cnt_l1",
+                &format_args!("{}", self.outfifo_cnt_l1().bits()),
+            )
+            .field(
+                "outfifo_cnt_l2",
+                &format_args!("{}", self.outfifo_cnt_l2().bits()),
+            )
+            .field(
+                "outfifo_cnt_l3",
+                &format_args!("{}", self.outfifo_cnt_l3().bits()),
+            )
+            .field(
+                "out_remain_under_1b_l3",
+                &format_args!("{}", self.out_remain_under_1b_l3().bit()),
+            )
+            .field(
+                "out_remain_under_2b_l3",
+                &format_args!("{}", self.out_remain_under_2b_l3().bit()),
+            )
+            .field(
+                "out_remain_under_3b_l3",
+                &format_args!("{}", self.out_remain_under_3b_l3().bit()),
+            )
+            .field(
+                "out_remain_under_4b_l3",
+                &format_args!("{}", self.out_remain_under_4b_l3().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Transmit FIFO status of Tx channel 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [outfifo_status_ch](index.html) module"]
 pub struct OUTFIFO_STATUS_CH_SPEC;
 impl crate::RegisterSpec for OUTFIFO_STATUS_CH_SPEC {

@@ -43,6 +43,29 @@ impl R {
         TXFIFO_END_ADDR_R::new(((self.bits >> 15) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::RXFIFO_ST")
+            .field(
+                "rxfifo_start_addr",
+                &format_args!("{}", self.rxfifo_start_addr().bits()),
+            )
+            .field(
+                "rxfifo_end_addr",
+                &format_args!("{}", self.rxfifo_end_addr().bits()),
+            )
+            .field(
+                "txfifo_start_addr",
+                &format_args!("{}", self.txfifo_start_addr().bits()),
+            )
+            .field(
+                "txfifo_end_addr",
+                &format_args!("{}", self.txfifo_end_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxfifo_st](index.html) module"]
 pub struct RXFIFO_ST_SPEC;
 impl crate::RegisterSpec for RXFIFO_ST_SPEC {

@@ -46,6 +46,17 @@ impl R {
         CORE_1_ENTRY_10_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_1_ENTRY_10_ADDR")
+            .field(
+                "core_1_entry_10_addr",
+                &format_args!("{}", self.core_1_entry_10_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Core_1 Entry 10 address from WORLD1 to WORLD0"]
     #[inline(always)]

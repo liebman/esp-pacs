@@ -46,6 +46,17 @@ impl R {
         EDMA_BOUNDARY_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::EDMA_BOUNDARY_LOCK")
+            .field(
+                "edma_boundary_lock",
+                &format_args!("{}", self.edma_boundary_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to lock EDMA boundary registers."]
     #[inline(always)]

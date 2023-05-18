@@ -97,6 +97,41 @@ impl R {
         SPI_MEM_RDN_RESULT_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_MMU_POWER_CTRL")
+            .field(
+                "spi_mmu_mem_force_on",
+                &format_args!("{}", self.spi_mmu_mem_force_on().bit()),
+            )
+            .field(
+                "spi_mmu_mem_force_pd",
+                &format_args!("{}", self.spi_mmu_mem_force_pd().bit()),
+            )
+            .field(
+                "spi_mmu_mem_force_pu",
+                &format_args!("{}", self.spi_mmu_mem_force_pu().bit()),
+            )
+            .field(
+                "spi_mmu_page_size",
+                &format_args!("{}", self.spi_mmu_page_size().bits()),
+            )
+            .field(
+                "spi_mem_aux_ctrl",
+                &format_args!("{}", self.spi_mem_aux_ctrl().bits()),
+            )
+            .field(
+                "spi_mem_rdn_ena",
+                &format_args!("{}", self.spi_mem_rdn_ena().bit()),
+            )
+            .field(
+                "spi_mem_rdn_result",
+                &format_args!("{}", self.spi_mem_rdn_result().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable mmu-memory clock force on"]
     #[inline(always)]

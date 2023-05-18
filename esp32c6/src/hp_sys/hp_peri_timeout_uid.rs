@@ -22,6 +22,17 @@ impl R {
         HP_PERI_TIMEOUT_UID_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::HP_PERI_TIMEOUT_UID")
+            .field(
+                "hp_peri_timeout_uid",
+                &format_args!("{}", self.hp_peri_timeout_uid().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "HP_PERI_TIMEOUT_UID register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hp_peri_timeout_uid](index.html) module"]
 pub struct HP_PERI_TIMEOUT_UID_SPEC;
 impl crate::RegisterSpec for HP_PERI_TIMEOUT_UID_SPEC {

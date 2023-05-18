@@ -46,6 +46,17 @@ impl R {
         HP_ACTIVE_BACKUP_ICG_FUNC_EN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_ACTIVE_BACKUP_CLK")
+            .field(
+                "hp_active_backup_icg_func_en",
+                &format_args!("{}", self.hp_active_backup_icg_func_en().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - need_des"]
     #[inline(always)]

@@ -55,6 +55,15 @@ impl R {
         _10BIT_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::SLAVE_ADDR")
+            .field("slave_addr", &format_args!("{}", self.slave_addr().bits()))
+            .field("_10bit", &format_args!("{}", self._10bit().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:14 - local slave address"]
     #[inline(always)]

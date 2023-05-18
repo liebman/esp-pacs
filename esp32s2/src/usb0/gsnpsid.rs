@@ -22,6 +22,14 @@ impl R {
         SYNOPSYSID_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GSNPSID")
+            .field("synopsysid", &format_args!("{}", self.synopsysid().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gsnpsid](index.html) module"]
 pub struct GSNPSID_SPEC;
 impl crate::RegisterSpec for GSNPSID_SPEC {

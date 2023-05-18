@@ -81,6 +81,21 @@ impl R {
         USR_DUMMY_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::USER")
+            .field("cs_hold", &format_args!("{}", self.cs_hold().bit()))
+            .field("cs_setup", &format_args!("{}", self.cs_setup().bit()))
+            .field("ck_out_edge", &format_args!("{}", self.ck_out_edge().bit()))
+            .field(
+                "usr_dummy_idle",
+                &format_args!("{}", self.usr_dummy_idle().bit()),
+            )
+            .field("usr_dummy", &format_args!("{}", self.usr_dummy().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 6 - spi cs keep low when spi is in done phase. 1: enable 0: disable."]
     #[inline(always)]

@@ -63,6 +63,22 @@ impl R {
         T_ERASE_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::EXT1")
+            .field(
+                "t_erase_time",
+                &format_args!("{}", self.t_erase_time().bits()),
+            )
+            .field(
+                "t_erase_shift",
+                &format_args!("{}", self.t_erase_shift().bits()),
+            )
+            .field("t_erase_ena", &format_args!("{}", self.t_erase_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - erase flash delay time by system clock."]
     #[inline(always)]

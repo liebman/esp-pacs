@@ -235,6 +235,74 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_WRAP::OTG_CONF")
+            .field(
+                "srp_sessend_override",
+                &format_args!("{}", self.srp_sessend_override().bit()),
+            )
+            .field(
+                "srp_sessend_value",
+                &format_args!("{}", self.srp_sessend_value().bit()),
+            )
+            .field("phy_sel", &format_args!("{}", self.phy_sel().bit()))
+            .field(
+                "dfifo_force_pd",
+                &format_args!("{}", self.dfifo_force_pd().bit()),
+            )
+            .field(
+                "dbnce_fltr_bypass",
+                &format_args!("{}", self.dbnce_fltr_bypass().bit()),
+            )
+            .field(
+                "exchg_pins_override",
+                &format_args!("{}", self.exchg_pins_override().bit()),
+            )
+            .field("exchg_pins", &format_args!("{}", self.exchg_pins().bit()))
+            .field("vrefh", &format_args!("{}", self.vrefh().bits()))
+            .field("vrefl", &format_args!("{}", self.vrefl().bits()))
+            .field(
+                "vref_override",
+                &format_args!("{}", self.vref_override().bit()),
+            )
+            .field(
+                "pad_pull_override",
+                &format_args!("{}", self.pad_pull_override().bit()),
+            )
+            .field("dp_pullup", &format_args!("{}", self.dp_pullup().bit()))
+            .field("dp_pulldown", &format_args!("{}", self.dp_pulldown().bit()))
+            .field("dm_pullup", &format_args!("{}", self.dm_pullup().bit()))
+            .field("dm_pulldown", &format_args!("{}", self.dm_pulldown().bit()))
+            .field(
+                "pullup_value",
+                &format_args!("{}", self.pullup_value().bit()),
+            )
+            .field(
+                "usb_pad_enable",
+                &format_args!("{}", self.usb_pad_enable().bit()),
+            )
+            .field(
+                "ahb_clk_force_on",
+                &format_args!("{}", self.ahb_clk_force_on().bit()),
+            )
+            .field(
+                "phy_clk_force_on",
+                &format_args!("{}", self.phy_clk_force_on().bit()),
+            )
+            .field(
+                "phy_tx_edge_sel",
+                &format_args!("{}", self.phy_tx_edge_sel().bit()),
+            )
+            .field(
+                "dfifo_force_pu",
+                &format_args!("{}", self.dfifo_force_pu().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This bit is used to enable the software over-ride of srp session end signal. 1'b0: the signal is controlled by the chip input. 1'b1: the signal is controlled by the software."]
     #[inline(always)]

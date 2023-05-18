@@ -76,6 +76,23 @@ impl R {
         TX_IIR_HP_MULT12_0_R::new(((self.bits >> 23) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::TX_PCM2PDM_CONF1")
+            .field("tx_pdm_fp", &format_args!("{}", self.tx_pdm_fp().bits()))
+            .field("tx_pdm_fs", &format_args!("{}", self.tx_pdm_fs().bits()))
+            .field(
+                "tx_iir_hp_mult12_5",
+                &format_args!("{}", self.tx_iir_hp_mult12_5().bits()),
+            )
+            .field(
+                "tx_iir_hp_mult12_0",
+                &format_args!("{}", self.tx_iir_hp_mult12_0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - I2S TX PDM Fp"]
     #[inline(always)]

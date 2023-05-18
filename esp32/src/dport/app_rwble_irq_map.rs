@@ -46,6 +46,17 @@ impl R {
         APP_RWBLE_IRQ_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::APP_RWBLE_IRQ_MAP")
+            .field(
+                "app_rwble_irq_map",
+                &format_args!("{}", self.app_rwble_irq_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4"]
     #[inline(always)]

@@ -54,6 +54,21 @@ impl R {
         LP_UART_CLK_SEL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::LPPERI")
+            .field(
+                "lp_i2c_clk_sel",
+                &format_args!("{}", self.lp_i2c_clk_sel().bit()),
+            )
+            .field(
+                "lp_uart_clk_sel",
+                &format_args!("{}", self.lp_uart_clk_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

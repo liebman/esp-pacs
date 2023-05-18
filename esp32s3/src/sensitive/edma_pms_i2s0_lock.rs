@@ -46,6 +46,17 @@ impl R {
         EDMA_PMS_I2S0_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::EDMA_PMS_I2S0_LOCK")
+            .field(
+                "edma_pms_i2s0_lock",
+                &format_args!("{}", self.edma_pms_i2s0_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to lock EDMA-I2S0 permission control registers."]
     #[inline(always)]

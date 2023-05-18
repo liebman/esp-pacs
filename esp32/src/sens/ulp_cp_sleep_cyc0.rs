@@ -46,6 +46,17 @@ impl R {
         SLEEP_CYCLES_S0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::ULP_CP_SLEEP_CYC0")
+            .field(
+                "sleep_cycles_s0",
+                &format_args!("{}", self.sleep_cycles_s0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - sleep cycles for ULP-coprocessor timer"]
     #[inline(always)]

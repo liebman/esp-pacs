@@ -125,6 +125,49 @@ impl R {
         CAM_CONV_BYPASS_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::CAM_RGB_YUV")
+            .field(
+                "cam_conv_8bits_data_inv",
+                &format_args!("{}", self.cam_conv_8bits_data_inv().bit()),
+            )
+            .field(
+                "cam_conv_yuv2yuv_mode",
+                &format_args!("{}", self.cam_conv_yuv2yuv_mode().bits()),
+            )
+            .field(
+                "cam_conv_yuv_mode",
+                &format_args!("{}", self.cam_conv_yuv_mode().bits()),
+            )
+            .field(
+                "cam_conv_protocol_mode",
+                &format_args!("{}", self.cam_conv_protocol_mode().bit()),
+            )
+            .field(
+                "cam_conv_data_out_mode",
+                &format_args!("{}", self.cam_conv_data_out_mode().bit()),
+            )
+            .field(
+                "cam_conv_data_in_mode",
+                &format_args!("{}", self.cam_conv_data_in_mode().bit()),
+            )
+            .field(
+                "cam_conv_mode_8bits_on",
+                &format_args!("{}", self.cam_conv_mode_8bits_on().bit()),
+            )
+            .field(
+                "cam_conv_trans_mode",
+                &format_args!("{}", self.cam_conv_trans_mode().bit()),
+            )
+            .field(
+                "cam_conv_bypass",
+                &format_args!("{}", self.cam_conv_bypass().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 21 - 1:invert every two 8bits input data. 2. disabled."]
     #[inline(always)]

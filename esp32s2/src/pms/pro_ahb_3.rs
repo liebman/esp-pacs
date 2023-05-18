@@ -61,6 +61,25 @@ impl R {
         PRO_AHB_ILG_INTR_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_AHB_3")
+            .field(
+                "pro_ahb_ilg_clr",
+                &format_args!("{}", self.pro_ahb_ilg_clr().bit()),
+            )
+            .field(
+                "pro_ahb_ilg_en",
+                &format_args!("{}", self.pro_ahb_ilg_en().bit()),
+            )
+            .field(
+                "pro_ahb_ilg_intr",
+                &format_args!("{}", self.pro_ahb_ilg_intr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear signal for PeriBus2 access interrupt."]
     #[inline(always)]

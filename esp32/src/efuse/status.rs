@@ -22,6 +22,14 @@ impl R {
         DEBUG_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::STATUS")
+            .field("debug", &format_args!("{}", self.debug().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {

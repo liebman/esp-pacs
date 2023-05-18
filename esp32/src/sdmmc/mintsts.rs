@@ -29,6 +29,21 @@ impl R {
         SDIO_INTERRUPT_MSK_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::MINTSTS")
+            .field(
+                "int_status_msk",
+                &format_args!("{}", self.int_status_msk().bits()),
+            )
+            .field(
+                "sdio_interrupt_msk",
+                &format_args!("{}", self.sdio_interrupt_msk().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Masked interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mintsts](index.html) module"]
 pub struct MINTSTS_SPEC;
 impl crate::RegisterSpec for MINTSTS_SPEC {

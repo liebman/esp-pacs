@@ -75,6 +75,26 @@ impl R {
         DATE_R::new((self.bits >> 5) & 0x007f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DATE")
+            .field(
+                "spi_smem_spiclk_fun_drv",
+                &format_args!("{}", self.spi_smem_spiclk_fun_drv().bits()),
+            )
+            .field(
+                "spi_fmem_spiclk_fun_drv",
+                &format_args!("{}", self.spi_fmem_spiclk_fun_drv().bits()),
+            )
+            .field(
+                "spi_spiclk_pad_drv_ctl_en",
+                &format_args!("{}", self.spi_spiclk_pad_drv_ctl_en().bit()),
+            )
+            .field("date", &format_args!("{}", self.date().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - The driver of SPI_CLK PAD is controlled by the bits SPI_SMEM_SPICLK_FUN_DRV\\[1:0\\] when the bit SPI_SPICLK_PAD_DRV_CTL_EN is set and MSPI accesses to external RAM."]
     #[inline(always)]

@@ -52,6 +52,21 @@ impl R {
         SLC1_TXFIFO_POP_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_1TXFIFO_POP")
+            .field(
+                "slc1_txfifo_rdata",
+                &format_args!("{}", self.slc1_txfifo_rdata().bits()),
+            )
+            .field(
+                "slc1_txfifo_pop",
+                &format_args!("{}", self.slc1_txfifo_pop().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16"]
     #[inline(always)]

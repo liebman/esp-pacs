@@ -73,6 +73,23 @@ impl R {
         CARDTHRESHOLD_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CARDTHRCTL")
+            .field("cardrdthren", &format_args!("{}", self.cardrdthren().bit()))
+            .field(
+                "cardclrinten",
+                &format_args!("{}", self.cardclrinten().bit()),
+            )
+            .field("cardwrthren", &format_args!("{}", self.cardwrthren().bit()))
+            .field(
+                "cardthreshold",
+                &format_args!("{}", self.cardthreshold().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Card read threshold enable. 1'b0-Card read threshold disabled. 1'b1-Card read threshold enabled."]
     #[inline(always)]

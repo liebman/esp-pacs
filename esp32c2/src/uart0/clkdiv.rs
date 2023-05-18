@@ -54,6 +54,15 @@ impl R {
         FRAG_R::new(((self.bits >> 20) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::CLKDIV")
+            .field("clkdiv", &format_args!("{}", self.clkdiv().bits()))
+            .field("frag", &format_args!("{}", self.frag().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - The integral part of the frequency divider factor."]
     #[inline(always)]

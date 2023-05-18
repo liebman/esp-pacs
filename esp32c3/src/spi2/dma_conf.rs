@@ -99,6 +99,28 @@ impl R {
         DMA_TX_ENA_R::new(((self.bits >> 28) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::DMA_CONF")
+            .field(
+                "dma_slv_seg_trans_en",
+                &format_args!("{}", self.dma_slv_seg_trans_en().bit()),
+            )
+            .field(
+                "slv_rx_seg_trans_clr_en",
+                &format_args!("{}", self.slv_rx_seg_trans_clr_en().bit()),
+            )
+            .field(
+                "slv_tx_seg_trans_clr_en",
+                &format_args!("{}", self.slv_tx_seg_trans_clr_en().bit()),
+            )
+            .field("rx_eof_en", &format_args!("{}", self.rx_eof_en().bit()))
+            .field("dma_rx_ena", &format_args!("{}", self.dma_rx_ena().bit()))
+            .field("dma_tx_ena", &format_args!("{}", self.dma_tx_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 18 - Enable dma segment transfer in spi dma half slave mode. 1: enable. 0: disable."]
     #[inline(always)]

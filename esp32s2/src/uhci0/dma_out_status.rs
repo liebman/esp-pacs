@@ -29,6 +29,15 @@ impl R {
         OUT_EMPTY_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::DMA_OUT_STATUS")
+            .field("out_full", &format_args!("{}", self.out_full().bit()))
+            .field("out_empty", &format_args!("{}", self.out_empty().bit()))
+            .finish()
+    }
+}
 #[doc = "DMA data-output status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_out_status](index.html) module"]
 pub struct DMA_OUT_STATUS_SPEC;
 impl crate::RegisterSpec for DMA_OUT_STATUS_SPEC {

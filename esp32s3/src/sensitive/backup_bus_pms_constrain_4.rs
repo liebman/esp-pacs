@@ -198,6 +198,80 @@ impl R {
         BACKUP_BUS_PMS_CONSTRAIN_WORLD_CONTROLLER_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_CONSTRAIN_4")
+            .field(
+                "backup_bus_pms_constrain_usb_device",
+                &format_args!("{}", self.backup_bus_pms_constrain_usb_device().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_usb_wrap",
+                &format_args!("{}", self.backup_bus_pms_constrain_usb_wrap().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_crypto_peri",
+                &format_args!("{}", self.backup_bus_pms_constrain_crypto_peri().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_crypto_dma",
+                &format_args!("{}", self.backup_bus_pms_constrain_crypto_dma().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_apb_adc",
+                &format_args!("{}", self.backup_bus_pms_constrain_apb_adc().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_lcd_cam",
+                &format_args!("{}", self.backup_bus_pms_constrain_lcd_cam().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_bt_pwr",
+                &format_args!("{}", self.backup_bus_pms_constrain_bt_pwr().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_usb",
+                &format_args!("{}", self.backup_bus_pms_constrain_usb().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_system",
+                &format_args!("{}", self.backup_bus_pms_constrain_system().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_sensitive",
+                &format_args!("{}", self.backup_bus_pms_constrain_sensitive().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_interrupt",
+                &format_args!("{}", self.backup_bus_pms_constrain_interrupt().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_dma_copy",
+                &format_args!("{}", self.backup_bus_pms_constrain_dma_copy().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_cache_config",
+                &format_args!("{}", self.backup_bus_pms_constrain_cache_config().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_ad",
+                &format_args!("{}", self.backup_bus_pms_constrain_ad().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_dio",
+                &format_args!("{}", self.backup_bus_pms_constrain_dio().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_world_controller",
+                &format_args!(
+                    "{}",
+                    self.backup_bus_pms_constrain_world_controller().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - BackUp access usb_device permission."]
     #[inline(always)]

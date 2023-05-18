@@ -46,6 +46,14 @@ impl R {
         SAR1_ATTEN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_ATTEN1")
+            .field("sar1_atten", &format_args!("{}", self.sar1_atten().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - 2-bit attenuation for each pad. \\[1:0\\] is used for channel 0, \\[3:2\\] is used for channel 1, etc."]
     #[inline(always)]

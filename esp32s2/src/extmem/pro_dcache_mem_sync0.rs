@@ -46,6 +46,17 @@ impl R {
         PRO_DCACHE_MEMSYNC_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_DCACHE_MEM_SYNC0")
+            .field(
+                "pro_dcache_memsync_addr",
+                &format_args!("{}", self.pro_dcache_memsync_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the start virtual address for invalidate, flush, clean, lock and unlock operations. The manual operations will be issued if the address is validate. The auto operations will be issued if the address is invalidate. It should be combined with PRO_DCACHE_MEM_SYNC1."]
     #[inline(always)]

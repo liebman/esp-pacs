@@ -55,6 +55,21 @@ impl R {
         I2C_COMMAND2_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::I2C_COMD2")
+            .field(
+                "i2c_command2",
+                &format_args!("{}", self.i2c_command2().bits()),
+            )
+            .field(
+                "i2c_command2_done",
+                &format_args!("{}", self.i2c_command2_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - This is the content of command 2. It consists of three parts: op_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END. Byte_num represents the number of bytes that need to be sent or received. ack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more Information."]
     #[inline(always)]

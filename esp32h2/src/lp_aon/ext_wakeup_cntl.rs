@@ -76,6 +76,29 @@ impl R {
         EXT_WAKEUP_FILTER_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::EXT_WAKEUP_CNTL")
+            .field(
+                "ext_wakeup_status",
+                &format_args!("{}", self.ext_wakeup_status().bits()),
+            )
+            .field(
+                "ext_wakeup_sel",
+                &format_args!("{}", self.ext_wakeup_sel().bits()),
+            )
+            .field(
+                "ext_wakeup_lv",
+                &format_args!("{}", self.ext_wakeup_lv().bits()),
+            )
+            .field(
+                "ext_wakeup_filter",
+                &format_args!("{}", self.ext_wakeup_filter().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 14 - need_des"]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         TX_BYTE_1_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::DATA_1")
+            .field("tx_byte_1", &format_args!("{}", self.tx_byte_1().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - In reset mode, it is acceptance code register 1 with R/W Permission. In operation mode, it stores the 1st byte information of the data to be transmitted under operating mode."]
     #[inline(always)]

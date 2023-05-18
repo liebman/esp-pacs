@@ -22,6 +22,17 @@ impl R {
         IN_ERR_EOF_DES_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_ERR_EOF_DES_ADDR_CH1")
+            .field(
+                "in_err_eof_des_addr",
+                &format_args!("{}", self.in_err_eof_des_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "DMA_IN_ERR_EOF_DES_ADDR_CH1_REG.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_err_eof_des_addr_ch1](index.html) module"]
 pub struct IN_ERR_EOF_DES_ADDR_CH1_SPEC;
 impl crate::RegisterSpec for IN_ERR_EOF_DES_ADDR_CH1_SPEC {

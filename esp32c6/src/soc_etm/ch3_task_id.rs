@@ -46,6 +46,17 @@ impl R {
         CH3_TASK_ID_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SOC_ETM::CH3_TASK_ID")
+            .field(
+                "ch3_task_id",
+                &format_args!("{}", self.ch3_task_id().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - ch3_task_id"]
     #[inline(always)]

@@ -54,6 +54,15 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::DATE")
+            .field("date", &format_args!("{}", self.date().bits()))
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:30 - need_des"]
     #[inline(always)]

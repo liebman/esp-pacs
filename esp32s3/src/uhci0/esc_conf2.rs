@@ -65,6 +65,22 @@ impl R {
         ESC_SEQ1_CHAR1_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::ESC_CONF2")
+            .field("esc_seq1", &format_args!("{}", self.esc_seq1().bits()))
+            .field(
+                "esc_seq1_char0",
+                &format_args!("{}", self.esc_seq1_char0().bits()),
+            )
+            .field(
+                "esc_seq1_char1",
+                &format_args!("{}", self.esc_seq1_char1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register is used to define a char that need to be encoded, default is 0x11 that used as flow control char."]
     #[inline(always)]

@@ -124,6 +124,40 @@ impl R {
         COCPU_DONE_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::COCPU_CTRL")
+            .field(
+                "cocpu_clk_fo",
+                &format_args!("{}", self.cocpu_clk_fo().bit()),
+            )
+            .field(
+                "cocpu_start_2_reset_dis",
+                &format_args!("{}", self.cocpu_start_2_reset_dis().bits()),
+            )
+            .field(
+                "cocpu_start_2_intr_en",
+                &format_args!("{}", self.cocpu_start_2_intr_en().bits()),
+            )
+            .field("cocpu_shut", &format_args!("{}", self.cocpu_shut().bit()))
+            .field(
+                "cocpu_shut_2_clk_dis",
+                &format_args!("{}", self.cocpu_shut_2_clk_dis().bits()),
+            )
+            .field(
+                "cocpu_shut_reset_en",
+                &format_args!("{}", self.cocpu_shut_reset_en().bit()),
+            )
+            .field("cocpu_sel", &format_args!("{}", self.cocpu_sel().bit()))
+            .field(
+                "cocpu_done_force",
+                &format_args!("{}", self.cocpu_done_force().bit()),
+            )
+            .field("cocpu_done", &format_args!("{}", self.cocpu_done().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - ULP-RISCV clock force on"]
     #[inline(always)]

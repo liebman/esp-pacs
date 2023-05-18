@@ -56,6 +56,21 @@ impl R {
         LP_ANA_WAIT_TARGET_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::SLP_WAKEUP_CNTL5")
+            .field(
+                "modem_wait_target",
+                &format_args!("{}", self.modem_wait_target().bits()),
+            )
+            .field(
+                "lp_ana_wait_target",
+                &format_args!("{}", self.lp_ana_wait_target().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - need_des"]
     #[inline(always)]

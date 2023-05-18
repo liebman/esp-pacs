@@ -59,6 +59,19 @@ impl R {
         I2C_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::DATA")
+            .field("i2c_rdata", &format_args!("{}", self.i2c_rdata().bits()))
+            .field(
+                "slave_tx_data",
+                &format_args!("{}", self.slave_tx_data().bits()),
+            )
+            .field("i2c_done", &format_args!("{}", self.i2c_done().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:15 - data sent by slave"]
     #[inline(always)]

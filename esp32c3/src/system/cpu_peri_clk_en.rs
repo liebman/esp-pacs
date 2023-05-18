@@ -56,6 +56,21 @@ impl R {
         CLK_EN_DEDICATED_GPIO_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CPU_PERI_CLK_EN")
+            .field(
+                "clk_en_assist_debug",
+                &format_args!("{}", self.clk_en_assist_debug().bit()),
+            )
+            .field(
+                "clk_en_dedicated_gpio",
+                &format_args!("{}", self.clk_en_dedicated_gpio().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 6 - reg_clk_en_assist_debug"]
     #[inline(always)]

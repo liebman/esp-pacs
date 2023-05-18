@@ -22,6 +22,17 @@ impl R {
         EXTMEM_REJECT_INT_ST_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::EXTMEM_REJECT_INT_ST")
+            .field(
+                "extmem_reject_int_st",
+                &format_args!("{}", self.extmem_reject_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Masked interrupt status of external RAM permission\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [extmem_reject_int_st](index.html) module"]
 pub struct EXTMEM_REJECT_INT_ST_SPEC;
 impl crate::RegisterSpec for EXTMEM_REJECT_INT_ST_SPEC {

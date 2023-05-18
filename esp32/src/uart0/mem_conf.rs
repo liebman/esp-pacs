@@ -123,6 +123,40 @@ impl R {
         TX_MEM_EMPTY_THRHD_R::new(((self.bits >> 28) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::MEM_CONF")
+            .field("mem_pd", &format_args!("{}", self.mem_pd().bit()))
+            .field("rx_size", &format_args!("{}", self.rx_size().bits()))
+            .field("tx_size", &format_args!("{}", self.tx_size().bits()))
+            .field(
+                "rx_flow_thrhd_h3",
+                &format_args!("{}", self.rx_flow_thrhd_h3().bits()),
+            )
+            .field(
+                "rx_tout_thrhd_h3",
+                &format_args!("{}", self.rx_tout_thrhd_h3().bits()),
+            )
+            .field(
+                "xon_threshold_h2",
+                &format_args!("{}", self.xon_threshold_h2().bits()),
+            )
+            .field(
+                "xoff_threshold_h2",
+                &format_args!("{}", self.xoff_threshold_h2().bits()),
+            )
+            .field(
+                "rx_mem_full_thrhd",
+                &format_args!("{}", self.rx_mem_full_thrhd().bits()),
+            )
+            .field(
+                "tx_mem_empty_thrhd",
+                &format_args!("{}", self.tx_mem_empty_thrhd().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to power down mem.when reg_mem_pd registers in the 3 uarts are all set to 1 mem will enter low power mode."]
     #[inline(always)]

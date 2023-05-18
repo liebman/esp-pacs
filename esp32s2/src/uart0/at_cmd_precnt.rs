@@ -46,6 +46,17 @@ impl R {
         PRE_IDLE_NUM_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::AT_CMD_PRECNT")
+            .field(
+                "pre_idle_num",
+                &format_args!("{}", self.pre_idle_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - This register is used to configure the idle duration time before the first AT_CMD is received by the receiver. It will not take the next data received as AT_CMD character when the duration is less than this register's value."]
     #[inline(always)]

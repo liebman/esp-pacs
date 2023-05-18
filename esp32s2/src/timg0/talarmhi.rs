@@ -45,6 +45,14 @@ impl R {
         ALARM_HI_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::TALARMHI")
+            .field("alarm_hi", &format_args!("{}", self.alarm_hi().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Timer %s alarm trigger time-base counter value, high 32 bits."]
     #[inline(always)]

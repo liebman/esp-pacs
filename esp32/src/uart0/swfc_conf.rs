@@ -74,6 +74,23 @@ impl R {
         XOFF_CHAR_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::SWFC_CONF")
+            .field(
+                "xon_threshold",
+                &format_args!("{}", self.xon_threshold().bits()),
+            )
+            .field(
+                "xoff_threshold",
+                &format_args!("{}", self.xoff_threshold().bits()),
+            )
+            .field("xon_char", &format_args!("{}", self.xon_char().bits()))
+            .field("xoff_char", &format_args!("{}", self.xoff_char().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - when the data amount in receiver's fifo is more than this register value. it will send a xoff char with uart_sw_flow_con_en set to 1."]
     #[inline(always)]

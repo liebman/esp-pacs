@@ -46,6 +46,17 @@ impl R {
         REGION13_ADDR_START_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_APM::REGION13_ADDR_START")
+            .field(
+                "region13_addr_start",
+                &format_args!("{}", self.region13_addr_start().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Start address of region13"]
     #[inline(always)]

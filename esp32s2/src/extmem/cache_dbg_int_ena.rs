@@ -226,6 +226,89 @@ impl R {
         MMU_ENTRY_FAULT_INT_ENA_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_DBG_INT_ENA")
+            .field(
+                "cache_dbg_en",
+                &format_args!("{}", self.cache_dbg_en().bit()),
+            )
+            .field(
+                "ibus_acs_msk_ic_int_ena",
+                &format_args!("{}", self.ibus_acs_msk_ic_int_ena().bit()),
+            )
+            .field(
+                "ibus_cnt_ovf_int_ena",
+                &format_args!("{}", self.ibus_cnt_ovf_int_ena().bit()),
+            )
+            .field(
+                "ic_sync_size_fault_int_ena",
+                &format_args!("{}", self.ic_sync_size_fault_int_ena().bit()),
+            )
+            .field(
+                "ic_preload_size_fault_int_ena",
+                &format_args!("{}", self.ic_preload_size_fault_int_ena().bit()),
+            )
+            .field(
+                "icache_reject_int_ena",
+                &format_args!("{}", self.icache_reject_int_ena().bit()),
+            )
+            .field(
+                "icache_set_preload_ilg_int_ena",
+                &format_args!("{}", self.icache_set_preload_ilg_int_ena().bit()),
+            )
+            .field(
+                "icache_set_sync_ilg_int_ena",
+                &format_args!("{}", self.icache_set_sync_ilg_int_ena().bit()),
+            )
+            .field(
+                "icache_set_lock_ilg_int_ena",
+                &format_args!("{}", self.icache_set_lock_ilg_int_ena().bit()),
+            )
+            .field(
+                "dbus_acs_msk_dc_int_ena",
+                &format_args!("{}", self.dbus_acs_msk_dc_int_ena().bit()),
+            )
+            .field(
+                "dbus_cnt_ovf_int_ena",
+                &format_args!("{}", self.dbus_cnt_ovf_int_ena().bit()),
+            )
+            .field(
+                "dc_sync_size_fault_int_ena",
+                &format_args!("{}", self.dc_sync_size_fault_int_ena().bit()),
+            )
+            .field(
+                "dc_preload_size_fault_int_ena",
+                &format_args!("{}", self.dc_preload_size_fault_int_ena().bit()),
+            )
+            .field(
+                "dcache_write_flash_int_ena",
+                &format_args!("{}", self.dcache_write_flash_int_ena().bit()),
+            )
+            .field(
+                "dcache_reject_int_ena",
+                &format_args!("{}", self.dcache_reject_int_ena().bit()),
+            )
+            .field(
+                "dcache_set_preload_ilg_int_ena",
+                &format_args!("{}", self.dcache_set_preload_ilg_int_ena().bit()),
+            )
+            .field(
+                "dcache_set_sync_ilg_int_ena",
+                &format_args!("{}", self.dcache_set_sync_ilg_int_ena().bit()),
+            )
+            .field(
+                "dcache_set_lock_ilg_int_ena",
+                &format_args!("{}", self.dcache_set_lock_ilg_int_ena().bit()),
+            )
+            .field(
+                "mmu_entry_fault_int_ena",
+                &format_args!("{}", self.mmu_entry_fault_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to activate the cache track function. 1: enable, 0: disable."]
     #[inline(always)]

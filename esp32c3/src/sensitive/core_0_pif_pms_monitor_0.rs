@@ -46,6 +46,17 @@ impl R {
         CORE_0_PIF_PMS_MONITOR_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_MONITOR_0")
+            .field(
+                "core_0_pif_pms_monitor_lock",
+                &format_args!("{}", self.core_0_pif_pms_monitor_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - core_0_pif_pms_monitor_lock"]
     #[inline(always)]

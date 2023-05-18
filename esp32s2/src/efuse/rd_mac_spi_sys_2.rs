@@ -22,6 +22,17 @@ impl R {
         SPI_PAD_CONF_1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_MAC_SPI_SYS_2")
+            .field(
+                "spi_pad_conf_1",
+                &format_args!("{}", self.spi_pad_conf_1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Register 2 of BLOCK1.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_mac_spi_sys_2](index.html) module"]
 pub struct RD_MAC_SPI_SYS_2_SPEC;
 impl crate::RegisterSpec for RD_MAC_SPI_SYS_2_SPEC {

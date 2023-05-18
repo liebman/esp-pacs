@@ -46,6 +46,14 @@ impl R {
         TEXT_OUT_1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::TEXT_OUT_1")
+            .field("text_out_1", &format_args!("{}", self.text_out_1().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This bits stores text_out_1 that is a part of result text material."]
     #[inline(always)]

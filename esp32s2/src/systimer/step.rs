@@ -56,6 +56,21 @@ impl R {
         TIMER_PLL_STEP_R::new(((self.bits >> 10) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::STEP")
+            .field(
+                "timer_xtal_step",
+                &format_args!("{}", self.timer_xtal_step().bits()),
+            )
+            .field(
+                "timer_pll_step",
+                &format_args!("{}", self.timer_pll_step().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - Set system timer increment step when using XTAL_CLK."]
     #[inline(always)]

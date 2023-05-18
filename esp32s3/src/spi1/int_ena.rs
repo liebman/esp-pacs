@@ -73,6 +73,29 @@ impl R {
         BROWN_OUT_INT_ENA_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::INT_ENA")
+            .field(
+                "per_end_int_ena",
+                &format_args!("{}", self.per_end_int_ena().bit()),
+            )
+            .field(
+                "pes_end_int_ena",
+                &format_args!("{}", self.pes_end_int_ena().bit()),
+            )
+            .field(
+                "total_trans_end_int_ena",
+                &format_args!("{}", self.total_trans_end_int_ena().bit()),
+            )
+            .field(
+                "brown_out_int_ena",
+                &format_args!("{}", self.brown_out_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The enable bit for SPI_MEM_PER_END_INT interrupt."]
     #[inline(always)]

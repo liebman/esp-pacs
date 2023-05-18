@@ -63,6 +63,16 @@ impl R {
         T_PP_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::EXT0")
+            .field("t_pp_time", &format_args!("{}", self.t_pp_time().bits()))
+            .field("t_pp_shift", &format_args!("{}", self.t_pp_shift().bits()))
+            .field("t_pp_ena", &format_args!("{}", self.t_pp_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - page program delay time by system clock."]
     #[inline(always)]

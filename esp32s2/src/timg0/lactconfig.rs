@@ -136,6 +136,51 @@ impl R {
         LACT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::LACTCONFIG")
+            .field(
+                "lact_use_reftick",
+                &format_args!("{}", self.lact_use_reftick().bit()),
+            )
+            .field(
+                "lact_rtc_only",
+                &format_args!("{}", self.lact_rtc_only().bit()),
+            )
+            .field(
+                "lact_cpst_en",
+                &format_args!("{}", self.lact_cpst_en().bit()),
+            )
+            .field("lact_lac_en", &format_args!("{}", self.lact_lac_en().bit()))
+            .field(
+                "lact_alarm_en",
+                &format_args!("{}", self.lact_alarm_en().bit()),
+            )
+            .field(
+                "lact_level_int_en",
+                &format_args!("{}", self.lact_level_int_en().bit()),
+            )
+            .field(
+                "lact_edge_int_en",
+                &format_args!("{}", self.lact_edge_int_en().bit()),
+            )
+            .field(
+                "lact_divider",
+                &format_args!("{}", self.lact_divider().bits()),
+            )
+            .field(
+                "lact_autoreload",
+                &format_args!("{}", self.lact_autoreload().bit()),
+            )
+            .field(
+                "lact_increase",
+                &format_args!("{}", self.lact_increase().bit()),
+            )
+            .field("lact_en", &format_args!("{}", self.lact_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 6 - Reserved."]
     #[inline(always)]

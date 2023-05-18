@@ -46,6 +46,17 @@ impl R {
         SHROM_MPU_TABLE21_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::SHROM_MPU_TABLE21")
+            .field(
+                "shrom_mpu_table21",
+                &format_args!("{}", self.shrom_mpu_table21().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

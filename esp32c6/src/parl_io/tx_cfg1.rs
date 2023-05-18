@@ -46,6 +46,17 @@ impl R {
         TX_IDLE_VALUE_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::TX_CFG1")
+            .field(
+                "tx_idle_value",
+                &format_args!("{}", self.tx_idle_value().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:31 - Configures data value on tx bus when IDLE state."]
     #[inline(always)]

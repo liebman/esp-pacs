@@ -99,6 +99,26 @@ impl R {
         DEBUG_SEL4_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::DBG_SEL")
+            .field(
+                "debug_12m_no_gating",
+                &format_args!("{}", self.debug_12m_no_gating().bit()),
+            )
+            .field(
+                "debug_bit_sel",
+                &format_args!("{}", self.debug_bit_sel().bits()),
+            )
+            .field("debug_sel0", &format_args!("{}", self.debug_sel0().bits()))
+            .field("debug_sel1", &format_args!("{}", self.debug_sel1().bits()))
+            .field("debug_sel2", &format_args!("{}", self.debug_sel2().bits()))
+            .field("debug_sel3", &format_args!("{}", self.debug_sel3().bits()))
+            .field("debug_sel4", &format_args!("{}", self.debug_sel4().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - use for debug"]
     #[inline(always)]

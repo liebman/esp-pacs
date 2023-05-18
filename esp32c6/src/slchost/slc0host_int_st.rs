@@ -197,6 +197,117 @@ impl R {
         GPIO_SDIO_INT_ST_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::SLC0HOST_INT_ST")
+            .field(
+                "slc0_tohost_bit0_int_st",
+                &format_args!("{}", self.slc0_tohost_bit0_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit1_int_st",
+                &format_args!("{}", self.slc0_tohost_bit1_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit2_int_st",
+                &format_args!("{}", self.slc0_tohost_bit2_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit3_int_st",
+                &format_args!("{}", self.slc0_tohost_bit3_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit4_int_st",
+                &format_args!("{}", self.slc0_tohost_bit4_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit5_int_st",
+                &format_args!("{}", self.slc0_tohost_bit5_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit6_int_st",
+                &format_args!("{}", self.slc0_tohost_bit6_int_st().bit()),
+            )
+            .field(
+                "slc0_tohost_bit7_int_st",
+                &format_args!("{}", self.slc0_tohost_bit7_int_st().bit()),
+            )
+            .field(
+                "slc0_token0_1to0_int_st",
+                &format_args!("{}", self.slc0_token0_1to0_int_st().bit()),
+            )
+            .field(
+                "slc0_token1_1to0_int_st",
+                &format_args!("{}", self.slc0_token1_1to0_int_st().bit()),
+            )
+            .field(
+                "slc0_token0_0to1_int_st",
+                &format_args!("{}", self.slc0_token0_0to1_int_st().bit()),
+            )
+            .field(
+                "slc0_token1_0to1_int_st",
+                &format_args!("{}", self.slc0_token1_0to1_int_st().bit()),
+            )
+            .field(
+                "slc0host_rx_sof_int_st",
+                &format_args!("{}", self.slc0host_rx_sof_int_st().bit()),
+            )
+            .field(
+                "slc0host_rx_eof_int_st",
+                &format_args!("{}", self.slc0host_rx_eof_int_st().bit()),
+            )
+            .field(
+                "slc0host_rx_start_int_st",
+                &format_args!("{}", self.slc0host_rx_start_int_st().bit()),
+            )
+            .field(
+                "slc0host_tx_start_int_st",
+                &format_args!("{}", self.slc0host_tx_start_int_st().bit()),
+            )
+            .field(
+                "slc0_rx_udf_int_st",
+                &format_args!("{}", self.slc0_rx_udf_int_st().bit()),
+            )
+            .field(
+                "slc0_tx_ovf_int_st",
+                &format_args!("{}", self.slc0_tx_ovf_int_st().bit()),
+            )
+            .field(
+                "slc0_rx_pf_valid_int_st",
+                &format_args!("{}", self.slc0_rx_pf_valid_int_st().bit()),
+            )
+            .field(
+                "slc0_ext_bit0_int_st",
+                &format_args!("{}", self.slc0_ext_bit0_int_st().bit()),
+            )
+            .field(
+                "slc0_ext_bit1_int_st",
+                &format_args!("{}", self.slc0_ext_bit1_int_st().bit()),
+            )
+            .field(
+                "slc0_ext_bit2_int_st",
+                &format_args!("{}", self.slc0_ext_bit2_int_st().bit()),
+            )
+            .field(
+                "slc0_ext_bit3_int_st",
+                &format_args!("{}", self.slc0_ext_bit3_int_st().bit()),
+            )
+            .field(
+                "slc0_rx_new_packet_int_st",
+                &format_args!("{}", self.slc0_rx_new_packet_int_st().bit()),
+            )
+            .field(
+                "slc0_host_rd_retry_int_st",
+                &format_args!("{}", self.slc0_host_rd_retry_int_st().bit()),
+            )
+            .field(
+                "gpio_sdio_int_st",
+                &format_args!("{}", self.gpio_sdio_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "*******Description***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slc0host_int_st](index.html) module"]
 pub struct SLC0HOST_INT_ST_SPEC;
 impl crate::RegisterSpec for SLC0HOST_INT_ST_SPEC {

@@ -70,6 +70,26 @@ impl R {
         CLK_DIV_EN_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::SYSCLK_CONF")
+            .field(
+                "pre_div_cnt",
+                &format_args!("{}", self.pre_div_cnt().bits()),
+            )
+            .field(
+                "soc_clk_sel",
+                &format_args!("{}", self.soc_clk_sel().bits()),
+            )
+            .field(
+                "clk_xtal_freq",
+                &format_args!("{}", self.clk_xtal_freq().bits()),
+            )
+            .field("clk_div_en", &format_args!("{}", self.clk_div_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - reg_pre_div_cnt"]
     #[inline(always)]

@@ -45,6 +45,17 @@ impl R {
         DUTY_START_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_CONF1")
+            .field(
+                "duty_start_ch",
+                &format_args!("{}", self.duty_start_ch().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - Other configured fields in LEDC_CH%s_CONF1_REG will start to take effect when this bit is set to 1."]
     #[inline(always)]

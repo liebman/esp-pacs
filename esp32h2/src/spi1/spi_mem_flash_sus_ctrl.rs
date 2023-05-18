@@ -146,6 +146,57 @@ impl R {
         SPI_MEM_SUS_TIMEOUT_CNT_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_FLASH_SUS_CTRL")
+            .field(
+                "spi_mem_flash_per",
+                &format_args!("{}", self.spi_mem_flash_per().bit()),
+            )
+            .field(
+                "spi_mem_flash_pes",
+                &format_args!("{}", self.spi_mem_flash_pes().bit()),
+            )
+            .field(
+                "spi_mem_flash_per_wait_en",
+                &format_args!("{}", self.spi_mem_flash_per_wait_en().bit()),
+            )
+            .field(
+                "spi_mem_flash_pes_wait_en",
+                &format_args!("{}", self.spi_mem_flash_pes_wait_en().bit()),
+            )
+            .field(
+                "spi_mem_pes_per_en",
+                &format_args!("{}", self.spi_mem_pes_per_en().bit()),
+            )
+            .field(
+                "spi_mem_flash_pes_en",
+                &format_args!("{}", self.spi_mem_flash_pes_en().bit()),
+            )
+            .field(
+                "spi_mem_pesr_end_msk",
+                &format_args!("{}", self.spi_mem_pesr_end_msk().bits()),
+            )
+            .field(
+                "spi_fmem_rd_sus_2b",
+                &format_args!("{}", self.spi_fmem_rd_sus_2b().bit()),
+            )
+            .field(
+                "spi_mem_per_end_en",
+                &format_args!("{}", self.spi_mem_per_end_en().bit()),
+            )
+            .field(
+                "spi_mem_pes_end_en",
+                &format_args!("{}", self.spi_mem_pes_end_en().bit()),
+            )
+            .field(
+                "spi_mem_sus_timeout_cnt",
+                &format_args!("{}", self.spi_mem_sus_timeout_cnt().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - program erase resume bit, program erase suspend operation will be triggered when the bit is set. The bit will be cleared once the operation done.1: enable 0: disable."]
     #[inline(always)]

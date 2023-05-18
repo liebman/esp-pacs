@@ -46,6 +46,14 @@ impl R {
         TEXT_OUT_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::TEXT_OUT_")
+            .field("text_out_0", &format_args!("{}", self.text_out_0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Stores the result data when the AES Accelerator operates in the Typical AES working mode."]
     #[inline(always)]

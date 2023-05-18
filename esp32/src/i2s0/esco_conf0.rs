@@ -119,6 +119,40 @@ impl R {
         PLC2DMA_EN_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::ESCO_CONF0")
+            .field("esco_en", &format_args!("{}", self.esco_en().bit()))
+            .field(
+                "esco_chan_mod",
+                &format_args!("{}", self.esco_chan_mod().bit()),
+            )
+            .field(
+                "esco_cvsd_dec_pack_err",
+                &format_args!("{}", self.esco_cvsd_dec_pack_err().bit()),
+            )
+            .field(
+                "esco_cvsd_pack_len_8k",
+                &format_args!("{}", self.esco_cvsd_pack_len_8k().bits()),
+            )
+            .field(
+                "esco_cvsd_inf_en",
+                &format_args!("{}", self.esco_cvsd_inf_en().bit()),
+            )
+            .field(
+                "cvsd_dec_start",
+                &format_args!("{}", self.cvsd_dec_start().bit()),
+            )
+            .field(
+                "cvsd_dec_reset",
+                &format_args!("{}", self.cvsd_dec_reset().bit()),
+            )
+            .field("plc_en", &format_args!("{}", self.plc_en().bit()))
+            .field("plc2dma_en", &format_args!("{}", self.plc2dma_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

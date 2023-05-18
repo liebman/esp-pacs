@@ -36,6 +36,22 @@ impl R {
         EXTRA_DUMMY_CYCLELEN_R::new(((self.bits >> 2) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::TIMING_CALI")
+            .field(
+                "timing_clk_ena",
+                &format_args!("{}", self.timing_clk_ena().bit()),
+            )
+            .field("timing_cali", &format_args!("{}", self.timing_cali().bit()))
+            .field(
+                "extra_dummy_cyclelen",
+                &format_args!("{}", self.extra_dummy_cyclelen().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI0 timing calibration register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [timing_cali](index.html) module"]
 pub struct TIMING_CALI_SPEC;
 impl crate::RegisterSpec for TIMING_CALI_SPEC {

@@ -66,6 +66,25 @@ impl R {
         PVT_MONITOR_FUNC_CLK_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::PVT_MONITOR_FUNC_CLK_CONF")
+            .field(
+                "pvt_monitor_func_clk_div_num",
+                &format_args!("{}", self.pvt_monitor_func_clk_div_num().bits()),
+            )
+            .field(
+                "pvt_monitor_func_clk_sel",
+                &format_args!("{}", self.pvt_monitor_func_clk_sel().bit()),
+            )
+            .field(
+                "pvt_monitor_func_clk_en",
+                &format_args!("{}", self.pvt_monitor_func_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The integral part of the frequency divider factor of the pvt_monitor function clock."]
     #[inline(always)]

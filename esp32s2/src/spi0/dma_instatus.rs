@@ -57,6 +57,37 @@ impl R {
         DMA_INFIFO_EMPTY_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_INSTATUS")
+            .field(
+                "dma_indscr_addr",
+                &format_args!("{}", self.dma_indscr_addr().bits()),
+            )
+            .field(
+                "dma_indscr_state",
+                &format_args!("{}", self.dma_indscr_state().bits()),
+            )
+            .field(
+                "dma_in_state",
+                &format_args!("{}", self.dma_in_state().bits()),
+            )
+            .field(
+                "dma_infifo_cnt",
+                &format_args!("{}", self.dma_infifo_cnt().bits()),
+            )
+            .field(
+                "dma_infifo_full",
+                &format_args!("{}", self.dma_infifo_full().bit()),
+            )
+            .field(
+                "dma_infifo_empty",
+                &format_args!("{}", self.dma_infifo_empty().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI DMA RX status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_instatus](index.html) module"]
 pub struct DMA_INSTATUS_SPEC;
 impl crate::RegisterSpec for DMA_INSTATUS_SPEC {

@@ -54,6 +54,21 @@ impl R {
         AHB_TESTADDR_R::new(((self.bits >> 4) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::AHB_TEST")
+            .field(
+                "ahb_testmode",
+                &format_args!("{}", self.ahb_testmode().bits()),
+            )
+            .field(
+                "ahb_testaddr",
+                &format_args!("{}", self.ahb_testaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]

@@ -106,6 +106,41 @@ impl R {
         SPI_MEM_WAITI_CMD_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_FLASH_WAITI_CTRL")
+            .field(
+                "spi_mem_waiti_en",
+                &format_args!("{}", self.spi_mem_waiti_en().bit()),
+            )
+            .field(
+                "spi_mem_waiti_dummy",
+                &format_args!("{}", self.spi_mem_waiti_dummy().bit()),
+            )
+            .field(
+                "spi_mem_waiti_addr_en",
+                &format_args!("{}", self.spi_mem_waiti_addr_en().bit()),
+            )
+            .field(
+                "spi_mem_waiti_addr_cyclelen",
+                &format_args!("{}", self.spi_mem_waiti_addr_cyclelen().bits()),
+            )
+            .field(
+                "spi_mem_waiti_cmd_2b",
+                &format_args!("{}", self.spi_mem_waiti_cmd_2b().bit()),
+            )
+            .field(
+                "spi_mem_waiti_dummy_cyclelen",
+                &format_args!("{}", self.spi_mem_waiti_dummy_cyclelen().bits()),
+            )
+            .field(
+                "spi_mem_waiti_cmd",
+                &format_args!("{}", self.spi_mem_waiti_cmd().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: The hardware will wait idle after SE/PP/WRSR automatically, and hardware auto Suspend/Resume can be enabled. 0: The functions of hardware wait idle and auto Suspend/Resume are not supported."]
     #[inline(always)]

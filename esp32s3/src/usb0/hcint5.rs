@@ -162,6 +162,39 @@ impl R {
         H_DESC_LST_ROLLINTR5_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCINT5")
+            .field(
+                "h_xfercompl5",
+                &format_args!("{}", self.h_xfercompl5().bit()),
+            )
+            .field("h_chhltd5", &format_args!("{}", self.h_chhltd5().bit()))
+            .field("h_ahberr5", &format_args!("{}", self.h_ahberr5().bit()))
+            .field("h_stall5", &format_args!("{}", self.h_stall5().bit()))
+            .field("h_nack5", &format_args!("{}", self.h_nack5().bit()))
+            .field("h_ack5", &format_args!("{}", self.h_ack5().bit()))
+            .field("h_nyet5", &format_args!("{}", self.h_nyet5().bit()))
+            .field("h_xacterr5", &format_args!("{}", self.h_xacterr5().bit()))
+            .field("h_bblerr5", &format_args!("{}", self.h_bblerr5().bit()))
+            .field("h_frmovrun5", &format_args!("{}", self.h_frmovrun5().bit()))
+            .field(
+                "h_datatglerr5",
+                &format_args!("{}", self.h_datatglerr5().bit()),
+            )
+            .field("h_bnaintr5", &format_args!("{}", self.h_bnaintr5().bit()))
+            .field(
+                "h_xcs_xact_err5",
+                &format_args!("{}", self.h_xcs_xact_err5().bit()),
+            )
+            .field(
+                "h_desc_lst_rollintr5",
+                &format_args!("{}", self.h_desc_lst_rollintr5().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

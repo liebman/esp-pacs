@@ -56,6 +56,21 @@ impl R {
         ICACHE_SHUT_CORE1_BUS_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_CTRL1")
+            .field(
+                "icache_shut_core0_bus",
+                &format_args!("{}", self.icache_shut_core0_bus().bit()),
+            )
+            .field(
+                "icache_shut_core1_bus",
+                &format_args!("{}", self.icache_shut_core1_bus().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable core0 ibus, 0: enable, 1: disable"]
     #[inline(always)]

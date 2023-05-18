@@ -46,6 +46,14 @@ impl R {
         D_DMAADDR3_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DIEPDMA3")
+            .field("d_dmaaddr3", &format_args!("{}", self.d_dmaaddr3().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

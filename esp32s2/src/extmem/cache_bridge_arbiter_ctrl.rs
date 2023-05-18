@@ -46,6 +46,17 @@ impl R {
         ALLOC_WB_HOLD_ARBITER_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_BRIDGE_ARBITER_CTRL")
+            .field(
+                "alloc_wb_hold_arbiter",
+                &format_args!("{}", self.alloc_wb_hold_arbiter().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Reserved."]
     #[inline(always)]

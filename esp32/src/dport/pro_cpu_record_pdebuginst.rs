@@ -93,6 +93,37 @@ impl R {
         RECORD_PDEBUGINST_CINTL_R::new(((self.bits >> 24) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_CPU_RECORD_PDEBUGINST")
+            .field(
+                "record_pro_pdebuginst",
+                &format_args!("{}", self.record_pro_pdebuginst().bits()),
+            )
+            .field(
+                "record_pdebuginst_sz",
+                &format_args!("{}", self.record_pdebuginst_sz().bits()),
+            )
+            .field(
+                "record_pdebuginst_isrc",
+                &format_args!("{}", self.record_pdebuginst_isrc().bits()),
+            )
+            .field(
+                "record_pdebuginst_loop_rep",
+                &format_args!("{}", self.record_pdebuginst_loop_rep().bit()),
+            )
+            .field(
+                "record_pdebuginst_loop",
+                &format_args!("{}", self.record_pdebuginst_loop().bit()),
+            )
+            .field(
+                "record_pdebuginst_cintl",
+                &format_args!("{}", self.record_pdebuginst_cintl().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

@@ -66,6 +66,22 @@ impl R {
         CLK_FE_MEM_FO_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_LPCON::CLK_CONF_FORCE_ON")
+            .field("clk_coex_fo", &format_args!("{}", self.clk_coex_fo().bit()))
+            .field(
+                "clk_i2c_mst_fo",
+                &format_args!("{}", self.clk_i2c_mst_fo().bit()),
+            )
+            .field(
+                "clk_fe_mem_fo",
+                &format_args!("{}", self.clk_fe_mem_fo().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1"]
     #[inline(always)]

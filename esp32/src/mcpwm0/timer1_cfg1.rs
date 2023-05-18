@@ -56,6 +56,18 @@ impl R {
         TIMER1_MOD_R::new(((self.bits >> 3) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TIMER1_CFG1")
+            .field(
+                "timer1_start",
+                &format_args!("{}", self.timer1_start().bits()),
+            )
+            .field("timer1_mod", &format_args!("{}", self.timer1_mod().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]

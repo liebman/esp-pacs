@@ -156,6 +156,61 @@ impl R {
         CORE_0_DRAM0_EXCEPTION_MONITOR_CLR_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_INTR_CLR")
+            .field(
+                "core_0_area_dram0_0_rd_clr",
+                &format_args!("{}", self.core_0_area_dram0_0_rd_clr().bit()),
+            )
+            .field(
+                "core_0_area_dram0_0_wr_clr",
+                &format_args!("{}", self.core_0_area_dram0_0_wr_clr().bit()),
+            )
+            .field(
+                "core_0_area_dram0_1_rd_clr",
+                &format_args!("{}", self.core_0_area_dram0_1_rd_clr().bit()),
+            )
+            .field(
+                "core_0_area_dram0_1_wr_clr",
+                &format_args!("{}", self.core_0_area_dram0_1_wr_clr().bit()),
+            )
+            .field(
+                "core_0_area_pif_0_rd_clr",
+                &format_args!("{}", self.core_0_area_pif_0_rd_clr().bit()),
+            )
+            .field(
+                "core_0_area_pif_0_wr_clr",
+                &format_args!("{}", self.core_0_area_pif_0_wr_clr().bit()),
+            )
+            .field(
+                "core_0_area_pif_1_rd_clr",
+                &format_args!("{}", self.core_0_area_pif_1_rd_clr().bit()),
+            )
+            .field(
+                "core_0_area_pif_1_wr_clr",
+                &format_args!("{}", self.core_0_area_pif_1_wr_clr().bit()),
+            )
+            .field(
+                "core_0_sp_spill_min_clr",
+                &format_args!("{}", self.core_0_sp_spill_min_clr().bit()),
+            )
+            .field(
+                "core_0_sp_spill_max_clr",
+                &format_args!("{}", self.core_0_sp_spill_max_clr().bit()),
+            )
+            .field(
+                "core_0_iram0_exception_monitor_clr",
+                &format_args!("{}", self.core_0_iram0_exception_monitor_clr().bit()),
+            )
+            .field(
+                "core_0_dram0_exception_monitor_clr",
+                &format_args!("{}", self.core_0_dram0_exception_monitor_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Core0 dram0 area0 read monitor interrupt clr"]
     #[inline(always)]

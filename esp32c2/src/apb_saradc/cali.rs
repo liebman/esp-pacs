@@ -45,6 +45,14 @@ impl R {
         CFG_R::new(self.bits & 0x0001_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::CALI")
+            .field("cfg", &format_args!("{}", self.cfg().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:16 - Need add description"]
     #[inline(always)]

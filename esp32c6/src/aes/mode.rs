@@ -45,6 +45,14 @@ impl R {
         MODE_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::MODE")
+            .field("mode", &format_args!("{}", self.mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - This bits decides which one operation mode will be used. 3'd0: AES-EN-128, 3'd1: AES-EN-192, 3'd2: AES-EN-256, 3'd4: AES-DE-128, 3'd5: AES-DE-192, 3'd6: AES-DE-256."]
     #[inline(always)]

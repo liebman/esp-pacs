@@ -91,6 +91,37 @@ impl R {
         CRYPTO_DMA_RST_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::PERIP_RST_EN1")
+            .field(
+                "crypto_aes_rst",
+                &format_args!("{}", self.crypto_aes_rst().bit()),
+            )
+            .field(
+                "crypto_sha_rst",
+                &format_args!("{}", self.crypto_sha_rst().bit()),
+            )
+            .field(
+                "crypto_rsa_rst",
+                &format_args!("{}", self.crypto_rsa_rst().bit()),
+            )
+            .field(
+                "crypto_ds_rst",
+                &format_args!("{}", self.crypto_ds_rst().bit()),
+            )
+            .field(
+                "crypto_hmac_rst",
+                &format_args!("{}", self.crypto_hmac_rst().bit()),
+            )
+            .field(
+                "crypto_dma_rst",
+                &format_args!("{}", self.crypto_dma_rst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - Set this bit to reset cryptography AES."]
     #[inline(always)]

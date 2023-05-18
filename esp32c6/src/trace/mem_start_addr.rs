@@ -46,6 +46,17 @@ impl R {
         MEM_STAET_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TRACE::MEM_START_ADDR")
+            .field(
+                "mem_staet_addr",
+                &format_args!("{}", self.mem_staet_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The start address of trace memory"]
     #[inline(always)]

@@ -54,6 +54,15 @@ impl R {
         RXFIFO_RST_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL1")
+            .field("clk_mode", &format_args!("{}", self.clk_mode().bits()))
+            .field("rxfifo_rst", &format_args!("{}", self.rxfifo_rst().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI Bus clock (SPI_CLK) mode bits. 0: SPI Bus clock (SPI_CLK) is off when CS inactive 1: SPI_CLK is delayed one cycle after SPI_CS inactive 2: SPI_CLK is delayed two cycles after SPI_CS inactive 3: SPI_CLK is always on."]
     #[inline(always)]

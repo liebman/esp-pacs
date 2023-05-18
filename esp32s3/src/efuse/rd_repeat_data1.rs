@@ -134,6 +134,78 @@ impl R {
         KEY_PURPOSE_1_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA1")
+            .field(
+                "vdd_spi_drefm",
+                &format_args!("{}", self.vdd_spi_drefm().bits()),
+            )
+            .field(
+                "vdd_spi_drefl",
+                &format_args!("{}", self.vdd_spi_drefl().bits()),
+            )
+            .field("vdd_spi_xpd", &format_args!("{}", self.vdd_spi_xpd().bit()))
+            .field(
+                "vdd_spi_tieh",
+                &format_args!("{}", self.vdd_spi_tieh().bit()),
+            )
+            .field(
+                "vdd_spi_force",
+                &format_args!("{}", self.vdd_spi_force().bit()),
+            )
+            .field(
+                "vdd_spi_en_init",
+                &format_args!("{}", self.vdd_spi_en_init().bit()),
+            )
+            .field(
+                "vdd_spi_encurlim",
+                &format_args!("{}", self.vdd_spi_encurlim().bit()),
+            )
+            .field(
+                "vdd_spi_dcurlim",
+                &format_args!("{}", self.vdd_spi_dcurlim().bits()),
+            )
+            .field(
+                "vdd_spi_init",
+                &format_args!("{}", self.vdd_spi_init().bits()),
+            )
+            .field(
+                "vdd_spi_dcap",
+                &format_args!("{}", self.vdd_spi_dcap().bits()),
+            )
+            .field(
+                "wdt_delay_sel",
+                &format_args!("{}", self.wdt_delay_sel().bits()),
+            )
+            .field(
+                "spi_boot_crypt_cnt",
+                &format_args!("{}", self.spi_boot_crypt_cnt().bits()),
+            )
+            .field(
+                "secure_boot_key_revoke0",
+                &format_args!("{}", self.secure_boot_key_revoke0().bit()),
+            )
+            .field(
+                "secure_boot_key_revoke1",
+                &format_args!("{}", self.secure_boot_key_revoke1().bit()),
+            )
+            .field(
+                "secure_boot_key_revoke2",
+                &format_args!("{}", self.secure_boot_key_revoke2().bit()),
+            )
+            .field(
+                "key_purpose_0",
+                &format_args!("{}", self.key_purpose_0().bits()),
+            )
+            .field(
+                "key_purpose_1",
+                &format_args!("{}", self.key_purpose_1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "BLOCK0 data register 2.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data1](index.html) module"]
 pub struct RD_REPEAT_DATA1_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA1_SPEC {

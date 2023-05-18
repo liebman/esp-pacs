@@ -46,6 +46,14 @@ impl R {
         RX_EOF_NUM_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::RXEOF_NUM")
+            .field("rx_eof_num", &format_args!("{}", self.rx_eof_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The length of data to be received. It will trigger I2S_IN_SUC_EOF_INT."]
     #[inline(always)]

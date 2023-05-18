@@ -66,6 +66,25 @@ impl R {
         TARGET2_TIMER_UNIT_SEL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::TARGET2_CONF")
+            .field(
+                "target2_period",
+                &format_args!("{}", self.target2_period().bits()),
+            )
+            .field(
+                "target2_period_mode",
+                &format_args!("{}", self.target2_period_mode().bit()),
+            )
+            .field(
+                "target2_timer_unit_sel",
+                &format_args!("{}", self.target2_timer_unit_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:25 - target2 period"]
     #[inline(always)]

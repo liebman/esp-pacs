@@ -63,6 +63,25 @@ impl R {
         RECORD_PDEBUGSTATUS_INSNTYPE_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_CPU_RECORD_PDEBUGSTATUS")
+            .field(
+                "record_pro_pdebugstatus",
+                &format_args!("{}", self.record_pro_pdebugstatus().bits()),
+            )
+            .field(
+                "record_pdebugstatus_bbcause",
+                &format_args!("{}", self.record_pdebugstatus_bbcause().bits()),
+            )
+            .field(
+                "record_pdebugstatus_insntype",
+                &format_args!("{}", self.record_pdebugstatus_insntype().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5"]
     #[inline(always)]

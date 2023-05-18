@@ -45,6 +45,14 @@ impl R {
         SRAM_PD_1_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::SRAM_PD_CTRL_1")
+            .field("sram_pd_1", &format_args!("{}", self.sram_pd_1().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         SAR_TSENS_CLK_INV_R::new(((self.bits >> 14) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TSENS_CTRL2")
+            .field(
+                "sar_tsens_xpd_wait",
+                &format_args!("{}", self.sar_tsens_xpd_wait().bits()),
+            )
+            .field(
+                "sar_tsens_xpd_force",
+                &format_args!("{}", self.sar_tsens_xpd_force().bits()),
+            )
+            .field(
+                "sar_tsens_clk_inv",
+                &format_args!("{}", self.sar_tsens_clk_inv().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - no public"]
     #[inline(always)]

@@ -99,6 +99,61 @@ impl R {
         CORE_0_DRAM0_EXCEPTION_MONITOR_RAW_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_INTR_RAW")
+            .field(
+                "core_0_area_dram0_0_rd_raw",
+                &format_args!("{}", self.core_0_area_dram0_0_rd_raw().bit()),
+            )
+            .field(
+                "core_0_area_dram0_0_wr_raw",
+                &format_args!("{}", self.core_0_area_dram0_0_wr_raw().bit()),
+            )
+            .field(
+                "core_0_area_dram0_1_rd_raw",
+                &format_args!("{}", self.core_0_area_dram0_1_rd_raw().bit()),
+            )
+            .field(
+                "core_0_area_dram0_1_wr_raw",
+                &format_args!("{}", self.core_0_area_dram0_1_wr_raw().bit()),
+            )
+            .field(
+                "core_0_area_pif_0_rd_raw",
+                &format_args!("{}", self.core_0_area_pif_0_rd_raw().bit()),
+            )
+            .field(
+                "core_0_area_pif_0_wr_raw",
+                &format_args!("{}", self.core_0_area_pif_0_wr_raw().bit()),
+            )
+            .field(
+                "core_0_area_pif_1_rd_raw",
+                &format_args!("{}", self.core_0_area_pif_1_rd_raw().bit()),
+            )
+            .field(
+                "core_0_area_pif_1_wr_raw",
+                &format_args!("{}", self.core_0_area_pif_1_wr_raw().bit()),
+            )
+            .field(
+                "core_0_sp_spill_min_raw",
+                &format_args!("{}", self.core_0_sp_spill_min_raw().bit()),
+            )
+            .field(
+                "core_0_sp_spill_max_raw",
+                &format_args!("{}", self.core_0_sp_spill_max_raw().bit()),
+            )
+            .field(
+                "core_0_iram0_exception_monitor_raw",
+                &format_args!("{}", self.core_0_iram0_exception_monitor_raw().bit()),
+            )
+            .field(
+                "core_0_dram0_exception_monitor_raw",
+                &format_args!("{}", self.core_0_dram0_exception_monitor_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "ASSIST_DEBUG_CORE_0_INTR_RAW_REG\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_intr_raw](index.html) module"]
 pub struct CORE_0_INTR_RAW_SPEC;
 impl crate::RegisterSpec for CORE_0_INTR_RAW_SPEC {

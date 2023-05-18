@@ -116,6 +116,45 @@ impl R {
         ETM_TASK_GPIO23_SEL_R::new(((self.bits >> 25) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::ETM_TASK_P5_CFG")
+            .field(
+                "etm_task_gpio20_en",
+                &format_args!("{}", self.etm_task_gpio20_en().bit()),
+            )
+            .field(
+                "etm_task_gpio20_sel",
+                &format_args!("{}", self.etm_task_gpio20_sel().bits()),
+            )
+            .field(
+                "etm_task_gpio21_en",
+                &format_args!("{}", self.etm_task_gpio21_en().bit()),
+            )
+            .field(
+                "etm_task_gpio21_sel",
+                &format_args!("{}", self.etm_task_gpio21_sel().bits()),
+            )
+            .field(
+                "etm_task_gpio22_en",
+                &format_args!("{}", self.etm_task_gpio22_en().bit()),
+            )
+            .field(
+                "etm_task_gpio22_sel",
+                &format_args!("{}", self.etm_task_gpio22_sel().bits()),
+            )
+            .field(
+                "etm_task_gpio23_en",
+                &format_args!("{}", self.etm_task_gpio23_en().bit()),
+            )
+            .field(
+                "etm_task_gpio23_sel",
+                &format_args!("{}", self.etm_task_gpio23_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable bit of GPIO response etm task."]
     #[inline(always)]

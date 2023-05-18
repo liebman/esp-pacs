@@ -76,6 +76,29 @@ impl R {
         INT_ST_AHEAD_MODE_R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CFG_UHS1_INT_MODE")
+            .field(
+                "intoe_end_ahead_mode",
+                &format_args!("{}", self.intoe_end_ahead_mode().bits()),
+            )
+            .field(
+                "int_end_ahead_mode",
+                &format_args!("{}", self.int_end_ahead_mode().bits()),
+            )
+            .field(
+                "intoe_st_ahead_mode",
+                &format_args!("{}", self.intoe_st_ahead_mode().bits()),
+            )
+            .field(
+                "int_st_ahead_mode",
+                &format_args!("{}", self.int_st_ahead_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - intoe on dat1 end ahead of time: 0/3-no, 1-ahead 1sdclk, 2-ahead 2sdclk"]
     #[inline(always)]

@@ -54,6 +54,18 @@ impl R {
         GLITCH_FILT_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::AUTOBAUD")
+            .field("en", &format_args!("{}", self.en().bit()))
+            .field(
+                "glitch_filt",
+                &format_args!("{}", self.glitch_filt().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This is the enable bit for detecting baudrate."]
     #[inline(always)]

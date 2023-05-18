@@ -46,6 +46,17 @@ impl R {
         WDT_STG3_HOLD_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::WDTCONFIG4")
+            .field(
+                "wdt_stg3_hold",
+                &format_args!("{}", self.wdt_stg3_hold().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Need add desc"]
     #[inline(always)]

@@ -83,6 +83,27 @@ impl R {
         RX_TOUT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::CONF1")
+            .field(
+                "rxfifo_full_thrhd",
+                &format_args!("{}", self.rxfifo_full_thrhd().bits()),
+            )
+            .field(
+                "txfifo_empty_thrhd",
+                &format_args!("{}", self.txfifo_empty_thrhd().bits()),
+            )
+            .field(
+                "rx_tout_flow_dis",
+                &format_args!("{}", self.rx_tout_flow_dis().bit()),
+            )
+            .field("rx_flow_en", &format_args!("{}", self.rx_flow_en().bit()))
+            .field("rx_tout_en", &format_args!("{}", self.rx_tout_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - An UART_RXFIFO_FULL_INT interrupt is generated when the receiver receives more data than this register’s value."]
     #[inline(always)]

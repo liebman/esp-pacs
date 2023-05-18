@@ -22,6 +22,17 @@ impl R {
         TIMER_VALUE1_LOW_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME_LOW1")
+            .field(
+                "timer_value1_low",
+                &format_args!("{}", self.timer_value1_low().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "RTC timer low 32 bits\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [time_low1](index.html) module"]
 pub struct TIME_LOW1_SPEC;
 impl crate::RegisterSpec for TIME_LOW1_SPEC {

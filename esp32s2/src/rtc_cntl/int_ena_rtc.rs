@@ -229,6 +229,87 @@ impl R {
         GLITCH_DET_INT_ENA_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::INT_ENA_RTC")
+            .field(
+                "slp_wakeup_int_ena",
+                &format_args!("{}", self.slp_wakeup_int_ena().bit()),
+            )
+            .field(
+                "slp_reject_int_ena",
+                &format_args!("{}", self.slp_reject_int_ena().bit()),
+            )
+            .field(
+                "sdio_idle_int_ena",
+                &format_args!("{}", self.sdio_idle_int_ena().bit()),
+            )
+            .field("wdt_int_ena", &format_args!("{}", self.wdt_int_ena().bit()))
+            .field(
+                "touch_scan_done_int_ena",
+                &format_args!("{}", self.touch_scan_done_int_ena().bit()),
+            )
+            .field(
+                "ulp_cp_int_ena",
+                &format_args!("{}", self.ulp_cp_int_ena().bit()),
+            )
+            .field(
+                "touch_done_int_ena",
+                &format_args!("{}", self.touch_done_int_ena().bit()),
+            )
+            .field(
+                "touch_active_int_ena",
+                &format_args!("{}", self.touch_active_int_ena().bit()),
+            )
+            .field(
+                "touch_inactive_int_ena",
+                &format_args!("{}", self.touch_inactive_int_ena().bit()),
+            )
+            .field(
+                "brown_out_int_ena",
+                &format_args!("{}", self.brown_out_int_ena().bit()),
+            )
+            .field(
+                "main_timer_int_ena",
+                &format_args!("{}", self.main_timer_int_ena().bit()),
+            )
+            .field(
+                "saradc1_int_ena",
+                &format_args!("{}", self.saradc1_int_ena().bit()),
+            )
+            .field(
+                "tsens_int_ena",
+                &format_args!("{}", self.tsens_int_ena().bit()),
+            )
+            .field(
+                "cocpu_int_ena",
+                &format_args!("{}", self.cocpu_int_ena().bit()),
+            )
+            .field(
+                "saradc2_int_ena",
+                &format_args!("{}", self.saradc2_int_ena().bit()),
+            )
+            .field("swd_int_ena", &format_args!("{}", self.swd_int_ena().bit()))
+            .field(
+                "xtal32k_dead_int_ena",
+                &format_args!("{}", self.xtal32k_dead_int_ena().bit()),
+            )
+            .field(
+                "cocpu_trap_int_ena",
+                &format_args!("{}", self.cocpu_trap_int_ena().bit()),
+            )
+            .field(
+                "touch_timeout_int_ena",
+                &format_args!("{}", self.touch_timeout_int_ena().bit()),
+            )
+            .field(
+                "glitch_det_int_ena",
+                &format_args!("{}", self.glitch_det_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enables interruption when the chip wakes up from sleep."]
     #[inline(always)]

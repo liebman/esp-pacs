@@ -63,6 +63,25 @@ impl R {
         TSENS_RST_EN_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::TSENS_CLK_CONF")
+            .field(
+                "tsens_clk_sel",
+                &format_args!("{}", self.tsens_clk_sel().bit()),
+            )
+            .field(
+                "tsens_clk_en",
+                &format_args!("{}", self.tsens_clk_en().bit()),
+            )
+            .field(
+                "tsens_rst_en",
+                &format_args!("{}", self.tsens_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 20 - set this field to select clock-source. 0(default): FOSC, 1: XTAL."]
     #[inline(always)]

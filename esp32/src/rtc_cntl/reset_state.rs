@@ -70,6 +70,29 @@ impl R {
         PROCPU_STAT_VECTOR_SEL_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::RESET_STATE")
+            .field(
+                "reset_cause_procpu",
+                &format_args!("{}", self.reset_cause_procpu().bits()),
+            )
+            .field(
+                "reset_cause_appcpu",
+                &format_args!("{}", self.reset_cause_appcpu().bits()),
+            )
+            .field(
+                "appcpu_stat_vector_sel",
+                &format_args!("{}", self.appcpu_stat_vector_sel().bit()),
+            )
+            .field(
+                "procpu_stat_vector_sel",
+                &format_args!("{}", self.procpu_stat_vector_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - APP CPU state vector sel"]
     #[inline(always)]

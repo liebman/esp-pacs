@@ -85,6 +85,21 @@ impl R {
         ROM_RM_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::MEM_TEST_CONF")
+            .field(
+                "hp_mem_wpulse",
+                &format_args!("{}", self.hp_mem_wpulse().bits()),
+            )
+            .field("hp_mem_wa", &format_args!("{}", self.hp_mem_wa().bits()))
+            .field("hp_mem_ra", &format_args!("{}", self.hp_mem_ra().bits()))
+            .field("hp_mem_rm", &format_args!("{}", self.hp_mem_rm().bits()))
+            .field("rom_rm", &format_args!("{}", self.rom_rm().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - This field controls hp system memory WPULSE parameter. 0b000 for 1.1V/1.0V/0.9V operating Voltage."]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         SCRATCH4_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::STORE4")
+            .field("scratch4", &format_args!("{}", self.scratch4().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - 32-bit general purpose retention register"]
     #[inline(always)]

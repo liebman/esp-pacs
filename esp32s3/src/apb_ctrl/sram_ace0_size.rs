@@ -46,6 +46,17 @@ impl R {
         SRAM_ACE0_SIZE_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::SRAM_ACE0_SIZE")
+            .field(
+                "sram_ace0_size",
+                &format_args!("{}", self.sram_ace0_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - ******* Description ***********"]
     #[inline(always)]

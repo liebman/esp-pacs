@@ -46,6 +46,17 @@ impl R {
         CORE_0_WORLD_PREPARE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_World_PREPARE")
+            .field(
+                "core_0_world_prepare",
+                &format_args!("{}", self.core_0_world_prepare().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field to used to set world to enter, 2'b01 means WORLD0, 2'b10 means WORLD1"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         GPIO_INTERRUPT_APP_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::GPIO_INTERRUPT_APP_MAP")
+            .field(
+                "gpio_interrupt_app_map",
+                &format_args!("{}", self.gpio_interrupt_app_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - this register used to map gpio_interrupt_app interrupt to one of core0's external interrupt"]
     #[inline(always)]

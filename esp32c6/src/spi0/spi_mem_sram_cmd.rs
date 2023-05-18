@@ -172,6 +172,89 @@ impl R {
         SPI_SMEM_DATA_IE_ALWAYS_ON_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_SRAM_CMD")
+            .field(
+                "spi_mem_sclk_mode",
+                &format_args!("{}", self.spi_mem_sclk_mode().bits()),
+            )
+            .field(
+                "spi_mem_swb_mode",
+                &format_args!("{}", self.spi_mem_swb_mode().bits()),
+            )
+            .field(
+                "spi_mem_sdin_dual",
+                &format_args!("{}", self.spi_mem_sdin_dual().bit()),
+            )
+            .field(
+                "spi_mem_sdout_dual",
+                &format_args!("{}", self.spi_mem_sdout_dual().bit()),
+            )
+            .field(
+                "spi_mem_saddr_dual",
+                &format_args!("{}", self.spi_mem_saddr_dual().bit()),
+            )
+            .field(
+                "spi_mem_sdin_quad",
+                &format_args!("{}", self.spi_mem_sdin_quad().bit()),
+            )
+            .field(
+                "spi_mem_sdout_quad",
+                &format_args!("{}", self.spi_mem_sdout_quad().bit()),
+            )
+            .field(
+                "spi_mem_saddr_quad",
+                &format_args!("{}", self.spi_mem_saddr_quad().bit()),
+            )
+            .field(
+                "spi_mem_scmd_quad",
+                &format_args!("{}", self.spi_mem_scmd_quad().bit()),
+            )
+            .field(
+                "spi_mem_sdin_oct",
+                &format_args!("{}", self.spi_mem_sdin_oct().bit()),
+            )
+            .field(
+                "spi_mem_sdout_oct",
+                &format_args!("{}", self.spi_mem_sdout_oct().bit()),
+            )
+            .field(
+                "spi_mem_saddr_oct",
+                &format_args!("{}", self.spi_mem_saddr_oct().bit()),
+            )
+            .field(
+                "spi_mem_scmd_oct",
+                &format_args!("{}", self.spi_mem_scmd_oct().bit()),
+            )
+            .field(
+                "spi_mem_sdummy_rin",
+                &format_args!("{}", self.spi_mem_sdummy_rin().bit()),
+            )
+            .field(
+                "spi_mem_sdummy_wout",
+                &format_args!("{}", self.spi_mem_sdummy_wout().bit()),
+            )
+            .field(
+                "spi_smem_wdummy_dqs_always_out",
+                &format_args!("{}", self.spi_smem_wdummy_dqs_always_out().bit()),
+            )
+            .field(
+                "spi_smem_wdummy_always_out",
+                &format_args!("{}", self.spi_smem_wdummy_always_out().bit()),
+            )
+            .field(
+                "spi_smem_dqs_ie_always_on",
+                &format_args!("{}", self.spi_smem_dqs_ie_always_on().bit()),
+            )
+            .field(
+                "spi_smem_data_ie_always_on",
+                &format_args!("{}", self.spi_smem_data_ie_always_on().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 22 - In the dummy phase of a MSPI read data transfer when accesses to external RAM, the signal level of SPI bus is output by the MSPI controller."]
     #[inline(always)]

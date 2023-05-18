@@ -54,6 +54,21 @@ impl R {
         LP_WDT_INT_RAW_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_WDT::INT_RAW")
+            .field(
+                "super_wdt_int_raw",
+                &format_args!("{}", self.super_wdt_int_raw().bit()),
+            )
+            .field(
+                "lp_wdt_int_raw",
+                &format_args!("{}", self.lp_wdt_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

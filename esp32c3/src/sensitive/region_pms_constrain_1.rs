@@ -106,6 +106,41 @@ impl R {
         REGION_PMS_CONSTRAIN_WORLD_0_AREA_6_R::new(((self.bits >> 12) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::REGION_PMS_CONSTRAIN_1")
+            .field(
+                "region_pms_constrain_world_0_area_0",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_0().bits()),
+            )
+            .field(
+                "region_pms_constrain_world_0_area_1",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_1().bits()),
+            )
+            .field(
+                "region_pms_constrain_world_0_area_2",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_2().bits()),
+            )
+            .field(
+                "region_pms_constrain_world_0_area_3",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_3().bits()),
+            )
+            .field(
+                "region_pms_constrain_world_0_area_4",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_4().bits()),
+            )
+            .field(
+                "region_pms_constrain_world_0_area_5",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_5().bits()),
+            )
+            .field(
+                "region_pms_constrain_world_0_area_6",
+                &format_args!("{}", self.region_pms_constrain_world_0_area_6().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - region_pms_constrain_world_0_area_0"]
     #[inline(always)]

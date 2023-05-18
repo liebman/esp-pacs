@@ -45,6 +45,14 @@ impl R {
         EXT_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::EXT_ADDR")
+            .field("ext_addr", &format_args!("{}", self.ext_addr().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The register are the higher 32bits in the 64 bits address mode."]
     #[inline(always)]

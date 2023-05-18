@@ -45,6 +45,14 @@ impl R {
         WK_CHAR0_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::SLEEP_CONF1")
+            .field("wk_char0", &format_args!("{}", self.wk_char0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register restores the specified char0 to wake up"]
     #[inline(always)]

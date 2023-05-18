@@ -66,6 +66,25 @@ impl R {
         CACHE_MMU_MEM_FORCE_PU_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_MMU_POWER_CTRL")
+            .field(
+                "cache_mmu_mem_force_on",
+                &format_args!("{}", self.cache_mmu_mem_force_on().bit()),
+            )
+            .field(
+                "cache_mmu_mem_force_pd",
+                &format_args!("{}", self.cache_mmu_mem_force_pd().bit()),
+            )
+            .field(
+                "cache_mmu_mem_force_pu",
+                &format_args!("{}", self.cache_mmu_mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable clock gating to save power when access mmu memory, 0: enable, 1: disable"]
     #[inline(always)]

@@ -110,6 +110,45 @@ impl R {
         )
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::DMA_APBPERI_USB_PMS_CONSTRAIN_1")
+            .field(
+                "dma_apbperi_usb_pms_constrain_sram_pms_0",
+                &format_args!("{}", self.dma_apbperi_usb_pms_constrain_sram_pms_0().bits()),
+            )
+            .field(
+                "dma_apbperi_usb_pms_constrain_sram_pms_1",
+                &format_args!("{}", self.dma_apbperi_usb_pms_constrain_sram_pms_1().bits()),
+            )
+            .field(
+                "dma_apbperi_usb_pms_constrain_sram_pms_2",
+                &format_args!("{}", self.dma_apbperi_usb_pms_constrain_sram_pms_2().bits()),
+            )
+            .field(
+                "dma_apbperi_usb_pms_constrain_sram_pms_3",
+                &format_args!("{}", self.dma_apbperi_usb_pms_constrain_sram_pms_3().bits()),
+            )
+            .field(
+                "dma_apbperi_usb_pms_constrain_sram_cachedataarray_pms_0",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_usb_pms_constrain_sram_cachedataarray_pms_0()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_usb_pms_constrain_sram_cachedataarray_pms_1",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_usb_pms_constrain_sram_cachedataarray_pms_1()
+                        .bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - usb's permission(store,load) in data region0 of SRAM"]
     #[inline(always)]

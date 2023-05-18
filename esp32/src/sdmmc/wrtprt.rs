@@ -22,6 +22,17 @@ impl R {
         WRITE_PROTECT_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::WRTPRT")
+            .field(
+                "write_protect",
+                &format_args!("{}", self.write_protect().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Card write protection (WP) status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wrtprt](index.html) module"]
 pub struct WRTPRT_SPEC;
 impl crate::RegisterSpec for WRTPRT_SPEC {

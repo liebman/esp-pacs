@@ -56,6 +56,21 @@ impl R {
         BTEXTWAKEUP_REQ_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::BT_LPCK_DIV_INT")
+            .field(
+                "bt_lpck_div_num",
+                &format_args!("{}", self.bt_lpck_div_num().bits()),
+            )
+            .field(
+                "btextwakeup_req",
+                &format_args!("{}", self.btextwakeup_req().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11"]
     #[inline(always)]

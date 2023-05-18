@@ -139,6 +139,51 @@ impl R {
         RX_FIFO_SRST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::RX_CFG0")
+            .field(
+                "rx_eof_gen_sel",
+                &format_args!("{}", self.rx_eof_gen_sel().bit()),
+            )
+            .field("rx_start", &format_args!("{}", self.rx_start().bit()))
+            .field(
+                "rx_data_bytelen",
+                &format_args!("{}", self.rx_data_bytelen().bits()),
+            )
+            .field("rx_sw_en", &format_args!("{}", self.rx_sw_en().bit()))
+            .field(
+                "rx_pulse_submode_sel",
+                &format_args!("{}", self.rx_pulse_submode_sel().bits()),
+            )
+            .field(
+                "rx_level_submode_sel",
+                &format_args!("{}", self.rx_level_submode_sel().bit()),
+            )
+            .field(
+                "rx_smp_mode_sel",
+                &format_args!("{}", self.rx_smp_mode_sel().bits()),
+            )
+            .field(
+                "rx_clk_edge_sel",
+                &format_args!("{}", self.rx_clk_edge_sel().bit()),
+            )
+            .field(
+                "rx_bit_pack_order",
+                &format_args!("{}", self.rx_bit_pack_order().bit()),
+            )
+            .field(
+                "rx_bus_wid_sel",
+                &format_args!("{}", self.rx_bus_wid_sel().bits()),
+            )
+            .field(
+                "rx_fifo_srst",
+                &format_args!("{}", self.rx_fifo_srst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Write 0 to select eof generated manchnism by configured data byte length. Write 1 to select eof generated manchnism by external enable signal."]
     #[inline(always)]

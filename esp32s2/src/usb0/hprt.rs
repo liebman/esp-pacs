@@ -145,6 +145,32 @@ impl R {
         PRTSPD_R::new(((self.bits >> 17) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HPRT")
+            .field("prtconnsts", &format_args!("{}", self.prtconnsts().bit()))
+            .field("prtconndet", &format_args!("{}", self.prtconndet().bit()))
+            .field("prtena", &format_args!("{}", self.prtena().bit()))
+            .field("prtenchng", &format_args!("{}", self.prtenchng().bit()))
+            .field(
+                "prtovrcurract",
+                &format_args!("{}", self.prtovrcurract().bit()),
+            )
+            .field(
+                "prtovrcurrchng",
+                &format_args!("{}", self.prtovrcurrchng().bit()),
+            )
+            .field("prtres", &format_args!("{}", self.prtres().bit()))
+            .field("prtsusp", &format_args!("{}", self.prtsusp().bit()))
+            .field("prtrst", &format_args!("{}", self.prtrst().bit()))
+            .field("prtlnsts", &format_args!("{}", self.prtlnsts().bits()))
+            .field("prtpwr", &format_args!("{}", self.prtpwr().bit()))
+            .field("prttstctl", &format_args!("{}", self.prttstctl().bits()))
+            .field("prtspd", &format_args!("{}", self.prtspd().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1"]
     #[inline(always)]

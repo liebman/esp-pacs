@@ -90,6 +90,34 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::APB_CONF")
+            .field(
+                "apb_fifo_mask",
+                &format_args!("{}", self.apb_fifo_mask().bit()),
+            )
+            .field(
+                "mem_tx_wrap_en",
+                &format_args!("{}", self.mem_tx_wrap_en().bit()),
+            )
+            .field(
+                "mem_clk_force_on",
+                &format_args!("{}", self.mem_clk_force_on().bit()),
+            )
+            .field(
+                "mem_force_pd",
+                &format_args!("{}", self.mem_force_pd().bit()),
+            )
+            .field(
+                "mem_force_pu",
+                &format_args!("{}", self.mem_force_pu().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1'h1: access memory directly. 1'h0: access memory by FIFO."]
     #[inline(always)]

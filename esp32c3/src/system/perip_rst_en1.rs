@@ -127,6 +127,41 @@ impl R {
         TSENS_RST_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::PERIP_RST_EN1")
+            .field(
+                "crypto_aes_rst",
+                &format_args!("{}", self.crypto_aes_rst().bit()),
+            )
+            .field(
+                "crypto_sha_rst",
+                &format_args!("{}", self.crypto_sha_rst().bit()),
+            )
+            .field(
+                "crypto_rsa_rst",
+                &format_args!("{}", self.crypto_rsa_rst().bit()),
+            )
+            .field(
+                "crypto_ds_rst",
+                &format_args!("{}", self.crypto_ds_rst().bit()),
+            )
+            .field(
+                "crypto_hmac_rst",
+                &format_args!("{}", self.crypto_hmac_rst().bit()),
+            )
+            .field("dma_rst", &format_args!("{}", self.dma_rst().bit()))
+            .field(
+                "sdio_host_rst",
+                &format_args!("{}", self.sdio_host_rst().bit()),
+            )
+            .field("lcd_cam_rst", &format_args!("{}", self.lcd_cam_rst().bit()))
+            .field("uart2_rst", &format_args!("{}", self.uart2_rst().bit()))
+            .field("tsens_rst", &format_args!("{}", self.tsens_rst().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - reg_crypto_aes_rst"]
     #[inline(always)]

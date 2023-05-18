@@ -74,6 +74,29 @@ impl R {
         ALWAYS_SEND_EN_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::QUICK_SENT")
+            .field(
+                "single_send_num",
+                &format_args!("{}", self.single_send_num().bits()),
+            )
+            .field(
+                "single_send_en",
+                &format_args!("{}", self.single_send_en().bit()),
+            )
+            .field(
+                "always_send_num",
+                &format_args!("{}", self.always_send_num().bits()),
+            )
+            .field(
+                "always_send_en",
+                &format_args!("{}", self.always_send_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - a"]
     #[inline(always)]

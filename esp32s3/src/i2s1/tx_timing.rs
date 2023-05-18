@@ -95,6 +95,37 @@ impl R {
         TX_BCK_IN_DM_R::new(((self.bits >> 28) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::TX_TIMING")
+            .field(
+                "tx_sd_out_dm",
+                &format_args!("{}", self.tx_sd_out_dm().bits()),
+            )
+            .field(
+                "tx_sd1_out_dm",
+                &format_args!("{}", self.tx_sd1_out_dm().bits()),
+            )
+            .field(
+                "tx_ws_out_dm",
+                &format_args!("{}", self.tx_ws_out_dm().bits()),
+            )
+            .field(
+                "tx_bck_out_dm",
+                &format_args!("{}", self.tx_bck_out_dm().bits()),
+            )
+            .field(
+                "tx_ws_in_dm",
+                &format_args!("{}", self.tx_ws_in_dm().bits()),
+            )
+            .field(
+                "tx_bck_in_dm",
+                &format_args!("{}", self.tx_bck_in_dm().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - The delay mode of I2S TX SD output signal. 0: bypass. 1: delay by pos edge. 2: delay by neg edge. 3: not used."]
     #[inline(always)]

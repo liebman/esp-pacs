@@ -54,6 +54,15 @@ impl R {
         EDMA_RESET_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::EDMA_CTRL")
+            .field("edma_clk_on", &format_args!("{}", self.edma_clk_on().bit()))
+            .field("edma_reset", &format_args!("{}", self.edma_reset().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - reg_edma_clk_on"]
     #[inline(always)]

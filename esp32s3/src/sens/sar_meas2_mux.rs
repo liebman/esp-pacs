@@ -55,6 +55,21 @@ impl R {
         SAR2_RTC_FORCE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEAS2_MUX")
+            .field(
+                "sar2_pwdet_cct",
+                &format_args!("{}", self.sar2_pwdet_cct().bits()),
+            )
+            .field(
+                "sar2_rtc_force",
+                &format_args!("{}", self.sar2_rtc_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 28:30 - SAR2_PWDET_CCT"]
     #[inline(always)]

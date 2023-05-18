@@ -131,6 +131,53 @@ impl R {
         CHIP_VER_REV1_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_WDATA3")
+            .field(
+                "chip_ver_dis_app_cpu",
+                &format_args!("{}", self.chip_ver_dis_app_cpu().bit()),
+            )
+            .field(
+                "chip_ver_dis_bt",
+                &format_args!("{}", self.chip_ver_dis_bt().bit()),
+            )
+            .field(
+                "chip_ver_pkg_4bit",
+                &format_args!("{}", self.chip_ver_pkg_4bit().bit()),
+            )
+            .field(
+                "chip_ver_dis_cache",
+                &format_args!("{}", self.chip_ver_dis_cache().bit()),
+            )
+            .field(
+                "spi_pad_config_hd",
+                &format_args!("{}", self.spi_pad_config_hd().bits()),
+            )
+            .field(
+                "chip_ver_pkg",
+                &format_args!("{}", self.chip_ver_pkg().bits()),
+            )
+            .field(
+                "chip_cpu_freq_low",
+                &format_args!("{}", self.chip_cpu_freq_low().bit()),
+            )
+            .field(
+                "chip_cpu_freq_rated",
+                &format_args!("{}", self.chip_cpu_freq_rated().bit()),
+            )
+            .field(
+                "blk3_part_reserve",
+                &format_args!("{}", self.blk3_part_reserve().bit()),
+            )
+            .field(
+                "chip_ver_rev1",
+                &format_args!("{}", self.chip_ver_rev1().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

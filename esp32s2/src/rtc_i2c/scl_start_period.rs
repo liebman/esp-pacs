@@ -46,6 +46,17 @@ impl R {
         SCL_START_PERIOD_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::SCL_START_PERIOD")
+            .field(
+                "scl_start_period",
+                &format_args!("{}", self.scl_start_period().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - Number of clock cycles to wait after generating a start condition."]
     #[inline(always)]

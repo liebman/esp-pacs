@@ -86,6 +86,30 @@ impl R {
         ADC2_TP_HIGH_R::new(((self.bits >> 23) & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK3_WDATA3")
+            .field("blk3_din3", &format_args!("{}", self.blk3_din3().bits()))
+            .field(
+                "adc1_tp_low",
+                &format_args!("{}", self.adc1_tp_low().bits()),
+            )
+            .field(
+                "adc1_tp_high",
+                &format_args!("{}", self.adc1_tp_high().bits()),
+            )
+            .field(
+                "adc2_tp_low",
+                &format_args!("{}", self.adc2_tp_low().bits()),
+            )
+            .field(
+                "adc2_tp_high",
+                &format_args!("{}", self.adc2_tp_high().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - program for BLOCK3"]
     #[inline(always)]

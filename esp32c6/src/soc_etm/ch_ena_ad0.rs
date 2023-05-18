@@ -324,6 +324,45 @@ impl R {
         CH_ENA31_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SOC_ETM::CH_ENA_AD0")
+            .field("ch_ena0", &format_args!("{}", self.ch_ena0().bit()))
+            .field("ch_ena1", &format_args!("{}", self.ch_ena1().bit()))
+            .field("ch_ena2", &format_args!("{}", self.ch_ena2().bit()))
+            .field("ch_ena3", &format_args!("{}", self.ch_ena3().bit()))
+            .field("ch_ena4", &format_args!("{}", self.ch_ena4().bit()))
+            .field("ch_ena5", &format_args!("{}", self.ch_ena5().bit()))
+            .field("ch_ena6", &format_args!("{}", self.ch_ena6().bit()))
+            .field("ch_ena7", &format_args!("{}", self.ch_ena7().bit()))
+            .field("ch_ena8", &format_args!("{}", self.ch_ena8().bit()))
+            .field("ch_ena9", &format_args!("{}", self.ch_ena9().bit()))
+            .field("ch_ena10", &format_args!("{}", self.ch_ena10().bit()))
+            .field("ch_ena11", &format_args!("{}", self.ch_ena11().bit()))
+            .field("ch_ena12", &format_args!("{}", self.ch_ena12().bit()))
+            .field("ch_ena13", &format_args!("{}", self.ch_ena13().bit()))
+            .field("ch_ena14", &format_args!("{}", self.ch_ena14().bit()))
+            .field("ch_ena15", &format_args!("{}", self.ch_ena15().bit()))
+            .field("ch_ena16", &format_args!("{}", self.ch_ena16().bit()))
+            .field("ch_ena17", &format_args!("{}", self.ch_ena17().bit()))
+            .field("ch_ena18", &format_args!("{}", self.ch_ena18().bit()))
+            .field("ch_ena19", &format_args!("{}", self.ch_ena19().bit()))
+            .field("ch_ena20", &format_args!("{}", self.ch_ena20().bit()))
+            .field("ch_ena21", &format_args!("{}", self.ch_ena21().bit()))
+            .field("ch_ena22", &format_args!("{}", self.ch_ena22().bit()))
+            .field("ch_ena23", &format_args!("{}", self.ch_ena23().bit()))
+            .field("ch_ena24", &format_args!("{}", self.ch_ena24().bit()))
+            .field("ch_ena25", &format_args!("{}", self.ch_ena25().bit()))
+            .field("ch_ena26", &format_args!("{}", self.ch_ena26().bit()))
+            .field("ch_ena27", &format_args!("{}", self.ch_ena27().bit()))
+            .field("ch_ena28", &format_args!("{}", self.ch_ena28().bit()))
+            .field("ch_ena29", &format_args!("{}", self.ch_ena29().bit()))
+            .field("ch_ena30", &format_args!("{}", self.ch_ena30().bit()))
+            .field("ch_ena31", &format_args!("{}", self.ch_ena31().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - ch0 enable"]
     #[inline(always)]

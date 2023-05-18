@@ -49,6 +49,14 @@ impl R {
         SLP_VAL_HI_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_TIMER1")
+            .field("slp_val_hi", &format_args!("{}", self.slp_val_hi().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Sets the higher 16 bits of the trigger threshold for the RTC timer."]
     #[inline(always)]

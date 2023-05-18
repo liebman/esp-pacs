@@ -171,6 +171,28 @@ impl R {
         FLASH_READ_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::CMD")
+            .field("flash_pe", &format_args!("{}", self.flash_pe().bit()))
+            .field("usr", &format_args!("{}", self.usr().bit()))
+            .field("flash_hpm", &format_args!("{}", self.flash_hpm().bit()))
+            .field("flash_res", &format_args!("{}", self.flash_res().bit()))
+            .field("flash_dp", &format_args!("{}", self.flash_dp().bit()))
+            .field("flash_ce", &format_args!("{}", self.flash_ce().bit()))
+            .field("flash_be", &format_args!("{}", self.flash_be().bit()))
+            .field("flash_se", &format_args!("{}", self.flash_se().bit()))
+            .field("flash_pp", &format_args!("{}", self.flash_pp().bit()))
+            .field("flash_wrsr", &format_args!("{}", self.flash_wrsr().bit()))
+            .field("flash_rdsr", &format_args!("{}", self.flash_rdsr().bit()))
+            .field("flash_rdid", &format_args!("{}", self.flash_rdid().bit()))
+            .field("flash_wrdi", &format_args!("{}", self.flash_wrdi().bit()))
+            .field("flash_wren", &format_args!("{}", self.flash_wren().bit()))
+            .field("flash_read", &format_args!("{}", self.flash_read().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 17 - In user mode, it is set to indicate that program/erase operation will be triggered. The bit is combined with SPI_MEM_USR bit. The bit will be cleared once the operation done.1: enable 0: disable."]
     #[inline(always)]

@@ -81,6 +81,21 @@ impl R {
         INT_ENA_R::new(((self.bits >> 13) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::PIN")
+            .field("pad_driver", &format_args!("{}", self.pad_driver().bit()))
+            .field("int_type", &format_args!("{}", self.int_type().bits()))
+            .field(
+                "wakeup_enable",
+                &format_args!("{}", self.wakeup_enable().bit()),
+            )
+            .field("config", &format_args!("{}", self.config().bits()))
+            .field("int_ena", &format_args!("{}", self.int_ena().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - if set to 0: normal output if set to 1: open drain"]
     #[inline(always)]

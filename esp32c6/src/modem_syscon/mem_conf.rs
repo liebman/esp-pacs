@@ -63,6 +63,25 @@ impl R {
         MODEM_MEM_RA_R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_SYSCON::MEM_CONF")
+            .field(
+                "modem_mem_wp",
+                &format_args!("{}", self.modem_mem_wp().bits()),
+            )
+            .field(
+                "modem_mem_wa",
+                &format_args!("{}", self.modem_mem_wa().bits()),
+            )
+            .field(
+                "modem_mem_ra",
+                &format_args!("{}", self.modem_mem_ra().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]

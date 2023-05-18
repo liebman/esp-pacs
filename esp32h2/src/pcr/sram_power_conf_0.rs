@@ -66,6 +66,25 @@ impl R {
         ROM_CLKGATE_FORCE_ON_R::new(((self.bits >> 17) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SRAM_POWER_CONF_0")
+            .field(
+                "rom_force_pu",
+                &format_args!("{}", self.rom_force_pu().bits()),
+            )
+            .field(
+                "rom_force_pd",
+                &format_args!("{}", self.rom_force_pd().bits()),
+            )
+            .field(
+                "rom_clkgate_force_on",
+                &format_args!("{}", self.rom_clkgate_force_on().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 13:14 - Set this bit to force power up ROM"]
     #[inline(always)]

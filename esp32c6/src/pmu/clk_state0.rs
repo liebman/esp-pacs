@@ -134,6 +134,81 @@ impl R {
         ANA_XPD_XTAL_STATE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::CLK_STATE0")
+            .field(
+                "stable_xpd_bbpll_state",
+                &format_args!("{}", self.stable_xpd_bbpll_state().bit()),
+            )
+            .field(
+                "stable_xpd_xtal_state",
+                &format_args!("{}", self.stable_xpd_xtal_state().bit()),
+            )
+            .field(
+                "sys_clk_slp_sel_state",
+                &format_args!("{}", self.sys_clk_slp_sel_state().bit()),
+            )
+            .field(
+                "sys_clk_sel_state",
+                &format_args!("{}", self.sys_clk_sel_state().bits()),
+            )
+            .field(
+                "sys_clk_no_div_state",
+                &format_args!("{}", self.sys_clk_no_div_state().bit()),
+            )
+            .field(
+                "icg_sys_clk_en_state",
+                &format_args!("{}", self.icg_sys_clk_en_state().bit()),
+            )
+            .field(
+                "icg_modem_switch_state",
+                &format_args!("{}", self.icg_modem_switch_state().bit()),
+            )
+            .field(
+                "icg_modem_code_state",
+                &format_args!("{}", self.icg_modem_code_state().bits()),
+            )
+            .field(
+                "icg_slp_sel_state",
+                &format_args!("{}", self.icg_slp_sel_state().bit()),
+            )
+            .field(
+                "icg_global_xtal_state",
+                &format_args!("{}", self.icg_global_xtal_state().bit()),
+            )
+            .field(
+                "icg_global_pll_state",
+                &format_args!("{}", self.icg_global_pll_state().bit()),
+            )
+            .field(
+                "ana_i2c_iso_en_state",
+                &format_args!("{}", self.ana_i2c_iso_en_state().bit()),
+            )
+            .field(
+                "ana_i2c_retention_state",
+                &format_args!("{}", self.ana_i2c_retention_state().bit()),
+            )
+            .field(
+                "ana_xpd_bb_i2c_state",
+                &format_args!("{}", self.ana_xpd_bb_i2c_state().bit()),
+            )
+            .field(
+                "ana_xpd_bbpll_i2c_state",
+                &format_args!("{}", self.ana_xpd_bbpll_i2c_state().bit()),
+            )
+            .field(
+                "ana_xpd_bbpll_state",
+                &format_args!("{}", self.ana_xpd_bbpll_state().bit()),
+            )
+            .field(
+                "ana_xpd_xtal_state",
+                &format_args!("{}", self.ana_xpd_xtal_state().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clk_state0](index.html) module"]
 pub struct CLK_STATE0_SPEC;
 impl crate::RegisterSpec for CLK_STATE0_SPEC {

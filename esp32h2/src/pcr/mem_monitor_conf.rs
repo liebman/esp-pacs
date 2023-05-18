@@ -63,6 +63,25 @@ impl R {
         MEM_MONITOR_READY_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::MEM_MONITOR_CONF")
+            .field(
+                "mem_monitor_clk_en",
+                &format_args!("{}", self.mem_monitor_clk_en().bit()),
+            )
+            .field(
+                "mem_monitor_rst_en",
+                &format_args!("{}", self.mem_monitor_rst_en().bit()),
+            )
+            .field(
+                "mem_monitor_ready",
+                &format_args!("{}", self.mem_monitor_ready().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable mem_monitor clock"]
     #[inline(always)]

@@ -22,6 +22,14 @@ impl R {
         WR_DIS_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_WR_DIS")
+            .field("wr_dis", &format_args!("{}", self.wr_dis().bits()))
+            .finish()
+    }
+}
 #[doc = "BLOCK0 data register 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_wr_dis](index.html) module"]
 pub struct RD_WR_DIS_SPEC;
 impl crate::RegisterSpec for RD_WR_DIS_SPEC {

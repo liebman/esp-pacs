@@ -43,6 +43,29 @@ impl R {
         DAT3_CRC_ERR_CNT_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::SDIO_CRC_ST0")
+            .field(
+                "dat0_crc_err_cnt",
+                &format_args!("{}", self.dat0_crc_err_cnt().bits()),
+            )
+            .field(
+                "dat1_crc_err_cnt",
+                &format_args!("{}", self.dat1_crc_err_cnt().bits()),
+            )
+            .field(
+                "dat2_crc_err_cnt",
+                &format_args!("{}", self.dat2_crc_err_cnt().bits()),
+            )
+            .field(
+                "dat3_crc_err_cnt",
+                &format_args!("{}", self.dat3_crc_err_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sdio_crc_st0](index.html) module"]
 pub struct SDIO_CRC_ST0_SPEC;
 impl crate::RegisterSpec for SDIO_CRC_ST0_SPEC {

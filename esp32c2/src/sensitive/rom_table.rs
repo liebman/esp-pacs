@@ -46,6 +46,14 @@ impl R {
         ROM_TABLE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::ROM_TABLE")
+            .field("rom_table", &format_args!("{}", self.rom_table().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Need add description"]
     #[inline(always)]

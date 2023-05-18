@@ -180,6 +180,62 @@ impl R {
         PAD_FORCE_HOLD_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::PWC")
+            .field(
+                "fastmem_force_noiso",
+                &format_args!("{}", self.fastmem_force_noiso().bit()),
+            )
+            .field(
+                "fastmem_force_iso",
+                &format_args!("{}", self.fastmem_force_iso().bit()),
+            )
+            .field(
+                "slowmem_force_noiso",
+                &format_args!("{}", self.slowmem_force_noiso().bit()),
+            )
+            .field(
+                "slowmem_force_iso",
+                &format_args!("{}", self.slowmem_force_iso().bit()),
+            )
+            .field("force_iso", &format_args!("{}", self.force_iso().bit()))
+            .field("force_noiso", &format_args!("{}", self.force_noiso().bit()))
+            .field(
+                "fastmem_folw_cpu",
+                &format_args!("{}", self.fastmem_folw_cpu().bit()),
+            )
+            .field(
+                "fastmem_force_lpd",
+                &format_args!("{}", self.fastmem_force_lpd().bit()),
+            )
+            .field(
+                "fastmem_force_lpu",
+                &format_args!("{}", self.fastmem_force_lpu().bit()),
+            )
+            .field(
+                "slowmem_folw_cpu",
+                &format_args!("{}", self.slowmem_folw_cpu().bit()),
+            )
+            .field(
+                "slowmem_force_lpd",
+                &format_args!("{}", self.slowmem_force_lpd().bit()),
+            )
+            .field(
+                "slowmem_force_lpu",
+                &format_args!("{}", self.slowmem_force_lpu().bit()),
+            )
+            .field("force_pd", &format_args!("{}", self.force_pd().bit()))
+            .field("force_pu", &format_args!("{}", self.force_pu().bit()))
+            .field("pd_en", &format_args!("{}", self.pd_en().bit()))
+            .field(
+                "pad_force_hold",
+                &format_args!("{}", self.pad_force_hold().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Fast RTC memory force no ISO"]
     #[inline(always)]

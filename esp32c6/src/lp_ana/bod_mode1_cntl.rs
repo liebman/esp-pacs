@@ -46,6 +46,17 @@ impl R {
         BOD_MODE1_RESET_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::BOD_MODE1_CNTL")
+            .field(
+                "bod_mode1_reset_ena",
+                &format_args!("{}", self.bod_mode1_reset_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

@@ -153,6 +153,35 @@ impl R {
         USR_COMMAND_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::USER")
+            .field("ck_out_edge", &format_args!("{}", self.ck_out_edge().bit()))
+            .field("fwrite_dual", &format_args!("{}", self.fwrite_dual().bit()))
+            .field("fwrite_quad", &format_args!("{}", self.fwrite_quad().bit()))
+            .field("fwrite_dio", &format_args!("{}", self.fwrite_dio().bit()))
+            .field("fwrite_qio", &format_args!("{}", self.fwrite_qio().bit()))
+            .field(
+                "usr_miso_highpart",
+                &format_args!("{}", self.usr_miso_highpart().bit()),
+            )
+            .field(
+                "usr_mosi_highpart",
+                &format_args!("{}", self.usr_mosi_highpart().bit()),
+            )
+            .field(
+                "usr_dummy_idle",
+                &format_args!("{}", self.usr_dummy_idle().bit()),
+            )
+            .field("usr_mosi", &format_args!("{}", self.usr_mosi().bit()))
+            .field("usr_miso", &format_args!("{}", self.usr_miso().bit()))
+            .field("usr_dummy", &format_args!("{}", self.usr_dummy().bit()))
+            .field("usr_addr", &format_args!("{}", self.usr_addr().bit()))
+            .field("usr_command", &format_args!("{}", self.usr_command().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 9 - the bit combined with spi_mem_mosi_delay_mode bits to set mosi signal delay mode."]
     #[inline(always)]

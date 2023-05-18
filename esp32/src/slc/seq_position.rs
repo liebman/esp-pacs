@@ -56,6 +56,21 @@ impl R {
         SLC1_SEQ_POSITION_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::SEQ_POSITION")
+            .field(
+                "slc0_seq_position",
+                &format_args!("{}", self.slc0_seq_position().bits()),
+            )
+            .field(
+                "slc1_seq_position",
+                &format_args!("{}", self.slc1_seq_position().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

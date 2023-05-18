@@ -171,6 +171,69 @@ impl R {
         CH_TX_LOOP_INT_ENA_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::INT_ENA")
+            .field(
+                "ch0_tx_end_int_ena",
+                &format_args!("{}", self.ch0_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_end_int_ena",
+                &format_args!("{}", self.ch1_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch2_rx_end_int_ena",
+                &format_args!("{}", self.ch2_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch3_rx_end_int_ena",
+                &format_args!("{}", self.ch3_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_err_int_ena",
+                &format_args!("{}", self.ch0_tx_err_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_err_int_ena",
+                &format_args!("{}", self.ch1_tx_err_int_ena().bit()),
+            )
+            .field(
+                "ch2_rx_err_int_ena",
+                &format_args!("{}", self.ch2_rx_err_int_ena().bit()),
+            )
+            .field(
+                "ch3_rx_err_int_ena",
+                &format_args!("{}", self.ch3_rx_err_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch0_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch1_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch2_rx_thr_event_int_ena",
+                &format_args!("{}", self.ch2_rx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch3_rx_thr_event_int_ena",
+                &format_args!("{}", self.ch3_rx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_loop_int_ena",
+                &format_args!("{}", self.ch0_tx_loop_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_loop_int_ena",
+                &format_args!("{}", self.ch1_tx_loop_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "reg_ch[0-1]_tx_end_int_ena."]
     #[inline(always)]

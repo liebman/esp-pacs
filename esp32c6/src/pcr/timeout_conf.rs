@@ -56,6 +56,21 @@ impl R {
         HP_TIMEOUT_RST_EN_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::TIMEOUT_CONF")
+            .field(
+                "cpu_timeout_rst_en",
+                &format_args!("{}", self.cpu_timeout_rst_en().bit()),
+            )
+            .field(
+                "hp_timeout_rst_en",
+                &format_args!("{}", self.hp_timeout_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - Set 0 to reset cpu_peri timeout module"]
     #[inline(always)]

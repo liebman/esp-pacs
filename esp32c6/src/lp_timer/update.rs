@@ -65,6 +65,25 @@ impl R {
         MAIN_TIMER_SYS_RST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_TIMER::UPDATE")
+            .field(
+                "main_timer_xtal_off",
+                &format_args!("{}", self.main_timer_xtal_off().bit()),
+            )
+            .field(
+                "main_timer_sys_stall",
+                &format_args!("{}", self.main_timer_sys_stall().bit()),
+            )
+            .field(
+                "main_timer_sys_rst",
+                &format_args!("{}", self.main_timer_sys_rst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 28 - need_des"]
     #[inline(always)]

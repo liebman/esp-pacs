@@ -46,6 +46,17 @@ impl R {
         WAKEUP_CAUSE_R::new(self.bits & 0x0001_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_WAKEUP_CAUSE")
+            .field(
+                "wakeup_cause",
+                &format_args!("{}", self.wakeup_cause().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:16 - sleep wakeup cause"]
     #[inline(always)]

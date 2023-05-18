@@ -45,6 +45,14 @@ impl R {
         RSA_PD_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::RSA_PD_CTRL")
+            .field("rsa_pd", &format_args!("{}", self.rsa_pd().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

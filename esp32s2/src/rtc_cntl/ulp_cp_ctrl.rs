@@ -96,6 +96,37 @@ impl R {
         ULP_CP_START_TOP_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::ULP_CP_CTRL")
+            .field(
+                "ulp_cp_mem_addr_init",
+                &format_args!("{}", self.ulp_cp_mem_addr_init().bits()),
+            )
+            .field(
+                "ulp_cp_mem_addr_size",
+                &format_args!("{}", self.ulp_cp_mem_addr_size().bits()),
+            )
+            .field(
+                "ulp_cp_clk_fo",
+                &format_args!("{}", self.ulp_cp_clk_fo().bit()),
+            )
+            .field(
+                "ulp_cp_reset",
+                &format_args!("{}", self.ulp_cp_reset().bit()),
+            )
+            .field(
+                "ulp_cp_force_start_top",
+                &format_args!("{}", self.ulp_cp_force_start_top().bit()),
+            )
+            .field(
+                "ulp_cp_start_top",
+                &format_args!("{}", self.ulp_cp_start_top().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10"]
     #[inline(always)]

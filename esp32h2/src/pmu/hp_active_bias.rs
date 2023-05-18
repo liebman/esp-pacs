@@ -75,6 +75,26 @@ impl R {
         SLEEP_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_ACTIVE_BIAS")
+            .field(
+                "hp_active_xpd_trx",
+                &format_args!("{}", self.hp_active_xpd_trx().bit()),
+            )
+            .field(
+                "hp_active_xpd_bias",
+                &format_args!("{}", self.hp_active_xpd_bias().bit()),
+            )
+            .field(
+                "hp_active_pd_cur",
+                &format_args!("{}", self.hp_active_pd_cur().bit()),
+            )
+            .field("sleep", &format_args!("{}", self.sleep().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - need_des"]
     #[inline(always)]

@@ -112,6 +112,53 @@ impl R {
         L1_CACHE_MEM_OBJECT_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_OBJECT_CTRL")
+            .field(
+                "l1_icache0_tag_object",
+                &format_args!("{}", self.l1_icache0_tag_object().bit()),
+            )
+            .field(
+                "l1_icache1_tag_object",
+                &format_args!("{}", self.l1_icache1_tag_object().bit()),
+            )
+            .field(
+                "l1_icache2_tag_object",
+                &format_args!("{}", self.l1_icache2_tag_object().bit()),
+            )
+            .field(
+                "l1_icache3_tag_object",
+                &format_args!("{}", self.l1_icache3_tag_object().bit()),
+            )
+            .field(
+                "l1_cache_tag_object",
+                &format_args!("{}", self.l1_cache_tag_object().bit()),
+            )
+            .field(
+                "l1_icache0_mem_object",
+                &format_args!("{}", self.l1_icache0_mem_object().bit()),
+            )
+            .field(
+                "l1_icache1_mem_object",
+                &format_args!("{}", self.l1_icache1_mem_object().bit()),
+            )
+            .field(
+                "l1_icache2_mem_object",
+                &format_args!("{}", self.l1_icache2_mem_object().bit()),
+            )
+            .field(
+                "l1_icache3_mem_object",
+                &format_args!("{}", self.l1_icache3_mem_object().bit()),
+            )
+            .field(
+                "l1_cache_mem_object",
+                &format_args!("{}", self.l1_cache_mem_object().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - Set this bit to set L1-Cache tag memory as object. This bit should be onehot with the others fields inside this register."]
     #[inline(always)]

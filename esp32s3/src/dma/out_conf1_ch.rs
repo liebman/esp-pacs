@@ -55,6 +55,21 @@ impl R {
         OUT_EXT_MEM_BK_SIZE_R::new(((self.bits >> 13) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_CONF1_CH")
+            .field(
+                "out_check_owner",
+                &format_args!("{}", self.out_check_owner().bit()),
+            )
+            .field(
+                "out_ext_mem_bk_size",
+                &format_args!("{}", self.out_ext_mem_bk_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - Set this bit to enable checking the owner attribute of the link descriptor."]
     #[inline(always)]

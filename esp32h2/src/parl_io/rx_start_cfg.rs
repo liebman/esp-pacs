@@ -45,6 +45,14 @@ impl R {
         RX_START_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::RX_START_CFG")
+            .field("rx_start", &format_args!("{}", self.rx_start().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - Set this bit to start rx data sampling."]
     #[inline(always)]

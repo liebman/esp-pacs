@@ -46,6 +46,17 @@ impl R {
         IBUS_PMS_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::IBUS_PMS_TBL_LOCK")
+            .field(
+                "ibus_pms_lock",
+                &format_args!("{}", self.ibus_pms_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to configure the ibus permission control section boundary0"]
     #[inline(always)]

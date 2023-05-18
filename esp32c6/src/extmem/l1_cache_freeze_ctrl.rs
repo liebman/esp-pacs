@@ -147,6 +147,73 @@ impl R {
         L1_CACHE_FREEZE_DONE_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_FREEZE_CTRL")
+            .field(
+                "l1_icache0_freeze_en",
+                &format_args!("{}", self.l1_icache0_freeze_en().bit()),
+            )
+            .field(
+                "l1_icache0_freeze_mode",
+                &format_args!("{}", self.l1_icache0_freeze_mode().bit()),
+            )
+            .field(
+                "l1_icache0_freeze_done",
+                &format_args!("{}", self.l1_icache0_freeze_done().bit()),
+            )
+            .field(
+                "l1_icache1_freeze_en",
+                &format_args!("{}", self.l1_icache1_freeze_en().bit()),
+            )
+            .field(
+                "l1_icache1_freeze_mode",
+                &format_args!("{}", self.l1_icache1_freeze_mode().bit()),
+            )
+            .field(
+                "l1_icache1_freeze_done",
+                &format_args!("{}", self.l1_icache1_freeze_done().bit()),
+            )
+            .field(
+                "l1_icache2_freeze_en",
+                &format_args!("{}", self.l1_icache2_freeze_en().bit()),
+            )
+            .field(
+                "l1_icache2_freeze_mode",
+                &format_args!("{}", self.l1_icache2_freeze_mode().bit()),
+            )
+            .field(
+                "l1_icache2_freeze_done",
+                &format_args!("{}", self.l1_icache2_freeze_done().bit()),
+            )
+            .field(
+                "l1_icache3_freeze_en",
+                &format_args!("{}", self.l1_icache3_freeze_en().bit()),
+            )
+            .field(
+                "l1_icache3_freeze_mode",
+                &format_args!("{}", self.l1_icache3_freeze_mode().bit()),
+            )
+            .field(
+                "l1_icache3_freeze_done",
+                &format_args!("{}", self.l1_icache3_freeze_done().bit()),
+            )
+            .field(
+                "l1_cache_freeze_en",
+                &format_args!("{}", self.l1_cache_freeze_en().bit()),
+            )
+            .field(
+                "l1_cache_freeze_mode",
+                &format_args!("{}", self.l1_cache_freeze_mode().bit()),
+            )
+            .field(
+                "l1_cache_freeze_done",
+                &format_args!("{}", self.l1_cache_freeze_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - The bit is used to enable freeze operation on L1-Cache. It can be cleared by software."]
     #[inline(always)]

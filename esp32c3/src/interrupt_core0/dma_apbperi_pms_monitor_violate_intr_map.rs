@@ -48,6 +48,17 @@ impl R {
         DMA_APBPERI_PMS_MONITOR_VIOLATE_INTR_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::DMA_APBPERI_PMS_MONITOR_VIOLATE_INTR_MAP")
+            .field(
+                "dma_apbperi_pms_monitor_violate_intr_map",
+                &format_args!("{}", self.dma_apbperi_pms_monitor_violate_intr_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - reg_core0_dma_apbperi_pms_monitor_violate_intr_map"]
     #[inline(always)]

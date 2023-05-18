@@ -46,6 +46,17 @@ impl R {
         TIMER_TARGET2_HI_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::TARGET2_HI")
+            .field(
+                "timer_target2_hi",
+                &format_args!("{}", self.timer_target2_hi().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - timer taget2 high 20 bits"]
     #[inline(always)]

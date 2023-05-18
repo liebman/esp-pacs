@@ -46,6 +46,17 @@ impl R {
         RETENTION_TAG_LINK_ADDR_R::new(self.bits & 0x07ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::RETENTION_CTRL1")
+            .field(
+                "retention_tag_link_addr",
+                &format_args!("{}", self.retention_tag_link_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:26 - ******* Description ***********"]
     #[inline(always)]

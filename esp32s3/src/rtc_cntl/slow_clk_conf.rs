@@ -66,6 +66,25 @@ impl R {
         SLOW_CLK_NEXT_EDGE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLOW_CLK_CONF")
+            .field(
+                "ana_clk_div_vld",
+                &format_args!("{}", self.ana_clk_div_vld().bit()),
+            )
+            .field(
+                "ana_clk_div",
+                &format_args!("{}", self.ana_clk_div().bits()),
+            )
+            .field(
+                "slow_clk_next_edge",
+                &format_args!("{}", self.slow_clk_next_edge().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 22 - used to sync div bus. clear vld before set reg_rtc_ana_clk_div, then set vld to actually switch the clk"]
     #[inline(always)]

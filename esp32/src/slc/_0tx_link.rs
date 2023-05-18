@@ -81,6 +81,33 @@ impl R {
         SLC0_TXLINK_PARK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0TX_LINK")
+            .field(
+                "slc0_txlink_addr",
+                &format_args!("{}", self.slc0_txlink_addr().bits()),
+            )
+            .field(
+                "slc0_txlink_stop",
+                &format_args!("{}", self.slc0_txlink_stop().bit()),
+            )
+            .field(
+                "slc0_txlink_start",
+                &format_args!("{}", self.slc0_txlink_start().bit()),
+            )
+            .field(
+                "slc0_txlink_restart",
+                &format_args!("{}", self.slc0_txlink_restart().bit()),
+            )
+            .field(
+                "slc0_txlink_park",
+                &format_args!("{}", self.slc0_txlink_park().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19"]
     #[inline(always)]

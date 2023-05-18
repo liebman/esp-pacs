@@ -108,6 +108,45 @@ impl R {
         GPIO7_INT_ENA_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEDICATED_GPIO::INTR_RLS")
+            .field(
+                "gpio0_int_ena",
+                &format_args!("{}", self.gpio0_int_ena().bit()),
+            )
+            .field(
+                "gpio1_int_ena",
+                &format_args!("{}", self.gpio1_int_ena().bit()),
+            )
+            .field(
+                "gpio2_int_ena",
+                &format_args!("{}", self.gpio2_int_ena().bit()),
+            )
+            .field(
+                "gpio3_int_ena",
+                &format_args!("{}", self.gpio3_int_ena().bit()),
+            )
+            .field(
+                "gpio4_int_ena",
+                &format_args!("{}", self.gpio4_int_ena().bit()),
+            )
+            .field(
+                "gpio5_int_ena",
+                &format_args!("{}", self.gpio5_int_ena().bit()),
+            )
+            .field(
+                "gpio6_int_ena",
+                &format_args!("{}", self.gpio6_int_ena().bit()),
+            )
+            .field(
+                "gpio7_int_ena",
+                &format_args!("{}", self.gpio7_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The enable bit for DEDIC_GPIO0_INT_ST register."]
     #[inline(always)]

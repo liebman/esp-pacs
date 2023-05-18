@@ -84,6 +84,30 @@ impl R {
         SOC_WAKEUP_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_INT_ENA")
+            .field(
+                "lp_cpu_exc_int_ena",
+                &format_args!("{}", self.lp_cpu_exc_int_ena().bit()),
+            )
+            .field(
+                "sdio_idle_int_ena",
+                &format_args!("{}", self.sdio_idle_int_ena().bit()),
+            )
+            .field("sw_int_ena", &format_args!("{}", self.sw_int_ena().bit()))
+            .field(
+                "soc_sleep_reject_int_ena",
+                &format_args!("{}", self.soc_sleep_reject_int_ena().bit()),
+            )
+            .field(
+                "soc_wakeup_int_ena",
+                &format_args!("{}", self.soc_wakeup_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - need_des"]
     #[inline(always)]

@@ -112,6 +112,44 @@ impl R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_0_PWR_R::new(((self.bits >> 28) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_CONSTRAIN_3")
+            .field(
+                "core_0_pif_pms_constrain_world_0_spi_2",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_spi_2().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_apb_ctrl",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_0_apb_ctrl().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_can",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_can().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_i2s1",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_i2s1().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_rwbt",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_rwbt().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_wifimac",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_wifimac().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_pwr",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_pwr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - core_0_pif_pms_constrain_world_0_spi_2"]
     #[inline(always)]

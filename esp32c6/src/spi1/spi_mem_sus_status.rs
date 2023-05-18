@@ -136,6 +136,53 @@ impl R {
         SPI_MEM_FLASH_PER_COMMAND_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_SUS_STATUS")
+            .field(
+                "spi_mem_flash_sus",
+                &format_args!("{}", self.spi_mem_flash_sus().bit()),
+            )
+            .field(
+                "spi_mem_wait_pesr_cmd_2b",
+                &format_args!("{}", self.spi_mem_wait_pesr_cmd_2b().bit()),
+            )
+            .field(
+                "spi_mem_flash_hpm_dly_128",
+                &format_args!("{}", self.spi_mem_flash_hpm_dly_128().bit()),
+            )
+            .field(
+                "spi_mem_flash_res_dly_128",
+                &format_args!("{}", self.spi_mem_flash_res_dly_128().bit()),
+            )
+            .field(
+                "spi_mem_flash_dp_dly_128",
+                &format_args!("{}", self.spi_mem_flash_dp_dly_128().bit()),
+            )
+            .field(
+                "spi_mem_flash_per_dly_128",
+                &format_args!("{}", self.spi_mem_flash_per_dly_128().bit()),
+            )
+            .field(
+                "spi_mem_flash_pes_dly_128",
+                &format_args!("{}", self.spi_mem_flash_pes_dly_128().bit()),
+            )
+            .field(
+                "spi_mem_spi0_lock_en",
+                &format_args!("{}", self.spi_mem_spi0_lock_en().bit()),
+            )
+            .field(
+                "spi_mem_flash_pesr_cmd_2b",
+                &format_args!("{}", self.spi_mem_flash_pesr_cmd_2b().bit()),
+            )
+            .field(
+                "spi_mem_flash_per_command",
+                &format_args!("{}", self.spi_mem_flash_per_command().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The status of flash suspend, only used in SPI1."]
     #[inline(always)]

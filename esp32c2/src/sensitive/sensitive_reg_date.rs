@@ -46,6 +46,17 @@ impl R {
         SENSITIVE_REG_DATE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::SENSITIVE_REG_DATE")
+            .field(
+                "sensitive_reg_date",
+                &format_args!("{}", self.sensitive_reg_date().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - Need add description"]
     #[inline(always)]

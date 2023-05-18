@@ -55,6 +55,18 @@ impl R {
         CHAR_NUM_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::AT_CMD_CHAR")
+            .field(
+                "at_cmd_char",
+                &format_args!("{}", self.at_cmd_char().bits()),
+            )
+            .field("char_num", &format_args!("{}", self.char_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register is used to configure the content of at_cmd char."]
     #[inline(always)]

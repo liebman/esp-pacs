@@ -45,6 +45,14 @@ impl R {
         USRID_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::USRID")
+            .field("usrid", &format_args!("{}", self.usrid().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - User identification register, value set by user. Can also be used as a scratchpad register by user."]
     #[inline(always)]

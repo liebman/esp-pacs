@@ -183,6 +183,73 @@ impl R {
         GPIO_PIN0_WAKEUP_ENABLE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::GPIO_WAKEUP")
+            .field(
+                "gpio_wakeup_status",
+                &format_args!("{}", self.gpio_wakeup_status().bits()),
+            )
+            .field(
+                "gpio_wakeup_status_clr",
+                &format_args!("{}", self.gpio_wakeup_status_clr().bit()),
+            )
+            .field(
+                "gpio_pin_clk_gate",
+                &format_args!("{}", self.gpio_pin_clk_gate().bit()),
+            )
+            .field(
+                "gpio_pin5_int_type",
+                &format_args!("{}", self.gpio_pin5_int_type().bits()),
+            )
+            .field(
+                "gpio_pin4_int_type",
+                &format_args!("{}", self.gpio_pin4_int_type().bits()),
+            )
+            .field(
+                "gpio_pin3_int_type",
+                &format_args!("{}", self.gpio_pin3_int_type().bits()),
+            )
+            .field(
+                "gpio_pin2_int_type",
+                &format_args!("{}", self.gpio_pin2_int_type().bits()),
+            )
+            .field(
+                "gpio_pin1_int_type",
+                &format_args!("{}", self.gpio_pin1_int_type().bits()),
+            )
+            .field(
+                "gpio_pin0_int_type",
+                &format_args!("{}", self.gpio_pin0_int_type().bits()),
+            )
+            .field(
+                "gpio_pin5_wakeup_enable",
+                &format_args!("{}", self.gpio_pin5_wakeup_enable().bit()),
+            )
+            .field(
+                "gpio_pin4_wakeup_enable",
+                &format_args!("{}", self.gpio_pin4_wakeup_enable().bit()),
+            )
+            .field(
+                "gpio_pin3_wakeup_enable",
+                &format_args!("{}", self.gpio_pin3_wakeup_enable().bit()),
+            )
+            .field(
+                "gpio_pin2_wakeup_enable",
+                &format_args!("{}", self.gpio_pin2_wakeup_enable().bit()),
+            )
+            .field(
+                "gpio_pin1_wakeup_enable",
+                &format_args!("{}", self.gpio_pin1_wakeup_enable().bit()),
+            )
+            .field(
+                "gpio_pin0_wakeup_enable",
+                &format_args!("{}", self.gpio_pin0_wakeup_enable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 6 - clear rtc gpio wakeup flag"]
     #[inline(always)]

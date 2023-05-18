@@ -46,6 +46,14 @@ impl R {
         BLOCK_NUM_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::BLOCK_NUM")
+            .field("block_num", &format_args!("{}", self.block_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Stores the Block Number of plaintext or ciphertext when the AES accelerator operates under the DMA-AES working mode."]
     #[inline(always)]

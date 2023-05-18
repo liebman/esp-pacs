@@ -53,6 +53,21 @@ impl R {
         LP_I2C_ANA_MAST_I2C0_STATUS_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C_ANA_MST::I2C0_CONF")
+            .field(
+                "lp_i2c_ana_mast_i2c0_conf",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c0_conf().bits()),
+            )
+            .field(
+                "lp_i2c_ana_mast_i2c0_status",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c0_status().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - need_des"]
     #[inline(always)]

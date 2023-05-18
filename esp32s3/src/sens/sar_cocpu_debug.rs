@@ -50,6 +50,33 @@ impl R {
         SAR_COCPU_MEM_ADDR_R::new(((self.bits >> 19) & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_COCPU_DEBUG")
+            .field(
+                "sar_cocpu_pc",
+                &format_args!("{}", self.sar_cocpu_pc().bits()),
+            )
+            .field(
+                "sar_cocpu_mem_vld",
+                &format_args!("{}", self.sar_cocpu_mem_vld().bit()),
+            )
+            .field(
+                "sar_cocpu_mem_rdy",
+                &format_args!("{}", self.sar_cocpu_mem_rdy().bit()),
+            )
+            .field(
+                "sar_cocpu_mem_wen",
+                &format_args!("{}", self.sar_cocpu_mem_wen().bits()),
+            )
+            .field(
+                "sar_cocpu_mem_addr",
+                &format_args!("{}", self.sar_cocpu_mem_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Ulp-riscv debug signal\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar_cocpu_debug](index.html) module"]
 pub struct SAR_COCPU_DEBUG_SPEC;
 impl crate::RegisterSpec for SAR_COCPU_DEBUG_SPEC {

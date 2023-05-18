@@ -196,6 +196,47 @@ impl R {
         DOUT15_MODE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LCD_DATA_DOUT_MODE")
+            .field("dout0_mode", &format_args!("{}", self.dout0_mode().bits()))
+            .field("dout1_mode", &format_args!("{}", self.dout1_mode().bits()))
+            .field("dout2_mode", &format_args!("{}", self.dout2_mode().bits()))
+            .field("dout3_mode", &format_args!("{}", self.dout3_mode().bits()))
+            .field("dout4_mode", &format_args!("{}", self.dout4_mode().bits()))
+            .field("dout5_mode", &format_args!("{}", self.dout5_mode().bits()))
+            .field("dout6_mode", &format_args!("{}", self.dout6_mode().bits()))
+            .field("dout7_mode", &format_args!("{}", self.dout7_mode().bits()))
+            .field("dout8_mode", &format_args!("{}", self.dout8_mode().bits()))
+            .field("dout9_mode", &format_args!("{}", self.dout9_mode().bits()))
+            .field(
+                "dout10_mode",
+                &format_args!("{}", self.dout10_mode().bits()),
+            )
+            .field(
+                "dout11_mode",
+                &format_args!("{}", self.dout11_mode().bits()),
+            )
+            .field(
+                "dout12_mode",
+                &format_args!("{}", self.dout12_mode().bits()),
+            )
+            .field(
+                "dout13_mode",
+                &format_args!("{}", self.dout13_mode().bits()),
+            )
+            .field(
+                "dout14_mode",
+                &format_args!("{}", self.dout14_mode().bits()),
+            )
+            .field(
+                "dout15_mode",
+                &format_args!("{}", self.dout15_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - The output data bit 0 is delayed by module clock LCD_CLK. 0: output without delayed. 1: delay by the positive edge of LCD_CLK. 2: delay by the negative edge of LCD_CLK."]
     #[inline(always)]

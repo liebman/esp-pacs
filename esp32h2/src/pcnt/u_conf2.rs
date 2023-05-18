@@ -54,6 +54,15 @@ impl R {
         CNT_L_LIM_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::U_CONF2")
+            .field("cnt_h_lim", &format_args!("{}", self.cnt_h_lim().bits()))
+            .field("cnt_l_lim", &format_args!("{}", self.cnt_l_lim().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - This register is used to configure the thr_h_lim value for unit %s. When pluse_cnt reaches this value, the counter will be cleared to 0."]
     #[inline(always)]

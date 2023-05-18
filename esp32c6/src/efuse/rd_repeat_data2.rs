@@ -92,6 +92,54 @@ impl R {
         FLASH_TPUW_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA2")
+            .field(
+                "key_purpose_2",
+                &format_args!("{}", self.key_purpose_2().bits()),
+            )
+            .field(
+                "key_purpose_3",
+                &format_args!("{}", self.key_purpose_3().bits()),
+            )
+            .field(
+                "key_purpose_4",
+                &format_args!("{}", self.key_purpose_4().bits()),
+            )
+            .field(
+                "key_purpose_5",
+                &format_args!("{}", self.key_purpose_5().bits()),
+            )
+            .field(
+                "dpa_sec_level",
+                &format_args!("{}", self.dpa_sec_level().bits()),
+            )
+            .field(
+                "rpt4_reserved2_1",
+                &format_args!("{}", self.rpt4_reserved2_1().bit()),
+            )
+            .field(
+                "crypt_dpa_enable",
+                &format_args!("{}", self.crypt_dpa_enable().bit()),
+            )
+            .field(
+                "secure_boot_en",
+                &format_args!("{}", self.secure_boot_en().bit()),
+            )
+            .field(
+                "secure_boot_aggressive_revoke",
+                &format_args!("{}", self.secure_boot_aggressive_revoke().bit()),
+            )
+            .field(
+                "rpt4_reserved2_0",
+                &format_args!("{}", self.rpt4_reserved2_0().bits()),
+            )
+            .field("flash_tpuw", &format_args!("{}", self.flash_tpuw().bits()))
+            .finish()
+    }
+}
 #[doc = "BLOCK0 data register 3.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data2](index.html) module"]
 pub struct RD_REPEAT_DATA2_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA2_SPEC {

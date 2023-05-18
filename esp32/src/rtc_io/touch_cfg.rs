@@ -82,6 +82,30 @@ impl R {
         TOUCH_XPD_BIAS_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::TOUCH_CFG")
+            .field("touch_dcur", &format_args!("{}", self.touch_dcur().bits()))
+            .field(
+                "touch_drange",
+                &format_args!("{}", self.touch_drange().bits()),
+            )
+            .field(
+                "touch_drefl",
+                &format_args!("{}", self.touch_drefl().bits()),
+            )
+            .field(
+                "touch_drefh",
+                &format_args!("{}", self.touch_drefh().bits()),
+            )
+            .field(
+                "touch_xpd_bias",
+                &format_args!("{}", self.touch_xpd_bias().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 23:24 - touch sensor bias current. Should have option to tie with BIAS_SLEEP(When BIAS_SLEEP this setting is available"]
     #[inline(always)]

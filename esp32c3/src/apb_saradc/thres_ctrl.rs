@@ -66,6 +66,25 @@ impl R {
         APB_SARADC_THRES0_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::THRES_CTRL")
+            .field(
+                "apb_saradc_thres_all_en",
+                &format_args!("{}", self.apb_saradc_thres_all_en().bit()),
+            )
+            .field(
+                "apb_saradc_thres1_en",
+                &format_args!("{}", self.apb_saradc_thres1_en().bit()),
+            )
+            .field(
+                "apb_saradc_thres0_en",
+                &format_args!("{}", self.apb_saradc_thres0_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - enable thres to all channel"]
     #[inline(always)]

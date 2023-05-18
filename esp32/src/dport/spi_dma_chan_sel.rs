@@ -66,6 +66,25 @@ impl R {
         SPI3_DMA_CHAN_SEL_R::new(((self.bits >> 4) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::SPI_DMA_CHAN_SEL")
+            .field(
+                "spi1_dma_chan_sel",
+                &format_args!("{}", self.spi1_dma_chan_sel().bits()),
+            )
+            .field(
+                "spi2_dma_chan_sel",
+                &format_args!("{}", self.spi2_dma_chan_sel().bits()),
+            )
+            .field(
+                "spi3_dma_chan_sel",
+                &format_args!("{}", self.spi3_dma_chan_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

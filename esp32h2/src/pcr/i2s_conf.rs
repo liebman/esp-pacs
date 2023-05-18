@@ -68,6 +68,23 @@ impl R {
         I2S_TX_READY_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::I2S_CONF")
+            .field("i2s_clk_en", &format_args!("{}", self.i2s_clk_en().bit()))
+            .field("i2s_rst_en", &format_args!("{}", self.i2s_rst_en().bit()))
+            .field(
+                "i2s_rx_ready",
+                &format_args!("{}", self.i2s_rx_ready().bit()),
+            )
+            .field(
+                "i2s_tx_ready",
+                &format_args!("{}", self.i2s_tx_ready().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable i2s apb clock"]
     #[inline(always)]

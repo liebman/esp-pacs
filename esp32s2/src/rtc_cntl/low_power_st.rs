@@ -211,6 +211,104 @@ impl R {
         MAIN_STATE_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::LOW_POWER_ST")
+            .field("xpd_rom0", &format_args!("{}", self.xpd_rom0().bit()))
+            .field(
+                "xpd_dig_dcdc",
+                &format_args!("{}", self.xpd_dig_dcdc().bit()),
+            )
+            .field("peri_iso", &format_args!("{}", self.peri_iso().bit()))
+            .field(
+                "xpd_rtc_peri",
+                &format_args!("{}", self.xpd_rtc_peri().bit()),
+            )
+            .field("wifi_iso", &format_args!("{}", self.wifi_iso().bit()))
+            .field("xpd_wifi", &format_args!("{}", self.xpd_wifi().bit()))
+            .field("dig_iso", &format_args!("{}", self.dig_iso().bit()))
+            .field("xpd_dig", &format_args!("{}", self.xpd_dig().bit()))
+            .field(
+                "touch_state_start",
+                &format_args!("{}", self.touch_state_start().bit()),
+            )
+            .field(
+                "touch_state_switch",
+                &format_args!("{}", self.touch_state_switch().bit()),
+            )
+            .field(
+                "touch_state_slp",
+                &format_args!("{}", self.touch_state_slp().bit()),
+            )
+            .field(
+                "touch_state_done",
+                &format_args!("{}", self.touch_state_done().bit()),
+            )
+            .field(
+                "cocpu_state_start",
+                &format_args!("{}", self.cocpu_state_start().bit()),
+            )
+            .field(
+                "cocpu_state_switch",
+                &format_args!("{}", self.cocpu_state_switch().bit()),
+            )
+            .field(
+                "cocpu_state_slp",
+                &format_args!("{}", self.cocpu_state_slp().bit()),
+            )
+            .field(
+                "cocpu_state_done",
+                &format_args!("{}", self.cocpu_state_done().bit()),
+            )
+            .field(
+                "main_state_xtal_iso",
+                &format_args!("{}", self.main_state_xtal_iso().bit()),
+            )
+            .field(
+                "main_state_pll_on",
+                &format_args!("{}", self.main_state_pll_on().bit()),
+            )
+            .field(
+                "rdy_for_wakeup",
+                &format_args!("{}", self.rdy_for_wakeup().bit()),
+            )
+            .field(
+                "main_state_wait_end",
+                &format_args!("{}", self.main_state_wait_end().bit()),
+            )
+            .field(
+                "in_wakeup_state",
+                &format_args!("{}", self.in_wakeup_state().bit()),
+            )
+            .field(
+                "in_low_power_state",
+                &format_args!("{}", self.in_low_power_state().bit()),
+            )
+            .field(
+                "main_state_in_wait_8m",
+                &format_args!("{}", self.main_state_in_wait_8m().bit()),
+            )
+            .field(
+                "main_state_in_wait_pll",
+                &format_args!("{}", self.main_state_in_wait_pll().bit()),
+            )
+            .field(
+                "main_state_in_wait_xtl",
+                &format_args!("{}", self.main_state_in_wait_xtl().bit()),
+            )
+            .field(
+                "main_state_in_slp",
+                &format_args!("{}", self.main_state_in_slp().bit()),
+            )
+            .field(
+                "main_state_in_idle",
+                &format_args!("{}", self.main_state_in_idle().bit()),
+            )
+            .field("main_state", &format_args!("{}", self.main_state().bits()))
+            .finish()
+    }
+}
 #[doc = "RTC main state machine status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [low_power_st](index.html) module"]
 pub struct LOW_POWER_ST_SPEC;
 impl crate::RegisterSpec for LOW_POWER_ST_SPEC {

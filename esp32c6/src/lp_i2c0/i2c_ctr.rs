@@ -115,6 +115,42 @@ impl R {
         I2C_ARBITRATION_EN_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::I2C_CTR")
+            .field(
+                "i2c_sda_force_out",
+                &format_args!("{}", self.i2c_sda_force_out().bit()),
+            )
+            .field(
+                "i2c_scl_force_out",
+                &format_args!("{}", self.i2c_scl_force_out().bit()),
+            )
+            .field(
+                "i2c_sample_scl_level",
+                &format_args!("{}", self.i2c_sample_scl_level().bit()),
+            )
+            .field(
+                "i2c_rx_full_ack_level",
+                &format_args!("{}", self.i2c_rx_full_ack_level().bit()),
+            )
+            .field(
+                "i2c_tx_lsb_first",
+                &format_args!("{}", self.i2c_tx_lsb_first().bit()),
+            )
+            .field(
+                "i2c_rx_lsb_first",
+                &format_args!("{}", self.i2c_rx_lsb_first().bit()),
+            )
+            .field("i2c_clk_en", &format_args!("{}", self.i2c_clk_en().bit()))
+            .field(
+                "i2c_arbitration_en",
+                &format_args!("{}", self.i2c_arbitration_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: direct output, 0: open drain output."]
     #[inline(always)]

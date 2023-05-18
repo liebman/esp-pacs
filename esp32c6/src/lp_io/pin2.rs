@@ -86,6 +86,33 @@ impl R {
         LP_GPIO2_FILTER_EN_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_IO::PIN2")
+            .field(
+                "lp_gpio2_sync_bypass",
+                &format_args!("{}", self.lp_gpio2_sync_bypass().bits()),
+            )
+            .field(
+                "lp_gpio2_pad_driver",
+                &format_args!("{}", self.lp_gpio2_pad_driver().bit()),
+            )
+            .field(
+                "lp_gpio2_int_type",
+                &format_args!("{}", self.lp_gpio2_int_type().bits()),
+            )
+            .field(
+                "lp_gpio2_wakeup_enable",
+                &format_args!("{}", self.lp_gpio2_wakeup_enable().bit()),
+            )
+            .field(
+                "lp_gpio2_filter_en",
+                &format_args!("{}", self.lp_gpio2_filter_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - need des"]
     #[inline(always)]

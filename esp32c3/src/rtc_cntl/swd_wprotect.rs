@@ -46,6 +46,14 @@ impl R {
         SWD_WKEY_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SWD_WPROTECT")
+            .field("swd_wkey", &format_args!("{}", self.swd_wkey().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - the key of super wdt"]
     #[inline(always)]

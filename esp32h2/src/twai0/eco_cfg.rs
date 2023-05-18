@@ -52,6 +52,15 @@ impl R {
         RDN_RESULT_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::ECO_CFG")
+            .field("rdn_ena", &format_args!("{}", self.rdn_ena().bit()))
+            .field("rdn_result", &format_args!("{}", self.rdn_result().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable eco module."]
     #[inline(always)]

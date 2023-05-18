@@ -108,6 +108,42 @@ impl R {
         SPI0_LOCK_EN_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SUS_STATUS")
+            .field("flash_sus", &format_args!("{}", self.flash_sus().bit()))
+            .field(
+                "wait_pesr_cmd_2b",
+                &format_args!("{}", self.wait_pesr_cmd_2b().bit()),
+            )
+            .field(
+                "flash_hpm_dly_128",
+                &format_args!("{}", self.flash_hpm_dly_128().bit()),
+            )
+            .field(
+                "flash_res_dly_128",
+                &format_args!("{}", self.flash_res_dly_128().bit()),
+            )
+            .field(
+                "flash_dp_dly_128",
+                &format_args!("{}", self.flash_dp_dly_128().bit()),
+            )
+            .field(
+                "flash_per_dly_128",
+                &format_args!("{}", self.flash_per_dly_128().bit()),
+            )
+            .field(
+                "flash_pes_dly_128",
+                &format_args!("{}", self.flash_pes_dly_128().bit()),
+            )
+            .field(
+                "spi0_lock_en",
+                &format_args!("{}", self.spi0_lock_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The status of flash suspend, only used in SPI1."]
     #[inline(always)]

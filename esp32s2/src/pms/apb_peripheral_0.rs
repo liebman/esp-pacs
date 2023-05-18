@@ -46,6 +46,17 @@ impl R {
         APB_PERIPHERAL_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::APB_PERIPHERAL_0")
+            .field(
+                "apb_peripheral_lock",
+                &format_args!("{}", self.apb_peripheral_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Lock register. Setting to 1 locks TX Copy DMA permission control registers."]
     #[inline(always)]

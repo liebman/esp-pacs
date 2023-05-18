@@ -106,6 +106,41 @@ impl R {
         BBPLL_CAL_INT_ENA_W1TC_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::INT_ENA_RTC_W1TC")
+            .field(
+                "slp_wakeup_int_ena_w1tc",
+                &format_args!("{}", self.slp_wakeup_int_ena_w1tc().bit()),
+            )
+            .field(
+                "slp_reject_int_ena_w1tc",
+                &format_args!("{}", self.slp_reject_int_ena_w1tc().bit()),
+            )
+            .field(
+                "wdt_int_ena_w1tc",
+                &format_args!("{}", self.wdt_int_ena_w1tc().bit()),
+            )
+            .field(
+                "brown_out_int_ena_w1tc",
+                &format_args!("{}", self.brown_out_int_ena_w1tc().bit()),
+            )
+            .field(
+                "main_timer_int_ena_w1tc",
+                &format_args!("{}", self.main_timer_int_ena_w1tc().bit()),
+            )
+            .field(
+                "swd_int_ena_w1tc",
+                &format_args!("{}", self.swd_int_ena_w1tc().bit()),
+            )
+            .field(
+                "bbpll_cal_int_ena_w1tc",
+                &format_args!("{}", self.bbpll_cal_int_ena_w1tc().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - enable sleep wakeup interrupt"]
     #[inline(always)]

@@ -127,6 +127,53 @@ impl R {
         SPI_MEM_FAST_WRITE_EN_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_CTRL1")
+            .field(
+                "spi_mem_clk_mode",
+                &format_args!("{}", self.spi_mem_clk_mode().bits()),
+            )
+            .field(
+                "spi_ar_size0_1_support_en",
+                &format_args!("{}", self.spi_ar_size0_1_support_en().bit()),
+            )
+            .field(
+                "spi_aw_size0_1_support_en",
+                &format_args!("{}", self.spi_aw_size0_1_support_en().bit()),
+            )
+            .field(
+                "spi_axi_rdata_back_fast",
+                &format_args!("{}", self.spi_axi_rdata_back_fast().bit()),
+            )
+            .field(
+                "spi_mem_rresp_ecc_err_en",
+                &format_args!("{}", self.spi_mem_rresp_ecc_err_en().bit()),
+            )
+            .field(
+                "spi_mem_ar_splice_en",
+                &format_args!("{}", self.spi_mem_ar_splice_en().bit()),
+            )
+            .field(
+                "spi_mem_aw_splice_en",
+                &format_args!("{}", self.spi_mem_aw_splice_en().bit()),
+            )
+            .field(
+                "spi_mem_ram0_en",
+                &format_args!("{}", self.spi_mem_ram0_en().bit()),
+            )
+            .field(
+                "spi_mem_dual_ram_en",
+                &format_args!("{}", self.spi_mem_dual_ram_en().bit()),
+            )
+            .field(
+                "spi_mem_fast_write_en",
+                &format_args!("{}", self.spi_mem_fast_write_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on."]
     #[inline(always)]

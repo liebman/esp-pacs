@@ -22,6 +22,14 @@ impl R {
         ST_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::FSM")
+            .field("st", &format_args!("{}", self.st().bits()))
+            .finish()
+    }
+}
 #[doc = "SPI0 state machine(FSM) status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm](index.html) module"]
 pub struct FSM_SPEC;
 impl crate::RegisterSpec for FSM_SPEC {

@@ -99,6 +99,23 @@ impl R {
         EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::T1CONFIG")
+            .field("alarm_en", &format_args!("{}", self.alarm_en().bit()))
+            .field(
+                "level_int_en",
+                &format_args!("{}", self.level_int_en().bit()),
+            )
+            .field("edge_int_en", &format_args!("{}", self.edge_int_en().bit()))
+            .field("divider", &format_args!("{}", self.divider().bits()))
+            .field("autoreload", &format_args!("{}", self.autoreload().bit()))
+            .field("increase", &format_args!("{}", self.increase().bit()))
+            .field("en", &format_args!("{}", self.en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 10 - When set alarm is enabled"]
     #[inline(always)]

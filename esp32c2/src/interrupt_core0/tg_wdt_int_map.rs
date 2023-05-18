@@ -46,6 +46,17 @@ impl R {
         TG_WDT_INT_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::TG_WDT_INT_MAP")
+            .field(
+                "tg_wdt_int_map",
+                &format_args!("{}", self.tg_wdt_int_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - Need add description"]
     #[inline(always)]

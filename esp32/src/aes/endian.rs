@@ -45,6 +45,14 @@ impl R {
         ENDIAN_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::ENDIAN")
+            .field("endian", &format_args!("{}", self.endian().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Endianness selection register. See Table 22-2 for details."]
     #[inline(always)]

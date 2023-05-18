@@ -65,6 +65,22 @@ impl R {
         PWM_CLKM_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::PWM_CLK_CONF")
+            .field(
+                "pwm_div_num",
+                &format_args!("{}", self.pwm_div_num().bits()),
+            )
+            .field(
+                "pwm_clkm_sel",
+                &format_args!("{}", self.pwm_clkm_sel().bits()),
+            )
+            .field("pwm_clkm_en", &format_args!("{}", self.pwm_clkm_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 12:19 - The integral part of the frequency divider factor of the pwm function clock."]
     #[inline(always)]

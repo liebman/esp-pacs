@@ -81,6 +81,18 @@ impl R {
         DAC_R::new(((self.bits >> 23) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::TOUCH_PAD9")
+            .field("to_gpio", &format_args!("{}", self.to_gpio().bit()))
+            .field("xpd", &format_args!("{}", self.xpd().bit()))
+            .field("tie_opt", &format_args!("{}", self.tie_opt().bit()))
+            .field("start", &format_args!("{}", self.start().bit()))
+            .field("dac", &format_args!("{}", self.dac().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 19 - connect the rtc pad input to digital pad input Ó0Ó is availbale"]
     #[inline(always)]

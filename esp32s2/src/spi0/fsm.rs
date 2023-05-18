@@ -53,6 +53,18 @@ impl R {
         MST_DMA_RD_BYTELEN_R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::FSM")
+            .field("st", &format_args!("{}", self.st().bits()))
+            .field(
+                "mst_dma_rd_bytelen",
+                &format_args!("{}", self.mst_dma_rd_bytelen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 12:31 - Define the master DMA read byte length in non seg-conf-trans or seg-conf-trans mode. Invalid when SPI_RX_EOF_EN is 0. Can be configured in CONF state.."]
     #[inline(always)]

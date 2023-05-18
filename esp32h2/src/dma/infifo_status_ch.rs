@@ -71,6 +71,39 @@ impl R {
         IN_BUF_HUNGRY_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::INFIFO_STATUS_CH")
+            .field("infifo_full", &format_args!("{}", self.infifo_full().bit()))
+            .field(
+                "infifo_empty",
+                &format_args!("{}", self.infifo_empty().bit()),
+            )
+            .field("infifo_cnt", &format_args!("{}", self.infifo_cnt().bits()))
+            .field(
+                "in_remain_under_1b",
+                &format_args!("{}", self.in_remain_under_1b().bit()),
+            )
+            .field(
+                "in_remain_under_2b",
+                &format_args!("{}", self.in_remain_under_2b().bit()),
+            )
+            .field(
+                "in_remain_under_3b",
+                &format_args!("{}", self.in_remain_under_3b().bit()),
+            )
+            .field(
+                "in_remain_under_4b",
+                &format_args!("{}", self.in_remain_under_4b().bit()),
+            )
+            .field(
+                "in_buf_hungry",
+                &format_args!("{}", self.in_buf_hungry().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Receive FIFO status of Rx channel 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [infifo_status_ch](index.html) module"]
 pub struct INFIFO_STATUS_CH_SPEC;
 impl crate::RegisterSpec for INFIFO_STATUS_CH_SPEC {

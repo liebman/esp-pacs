@@ -46,6 +46,17 @@ impl R {
         ROM_TABLE_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::ROM_TABLE_LOCK")
+            .field(
+                "rom_table_lock",
+                &format_args!("{}", self.rom_table_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - XXXX"]
     #[inline(always)]

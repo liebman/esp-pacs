@@ -46,6 +46,17 @@ impl R {
         CORE_0_STATUSTABLE_CURRENT_R::new(((self.bits >> 1) & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_STATUSTABLE_CURRENT")
+            .field(
+                "core_0_statustable_current",
+                &format_args!("{}", self.core_0_statustable_current().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 1:13 - This field is used to quickly read and rewrite the current field of all STATUSTABLE registers,for example,bit 1 represents the current field of STATUSTABLE1,bit2 represents the current field of STATUSTABLE2"]
     #[inline(always)]

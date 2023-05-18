@@ -29,6 +29,21 @@ impl R {
         PRO_ICACHE_CPU_ATTR_R::new(((self.bits >> 3) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_ICACHE_REJECT_ST")
+            .field(
+                "pro_icache_tag_attr",
+                &format_args!("{}", self.pro_icache_tag_attr().bits()),
+            )
+            .field(
+                "pro_icache_cpu_attr",
+                &format_args!("{}", self.pro_icache_cpu_attr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_icache_reject_st](index.html) module"]
 pub struct PRO_ICACHE_REJECT_ST_SPEC;
 impl crate::RegisterSpec for PRO_ICACHE_REJECT_ST_SPEC {

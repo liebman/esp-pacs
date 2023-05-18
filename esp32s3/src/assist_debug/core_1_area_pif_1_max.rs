@@ -46,6 +46,17 @@ impl R {
         CORE_1_AREA_PIF_1_MAX_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_1_AREA_PIF_1_MAX")
+            .field(
+                "core_1_area_pif_1_max",
+                &format_args!("{}", self.core_1_area_pif_1_max().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Core1 PIF region1 end addr"]
     #[inline(always)]

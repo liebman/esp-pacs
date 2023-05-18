@@ -158,6 +158,64 @@ impl R {
         SAR_COCPU_TOUCH_SCAN_DONE_INT_ENA_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_COCPU_INT_ENA")
+            .field(
+                "sar_cocpu_touch_done_int_ena",
+                &format_args!("{}", self.sar_cocpu_touch_done_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_inactive_int_ena",
+                &format_args!("{}", self.sar_cocpu_touch_inactive_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_active_int_ena",
+                &format_args!("{}", self.sar_cocpu_touch_active_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_saradc1_int_ena",
+                &format_args!("{}", self.sar_cocpu_saradc1_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_saradc2_int_ena",
+                &format_args!("{}", self.sar_cocpu_saradc2_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_tsens_int_ena",
+                &format_args!("{}", self.sar_cocpu_tsens_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_start_int_ena",
+                &format_args!("{}", self.sar_cocpu_start_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_sw_int_ena",
+                &format_args!("{}", self.sar_cocpu_sw_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_swd_int_ena",
+                &format_args!("{}", self.sar_cocpu_swd_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_timeout_int_ena",
+                &format_args!("{}", self.sar_cocpu_touch_timeout_int_ena().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_approach_loop_done_int_ena",
+                &format_args!(
+                    "{}",
+                    self.sar_cocpu_touch_approach_loop_done_int_ena().bit()
+                ),
+            )
+            .field(
+                "sar_cocpu_touch_scan_done_int_ena",
+                &format_args!("{}", self.sar_cocpu_touch_scan_done_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - int enable of touch done"]
     #[inline(always)]

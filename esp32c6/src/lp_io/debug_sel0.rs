@@ -76,6 +76,29 @@ impl R {
         LP_DEBUG_SEL3_R::new(((self.bits >> 21) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_IO::DEBUG_SEL0")
+            .field(
+                "lp_debug_sel0",
+                &format_args!("{}", self.lp_debug_sel0().bits()),
+            )
+            .field(
+                "lp_debug_sel1",
+                &format_args!("{}", self.lp_debug_sel1().bits()),
+            )
+            .field(
+                "lp_debug_sel2",
+                &format_args!("{}", self.lp_debug_sel2().bits()),
+            )
+            .field(
+                "lp_debug_sel3",
+                &format_args!("{}", self.lp_debug_sel3().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - need des"]
     #[inline(always)]

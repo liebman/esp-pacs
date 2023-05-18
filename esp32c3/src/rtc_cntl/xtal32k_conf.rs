@@ -76,6 +76,29 @@ impl R {
         XTAL32K_STABLE_THRES_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::XTAL32K_CONF")
+            .field(
+                "xtal32k_return_wait",
+                &format_args!("{}", self.xtal32k_return_wait().bits()),
+            )
+            .field(
+                "xtal32k_restart_wait",
+                &format_args!("{}", self.xtal32k_restart_wait().bits()),
+            )
+            .field(
+                "xtal32k_wdt_timeout",
+                &format_args!("{}", self.xtal32k_wdt_timeout().bits()),
+            )
+            .field(
+                "xtal32k_stable_thres",
+                &format_args!("{}", self.xtal32k_stable_thres().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - cycles to wait to return noral xtal 32k"]
     #[inline(always)]

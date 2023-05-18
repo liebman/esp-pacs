@@ -176,6 +176,69 @@ impl R {
         BACKUP_BUS_PMS_CONSTRAIN_SYSTIMER_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_CONSTRAIN_2")
+            .field(
+                "backup_bus_pms_constrain_bt",
+                &format_args!("{}", self.backup_bus_pms_constrain_bt().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_i2c_ext0",
+                &format_args!("{}", self.backup_bus_pms_constrain_i2c_ext0().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_uhci0",
+                &format_args!("{}", self.backup_bus_pms_constrain_uhci0().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_slchost",
+                &format_args!("{}", self.backup_bus_pms_constrain_slchost().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_rmt",
+                &format_args!("{}", self.backup_bus_pms_constrain_rmt().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_pcnt",
+                &format_args!("{}", self.backup_bus_pms_constrain_pcnt().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_slc",
+                &format_args!("{}", self.backup_bus_pms_constrain_slc().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_ledc",
+                &format_args!("{}", self.backup_bus_pms_constrain_ledc().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_backup",
+                &format_args!("{}", self.backup_bus_pms_constrain_backup().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_bb",
+                &format_args!("{}", self.backup_bus_pms_constrain_bb().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_pwm0",
+                &format_args!("{}", self.backup_bus_pms_constrain_pwm0().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_timergroup",
+                &format_args!("{}", self.backup_bus_pms_constrain_timergroup().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_timergroup1",
+                &format_args!("{}", self.backup_bus_pms_constrain_timergroup1().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_systimer",
+                &format_args!("{}", self.backup_bus_pms_constrain_systimer().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - BackUp access bt permission."]
     #[inline(always)]

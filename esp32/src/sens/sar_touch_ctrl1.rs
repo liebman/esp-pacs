@@ -96,6 +96,37 @@ impl R {
         HALL_PHASE_FORCE_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_CTRL1")
+            .field(
+                "touch_meas_delay",
+                &format_args!("{}", self.touch_meas_delay().bits()),
+            )
+            .field(
+                "touch_xpd_wait",
+                &format_args!("{}", self.touch_xpd_wait().bits()),
+            )
+            .field(
+                "touch_out_sel",
+                &format_args!("{}", self.touch_out_sel().bit()),
+            )
+            .field(
+                "touch_out_1en",
+                &format_args!("{}", self.touch_out_1en().bit()),
+            )
+            .field(
+                "xpd_hall_force",
+                &format_args!("{}", self.xpd_hall_force().bit()),
+            )
+            .field(
+                "hall_phase_force",
+                &format_args!("{}", self.hall_phase_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - the meas length (in 8MHz)"]
     #[inline(always)]

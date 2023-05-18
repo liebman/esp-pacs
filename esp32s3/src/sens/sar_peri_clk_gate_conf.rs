@@ -76,6 +76,29 @@ impl R {
         IOMUX_CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_PERI_CLK_GATE_CONF")
+            .field(
+                "rtc_i2c_clk_en",
+                &format_args!("{}", self.rtc_i2c_clk_en().bit()),
+            )
+            .field(
+                "tsens_clk_en",
+                &format_args!("{}", self.tsens_clk_en().bit()),
+            )
+            .field(
+                "saradc_clk_en",
+                &format_args!("{}", self.saradc_clk_en().bit()),
+            )
+            .field(
+                "iomux_clk_en",
+                &format_args!("{}", self.iomux_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - enable rtc i2c clock"]
     #[inline(always)]

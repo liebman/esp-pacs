@@ -50,6 +50,30 @@ impl R {
         ENCODE_STATE_R::new(((self.bits >> 28) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::STATE1")
+            .field(
+                "outlink_dscr_addr",
+                &format_args!("{}", self.outlink_dscr_addr().bits()),
+            )
+            .field(
+                "out_dscr_state",
+                &format_args!("{}", self.out_dscr_state().bits()),
+            )
+            .field("out_state", &format_args!("{}", self.out_state().bits()))
+            .field(
+                "outfifo_cnt",
+                &format_args!("{}", self.outfifo_cnt().bits()),
+            )
+            .field(
+                "encode_state",
+                &format_args!("{}", self.encode_state().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "UHCI encoder status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [state1](index.html) module"]
 pub struct STATE1_SPEC;
 impl crate::RegisterSpec for STATE1_SPEC {

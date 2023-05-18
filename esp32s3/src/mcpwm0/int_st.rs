@@ -225,6 +225,124 @@ impl R {
         CAP2_INT_ST_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::INT_ST")
+            .field(
+                "timer0_stop_int_st",
+                &format_args!("{}", self.timer0_stop_int_st().bit()),
+            )
+            .field(
+                "timer1_stop_int_st",
+                &format_args!("{}", self.timer1_stop_int_st().bit()),
+            )
+            .field(
+                "timer2_stop_int_st",
+                &format_args!("{}", self.timer2_stop_int_st().bit()),
+            )
+            .field(
+                "timer0_tez_int_st",
+                &format_args!("{}", self.timer0_tez_int_st().bit()),
+            )
+            .field(
+                "timer1_tez_int_st",
+                &format_args!("{}", self.timer1_tez_int_st().bit()),
+            )
+            .field(
+                "timer2_tez_int_st",
+                &format_args!("{}", self.timer2_tez_int_st().bit()),
+            )
+            .field(
+                "timer0_tep_int_st",
+                &format_args!("{}", self.timer0_tep_int_st().bit()),
+            )
+            .field(
+                "timer1_tep_int_st",
+                &format_args!("{}", self.timer1_tep_int_st().bit()),
+            )
+            .field(
+                "timer2_tep_int_st",
+                &format_args!("{}", self.timer2_tep_int_st().bit()),
+            )
+            .field(
+                "fault0_int_st",
+                &format_args!("{}", self.fault0_int_st().bit()),
+            )
+            .field(
+                "fault1_int_st",
+                &format_args!("{}", self.fault1_int_st().bit()),
+            )
+            .field(
+                "fault2_int_st",
+                &format_args!("{}", self.fault2_int_st().bit()),
+            )
+            .field(
+                "fault0_clr_int_st",
+                &format_args!("{}", self.fault0_clr_int_st().bit()),
+            )
+            .field(
+                "fault1_clr_int_st",
+                &format_args!("{}", self.fault1_clr_int_st().bit()),
+            )
+            .field(
+                "fault2_clr_int_st",
+                &format_args!("{}", self.fault2_clr_int_st().bit()),
+            )
+            .field(
+                "cmpr0_tea_int_st",
+                &format_args!("{}", self.cmpr0_tea_int_st().bit()),
+            )
+            .field(
+                "cmpr1_tea_int_st",
+                &format_args!("{}", self.cmpr1_tea_int_st().bit()),
+            )
+            .field(
+                "cmpr2_tea_int_st",
+                &format_args!("{}", self.cmpr2_tea_int_st().bit()),
+            )
+            .field(
+                "cmpr0_teb_int_st",
+                &format_args!("{}", self.cmpr0_teb_int_st().bit()),
+            )
+            .field(
+                "cmpr1_teb_int_st",
+                &format_args!("{}", self.cmpr1_teb_int_st().bit()),
+            )
+            .field(
+                "cmpr2_teb_int_st",
+                &format_args!("{}", self.cmpr2_teb_int_st().bit()),
+            )
+            .field(
+                "tz0_cbc_int_st",
+                &format_args!("{}", self.tz0_cbc_int_st().bit()),
+            )
+            .field(
+                "tz1_cbc_int_st",
+                &format_args!("{}", self.tz1_cbc_int_st().bit()),
+            )
+            .field(
+                "tz2_cbc_int_st",
+                &format_args!("{}", self.tz2_cbc_int_st().bit()),
+            )
+            .field(
+                "tz0_ost_int_st",
+                &format_args!("{}", self.tz0_ost_int_st().bit()),
+            )
+            .field(
+                "tz1_ost_int_st",
+                &format_args!("{}", self.tz1_ost_int_st().bit()),
+            )
+            .field(
+                "tz2_ost_int_st",
+                &format_args!("{}", self.tz2_ost_int_st().bit()),
+            )
+            .field("cap0_int_st", &format_args!("{}", self.cap0_int_st().bit()))
+            .field("cap1_int_st", &format_args!("{}", self.cap1_int_st().bit()))
+            .field("cap2_int_st", &format_args!("{}", self.cap2_int_st().bit()))
+            .finish()
+    }
+}
 #[doc = "Masked interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

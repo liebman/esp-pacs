@@ -46,6 +46,17 @@ impl R {
         ERR_WARNING_LIMIT_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::ERR_WARNING_LIMIT")
+            .field(
+                "err_warning_limit",
+                &format_args!("{}", self.err_warning_limit().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - The threshold that trigger error warning interrupt when this interrupt is enabled. Software has R/W permission in reset mode and RO in operation mode."]
     #[inline(always)]

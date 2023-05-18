@@ -56,6 +56,21 @@ impl R {
         WAIT_PLL_STABLE_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_CK_WAIT_CNTL")
+            .field(
+                "wait_xtl_stable",
+                &format_args!("{}", self.wait_xtl_stable().bits()),
+            )
+            .field(
+                "wait_pll_stable",
+                &format_args!("{}", self.wait_pll_stable().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - need_des"]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         GET_BCHAR_FORMAT_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::GET_LINE_CODE_W1")
+            .field(
+                "get_bdata_bits",
+                &format_args!("{}", self.get_bdata_bits().bits()),
+            )
+            .field(
+                "get_bparity_type",
+                &format_args!("{}", self.get_bparity_type().bits()),
+            )
+            .field(
+                "get_bchar_format",
+                &format_args!("{}", self.get_bchar_format().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - The value of bCharFormat set by software which is requested by GET_LINE_CODING command."]
     #[inline(always)]

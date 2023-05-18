@@ -120,6 +120,25 @@ impl R {
         SCL_STATE_R::new(((self.bits >> 28) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::DEBUG_STATUS")
+            .field("ack_val", &format_args!("{}", self.ack_val().bit()))
+            .field("slave_rw", &format_args!("{}", self.slave_rw().bit()))
+            .field("timed_out", &format_args!("{}", self.timed_out().bit()))
+            .field("arb_lost", &format_args!("{}", self.arb_lost().bit()))
+            .field("bus_busy", &format_args!("{}", self.bus_busy().bit()))
+            .field(
+                "slave_addr_match",
+                &format_args!("{}", self.slave_addr_match().bit()),
+            )
+            .field("byte_trans", &format_args!("{}", self.byte_trans().bit()))
+            .field("main_state", &format_args!("{}", self.main_state().bits()))
+            .field("scl_state", &format_args!("{}", self.scl_state().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The value of an acknowledge signal on the bus"]
     #[inline(always)]

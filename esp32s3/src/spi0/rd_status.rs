@@ -45,6 +45,14 @@ impl R {
         WB_MODE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::RD_STATUS")
+            .field("wb_mode", &format_args!("{}", self.wb_mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:23 - Mode bits in the flash fast read mode it is combined with SPI_MEM_FASTRD_MODE bit."]
     #[inline(always)]

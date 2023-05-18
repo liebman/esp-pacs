@@ -46,6 +46,17 @@ impl R {
         PRO_TRACE_DISABLE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_TRACE_1")
+            .field(
+                "pro_trace_disable",
+                &format_args!("{}", self.pro_trace_disable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Setting to 1 disables the trace memory function."]
     #[inline(always)]

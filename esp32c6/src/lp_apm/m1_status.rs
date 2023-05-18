@@ -22,6 +22,17 @@ impl R {
         M1_EXCEPTION_STATUS_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_APM::M1_STATUS")
+            .field(
+                "m1_exception_status",
+                &format_args!("{}", self.m1_exception_status().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "M1 status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [m1_status](index.html) module"]
 pub struct M1_STATUS_SPEC;
 impl crate::RegisterSpec for M1_STATUS_SPEC {

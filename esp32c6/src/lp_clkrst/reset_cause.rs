@@ -59,6 +59,21 @@ impl R {
         CORE0_RESET_FLAG_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::RESET_CAUSE")
+            .field(
+                "reset_cause",
+                &format_args!("{}", self.reset_cause().bits()),
+            )
+            .field(
+                "core0_reset_flag",
+                &format_args!("{}", self.core0_reset_flag().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 29 - need_des"]
     #[inline(always)]

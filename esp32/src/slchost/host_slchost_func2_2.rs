@@ -46,6 +46,17 @@ impl R {
         HOST_SLC_FUNC1_MDSTAT_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_FUNC2_2")
+            .field(
+                "host_slc_func1_mdstat",
+                &format_args!("{}", self.host_slc_func1_mdstat().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

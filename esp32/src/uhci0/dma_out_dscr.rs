@@ -22,6 +22,17 @@ impl R {
         OUTLINK_DSCR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::DMA_OUT_DSCR")
+            .field(
+                "outlink_dscr",
+                &format_args!("{}", self.outlink_dscr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_out_dscr](index.html) module"]
 pub struct DMA_OUT_DSCR_SPEC;
 impl crate::RegisterSpec for DMA_OUT_DSCR_SPEC {

@@ -56,6 +56,21 @@ impl R {
         ETM_RX_RECEIVE_WORD_NUM_R::new(((self.bits >> 10) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::ETM_CONF")
+            .field(
+                "etm_tx_send_word_num",
+                &format_args!("{}", self.etm_tx_send_word_num().bits()),
+            )
+            .field(
+                "etm_rx_receive_word_num",
+                &format_args!("{}", self.etm_rx_receive_word_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - I2S ETM send x words event. When sending word number of reg_etm_tx_send_word_num\\[9:0\\], i2s will trigger an etm event."]
     #[inline(always)]

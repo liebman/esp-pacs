@@ -46,6 +46,17 @@ impl R {
         CH10_EVT_ID_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SOC_ETM::CH10_EVT_ID")
+            .field(
+                "ch10_evt_id",
+                &format_args!("{}", self.ch10_evt_id().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - ch10_evt_id"]
     #[inline(always)]

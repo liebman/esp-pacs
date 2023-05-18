@@ -22,6 +22,14 @@ impl R {
         QUERY_BUSY_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DS::QUERY_BUSY")
+            .field("query_busy", &format_args!("{}", self.query_busy().bit()))
+            .finish()
+    }
+}
 #[doc = "DS query busy register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [query_busy](index.html) module"]
 pub struct QUERY_BUSY_SPEC;
 impl crate::RegisterSpec for QUERY_BUSY_SPEC {

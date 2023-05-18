@@ -145,6 +145,54 @@ impl R {
         PRO_CACHE_MMU_IA_CLR_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_CACHE_CTRL1")
+            .field(
+                "pro_cache_mask_iram0",
+                &format_args!("{}", self.pro_cache_mask_iram0().bit()),
+            )
+            .field(
+                "pro_cache_mask_iram1",
+                &format_args!("{}", self.pro_cache_mask_iram1().bit()),
+            )
+            .field(
+                "pro_cache_mask_irom0",
+                &format_args!("{}", self.pro_cache_mask_irom0().bit()),
+            )
+            .field(
+                "pro_cache_mask_dram1",
+                &format_args!("{}", self.pro_cache_mask_dram1().bit()),
+            )
+            .field(
+                "pro_cache_mask_drom0",
+                &format_args!("{}", self.pro_cache_mask_drom0().bit()),
+            )
+            .field(
+                "pro_cache_mask_opsdram",
+                &format_args!("{}", self.pro_cache_mask_opsdram().bit()),
+            )
+            .field(
+                "pro_cmmu_sram_page_mode",
+                &format_args!("{}", self.pro_cmmu_sram_page_mode().bits()),
+            )
+            .field(
+                "pro_cmmu_flash_page_mode",
+                &format_args!("{}", self.pro_cmmu_flash_page_mode().bits()),
+            )
+            .field(
+                "pro_cmmu_force_on",
+                &format_args!("{}", self.pro_cmmu_force_on().bit()),
+            )
+            .field("pro_cmmu_pd", &format_args!("{}", self.pro_cmmu_pd().bit()))
+            .field(
+                "pro_cache_mmu_ia_clr",
+                &format_args!("{}", self.pro_cache_mmu_ia_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

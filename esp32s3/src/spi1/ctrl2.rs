@@ -45,6 +45,14 @@ impl R {
         SYNC_RESET_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::CTRL2")
+            .field("sync_reset", &format_args!("{}", self.sync_reset().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - The FSM will be reset."]
     #[inline(always)]

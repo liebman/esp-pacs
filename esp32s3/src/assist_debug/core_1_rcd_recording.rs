@@ -46,6 +46,17 @@ impl R {
         CORE_1_RCD_RECORDING_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_1_RCD_RECORDING")
+            .field(
+                "core_1_rcd_recording",
+                &format_args!("{}", self.core_1_rcd_recording().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Pdebug record enable,set 1 to record Core1 pdebug interface signal"]
     #[inline(always)]

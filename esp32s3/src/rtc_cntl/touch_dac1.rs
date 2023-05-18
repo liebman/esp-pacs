@@ -86,6 +86,33 @@ impl R {
         TOUCH_PAD10_DAC_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TOUCH_DAC1")
+            .field(
+                "touch_pad14_dac",
+                &format_args!("{}", self.touch_pad14_dac().bits()),
+            )
+            .field(
+                "touch_pad13_dac",
+                &format_args!("{}", self.touch_pad13_dac().bits()),
+            )
+            .field(
+                "touch_pad12_dac",
+                &format_args!("{}", self.touch_pad12_dac().bits()),
+            )
+            .field(
+                "touch_pad11_dac",
+                &format_args!("{}", self.touch_pad11_dac().bits()),
+            )
+            .field(
+                "touch_pad10_dac",
+                &format_args!("{}", self.touch_pad10_dac().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 17:19 - configure touch pad dac14"]
     #[inline(always)]

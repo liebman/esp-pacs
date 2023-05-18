@@ -198,6 +198,81 @@ impl R {
         RX_TDM_TOT_CHAN_NUM_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::RX_TDM_CTRL")
+            .field(
+                "rx_tdm_pdm_chan0_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan0_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan1_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan1_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan2_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan2_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan3_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan3_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan4_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan4_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan5_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan5_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan6_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan6_en().bit()),
+            )
+            .field(
+                "rx_tdm_pdm_chan7_en",
+                &format_args!("{}", self.rx_tdm_pdm_chan7_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan8_en",
+                &format_args!("{}", self.rx_tdm_chan8_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan9_en",
+                &format_args!("{}", self.rx_tdm_chan9_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan10_en",
+                &format_args!("{}", self.rx_tdm_chan10_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan11_en",
+                &format_args!("{}", self.rx_tdm_chan11_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan12_en",
+                &format_args!("{}", self.rx_tdm_chan12_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan13_en",
+                &format_args!("{}", self.rx_tdm_chan13_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan14_en",
+                &format_args!("{}", self.rx_tdm_chan14_en().bit()),
+            )
+            .field(
+                "rx_tdm_chan15_en",
+                &format_args!("{}", self.rx_tdm_chan15_en().bit()),
+            )
+            .field(
+                "rx_tdm_tot_chan_num",
+                &format_args!("{}", self.rx_tdm_tot_chan_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: Enable the valid data input of I2S RX TDM or PDM channel 0. 0: Disable, just input 0 in this channel."]
     #[inline(always)]

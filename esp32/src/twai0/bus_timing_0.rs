@@ -56,6 +56,18 @@ impl R {
         SYNC_JUMP_WIDTH_R::new(((self.bits >> 14) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::BUS_TIMING_0")
+            .field("baud_presc", &format_args!("{}", self.baud_presc().bits()))
+            .field(
+                "sync_jump_width",
+                &format_args!("{}", self.sync_jump_width().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - Baud Rate Prescaler, determines the frequency dividing ratio."]
     #[inline(always)]

@@ -306,6 +306,133 @@ impl R {
         CAP2_INT_RAW_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::INT_RAW")
+            .field(
+                "timer0_stop_int_raw",
+                &format_args!("{}", self.timer0_stop_int_raw().bit()),
+            )
+            .field(
+                "timer1_stop_int_raw",
+                &format_args!("{}", self.timer1_stop_int_raw().bit()),
+            )
+            .field(
+                "timer2_stop_int_raw",
+                &format_args!("{}", self.timer2_stop_int_raw().bit()),
+            )
+            .field(
+                "timer0_tez_int_raw",
+                &format_args!("{}", self.timer0_tez_int_raw().bit()),
+            )
+            .field(
+                "timer1_tez_int_raw",
+                &format_args!("{}", self.timer1_tez_int_raw().bit()),
+            )
+            .field(
+                "timer2_tez_int_raw",
+                &format_args!("{}", self.timer2_tez_int_raw().bit()),
+            )
+            .field(
+                "timer0_tep_int_raw",
+                &format_args!("{}", self.timer0_tep_int_raw().bit()),
+            )
+            .field(
+                "timer1_tep_int_raw",
+                &format_args!("{}", self.timer1_tep_int_raw().bit()),
+            )
+            .field(
+                "timer2_tep_int_raw",
+                &format_args!("{}", self.timer2_tep_int_raw().bit()),
+            )
+            .field(
+                "fault0_int_raw",
+                &format_args!("{}", self.fault0_int_raw().bit()),
+            )
+            .field(
+                "fault1_int_raw",
+                &format_args!("{}", self.fault1_int_raw().bit()),
+            )
+            .field(
+                "fault2_int_raw",
+                &format_args!("{}", self.fault2_int_raw().bit()),
+            )
+            .field(
+                "fault0_clr_int_raw",
+                &format_args!("{}", self.fault0_clr_int_raw().bit()),
+            )
+            .field(
+                "fault1_clr_int_raw",
+                &format_args!("{}", self.fault1_clr_int_raw().bit()),
+            )
+            .field(
+                "fault2_clr_int_raw",
+                &format_args!("{}", self.fault2_clr_int_raw().bit()),
+            )
+            .field(
+                "cmpr0_tea_int_raw",
+                &format_args!("{}", self.cmpr0_tea_int_raw().bit()),
+            )
+            .field(
+                "cmpr1_tea_int_raw",
+                &format_args!("{}", self.cmpr1_tea_int_raw().bit()),
+            )
+            .field(
+                "cmpr2_tea_int_raw",
+                &format_args!("{}", self.cmpr2_tea_int_raw().bit()),
+            )
+            .field(
+                "cmpr0_teb_int_raw",
+                &format_args!("{}", self.cmpr0_teb_int_raw().bit()),
+            )
+            .field(
+                "cmpr1_teb_int_raw",
+                &format_args!("{}", self.cmpr1_teb_int_raw().bit()),
+            )
+            .field(
+                "cmpr2_teb_int_raw",
+                &format_args!("{}", self.cmpr2_teb_int_raw().bit()),
+            )
+            .field(
+                "tz0_cbc_int_raw",
+                &format_args!("{}", self.tz0_cbc_int_raw().bit()),
+            )
+            .field(
+                "tz1_cbc_int_raw",
+                &format_args!("{}", self.tz1_cbc_int_raw().bit()),
+            )
+            .field(
+                "tz2_cbc_int_raw",
+                &format_args!("{}", self.tz2_cbc_int_raw().bit()),
+            )
+            .field(
+                "tz0_ost_int_raw",
+                &format_args!("{}", self.tz0_ost_int_raw().bit()),
+            )
+            .field(
+                "tz1_ost_int_raw",
+                &format_args!("{}", self.tz1_ost_int_raw().bit()),
+            )
+            .field(
+                "tz2_ost_int_raw",
+                &format_args!("{}", self.tz2_ost_int_raw().bit()),
+            )
+            .field(
+                "cap0_int_raw",
+                &format_args!("{}", self.cap0_int_raw().bit()),
+            )
+            .field(
+                "cap1_int_raw",
+                &format_args!("{}", self.cap1_int_raw().bit()),
+            )
+            .field(
+                "cap2_int_raw",
+                &format_args!("{}", self.cap2_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw status bit for the interrupt triggered when the timer 0 stops."]
     #[inline(always)]

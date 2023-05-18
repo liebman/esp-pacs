@@ -29,6 +29,15 @@ impl R {
         PLL_FREQ_R::new(((self.bits >> 8) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SYSCLK_FREQ_QUERY_0")
+            .field("fosc_freq", &format_args!("{}", self.fosc_freq().bits()))
+            .field("pll_freq", &format_args!("{}", self.pll_freq().bits()))
+            .finish()
+    }
+}
 #[doc = "SYSCLK frequency query 0 register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sysclk_freq_query_0](index.html) module"]
 pub struct SYSCLK_FREQ_QUERY_0_SPEC;
 impl crate::RegisterSpec for SYSCLK_FREQ_QUERY_0_SPEC {

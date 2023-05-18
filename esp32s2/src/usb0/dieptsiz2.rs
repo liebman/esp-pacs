@@ -54,6 +54,18 @@ impl R {
         D_PKTCNT2_R::new(((self.bits >> 19) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DIEPTSIZ2")
+            .field(
+                "d_xfersize2",
+                &format_args!("{}", self.d_xfersize2().bits()),
+            )
+            .field("d_pktcnt2", &format_args!("{}", self.d_pktcnt2().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6"]
     #[inline(always)]

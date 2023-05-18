@@ -81,6 +81,24 @@ impl R {
         D_VSYNC_NUM_R::new(((self.bits >> 8) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::LCD_D_NUM")
+            .field("d_dqs_num", &format_args!("{}", self.d_dqs_num().bits()))
+            .field("d_cd_num", &format_args!("{}", self.d_cd_num().bits()))
+            .field("d_de_num", &format_args!("{}", self.d_de_num().bits()))
+            .field(
+                "d_hsync_num",
+                &format_args!("{}", self.d_hsync_num().bits()),
+            )
+            .field(
+                "d_vsync_num",
+                &format_args!("{}", self.d_vsync_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - the output spi_dqs is delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,... Can be configured in CONF state."]
     #[inline(always)]

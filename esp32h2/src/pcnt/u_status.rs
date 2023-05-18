@@ -57,6 +57,19 @@ impl R {
         ZERO_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::U_STATUS")
+            .field("zero_mode", &format_args!("{}", self.zero_mode().bits()))
+            .field("thres1", &format_args!("{}", self.thres1().bit()))
+            .field("thres0", &format_args!("{}", self.thres0().bit()))
+            .field("l_lim", &format_args!("{}", self.l_lim().bit()))
+            .field("h_lim", &format_args!("{}", self.h_lim().bit()))
+            .field("zero", &format_args!("{}", self.zero().bit()))
+            .finish()
+    }
+}
 #[doc = "PNCT UNIT%s status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [u_status](index.html) module"]
 pub struct U_STATUS_SPEC;
 impl crate::RegisterSpec for U_STATUS_SPEC {

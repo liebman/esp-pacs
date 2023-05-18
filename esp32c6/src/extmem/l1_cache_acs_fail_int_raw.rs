@@ -86,6 +86,33 @@ impl R {
         L1_CACHE_FAIL_INT_RAW_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_ACS_FAIL_INT_RAW")
+            .field(
+                "l1_icache0_fail_int_raw",
+                &format_args!("{}", self.l1_icache0_fail_int_raw().bit()),
+            )
+            .field(
+                "l1_icache1_fail_int_raw",
+                &format_args!("{}", self.l1_icache1_fail_int_raw().bit()),
+            )
+            .field(
+                "l1_icache2_fail_int_raw",
+                &format_args!("{}", self.l1_icache2_fail_int_raw().bit()),
+            )
+            .field(
+                "l1_icache3_fail_int_raw",
+                &format_args!("{}", self.l1_icache3_fail_int_raw().bit()),
+            )
+            .field(
+                "l1_cache_fail_int_raw",
+                &format_args!("{}", self.l1_cache_fail_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw bit of the interrupt of access fail that occurs in L1-ICache0."]
     #[inline(always)]

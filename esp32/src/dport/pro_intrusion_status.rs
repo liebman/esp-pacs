@@ -22,6 +22,17 @@ impl R {
         PRO_INTRUSION_RECORD_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_INTRUSION_STATUS")
+            .field(
+                "pro_intrusion_record",
+                &format_args!("{}", self.pro_intrusion_record().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_intrusion_status](index.html) module"]
 pub struct PRO_INTRUSION_STATUS_SPEC;
 impl crate::RegisterSpec for PRO_INTRUSION_STATUS_SPEC {

@@ -43,6 +43,29 @@ impl R {
         I2C_TXFIFO_WADDR_R::new(((self.bits >> 15) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::I2C_FIFO_ST")
+            .field(
+                "i2c_rxfifo_raddr",
+                &format_args!("{}", self.i2c_rxfifo_raddr().bits()),
+            )
+            .field(
+                "i2c_rxfifo_waddr",
+                &format_args!("{}", self.i2c_rxfifo_waddr().bits()),
+            )
+            .field(
+                "i2c_txfifo_raddr",
+                &format_args!("{}", self.i2c_txfifo_raddr().bits()),
+            )
+            .field(
+                "i2c_txfifo_waddr",
+                &format_args!("{}", self.i2c_txfifo_waddr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "FIFO status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [i2c_fifo_st](index.html) module"]
 pub struct I2C_FIFO_ST_SPEC;
 impl crate::RegisterSpec for I2C_FIFO_ST_SPEC {

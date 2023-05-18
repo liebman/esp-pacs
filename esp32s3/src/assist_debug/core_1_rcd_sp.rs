@@ -22,6 +22,17 @@ impl R {
         CORE_1_RCD_SP_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_1_RCD_SP")
+            .field(
+                "core_1_rcd_sp",
+                &format_args!("{}", self.core_1_rcd_sp().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Core1 pdebug status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_1_rcd_sp](index.html) module"]
 pub struct CORE_1_RCD_SP_SPEC;
 impl crate::RegisterSpec for CORE_1_RCD_SP_SPEC {

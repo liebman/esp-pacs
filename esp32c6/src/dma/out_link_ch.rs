@@ -59,6 +59,21 @@ impl R {
         OUTLINK_PARK_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_LINK_CH")
+            .field(
+                "outlink_addr",
+                &format_args!("{}", self.outlink_addr().bits()),
+            )
+            .field(
+                "outlink_park",
+                &format_args!("{}", self.outlink_park().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - This register stores the 20 least significant bits of the first outlink descriptor's address."]
     #[inline(always)]

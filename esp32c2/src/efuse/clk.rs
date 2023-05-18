@@ -72,6 +72,26 @@ impl R {
         EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::CLK")
+            .field(
+                "efuse_mem_force_pd",
+                &format_args!("{}", self.efuse_mem_force_pd().bit()),
+            )
+            .field(
+                "mem_clk_force_on",
+                &format_args!("{}", self.mem_clk_force_on().bit()),
+            )
+            .field(
+                "efuse_mem_force_pu",
+                &format_args!("{}", self.efuse_mem_force_pu().bit()),
+            )
+            .field("en", &format_args!("{}", self.en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to force eFuse SRAM into power-saving mode."]
     #[inline(always)]

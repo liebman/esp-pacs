@@ -124,6 +124,49 @@ impl R {
         TSENS_DUMP_OUT_R::new(((self.bits >> 26) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TSENS_CTRL")
+            .field(
+                "tsens_xpd_wait",
+                &format_args!("{}", self.tsens_xpd_wait().bits()),
+            )
+            .field(
+                "tsens_xpd_force",
+                &format_args!("{}", self.tsens_xpd_force().bit()),
+            )
+            .field(
+                "tsens_clk_inv",
+                &format_args!("{}", self.tsens_clk_inv().bit()),
+            )
+            .field(
+                "tsens_clk_gated",
+                &format_args!("{}", self.tsens_clk_gated().bit()),
+            )
+            .field(
+                "tsens_in_inv",
+                &format_args!("{}", self.tsens_in_inv().bit()),
+            )
+            .field(
+                "tsens_clk_div",
+                &format_args!("{}", self.tsens_clk_div().bits()),
+            )
+            .field(
+                "tsens_power_up",
+                &format_args!("{}", self.tsens_power_up().bit()),
+            )
+            .field(
+                "tsens_power_up_force",
+                &format_args!("{}", self.tsens_power_up_force().bit()),
+            )
+            .field(
+                "tsens_dump_out",
+                &format_args!("{}", self.tsens_dump_out().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11"]
     #[inline(always)]

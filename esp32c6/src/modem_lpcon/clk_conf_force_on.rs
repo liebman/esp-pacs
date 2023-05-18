@@ -136,6 +136,50 @@ impl R {
         CLK_DC_MEM_FO_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_LPCON::CLK_CONF_FORCE_ON")
+            .field(
+                "clk_wifipwr_fo",
+                &format_args!("{}", self.clk_wifipwr_fo().bit()),
+            )
+            .field("clk_coex_fo", &format_args!("{}", self.clk_coex_fo().bit()))
+            .field(
+                "clk_i2c_mst_fo",
+                &format_args!("{}", self.clk_i2c_mst_fo().bit()),
+            )
+            .field(
+                "clk_lp_timer_fo",
+                &format_args!("{}", self.clk_lp_timer_fo().bit()),
+            )
+            .field(
+                "clk_bcmem_fo",
+                &format_args!("{}", self.clk_bcmem_fo().bit()),
+            )
+            .field(
+                "clk_i2c_mst_mem_fo",
+                &format_args!("{}", self.clk_i2c_mst_mem_fo().bit()),
+            )
+            .field(
+                "clk_chan_freq_mem_fo",
+                &format_args!("{}", self.clk_chan_freq_mem_fo().bit()),
+            )
+            .field(
+                "clk_pbus_mem_fo",
+                &format_args!("{}", self.clk_pbus_mem_fo().bit()),
+            )
+            .field(
+                "clk_agc_mem_fo",
+                &format_args!("{}", self.clk_agc_mem_fo().bit()),
+            )
+            .field(
+                "clk_dc_mem_fo",
+                &format_args!("{}", self.clk_dc_mem_fo().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

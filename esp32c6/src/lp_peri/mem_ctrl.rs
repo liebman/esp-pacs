@@ -75,6 +75,29 @@ impl R {
         UART_MEM_FORCE_PU_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::MEM_CTRL")
+            .field(
+                "uart_wakeup_flag",
+                &format_args!("{}", self.uart_wakeup_flag().bit()),
+            )
+            .field(
+                "uart_wakeup_en",
+                &format_args!("{}", self.uart_wakeup_en().bit()),
+            )
+            .field(
+                "uart_mem_force_pd",
+                &format_args!("{}", self.uart_mem_force_pd().bit()),
+            )
+            .field(
+                "uart_mem_force_pu",
+                &format_args!("{}", self.uart_mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

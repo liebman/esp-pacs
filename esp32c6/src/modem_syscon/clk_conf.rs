@@ -139,6 +139,54 @@ impl R {
         CLK_DATA_DUMP_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_SYSCON::CLK_CONF")
+            .field(
+                "clk_data_dump_mux",
+                &format_args!("{}", self.clk_data_dump_mux().bit()),
+            )
+            .field("clk_etm_en", &format_args!("{}", self.clk_etm_en().bit()))
+            .field(
+                "clk_zb_apb_en",
+                &format_args!("{}", self.clk_zb_apb_en().bit()),
+            )
+            .field(
+                "clk_zb_mac_en",
+                &format_args!("{}", self.clk_zb_mac_en().bit()),
+            )
+            .field(
+                "clk_modem_sec_ecb_en",
+                &format_args!("{}", self.clk_modem_sec_ecb_en().bit()),
+            )
+            .field(
+                "clk_modem_sec_ccm_en",
+                &format_args!("{}", self.clk_modem_sec_ccm_en().bit()),
+            )
+            .field(
+                "clk_modem_sec_bah_en",
+                &format_args!("{}", self.clk_modem_sec_bah_en().bit()),
+            )
+            .field(
+                "clk_modem_sec_apb_en",
+                &format_args!("{}", self.clk_modem_sec_apb_en().bit()),
+            )
+            .field(
+                "clk_modem_sec_en",
+                &format_args!("{}", self.clk_modem_sec_en().bit()),
+            )
+            .field(
+                "clk_ble_timer_en",
+                &format_args!("{}", self.clk_ble_timer_en().bit()),
+            )
+            .field(
+                "clk_data_dump_en",
+                &format_args!("{}", self.clk_data_dump_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 21"]
     #[inline(always)]

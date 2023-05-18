@@ -73,6 +73,29 @@ impl R {
         RTC_MEM_CRC_FINISH_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::RTC_FASTMEM_CONFIG")
+            .field(
+                "rtc_mem_crc_start",
+                &format_args!("{}", self.rtc_mem_crc_start().bit()),
+            )
+            .field(
+                "rtc_mem_crc_addr",
+                &format_args!("{}", self.rtc_mem_crc_addr().bits()),
+            )
+            .field(
+                "rtc_mem_crc_len",
+                &format_args!("{}", self.rtc_mem_crc_len().bits()),
+            )
+            .field(
+                "rtc_mem_crc_finish",
+                &format_args!("{}", self.rtc_mem_crc_finish().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 8 - Set this bit to start the CRC of RTC memory."]
     #[inline(always)]

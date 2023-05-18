@@ -22,6 +22,17 @@ impl R {
         SARADC_SAR2_STATUS_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::SAR2_STATUS")
+            .field(
+                "saradc_sar2_status",
+                &format_args!("{}", self.saradc_sar2_status().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar2_status](index.html) module"]
 pub struct SAR2_STATUS_SPEC;
 impl crate::RegisterSpec for SAR2_STATUS_SPEC {

@@ -54,6 +54,15 @@ impl R {
         XPD_HALL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::HALL_SENS")
+            .field("hall_phase", &format_args!("{}", self.hall_phase().bit()))
+            .field("xpd_hall", &format_args!("{}", self.xpd_hall().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - Reverse phase of hall sensor"]
     #[inline(always)]

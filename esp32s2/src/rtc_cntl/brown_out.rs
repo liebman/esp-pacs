@@ -117,6 +117,28 @@ impl R {
         DET_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::BROWN_OUT")
+            .field(
+                "brown_out2_ena",
+                &format_args!("{}", self.brown_out2_ena().bit()),
+            )
+            .field("int_wait", &format_args!("{}", self.int_wait().bits()))
+            .field(
+                "close_flash_ena",
+                &format_args!("{}", self.close_flash_ena().bit()),
+            )
+            .field("pd_rf_ena", &format_args!("{}", self.pd_rf_ena().bit()))
+            .field("rst_wait", &format_args!("{}", self.rst_wait().bits()))
+            .field("rst_ena", &format_args!("{}", self.rst_ena().bit()))
+            .field("rst_sel", &format_args!("{}", self.rst_sel().bit()))
+            .field("ena", &format_args!("{}", self.ena().bit()))
+            .field("det", &format_args!("{}", self.det().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enables the brown_out2 to initiate a chip reset."]
     #[inline(always)]

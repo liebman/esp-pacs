@@ -45,6 +45,14 @@ impl R {
         ENDIAN_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::ENDIAN")
+            .field("endian", &format_args!("{}", self.endian().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - endian. \\[1:0\\] key endian, \\[3:2\\] text_in endian or in_stream endian, \\[5:4\\] text_out endian or out_stream endian"]
     #[inline(always)]

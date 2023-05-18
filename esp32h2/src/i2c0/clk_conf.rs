@@ -81,6 +81,21 @@ impl R {
         SCLK_ACTIVE_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::CLK_CONF")
+            .field(
+                "sclk_div_num",
+                &format_args!("{}", self.sclk_div_num().bits()),
+            )
+            .field("sclk_div_a", &format_args!("{}", self.sclk_div_a().bits()))
+            .field("sclk_div_b", &format_args!("{}", self.sclk_div_b().bits()))
+            .field("sclk_sel", &format_args!("{}", self.sclk_sel().bit()))
+            .field("sclk_active", &format_args!("{}", self.sclk_active().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - the integral part of the fractional divisor for i2c module"]
     #[inline(always)]

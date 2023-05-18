@@ -113,6 +113,69 @@ impl R {
         RPT4_RESERVED3_ERR_0_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_ERR3")
+            .field(
+                "dis_download_mode_err",
+                &format_args!("{}", self.dis_download_mode_err().bit()),
+            )
+            .field(
+                "dis_direct_boot_err",
+                &format_args!("{}", self.dis_direct_boot_err().bit()),
+            )
+            .field(
+                "usb_print_err",
+                &format_args!("{}", self.usb_print_err().bit()),
+            )
+            .field(
+                "rpt4_reserved3_err_5",
+                &format_args!("{}", self.rpt4_reserved3_err_5().bit()),
+            )
+            .field(
+                "dis_usb_serial_jtag_download_mode_err",
+                &format_args!("{}", self.dis_usb_serial_jtag_download_mode_err().bit()),
+            )
+            .field(
+                "enable_security_download_err",
+                &format_args!("{}", self.enable_security_download_err().bit()),
+            )
+            .field(
+                "uart_print_control_err",
+                &format_args!("{}", self.uart_print_control_err().bits()),
+            )
+            .field(
+                "rpt4_reserved3_err_4",
+                &format_args!("{}", self.rpt4_reserved3_err_4().bit()),
+            )
+            .field(
+                "rpt4_reserved3_err_3",
+                &format_args!("{}", self.rpt4_reserved3_err_3().bit()),
+            )
+            .field(
+                "rpt4_reserved3_err_2",
+                &format_args!("{}", self.rpt4_reserved3_err_2().bits()),
+            )
+            .field(
+                "rpt4_reserved3_err_1",
+                &format_args!("{}", self.rpt4_reserved3_err_1().bit()),
+            )
+            .field(
+                "force_send_resume_err",
+                &format_args!("{}", self.force_send_resume_err().bit()),
+            )
+            .field(
+                "secure_version_err",
+                &format_args!("{}", self.secure_version_err().bits()),
+            )
+            .field(
+                "rpt4_reserved3_err_0",
+                &format_args!("{}", self.rpt4_reserved3_err_0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Programming error record register 3 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_err3](index.html) module"]
 pub struct RD_REPEAT_ERR3_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_ERR3_SPEC {

@@ -45,6 +45,14 @@ impl R {
         T_LENGTH_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::T_LENGTH")
+            .field("t_length", &format_args!("{}", self.t_length().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Sha t_length (used if and only if mode == SHA_512/t)."]
     #[inline(always)]

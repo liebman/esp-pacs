@@ -55,6 +55,21 @@ impl R {
         LEDC_SCLK_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::LEDC_SCLK_CONF")
+            .field(
+                "ledc_sclk_sel",
+                &format_args!("{}", self.ledc_sclk_sel().bits()),
+            )
+            .field(
+                "ledc_sclk_en",
+                &format_args!("{}", self.ledc_sclk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 20:21 - set this field to select clock-source. 0(default): do not select anyone clock, 1: 80MHz, 2: FOSC, 3: XTAL."]
     #[inline(always)]

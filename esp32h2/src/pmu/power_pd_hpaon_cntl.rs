@@ -116,6 +116,45 @@ impl R {
         PD_HP_AON_PD_MASK_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_PD_HPAON_CNTL")
+            .field(
+                "force_hp_aon_reset",
+                &format_args!("{}", self.force_hp_aon_reset().bit()),
+            )
+            .field(
+                "force_hp_aon_iso",
+                &format_args!("{}", self.force_hp_aon_iso().bit()),
+            )
+            .field(
+                "force_hp_aon_pu",
+                &format_args!("{}", self.force_hp_aon_pu().bit()),
+            )
+            .field(
+                "force_hp_aon_no_reset",
+                &format_args!("{}", self.force_hp_aon_no_reset().bit()),
+            )
+            .field(
+                "force_hp_aon_no_iso",
+                &format_args!("{}", self.force_hp_aon_no_iso().bit()),
+            )
+            .field(
+                "force_hp_aon_pd",
+                &format_args!("{}", self.force_hp_aon_pd().bit()),
+            )
+            .field(
+                "pd_hp_aon_mask",
+                &format_args!("{}", self.pd_hp_aon_mask().bits()),
+            )
+            .field(
+                "pd_hp_aon_pd_mask",
+                &format_args!("{}", self.pd_hp_aon_pd_mask().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

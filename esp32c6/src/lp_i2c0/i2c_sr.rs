@@ -64,6 +64,41 @@ impl R {
         I2C_SCL_STATE_LAST_R::new(((self.bits >> 28) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::I2C_SR")
+            .field(
+                "i2c_resp_rec",
+                &format_args!("{}", self.i2c_resp_rec().bit()),
+            )
+            .field(
+                "i2c_arb_lost",
+                &format_args!("{}", self.i2c_arb_lost().bit()),
+            )
+            .field(
+                "i2c_bus_busy",
+                &format_args!("{}", self.i2c_bus_busy().bit()),
+            )
+            .field(
+                "i2c_rxfifo_cnt",
+                &format_args!("{}", self.i2c_rxfifo_cnt().bits()),
+            )
+            .field(
+                "i2c_txfifo_cnt",
+                &format_args!("{}", self.i2c_txfifo_cnt().bits()),
+            )
+            .field(
+                "i2c_scl_main_state_last",
+                &format_args!("{}", self.i2c_scl_main_state_last().bits()),
+            )
+            .field(
+                "i2c_scl_state_last",
+                &format_args!("{}", self.i2c_scl_state_last().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Describe I2C work status.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [i2c_sr](index.html) module"]
 pub struct I2C_SR_SPEC;
 impl crate::RegisterSpec for I2C_SR_SPEC {

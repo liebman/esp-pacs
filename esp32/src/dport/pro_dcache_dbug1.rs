@@ -22,6 +22,17 @@ impl R {
         PRO_CTAG_RAM_RDATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_DCACHE_DBUG1")
+            .field(
+                "pro_ctag_ram_rdata",
+                &format_args!("{}", self.pro_ctag_ram_rdata().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_dcache_dbug1](index.html) module"]
 pub struct PRO_DCACHE_DBUG1_SPEC;
 impl crate::RegisterSpec for PRO_DCACHE_DBUG1_SPEC {

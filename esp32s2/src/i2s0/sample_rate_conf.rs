@@ -76,6 +76,29 @@ impl R {
         RX_BITS_MOD_R::new(((self.bits >> 18) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::SAMPLE_RATE_CONF")
+            .field(
+                "tx_bck_div_num",
+                &format_args!("{}", self.tx_bck_div_num().bits()),
+            )
+            .field(
+                "rx_bck_div_num",
+                &format_args!("{}", self.rx_bck_div_num().bits()),
+            )
+            .field(
+                "tx_bits_mod",
+                &format_args!("{}", self.tx_bits_mod().bits()),
+            )
+            .field(
+                "rx_bits_mod",
+                &format_args!("{}", self.rx_bits_mod().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Bit clock configuration bits in transmitter mode."]
     #[inline(always)]

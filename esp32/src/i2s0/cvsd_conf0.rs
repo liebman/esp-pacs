@@ -56,6 +56,15 @@ impl R {
         CVSD_Y_MIN_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::CVSD_CONF0")
+            .field("cvsd_y_max", &format_args!("{}", self.cvsd_y_max().bits()))
+            .field("cvsd_y_min", &format_args!("{}", self.cvsd_y_min().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]

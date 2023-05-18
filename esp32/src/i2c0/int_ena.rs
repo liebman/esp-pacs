@@ -158,6 +158,65 @@ impl R {
         TX_SEND_EMPTY_INT_ENA_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::INT_ENA")
+            .field(
+                "rxfifo_full_int_ena",
+                &format_args!("{}", self.rxfifo_full_int_ena().bit()),
+            )
+            .field(
+                "txfifo_empty_int_ena",
+                &format_args!("{}", self.txfifo_empty_int_ena().bit()),
+            )
+            .field(
+                "rxfifo_ovf_int_ena",
+                &format_args!("{}", self.rxfifo_ovf_int_ena().bit()),
+            )
+            .field(
+                "end_detect_int_ena",
+                &format_args!("{}", self.end_detect_int_ena().bit()),
+            )
+            .field(
+                "slave_tran_comp_int_ena",
+                &format_args!("{}", self.slave_tran_comp_int_ena().bit()),
+            )
+            .field(
+                "arbitration_lost_int_ena",
+                &format_args!("{}", self.arbitration_lost_int_ena().bit()),
+            )
+            .field(
+                "master_tran_comp_int_ena",
+                &format_args!("{}", self.master_tran_comp_int_ena().bit()),
+            )
+            .field(
+                "trans_complete_int_ena",
+                &format_args!("{}", self.trans_complete_int_ena().bit()),
+            )
+            .field(
+                "time_out_int_ena",
+                &format_args!("{}", self.time_out_int_ena().bit()),
+            )
+            .field(
+                "trans_start_int_ena",
+                &format_args!("{}", self.trans_start_int_ena().bit()),
+            )
+            .field(
+                "ack_err_int_ena",
+                &format_args!("{}", self.ack_err_int_ena().bit()),
+            )
+            .field(
+                "rx_rec_full_int_ena",
+                &format_args!("{}", self.rx_rec_full_int_ena().bit()),
+            )
+            .field(
+                "tx_send_empty_int_ena",
+                &format_args!("{}", self.tx_send_empty_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The enable bit for rxfifo_full_int interrupt."]
     #[inline(always)]

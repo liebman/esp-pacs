@@ -76,6 +76,29 @@ impl R {
         HOST_SLCHOST_CONF31_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_CONF_W7")
+            .field(
+                "host_slchost_conf28",
+                &format_args!("{}", self.host_slchost_conf28().bits()),
+            )
+            .field(
+                "host_slchost_conf29",
+                &format_args!("{}", self.host_slchost_conf29().bits()),
+            )
+            .field(
+                "host_slchost_conf30",
+                &format_args!("{}", self.host_slchost_conf30().bits()),
+            )
+            .field(
+                "host_slchost_conf31",
+                &format_args!("{}", self.host_slchost_conf31().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

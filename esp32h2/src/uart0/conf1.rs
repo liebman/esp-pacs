@@ -110,6 +110,27 @@ impl R {
         CLK_EN_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::CONF1")
+            .field(
+                "rxfifo_full_thrhd",
+                &format_args!("{}", self.rxfifo_full_thrhd().bits()),
+            )
+            .field(
+                "txfifo_empty_thrhd",
+                &format_args!("{}", self.txfifo_empty_thrhd().bits()),
+            )
+            .field("cts_inv", &format_args!("{}", self.cts_inv().bit()))
+            .field("dsr_inv", &format_args!("{}", self.dsr_inv().bit()))
+            .field("rts_inv", &format_args!("{}", self.rts_inv().bit()))
+            .field("dtr_inv", &format_args!("{}", self.dtr_inv().bit()))
+            .field("sw_dtr", &format_args!("{}", self.sw_dtr().bit()))
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - It will produce rxfifo_full_int interrupt when receiver receives more data than this register value."]
     #[inline(always)]

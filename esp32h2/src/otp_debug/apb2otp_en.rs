@@ -45,6 +45,14 @@ impl R {
         APB2OTP_EN_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("OTP_DEBUG::APB2OTP_EN")
+            .field("apb2otp_en", &format_args!("{}", self.apb2otp_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Debug mode enable signal."]
     #[inline(always)]

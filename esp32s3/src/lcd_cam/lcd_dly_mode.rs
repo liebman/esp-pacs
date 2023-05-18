@@ -76,6 +76,29 @@ impl R {
         LCD_VSYNC_MODE_R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LCD_DLY_MODE")
+            .field(
+                "lcd_cd_mode",
+                &format_args!("{}", self.lcd_cd_mode().bits()),
+            )
+            .field(
+                "lcd_de_mode",
+                &format_args!("{}", self.lcd_de_mode().bits()),
+            )
+            .field(
+                "lcd_hsync_mode",
+                &format_args!("{}", self.lcd_hsync_mode().bits()),
+            )
+            .field(
+                "lcd_vsync_mode",
+                &format_args!("{}", self.lcd_vsync_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - The output LCD_CD is delayed by module clock LCD_CLK. 0: output without delayed. 1: delay by the positive edge of LCD_CLK. 2: delay by the negative edge of LCD_CLK."]
     #[inline(always)]

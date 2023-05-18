@@ -76,6 +76,29 @@ impl R {
         PRO_D_TAG_WR_ACS_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CACHE_TAG_ACCESS_1")
+            .field(
+                "pro_i_tag_rd_acs",
+                &format_args!("{}", self.pro_i_tag_rd_acs().bit()),
+            )
+            .field(
+                "pro_i_tag_wr_acs",
+                &format_args!("{}", self.pro_i_tag_wr_acs().bit()),
+            )
+            .field(
+                "pro_d_tag_rd_acs",
+                &format_args!("{}", self.pro_d_tag_rd_acs().bit()),
+            )
+            .field(
+                "pro_d_tag_wr_acs",
+                &format_args!("{}", self.pro_d_tag_wr_acs().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - pro_i_tag_rd_acs"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         MODEM_DIAG_EN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IO_MUX::MODEM_DIAG_EN")
+            .field(
+                "modem_diag_en",
+                &format_args!("{}", self.modem_diag_en().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - bit i to enable modem_diag\\[i\\] into gpio matrix. 1:enable modem_diag\\[i\\] into gpio matrix. 0:enable other signals into gpio matrix"]
     #[inline(always)]

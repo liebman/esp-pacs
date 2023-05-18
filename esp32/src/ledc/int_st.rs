@@ -183,6 +183,109 @@ impl R {
         DUTY_CHNG_END_LSCH7_INT_ST_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_ST")
+            .field(
+                "hstimer0_ovf_int_st",
+                &format_args!("{}", self.hstimer0_ovf_int_st().bit()),
+            )
+            .field(
+                "hstimer1_ovf_int_st",
+                &format_args!("{}", self.hstimer1_ovf_int_st().bit()),
+            )
+            .field(
+                "hstimer2_ovf_int_st",
+                &format_args!("{}", self.hstimer2_ovf_int_st().bit()),
+            )
+            .field(
+                "hstimer3_ovf_int_st",
+                &format_args!("{}", self.hstimer3_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer0_ovf_int_st",
+                &format_args!("{}", self.lstimer0_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer1_ovf_int_st",
+                &format_args!("{}", self.lstimer1_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer2_ovf_int_st",
+                &format_args!("{}", self.lstimer2_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer3_ovf_int_st",
+                &format_args!("{}", self.lstimer3_ovf_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch0_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch0_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch1_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch1_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch2_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch2_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch3_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch3_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch4_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch4_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch5_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch5_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch6_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch6_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch7_int_st",
+                &format_args!("{}", self.duty_chng_end_hsch7_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch0_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch0_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch1_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch1_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch2_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch2_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch3_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch3_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch4_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch4_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch5_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch5_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch6_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch6_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch7_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch7_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

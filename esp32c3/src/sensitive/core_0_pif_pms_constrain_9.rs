@@ -62,6 +62,29 @@ impl R {
         )
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_CONSTRAIN_9")
+            .field(
+                "core_0_pif_pms_constrain_rtcfast_spltaddr_world_0",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_rtcfast_spltaddr_world_0()
+                        .bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_rtcfast_spltaddr_world_1",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_rtcfast_spltaddr_world_1()
+                        .bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - core_0_pif_pms_constrain_rtcfast_spltaddr_world_0"]
     #[inline(always)]

@@ -56,6 +56,21 @@ impl R {
         TWAI0_FUNC_CLK_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::TWAI0_FUNC_CLK_CONF")
+            .field(
+                "twai0_func_clk_sel",
+                &format_args!("{}", self.twai0_func_clk_sel().bit()),
+            )
+            .field(
+                "twai0_func_clk_en",
+                &format_args!("{}", self.twai0_func_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 20 - set this field to select clock-source. 0(default): XTAL, 1: FOSC."]
     #[inline(always)]

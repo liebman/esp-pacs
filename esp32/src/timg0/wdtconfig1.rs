@@ -46,6 +46,17 @@ impl R {
         WDT_CLK_PRESCALE_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::WDTCONFIG1")
+            .field(
+                "wdt_clk_prescale",
+                &format_args!("{}", self.wdt_clk_prescale().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:31 - SWDT clock prescale value. Period = 12.5ns * value stored in this register"]
     #[inline(always)]

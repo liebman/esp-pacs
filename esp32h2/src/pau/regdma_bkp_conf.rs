@@ -76,6 +76,29 @@ impl R {
         BACKUP_TOUT_THRES_R::new(((self.bits >> 22) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PAU::REGDMA_BKP_CONF")
+            .field(
+                "read_interval",
+                &format_args!("{}", self.read_interval().bits()),
+            )
+            .field(
+                "link_tout_thres",
+                &format_args!("{}", self.link_tout_thres().bits()),
+            )
+            .field(
+                "burst_limit",
+                &format_args!("{}", self.burst_limit().bits()),
+            )
+            .field(
+                "backup_tout_thres",
+                &format_args!("{}", self.backup_tout_thres().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Link read_interval"]
     #[inline(always)]

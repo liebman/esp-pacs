@@ -258,6 +258,91 @@ impl R {
         DMA_SEG_TRANS_CLR_R::new(((self.bits >> 28) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_CONF")
+            .field("in_rst", &format_args!("{}", self.in_rst().bit()))
+            .field("out_rst", &format_args!("{}", self.out_rst().bit()))
+            .field(
+                "ahbm_fifo_rst",
+                &format_args!("{}", self.ahbm_fifo_rst().bit()),
+            )
+            .field("ahbm_rst", &format_args!("{}", self.ahbm_rst().bit()))
+            .field(
+                "in_loop_test",
+                &format_args!("{}", self.in_loop_test().bit()),
+            )
+            .field(
+                "out_loop_test",
+                &format_args!("{}", self.out_loop_test().bit()),
+            )
+            .field(
+                "out_auto_wrback",
+                &format_args!("{}", self.out_auto_wrback().bit()),
+            )
+            .field(
+                "out_eof_mode",
+                &format_args!("{}", self.out_eof_mode().bit()),
+            )
+            .field(
+                "outdscr_burst_en",
+                &format_args!("{}", self.outdscr_burst_en().bit()),
+            )
+            .field(
+                "indscr_burst_en",
+                &format_args!("{}", self.indscr_burst_en().bit()),
+            )
+            .field(
+                "out_data_burst_en",
+                &format_args!("{}", self.out_data_burst_en().bit()),
+            )
+            .field(
+                "mem_trans_en",
+                &format_args!("{}", self.mem_trans_en().bit()),
+            )
+            .field("dma_rx_stop", &format_args!("{}", self.dma_rx_stop().bit()))
+            .field("dma_tx_stop", &format_args!("{}", self.dma_tx_stop().bit()))
+            .field(
+                "dma_continue",
+                &format_args!("{}", self.dma_continue().bit()),
+            )
+            .field(
+                "slv_last_seg_pop_clr",
+                &format_args!("{}", self.slv_last_seg_pop_clr().bit()),
+            )
+            .field(
+                "dma_slv_seg_trans_en",
+                &format_args!("{}", self.dma_slv_seg_trans_en().bit()),
+            )
+            .field(
+                "slv_rx_seg_trans_clr_en",
+                &format_args!("{}", self.slv_rx_seg_trans_clr_en().bit()),
+            )
+            .field(
+                "slv_tx_seg_trans_clr_en",
+                &format_args!("{}", self.slv_tx_seg_trans_clr_en().bit()),
+            )
+            .field("rx_eof_en", &format_args!("{}", self.rx_eof_en().bit()))
+            .field(
+                "dma_infifo_full_clr",
+                &format_args!("{}", self.dma_infifo_full_clr().bit()),
+            )
+            .field(
+                "dma_outfifo_empty_clr",
+                &format_args!("{}", self.dma_outfifo_empty_clr().bit()),
+            )
+            .field(
+                "ext_mem_bk_size",
+                &format_args!("{}", self.ext_mem_bk_size().bits()),
+            )
+            .field(
+                "dma_seg_trans_clr",
+                &format_args!("{}", self.dma_seg_trans_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - The bit is used to reset in dma fsm and in data fifo pointer."]
     #[inline(always)]

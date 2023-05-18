@@ -45,6 +45,14 @@ impl R {
         LOG_MAX_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::LOG_MAX")
+            .field("log_max", &format_args!("{}", self.log_max().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - reg_log_max"]
     #[inline(always)]

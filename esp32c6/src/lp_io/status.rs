@@ -46,6 +46,17 @@ impl R {
         LP_GPIO_STATUS_INTERRUPT_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_IO::STATUS")
+            .field(
+                "lp_gpio_status_interrupt",
+                &format_args!("{}", self.lp_gpio_status_interrupt().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - set lp gpio output data"]
     #[inline(always)]

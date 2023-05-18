@@ -46,6 +46,17 @@ impl R {
         LOG_CHECK_DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MEM_MONITOR::LOG_CHECK_DATA")
+            .field(
+                "log_check_data",
+                &format_args!("{}", self.log_check_data().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The special check data, when write this special data, it will trigger logging."]
     #[inline(always)]

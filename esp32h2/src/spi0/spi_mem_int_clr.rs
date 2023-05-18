@@ -69,6 +69,25 @@ impl R {
         SPI_MEM_AXI_WADDR_ERR_INT_CLR_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_INT_CLR")
+            .field(
+                "spi_mem_ecc_err_int_clr",
+                &format_args!("{}", self.spi_mem_ecc_err_int_clr().bit()),
+            )
+            .field(
+                "spi_mem_axi_wr_flash_err_int_clr",
+                &format_args!("{}", self.spi_mem_axi_wr_flash_err_int_clr().bit()),
+            )
+            .field(
+                "spi_mem_axi_waddr_err_int_clr",
+                &format_args!("{}", self.spi_mem_axi_waddr_err_int_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - The clear bit for SPI_MEM_SLV_ST_END_INT interrupt."]
     #[inline(always)]

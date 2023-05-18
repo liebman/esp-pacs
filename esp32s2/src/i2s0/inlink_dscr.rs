@@ -22,6 +22,17 @@ impl R {
         INLINK_DSCR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::INLINK_DSCR")
+            .field(
+                "inlink_dscr",
+                &format_args!("{}", self.inlink_dscr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Address of current inlink descriptor\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inlink_dscr](index.html) module"]
 pub struct INLINK_DSCR_SPEC;
 impl crate::RegisterSpec for INLINK_DSCR_SPEC {

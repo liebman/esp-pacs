@@ -156,6 +156,61 @@ impl R {
         PRO_IRAM0_SRAM_3_W_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_IRAM0_1")
+            .field(
+                "pro_iram0_sram_0_f",
+                &format_args!("{}", self.pro_iram0_sram_0_f().bit()),
+            )
+            .field(
+                "pro_iram0_sram_0_r",
+                &format_args!("{}", self.pro_iram0_sram_0_r().bit()),
+            )
+            .field(
+                "pro_iram0_sram_0_w",
+                &format_args!("{}", self.pro_iram0_sram_0_w().bit()),
+            )
+            .field(
+                "pro_iram0_sram_1_f",
+                &format_args!("{}", self.pro_iram0_sram_1_f().bit()),
+            )
+            .field(
+                "pro_iram0_sram_1_r",
+                &format_args!("{}", self.pro_iram0_sram_1_r().bit()),
+            )
+            .field(
+                "pro_iram0_sram_1_w",
+                &format_args!("{}", self.pro_iram0_sram_1_w().bit()),
+            )
+            .field(
+                "pro_iram0_sram_2_f",
+                &format_args!("{}", self.pro_iram0_sram_2_f().bit()),
+            )
+            .field(
+                "pro_iram0_sram_2_r",
+                &format_args!("{}", self.pro_iram0_sram_2_r().bit()),
+            )
+            .field(
+                "pro_iram0_sram_2_w",
+                &format_args!("{}", self.pro_iram0_sram_2_w().bit()),
+            )
+            .field(
+                "pro_iram0_sram_3_f",
+                &format_args!("{}", self.pro_iram0_sram_3_f().bit()),
+            )
+            .field(
+                "pro_iram0_sram_3_r",
+                &format_args!("{}", self.pro_iram0_sram_3_r().bit()),
+            )
+            .field(
+                "pro_iram0_sram_3_w",
+                &format_args!("{}", self.pro_iram0_sram_3_w().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Setting to 1 grants IBUS permission to fetch SRAM Block 0."]
     #[inline(always)]

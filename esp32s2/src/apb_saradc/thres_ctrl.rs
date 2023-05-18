@@ -101,6 +101,32 @@ impl R {
         ADC1_THRES_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::THRES_CTRL")
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "adc2_thres_mode",
+                &format_args!("{}", self.adc2_thres_mode().bit()),
+            )
+            .field(
+                "adc1_thres_mode",
+                &format_args!("{}", self.adc1_thres_mode().bit()),
+            )
+            .field("adc2_thres", &format_args!("{}", self.adc2_thres().bits()))
+            .field("adc1_thres", &format_args!("{}", self.adc1_thres().bits()))
+            .field(
+                "adc2_thres_en",
+                &format_args!("{}", self.adc2_thres_en().bit()),
+            )
+            .field(
+                "adc1_thres_en",
+                &format_args!("{}", self.adc1_thres_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Clock gate enable."]
     #[inline(always)]

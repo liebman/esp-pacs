@@ -45,6 +45,14 @@ impl R {
         HPOINT_R::new((self.bits & 0x3fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_HPOINT")
+            .field("hpoint", &format_args!("{}", self.hpoint().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - reg_hpoint_lsch0."]
     #[inline(always)]

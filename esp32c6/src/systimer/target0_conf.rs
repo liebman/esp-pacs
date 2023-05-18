@@ -66,6 +66,25 @@ impl R {
         TARGET0_TIMER_UNIT_SEL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::TARGET0_CONF")
+            .field(
+                "target0_period",
+                &format_args!("{}", self.target0_period().bits()),
+            )
+            .field(
+                "target0_period_mode",
+                &format_args!("{}", self.target0_period_mode().bit()),
+            )
+            .field(
+                "target0_timer_unit_sel",
+                &format_args!("{}", self.target0_timer_unit_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:25 - target0 period"]
     #[inline(always)]

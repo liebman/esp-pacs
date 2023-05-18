@@ -75,6 +75,29 @@ impl R {
         RX_TDM_CHAN_BITS_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::RX_CONF1")
+            .field(
+                "rx_tdm_ws_width",
+                &format_args!("{}", self.rx_tdm_ws_width().bits()),
+            )
+            .field(
+                "rx_bits_mod",
+                &format_args!("{}", self.rx_bits_mod().bits()),
+            )
+            .field(
+                "rx_half_sample_bits",
+                &format_args!("{}", self.rx_half_sample_bits().bits()),
+            )
+            .field(
+                "rx_tdm_chan_bits",
+                &format_args!("{}", self.rx_tdm_chan_bits().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - The width of rx_ws_out at idle level in TDM mode is (I2S_RX_TDM_WS_WIDTH\\[8:0\\] +1) * T_bck"]
     #[inline(always)]

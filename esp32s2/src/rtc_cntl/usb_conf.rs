@@ -192,6 +192,66 @@ impl R {
         IO_MUX_RESET_DISABLE_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::USB_CONF")
+            .field("usb_vrefh", &format_args!("{}", self.usb_vrefh().bits()))
+            .field("usb_vrefl", &format_args!("{}", self.usb_vrefl().bits()))
+            .field(
+                "usb_vref_override",
+                &format_args!("{}", self.usb_vref_override().bit()),
+            )
+            .field(
+                "usb_pad_pull_override",
+                &format_args!("{}", self.usb_pad_pull_override().bit()),
+            )
+            .field(
+                "usb_dp_pullup",
+                &format_args!("{}", self.usb_dp_pullup().bit()),
+            )
+            .field(
+                "usb_dp_pulldown",
+                &format_args!("{}", self.usb_dp_pulldown().bit()),
+            )
+            .field(
+                "usb_dm_pullup",
+                &format_args!("{}", self.usb_dm_pullup().bit()),
+            )
+            .field(
+                "usb_dm_pulldown",
+                &format_args!("{}", self.usb_dm_pulldown().bit()),
+            )
+            .field(
+                "usb_pullup_value",
+                &format_args!("{}", self.usb_pullup_value().bit()),
+            )
+            .field(
+                "usb_pad_enable_override",
+                &format_args!("{}", self.usb_pad_enable_override().bit()),
+            )
+            .field(
+                "usb_pad_enable",
+                &format_args!("{}", self.usb_pad_enable().bit()),
+            )
+            .field("usb_txm", &format_args!("{}", self.usb_txm().bit()))
+            .field("usb_txp", &format_args!("{}", self.usb_txp().bit()))
+            .field("usb_tx_en", &format_args!("{}", self.usb_tx_en().bit()))
+            .field(
+                "usb_tx_en_override",
+                &format_args!("{}", self.usb_tx_en_override().bit()),
+            )
+            .field(
+                "usb_reset_disable",
+                &format_args!("{}", self.usb_reset_disable().bit()),
+            )
+            .field(
+                "io_mux_reset_disable",
+                &format_args!("{}", self.io_mux_reset_disable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

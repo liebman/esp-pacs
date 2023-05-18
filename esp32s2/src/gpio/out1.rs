@@ -45,6 +45,14 @@ impl R {
         DATA_ORIG_R::new(self.bits & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::OUT1")
+            .field("data_orig", &format_args!("{}", self.data_orig().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - GPIO32 ~ 53 output value in simple GPIO output mode. The values of bit0 ~ bit13 correspond to GPIO32 ~ GPIO45. Bit14 ~ bit21 are invalid."]
     #[inline(always)]

@@ -22,6 +22,14 @@ impl R {
         TIME_LO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME0")
+            .field("time_lo", &format_args!("{}", self.time_lo().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [time0](index.html) module"]
 pub struct TIME0_SPEC;
 impl crate::RegisterSpec for TIME0_SPEC {

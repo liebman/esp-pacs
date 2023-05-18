@@ -156,6 +156,61 @@ impl R {
         HP_SW_TRIGGER_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::LP_INT_ENA")
+            .field(
+                "lp_cpu_wakeup_int_ena",
+                &format_args!("{}", self.lp_cpu_wakeup_int_ena().bit()),
+            )
+            .field(
+                "modem_switch_active_end_int_ena",
+                &format_args!("{}", self.modem_switch_active_end_int_ena().bit()),
+            )
+            .field(
+                "sleep_switch_active_end_int_ena",
+                &format_args!("{}", self.sleep_switch_active_end_int_ena().bit()),
+            )
+            .field(
+                "sleep_switch_modem_end_int_ena",
+                &format_args!("{}", self.sleep_switch_modem_end_int_ena().bit()),
+            )
+            .field(
+                "modem_switch_sleep_end_int_ena",
+                &format_args!("{}", self.modem_switch_sleep_end_int_ena().bit()),
+            )
+            .field(
+                "active_switch_sleep_end_int_ena",
+                &format_args!("{}", self.active_switch_sleep_end_int_ena().bit()),
+            )
+            .field(
+                "modem_switch_active_start_int_ena",
+                &format_args!("{}", self.modem_switch_active_start_int_ena().bit()),
+            )
+            .field(
+                "sleep_switch_active_start_int_ena",
+                &format_args!("{}", self.sleep_switch_active_start_int_ena().bit()),
+            )
+            .field(
+                "sleep_switch_modem_start_int_ena",
+                &format_args!("{}", self.sleep_switch_modem_start_int_ena().bit()),
+            )
+            .field(
+                "modem_switch_sleep_start_int_ena",
+                &format_args!("{}", self.modem_switch_sleep_start_int_ena().bit()),
+            )
+            .field(
+                "active_switch_sleep_start_int_ena",
+                &format_args!("{}", self.active_switch_sleep_start_int_ena().bit()),
+            )
+            .field(
+                "hp_sw_trigger_int_ena",
+                &format_args!("{}", self.hp_sw_trigger_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 20 - need_des"]
     #[inline(always)]

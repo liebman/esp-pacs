@@ -86,6 +86,33 @@ impl R {
         WK_MODE_SEL_R::new(((self.bits >> 26) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::SLEEP_CONF2")
+            .field(
+                "active_threshold",
+                &format_args!("{}", self.active_threshold().bits()),
+            )
+            .field(
+                "rx_wake_up_thrhd",
+                &format_args!("{}", self.rx_wake_up_thrhd().bits()),
+            )
+            .field(
+                "wk_char_num",
+                &format_args!("{}", self.wk_char_num().bits()),
+            )
+            .field(
+                "wk_char_mask",
+                &format_args!("{}", self.wk_char_mask().bits()),
+            )
+            .field(
+                "wk_mode_sel",
+                &format_args!("{}", self.wk_mode_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - The uart is activated from light sleeping mode when the input rxd edge changes more times than this register value."]
     #[inline(always)]

@@ -119,6 +119,31 @@ impl R {
         FADDR_QUAD_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CACHE_FCTRL")
+            .field(
+                "cache_req_en",
+                &format_args!("{}", self.cache_req_en().bit()),
+            )
+            .field(
+                "cache_usr_cmd_4byte",
+                &format_args!("{}", self.cache_usr_cmd_4byte().bit()),
+            )
+            .field(
+                "cache_flash_usr_cmd",
+                &format_args!("{}", self.cache_flash_usr_cmd().bit()),
+            )
+            .field("fdin_dual", &format_args!("{}", self.fdin_dual().bit()))
+            .field("fdout_dual", &format_args!("{}", self.fdout_dual().bit()))
+            .field("faddr_dual", &format_args!("{}", self.faddr_dual().bit()))
+            .field("fdin_quad", &format_args!("{}", self.fdin_quad().bit()))
+            .field("fdout_quad", &format_args!("{}", self.fdout_quad().bit()))
+            .field("faddr_quad", &format_args!("{}", self.faddr_quad().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable Cache's access and SPI0's transfer."]
     #[inline(always)]

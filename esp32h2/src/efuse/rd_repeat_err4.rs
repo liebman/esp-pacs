@@ -36,6 +36,25 @@ impl R {
         RPT4_RESERVED4_ERR_0_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_ERR4")
+            .field(
+                "hys_en_pad1_err",
+                &format_args!("{}", self.hys_en_pad1_err().bits()),
+            )
+            .field(
+                "rpt4_reserved4_err_1",
+                &format_args!("{}", self.rpt4_reserved4_err_1().bits()),
+            )
+            .field(
+                "rpt4_reserved4_err_0",
+                &format_args!("{}", self.rpt4_reserved4_err_0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Programming error record register 4 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_err4](index.html) module"]
 pub struct RD_REPEAT_ERR4_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_ERR4_SPEC {

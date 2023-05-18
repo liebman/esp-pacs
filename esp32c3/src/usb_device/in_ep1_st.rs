@@ -36,6 +36,25 @@ impl R {
         IN_EP1_RD_ADDR_R::new(((self.bits >> 9) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::IN_EP1_ST")
+            .field(
+                "in_ep1_state",
+                &format_args!("{}", self.in_ep1_state().bits()),
+            )
+            .field(
+                "in_ep1_wr_addr",
+                &format_args!("{}", self.in_ep1_wr_addr().bits()),
+            )
+            .field(
+                "in_ep1_rd_addr",
+                &format_args!("{}", self.in_ep1_rd_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "USB_DEVICE_IN_EP1_ST_REG.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_ep1_st](index.html) module"]
 pub struct IN_EP1_ST_SPEC;
 impl crate::RegisterSpec for IN_EP1_ST_SPEC {

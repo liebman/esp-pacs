@@ -45,6 +45,14 @@ impl R {
         I2SDATE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::DATE")
+            .field("i2sdate", &format_args!("{}", self.i2sdate().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         PKT_THRS_R::new((self.bits & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::PKT_THRES")
+            .field("pkt_thrs", &format_args!("{}", self.pkt_thrs().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:12 - a"]
     #[inline(always)]

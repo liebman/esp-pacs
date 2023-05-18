@@ -63,6 +63,25 @@ impl R {
         MODEM_RST_EN_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::MODEM_CONF")
+            .field(
+                "modem_clk_sel",
+                &format_args!("{}", self.modem_clk_sel().bit()),
+            )
+            .field(
+                "modem_clk_en",
+                &format_args!("{}", self.modem_clk_en().bit()),
+            )
+            .field(
+                "modem_rst_en",
+                &format_args!("{}", self.modem_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - xxxx"]
     #[inline(always)]

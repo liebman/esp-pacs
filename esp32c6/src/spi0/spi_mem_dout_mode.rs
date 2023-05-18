@@ -126,6 +126,49 @@ impl R {
         SPI_MEM_DOUTS_MODE_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_DOUT_MODE")
+            .field(
+                "spi_mem_dout0_mode",
+                &format_args!("{}", self.spi_mem_dout0_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout1_mode",
+                &format_args!("{}", self.spi_mem_dout1_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout2_mode",
+                &format_args!("{}", self.spi_mem_dout2_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout3_mode",
+                &format_args!("{}", self.spi_mem_dout3_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout4_mode",
+                &format_args!("{}", self.spi_mem_dout4_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout5_mode",
+                &format_args!("{}", self.spi_mem_dout5_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout6_mode",
+                &format_args!("{}", self.spi_mem_dout6_mode().bit()),
+            )
+            .field(
+                "spi_mem_dout7_mode",
+                &format_args!("{}", self.spi_mem_dout7_mode().bit()),
+            )
+            .field(
+                "spi_mem_douts_mode",
+                &format_args!("{}", self.spi_mem_douts_mode().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge"]
     #[inline(always)]

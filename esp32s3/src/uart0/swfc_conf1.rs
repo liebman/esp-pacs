@@ -55,6 +55,18 @@ impl R {
         XON_CHAR_R::new(((self.bits >> 10) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::SWFC_CONF1")
+            .field(
+                "xon_threshold",
+                &format_args!("{}", self.xon_threshold().bits()),
+            )
+            .field("xon_char", &format_args!("{}", self.xon_char().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - When the data amount in Rx-FIFO is less than this register value with uart_sw_flow_con_en set to 1, it will send a Xon char."]
     #[inline(always)]

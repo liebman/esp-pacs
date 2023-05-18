@@ -45,6 +45,14 @@ impl R {
         SRAM_FO_1_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::SRAM_FO_CTRL_1")
+            .field("sram_fo_1", &format_args!("{}", self.sram_fo_1().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         PIF_ACCESS_MONITOR_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::PIF_ACCESS_MONITOR_0")
+            .field(
+                "pif_access_monitor_lock",
+                &format_args!("{}", self.pif_access_monitor_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Need add description"]
     #[inline(always)]

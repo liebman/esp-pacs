@@ -54,6 +54,15 @@ impl R {
         PGM_CMD_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::CMD")
+            .field("read_cmd", &format_args!("{}", self.read_cmd().bit()))
+            .field("pgm_cmd", &format_args!("{}", self.pgm_cmd().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - command for read"]
     #[inline(always)]

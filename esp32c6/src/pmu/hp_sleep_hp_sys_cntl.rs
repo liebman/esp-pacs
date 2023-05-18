@@ -96,6 +96,37 @@ impl R {
         HP_SLEEP_DIG_CPU_STALL_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_SLEEP_HP_SYS_CNTL")
+            .field(
+                "hp_sleep_uart_wakeup_en",
+                &format_args!("{}", self.hp_sleep_uart_wakeup_en().bit()),
+            )
+            .field(
+                "hp_sleep_lp_pad_hold_all",
+                &format_args!("{}", self.hp_sleep_lp_pad_hold_all().bit()),
+            )
+            .field(
+                "hp_sleep_hp_pad_hold_all",
+                &format_args!("{}", self.hp_sleep_hp_pad_hold_all().bit()),
+            )
+            .field(
+                "hp_sleep_dig_pad_slp_sel",
+                &format_args!("{}", self.hp_sleep_dig_pad_slp_sel().bit()),
+            )
+            .field(
+                "hp_sleep_dig_pause_wdt",
+                &format_args!("{}", self.hp_sleep_dig_pause_wdt().bit()),
+            )
+            .field(
+                "hp_sleep_dig_cpu_stall",
+                &format_args!("{}", self.hp_sleep_dig_cpu_stall().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - need_des"]
     #[inline(always)]

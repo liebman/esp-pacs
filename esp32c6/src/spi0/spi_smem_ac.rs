@@ -78,6 +78,49 @@ impl R {
         SPI_SMEM_SPLIT_TRANS_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_AC")
+            .field(
+                "spi_smem_cs_setup",
+                &format_args!("{}", self.spi_smem_cs_setup().bit()),
+            )
+            .field(
+                "spi_smem_cs_hold",
+                &format_args!("{}", self.spi_smem_cs_hold().bit()),
+            )
+            .field(
+                "spi_smem_cs_setup_time",
+                &format_args!("{}", self.spi_smem_cs_setup_time().bits()),
+            )
+            .field(
+                "spi_smem_cs_hold_time",
+                &format_args!("{}", self.spi_smem_cs_hold_time().bits()),
+            )
+            .field(
+                "spi_smem_ecc_cs_hold_time",
+                &format_args!("{}", self.spi_smem_ecc_cs_hold_time().bits()),
+            )
+            .field(
+                "spi_smem_ecc_skip_page_corner",
+                &format_args!("{}", self.spi_smem_ecc_skip_page_corner().bit()),
+            )
+            .field(
+                "spi_smem_ecc_16to18_byte_en",
+                &format_args!("{}", self.spi_smem_ecc_16to18_byte_en().bit()),
+            )
+            .field(
+                "spi_smem_cs_hold_delay",
+                &format_args!("{}", self.spi_smem_cs_hold_delay().bits()),
+            )
+            .field(
+                "spi_smem_split_trans_en",
+                &format_args!("{}", self.spi_smem_split_trans_en().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "MSPI external RAM ECC and SPI CS timing control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_smem_ac](index.html) module"]
 pub struct SPI_SMEM_AC_SPEC;
 impl crate::RegisterSpec for SPI_SMEM_AC_SPEC {

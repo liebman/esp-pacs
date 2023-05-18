@@ -53,6 +53,21 @@ impl R {
         SPI_MEM_REJECT_CDE_R::new(((self.bits >> 2) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::SPI_MEM_PMS_CTRL")
+            .field(
+                "spi_mem_reject_int",
+                &format_args!("{}", self.spi_mem_reject_int().bit()),
+            )
+            .field(
+                "spi_mem_reject_cde",
+                &format_args!("{}", self.spi_mem_reject_cde().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - ******* Description ***********"]
     #[inline(always)]

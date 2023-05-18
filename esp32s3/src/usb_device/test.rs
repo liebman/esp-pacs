@@ -93,6 +93,20 @@ impl R {
         RX_DM_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::TEST")
+            .field("enable", &format_args!("{}", self.enable().bit()))
+            .field("usb_oe", &format_args!("{}", self.usb_oe().bit()))
+            .field("tx_dp", &format_args!("{}", self.tx_dp().bit()))
+            .field("tx_dm", &format_args!("{}", self.tx_dm().bit()))
+            .field("rx_rcv", &format_args!("{}", self.rx_rcv().bit()))
+            .field("rx_dp", &format_args!("{}", self.rx_dp().bit()))
+            .field("rx_dm", &format_args!("{}", self.rx_dm().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable test of the USB pad"]
     #[inline(always)]

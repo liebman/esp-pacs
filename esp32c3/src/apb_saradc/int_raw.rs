@@ -57,6 +57,37 @@ impl R {
         APB_SARADC1_DONE_INT_RAW_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::INT_RAW")
+            .field(
+                "apb_saradc_thres1_low_int_raw",
+                &format_args!("{}", self.apb_saradc_thres1_low_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres0_low_int_raw",
+                &format_args!("{}", self.apb_saradc_thres0_low_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres1_high_int_raw",
+                &format_args!("{}", self.apb_saradc_thres1_high_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres0_high_int_raw",
+                &format_args!("{}", self.apb_saradc_thres0_high_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc2_done_int_raw",
+                &format_args!("{}", self.apb_saradc2_done_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc1_done_int_raw",
+                &format_args!("{}", self.apb_saradc1_done_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "digital saradc int register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

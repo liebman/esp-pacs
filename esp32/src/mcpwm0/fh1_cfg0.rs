@@ -180,6 +180,53 @@ impl R {
         FH1_B_OST_U_R::new(((self.bits >> 22) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::FH1_CFG0")
+            .field("fh1_sw_cbc", &format_args!("{}", self.fh1_sw_cbc().bit()))
+            .field("fh1_f2_cbc", &format_args!("{}", self.fh1_f2_cbc().bit()))
+            .field("fh1_f1_cbc", &format_args!("{}", self.fh1_f1_cbc().bit()))
+            .field("fh1_f0_cbc", &format_args!("{}", self.fh1_f0_cbc().bit()))
+            .field("fh1_sw_ost", &format_args!("{}", self.fh1_sw_ost().bit()))
+            .field("fh1_f2_ost", &format_args!("{}", self.fh1_f2_ost().bit()))
+            .field("fh1_f1_ost", &format_args!("{}", self.fh1_f1_ost().bit()))
+            .field("fh1_f0_ost", &format_args!("{}", self.fh1_f0_ost().bit()))
+            .field(
+                "fh1_a_cbc_d",
+                &format_args!("{}", self.fh1_a_cbc_d().bits()),
+            )
+            .field(
+                "fh1_a_cbc_u",
+                &format_args!("{}", self.fh1_a_cbc_u().bits()),
+            )
+            .field(
+                "fh1_a_ost_d",
+                &format_args!("{}", self.fh1_a_ost_d().bits()),
+            )
+            .field(
+                "fh1_a_ost_u",
+                &format_args!("{}", self.fh1_a_ost_u().bits()),
+            )
+            .field(
+                "fh1_b_cbc_d",
+                &format_args!("{}", self.fh1_b_cbc_d().bits()),
+            )
+            .field(
+                "fh1_b_cbc_u",
+                &format_args!("{}", self.fh1_b_cbc_u().bits()),
+            )
+            .field(
+                "fh1_b_ost_d",
+                &format_args!("{}", self.fh1_b_ost_d().bits()),
+            )
+            .field(
+                "fh1_b_ost_u",
+                &format_args!("{}", self.fh1_b_ost_u().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

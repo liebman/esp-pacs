@@ -80,6 +80,24 @@ impl R {
         MSPI_READY_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::MSPI_CONF")
+            .field("mspi_clk_en", &format_args!("{}", self.mspi_clk_en().bit()))
+            .field("mspi_rst_en", &format_args!("{}", self.mspi_rst_en().bit()))
+            .field(
+                "mspi_pll_clk_en",
+                &format_args!("{}", self.mspi_pll_clk_en().bit()),
+            )
+            .field(
+                "mspi_clk_sel",
+                &format_args!("{}", self.mspi_clk_sel().bits()),
+            )
+            .field("mspi_ready", &format_args!("{}", self.mspi_ready().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable mspi clock, include mspi pll clock"]
     #[inline(always)]

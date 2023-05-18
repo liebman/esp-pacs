@@ -99,6 +99,20 @@ impl R {
         AI_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::IDINTEN")
+            .field("ti", &format_args!("{}", self.ti().bit()))
+            .field("ri", &format_args!("{}", self.ri().bit()))
+            .field("fbe", &format_args!("{}", self.fbe().bit()))
+            .field("du", &format_args!("{}", self.du().bit()))
+            .field("ces", &format_args!("{}", self.ces().bit()))
+            .field("ni", &format_args!("{}", self.ni().bit()))
+            .field("ai", &format_args!("{}", self.ai().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Transmit Interrupt Enable. When set with Normal Interrupt Summary Enable, Transmit Interrupt is enabled. When reset, Transmit Interrupt is disabled."]
     #[inline(always)]

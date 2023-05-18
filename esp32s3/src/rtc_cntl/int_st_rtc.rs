@@ -162,6 +162,91 @@ impl R {
         TOUCH_APPROACH_LOOP_DONE_INT_ST_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::INT_ST_RTC")
+            .field(
+                "slp_wakeup_int_st",
+                &format_args!("{}", self.slp_wakeup_int_st().bit()),
+            )
+            .field(
+                "slp_reject_int_st",
+                &format_args!("{}", self.slp_reject_int_st().bit()),
+            )
+            .field(
+                "sdio_idle_int_st",
+                &format_args!("{}", self.sdio_idle_int_st().bit()),
+            )
+            .field("wdt_int_st", &format_args!("{}", self.wdt_int_st().bit()))
+            .field(
+                "touch_scan_done_int_st",
+                &format_args!("{}", self.touch_scan_done_int_st().bit()),
+            )
+            .field(
+                "ulp_cp_int_st",
+                &format_args!("{}", self.ulp_cp_int_st().bit()),
+            )
+            .field(
+                "touch_done_int_st",
+                &format_args!("{}", self.touch_done_int_st().bit()),
+            )
+            .field(
+                "touch_active_int_st",
+                &format_args!("{}", self.touch_active_int_st().bit()),
+            )
+            .field(
+                "touch_inactive_int_st",
+                &format_args!("{}", self.touch_inactive_int_st().bit()),
+            )
+            .field(
+                "brown_out_int_st",
+                &format_args!("{}", self.brown_out_int_st().bit()),
+            )
+            .field(
+                "main_timer_int_st",
+                &format_args!("{}", self.main_timer_int_st().bit()),
+            )
+            .field(
+                "saradc1_int_st",
+                &format_args!("{}", self.saradc1_int_st().bit()),
+            )
+            .field(
+                "tsens_int_st",
+                &format_args!("{}", self.tsens_int_st().bit()),
+            )
+            .field(
+                "cocpu_int_st",
+                &format_args!("{}", self.cocpu_int_st().bit()),
+            )
+            .field(
+                "saradc2_int_st",
+                &format_args!("{}", self.saradc2_int_st().bit()),
+            )
+            .field("swd_int_st", &format_args!("{}", self.swd_int_st().bit()))
+            .field(
+                "xtal32k_dead_int_st",
+                &format_args!("{}", self.xtal32k_dead_int_st().bit()),
+            )
+            .field(
+                "cocpu_trap_int_st",
+                &format_args!("{}", self.cocpu_trap_int_st().bit()),
+            )
+            .field(
+                "touch_timeout_int_st",
+                &format_args!("{}", self.touch_timeout_int_st().bit()),
+            )
+            .field(
+                "glitch_det_int_st",
+                &format_args!("{}", self.glitch_det_int_st().bit()),
+            )
+            .field(
+                "touch_approach_loop_done_int_st",
+                &format_args!("{}", self.touch_approach_loop_done_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "rtc interrupt register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st_rtc](index.html) module"]
 pub struct INT_ST_RTC_SPEC;
 impl crate::RegisterSpec for INT_ST_RTC_SPEC {

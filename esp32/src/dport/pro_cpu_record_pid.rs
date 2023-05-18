@@ -22,6 +22,17 @@ impl R {
         RECORD_PRO_PID_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_CPU_RECORD_PID")
+            .field(
+                "record_pro_pid",
+                &format_args!("{}", self.record_pro_pid().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_cpu_record_pid](index.html) module"]
 pub struct PRO_CPU_RECORD_PID_SPEC;
 impl crate::RegisterSpec for PRO_CPU_RECORD_PID_SPEC {

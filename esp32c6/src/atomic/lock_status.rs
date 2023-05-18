@@ -22,6 +22,17 @@ impl R {
         LOCK_STATUS_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ATOMIC::LOCK_STATUS")
+            .field(
+                "lock_status",
+                &format_args!("{}", self.lock_status().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "lock status regsiter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lock_status](index.html) module"]
 pub struct LOCK_STATUS_SPEC;
 impl crate::RegisterSpec for LOCK_STATUS_SPEC {

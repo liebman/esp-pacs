@@ -22,6 +22,17 @@ impl R {
         REJECT_CAUSE_R::new(self.bits & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_REJECT_CAUSE")
+            .field(
+                "reject_cause",
+                &format_args!("{}", self.reject_cause().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "get reject casue\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slp_reject_cause](index.html) module"]
 pub struct SLP_REJECT_CAUSE_SPEC;
 impl crate::RegisterSpec for SLP_REJECT_CAUSE_SPEC {

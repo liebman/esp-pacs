@@ -24,6 +24,20 @@ impl R {
         CORE_0_PIF_PMS_MONITOR_VIOLATE_STATUS_HADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_MONITOR_3")
+            .field(
+                "core_0_pif_pms_monitor_violate_status_haddr",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_monitor_violate_status_haddr().bits()
+                ),
+            )
+            .finish()
+    }
+}
 #[doc = "SENSITIVE_CORE_0_PIF_PMS_MONITOR_3_REG\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_pif_pms_monitor_3](index.html) module"]
 pub struct CORE_0_PIF_PMS_MONITOR_3_SPEC;
 impl crate::RegisterSpec for CORE_0_PIF_PMS_MONITOR_3_SPEC {

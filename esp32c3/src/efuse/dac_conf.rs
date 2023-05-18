@@ -72,6 +72,23 @@ impl R {
         OE_CLR_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::DAC_CONF")
+            .field(
+                "dac_clk_div",
+                &format_args!("{}", self.dac_clk_div().bits()),
+            )
+            .field(
+                "dac_clk_pad_sel",
+                &format_args!("{}", self.dac_clk_pad_sel().bit()),
+            )
+            .field("dac_num", &format_args!("{}", self.dac_num().bits()))
+            .field("oe_clr", &format_args!("{}", self.oe_clr().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Controls the division factor of the rising clock of the programming voltage."]
     #[inline(always)]

@@ -144,6 +144,25 @@ impl R {
         DRV_R::new(((self.bits >> 29) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::TOUCH_PAD13")
+            .field("fun_ie", &format_args!("{}", self.fun_ie().bit()))
+            .field("slp_oe", &format_args!("{}", self.slp_oe().bit()))
+            .field("slp_ie", &format_args!("{}", self.slp_ie().bit()))
+            .field("slp_sel", &format_args!("{}", self.slp_sel().bit()))
+            .field("fun_sel", &format_args!("{}", self.fun_sel().bits()))
+            .field("mux_sel", &format_args!("{}", self.mux_sel().bit()))
+            .field("xpd", &format_args!("{}", self.xpd().bit()))
+            .field("tie_opt", &format_args!("{}", self.tie_opt().bit()))
+            .field("start", &format_args!("{}", self.start().bit()))
+            .field("rue", &format_args!("{}", self.rue().bit()))
+            .field("rde", &format_args!("{}", self.rde().bit()))
+            .field("drv", &format_args!("{}", self.drv().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 13 - input enable in work mode"]
     #[inline(always)]

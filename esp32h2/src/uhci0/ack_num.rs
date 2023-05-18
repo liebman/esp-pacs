@@ -47,6 +47,14 @@ impl R {
         ACK_NUM_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::ACK_NUM")
+            .field("ack_num", &format_args!("{}", self.ack_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - a"]
     #[inline(always)]

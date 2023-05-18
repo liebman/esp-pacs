@@ -90,6 +90,37 @@ impl R {
         SAR1_EN_PAD_FORCE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEAS1_CTRL2")
+            .field(
+                "meas1_data_sar",
+                &format_args!("{}", self.meas1_data_sar().bits()),
+            )
+            .field(
+                "meas1_done_sar",
+                &format_args!("{}", self.meas1_done_sar().bit()),
+            )
+            .field(
+                "meas1_start_sar",
+                &format_args!("{}", self.meas1_start_sar().bit()),
+            )
+            .field(
+                "meas1_start_force",
+                &format_args!("{}", self.meas1_start_force().bit()),
+            )
+            .field(
+                "sar1_en_pad",
+                &format_args!("{}", self.sar1_en_pad().bits()),
+            )
+            .field(
+                "sar1_en_pad_force",
+                &format_args!("{}", self.sar1_en_pad_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 17 - SAR ADC1 controller (in RTC) starts conversion"]
     #[inline(always)]

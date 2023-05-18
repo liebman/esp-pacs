@@ -63,6 +63,16 @@ impl R {
         WDT_INT_RAW_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::INT_RAW_TIMERS")
+            .field("t0_int_raw", &format_args!("{}", self.t0_int_raw().bit()))
+            .field("t1_int_raw", &format_args!("{}", self.t1_int_raw().bit()))
+            .field("wdt_int_raw", &format_args!("{}", self.wdt_int_raw().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw interrupt status bit for the TIMG_T0_INT interrupt."]
     #[inline(always)]

@@ -22,6 +22,17 @@ impl R {
         SLC0_TX_PKT_START_DSCR_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0_TXPKTU_H_DSCR")
+            .field(
+                "slc0_tx_pkt_start_dscr_addr",
+                &format_args!("{}", self.slc0_tx_pkt_start_dscr_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [_0_txpktu_h_dscr](index.html) module"]
 pub struct _0_TXPKTU_H_DSCR_SPEC;
 impl crate::RegisterSpec for _0_TXPKTU_H_DSCR_SPEC {

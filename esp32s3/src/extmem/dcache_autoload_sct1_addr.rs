@@ -46,6 +46,17 @@ impl R {
         DCACHE_AUTOLOAD_SCT1_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_AUTOLOAD_SCT1_ADDR")
+            .field(
+                "dcache_autoload_sct1_addr",
+                &format_args!("{}", self.dcache_autoload_sct1_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the start virtual address of the second section for autoload operation. It should be combined with dcache_autoload_sct1_ena."]
     #[inline(always)]

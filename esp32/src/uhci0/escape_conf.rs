@@ -108,6 +108,45 @@ impl R {
         RX_13_ESC_EN_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::ESCAPE_CONF")
+            .field(
+                "tx_c0_esc_en",
+                &format_args!("{}", self.tx_c0_esc_en().bit()),
+            )
+            .field(
+                "tx_db_esc_en",
+                &format_args!("{}", self.tx_db_esc_en().bit()),
+            )
+            .field(
+                "tx_11_esc_en",
+                &format_args!("{}", self.tx_11_esc_en().bit()),
+            )
+            .field(
+                "tx_13_esc_en",
+                &format_args!("{}", self.tx_13_esc_en().bit()),
+            )
+            .field(
+                "rx_c0_esc_en",
+                &format_args!("{}", self.rx_c0_esc_en().bit()),
+            )
+            .field(
+                "rx_db_esc_en",
+                &format_args!("{}", self.rx_db_esc_en().bit()),
+            )
+            .field(
+                "rx_11_esc_en",
+                &format_args!("{}", self.rx_11_esc_en().bit()),
+            )
+            .field(
+                "rx_13_esc_en",
+                &format_args!("{}", self.rx_13_esc_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable 0xc0 char decode when DMA receives data."]
     #[inline(always)]

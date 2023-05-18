@@ -63,6 +63,16 @@ impl R {
         REG_UPDATE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::ID")
+            .field("id", &format_args!("{}", self.id().bits()))
+            .field("high_speed", &format_args!("{}", self.high_speed().bit()))
+            .field("reg_update", &format_args!("{}", self.reg_update().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:29 - This register is used to configure the uart_id."]
     #[inline(always)]

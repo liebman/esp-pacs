@@ -45,6 +45,14 @@ impl R {
         T0_UPDATE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::T0UPDATE")
+            .field("t0_update", &format_args!("{}", self.t0_update().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - After writing 0 or 1 to TIMG_T31UPDATE_REG, the counter value is latched."]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         BYPASS_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_REQUEST")
+            .field("bypass", &format_args!("{}", self.bypass().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable request recording which could cause performance issue"]
     #[inline(always)]

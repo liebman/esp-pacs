@@ -54,6 +54,21 @@ impl R {
         ERROR_INT_RAW_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PAU::INT_RAW")
+            .field(
+                "done_int_raw",
+                &format_args!("{}", self.done_int_raw().bit()),
+            )
+            .field(
+                "error_int_raw",
+                &format_args!("{}", self.error_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - backup done flag"]
     #[inline(always)]

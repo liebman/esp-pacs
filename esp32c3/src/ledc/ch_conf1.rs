@@ -83,6 +83,18 @@ impl R {
         DUTY_START_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_CONF1")
+            .field("duty_scale", &format_args!("{}", self.duty_scale().bits()))
+            .field("duty_cycle", &format_args!("{}", self.duty_cycle().bits()))
+            .field("duty_num", &format_args!("{}", self.duty_num().bits()))
+            .field("duty_inc", &format_args!("{}", self.duty_inc().bit()))
+            .field("duty_start", &format_args!("{}", self.duty_start().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - reg_duty_scale_lsch0."]
     #[inline(always)]

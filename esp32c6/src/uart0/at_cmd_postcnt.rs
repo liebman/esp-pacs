@@ -46,6 +46,17 @@ impl R {
         POST_IDLE_NUM_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::AT_CMD_POSTCNT")
+            .field(
+                "post_idle_num",
+                &format_args!("{}", self.post_idle_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - This register is used to configure the duration time between the last at_cmd and the next data."]
     #[inline(always)]

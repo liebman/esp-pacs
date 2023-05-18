@@ -46,6 +46,17 @@ impl R {
         DMA_BLOCK_NUM_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::DMA_BLOCK_NUM")
+            .field(
+                "dma_block_num",
+                &format_args!("{}", self.dma_block_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Defines the DMA-SHA block number."]
     #[inline(always)]

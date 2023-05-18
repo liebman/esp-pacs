@@ -46,6 +46,14 @@ impl R {
         TEXT_IN_2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::TEXT_IN_2")
+            .field("text_in_2", &format_args!("{}", self.text_in_2().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This bits stores text_in_2 that is a part of source text material."]
     #[inline(always)]

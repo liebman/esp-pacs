@@ -76,6 +76,29 @@ impl R {
         CH_GAMMA_DUTY_NUM_R::new(((self.bits >> 21) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_GAMMA_WR")
+            .field(
+                "ch_gamma_duty_inc",
+                &format_args!("{}", self.ch_gamma_duty_inc().bit()),
+            )
+            .field(
+                "ch_gamma_duty_cycle",
+                &format_args!("{}", self.ch_gamma_duty_cycle().bits()),
+            )
+            .field(
+                "ch_gamma_scale",
+                &format_args!("{}", self.ch_gamma_scale().bits()),
+            )
+            .field(
+                "ch_gamma_duty_num",
+                &format_args!("{}", self.ch_gamma_duty_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Ledc ch%s gamma duty inc of current ram write address.This register is used to increase or decrease the duty of output signal on channel %s. 1: Increase 0: Decrease."]
     #[inline(always)]

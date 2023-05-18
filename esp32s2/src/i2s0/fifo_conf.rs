@@ -128,6 +128,44 @@ impl R {
         TX_24MSB_EN_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::FIFO_CONF")
+            .field(
+                "rx_data_num",
+                &format_args!("{}", self.rx_data_num().bits()),
+            )
+            .field(
+                "tx_data_num",
+                &format_args!("{}", self.tx_data_num().bits()),
+            )
+            .field("dscr_en", &format_args!("{}", self.dscr_en().bit()))
+            .field(
+                "tx_fifo_mod",
+                &format_args!("{}", self.tx_fifo_mod().bits()),
+            )
+            .field(
+                "rx_fifo_mod",
+                &format_args!("{}", self.rx_fifo_mod().bits()),
+            )
+            .field(
+                "tx_fifo_mod_force_en",
+                &format_args!("{}", self.tx_fifo_mod_force_en().bit()),
+            )
+            .field(
+                "rx_fifo_mod_force_en",
+                &format_args!("{}", self.rx_fifo_mod_force_en().bit()),
+            )
+            .field(
+                "rx_fifo_sync",
+                &format_args!("{}", self.rx_fifo_sync().bit()),
+            )
+            .field("rx_24msb_en", &format_args!("{}", self.rx_24msb_en().bit()))
+            .field("tx_24msb_en", &format_args!("{}", self.tx_24msb_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - I2S_RX_TAKE_DATA_INT is triggered when the left and right channel data number in RX FIFO is larger than the value of I2S_RX_DATA_NUM\\[5:0\\]. (RX FIFO is almost full threshold.)"]
     #[inline(always)]

@@ -65,6 +65,22 @@ impl R {
         ESC_SEQ0_CHAR1_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::ESC_CONF1")
+            .field("esc_seq0", &format_args!("{}", self.esc_seq0().bits()))
+            .field(
+                "esc_seq0_char0",
+                &format_args!("{}", self.esc_seq0_char0().bits()),
+            )
+            .field(
+                "esc_seq0_char1",
+                &format_args!("{}", self.esc_seq0_char1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register stores the first substitute char used to replace the seperator char."]
     #[inline(always)]

@@ -84,6 +84,29 @@ impl R {
         CORE_X_DRAM0_DMA_SRAM_LINE_0_SPLITADDR_R::new(((self.bits >> 14) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_X_IRAM0_DRAM0_DMA_SPLIT_LINE_CONSTRAIN_4")
+            .field(
+                "core_x_dram0_dma_sram_line_0_category_0",
+                &format_args!("{}", self.core_x_dram0_dma_sram_line_0_category_0().bits()),
+            )
+            .field(
+                "core_x_dram0_dma_sram_line_0_category_1",
+                &format_args!("{}", self.core_x_dram0_dma_sram_line_0_category_1().bits()),
+            )
+            .field(
+                "core_x_dram0_dma_sram_line_0_category_2",
+                &format_args!("{}", self.core_x_dram0_dma_sram_line_0_category_2().bits()),
+            )
+            .field(
+                "core_x_dram0_dma_sram_line_0_splitaddr",
+                &format_args!("{}", self.core_x_dram0_dma_sram_line_0_splitaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - core_x_dram0_dma_sram_line_0_category_0"]
     #[inline(always)]

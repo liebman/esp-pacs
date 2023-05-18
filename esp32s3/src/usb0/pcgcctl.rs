@@ -95,6 +95,26 @@ impl R {
         RESETAFTERSUSP_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::PCGCCTL")
+            .field("stoppclk", &format_args!("{}", self.stoppclk().bit()))
+            .field("gatehclk", &format_args!("{}", self.gatehclk().bit()))
+            .field("pwrclmp", &format_args!("{}", self.pwrclmp().bit()))
+            .field(
+                "rstpdwnmodule",
+                &format_args!("{}", self.rstpdwnmodule().bit()),
+            )
+            .field("physleep", &format_args!("{}", self.physleep().bit()))
+            .field("l1suspended", &format_args!("{}", self.l1suspended().bit()))
+            .field(
+                "resetaftersusp",
+                &format_args!("{}", self.resetaftersusp().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

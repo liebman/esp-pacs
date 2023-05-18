@@ -66,6 +66,25 @@ impl R {
         DCACHE_TAG_MEM_FORCE_PU_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_TAG_POWER_CTRL")
+            .field(
+                "dcache_tag_mem_force_on",
+                &format_args!("{}", self.dcache_tag_mem_force_on().bit()),
+            )
+            .field(
+                "dcache_tag_mem_force_pd",
+                &format_args!("{}", self.dcache_tag_mem_force_pd().bit()),
+            )
+            .field(
+                "dcache_tag_mem_force_pu",
+                &format_args!("{}", self.dcache_tag_mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to close clock gating of dcache tag memory. 1: close gating, 0: open clock gating."]
     #[inline(always)]

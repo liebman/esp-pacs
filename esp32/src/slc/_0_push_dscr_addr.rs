@@ -22,6 +22,17 @@ impl R {
         SLC0_RX_PUSH_DSCR_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0_PUSH_DSCR_ADDR")
+            .field(
+                "slc0_rx_push_dscr_addr",
+                &format_args!("{}", self.slc0_rx_push_dscr_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [_0_push_dscr_addr](index.html) module"]
 pub struct _0_PUSH_DSCR_ADDR_SPEC;
 impl crate::RegisterSpec for _0_PUSH_DSCR_ADDR_SPEC {

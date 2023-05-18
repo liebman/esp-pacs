@@ -116,6 +116,45 @@ impl R {
         SAR_AMP_WAIT3_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_AMP_CTRL2")
+            .field(
+                "sar_sar1_dac_xpd_fsm_idle",
+                &format_args!("{}", self.sar_sar1_dac_xpd_fsm_idle().bit()),
+            )
+            .field(
+                "sar_xpd_sar_amp_fsm_idle",
+                &format_args!("{}", self.sar_xpd_sar_amp_fsm_idle().bit()),
+            )
+            .field(
+                "sar_amp_rst_fb_fsm_idle",
+                &format_args!("{}", self.sar_amp_rst_fb_fsm_idle().bit()),
+            )
+            .field(
+                "sar_amp_short_ref_fsm_idle",
+                &format_args!("{}", self.sar_amp_short_ref_fsm_idle().bit()),
+            )
+            .field(
+                "sar_amp_short_ref_gnd_fsm_idle",
+                &format_args!("{}", self.sar_amp_short_ref_gnd_fsm_idle().bit()),
+            )
+            .field(
+                "sar_xpd_sar_fsm_idle",
+                &format_args!("{}", self.sar_xpd_sar_fsm_idle().bit()),
+            )
+            .field(
+                "sar_rstb_fsm_idle",
+                &format_args!("{}", self.sar_rstb_fsm_idle().bit()),
+            )
+            .field(
+                "sar_amp_wait3",
+                &format_args!("{}", self.sar_amp_wait3().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no public"]
     #[inline(always)]

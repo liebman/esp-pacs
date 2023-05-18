@@ -71,6 +71,21 @@ impl R {
         TXD_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::STATUS")
+            .field("rxfifo_cnt", &format_args!("{}", self.rxfifo_cnt().bits()))
+            .field("dsrn", &format_args!("{}", self.dsrn().bit()))
+            .field("ctsn", &format_args!("{}", self.ctsn().bit()))
+            .field("rxd", &format_args!("{}", self.rxd().bit()))
+            .field("txfifo_cnt", &format_args!("{}", self.txfifo_cnt().bits()))
+            .field("dtrn", &format_args!("{}", self.dtrn().bit()))
+            .field("rtsn", &format_args!("{}", self.rtsn().bit()))
+            .field("txd", &format_args!("{}", self.txd().bit()))
+            .finish()
+    }
+}
 #[doc = "UART status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {

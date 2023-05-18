@@ -22,6 +22,14 @@ impl R {
         TX_READY_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::ST")
+            .field("tx_ready", &format_args!("{}", self.tx_ready().bit()))
+            .finish()
+    }
+}
 #[doc = "Parallel IO module status register0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [st](index.html) module"]
 pub struct ST_SPEC;
 impl crate::RegisterSpec for ST_SPEC {

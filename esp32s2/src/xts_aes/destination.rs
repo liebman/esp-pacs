@@ -45,6 +45,14 @@ impl R {
         DESTINATION_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTS_AES::DESTINATION")
+            .field("destination", &format_args!("{}", self.destination().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Configures the type of the external memory. Currently, it must be set to 0, as the Manual Encryption block only supports flash encryption. Errors may occur if users write 1. 0: flash. 1: external RAM."]
     #[inline(always)]

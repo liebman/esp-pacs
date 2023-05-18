@@ -46,6 +46,17 @@ impl R {
         SPI_MEM_BUF0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_W0")
+            .field(
+                "spi_mem_buf0",
+                &format_args!("{}", self.spi_mem_buf0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - data buffer"]
     #[inline(always)]

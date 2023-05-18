@@ -66,6 +66,25 @@ impl R {
         TOUCH_SLP_PAD_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TOUCH_SLP_THRES")
+            .field(
+                "touch_slp_th",
+                &format_args!("{}", self.touch_slp_th().bits()),
+            )
+            .field(
+                "touch_slp_approach_en",
+                &format_args!("{}", self.touch_slp_approach_en().bit()),
+            )
+            .field(
+                "touch_slp_pad",
+                &format_args!("{}", self.touch_slp_pad().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - the threshold for sleep touch pad"]
     #[inline(always)]

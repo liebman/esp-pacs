@@ -48,6 +48,17 @@ impl R {
         LP_CPU_WAKEUP_EN_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::LP_CPU_PWR1")
+            .field(
+                "lp_cpu_wakeup_en",
+                &format_args!("{}", self.lp_cpu_wakeup_en().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - need_des"]
     #[inline(always)]

@@ -96,6 +96,37 @@ impl R {
         EXTERNAL_SYNCI2_INVERT_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TIMER_SYNCI_CFG")
+            .field(
+                "timer0_syncisel",
+                &format_args!("{}", self.timer0_syncisel().bits()),
+            )
+            .field(
+                "timer1_syncisel",
+                &format_args!("{}", self.timer1_syncisel().bits()),
+            )
+            .field(
+                "timer2_syncisel",
+                &format_args!("{}", self.timer2_syncisel().bits()),
+            )
+            .field(
+                "external_synci0_invert",
+                &format_args!("{}", self.external_synci0_invert().bit()),
+            )
+            .field(
+                "external_synci1_invert",
+                &format_args!("{}", self.external_synci1_invert().bit()),
+            )
+            .field(
+                "external_synci2_invert",
+                &format_args!("{}", self.external_synci2_invert().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - select sync input for PWM timer0, 1: PWM timer0 sync_out, 2: PWM timer1 sync_out, 3: PWM timer2 sync_out, 4: SYNC0 from GPIO matrix, 5: SYNC1 from GPIO matrix, 6: SYNC2 from GPIO matrix, other values: no sync input selected"]
     #[inline(always)]

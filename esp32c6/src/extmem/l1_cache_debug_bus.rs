@@ -46,6 +46,17 @@ impl R {
         L1_CACHE_DEBUG_BUS_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_DEBUG_BUS")
+            .field(
+                "l1_cache_debug_bus",
+                &format_args!("{}", self.l1_cache_debug_bus().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This is a constant place where we can write data to or read data from the tag/data memory on the specified cache."]
     #[inline(always)]

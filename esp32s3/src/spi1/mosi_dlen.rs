@@ -46,6 +46,17 @@ impl R {
         USR_MOSI_DBITLEN_R::new((self.bits & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::MOSI_DLEN")
+            .field(
+                "usr_mosi_dbitlen",
+                &format_args!("{}", self.usr_mosi_dbitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - The length in bits of DOUT phase. The register value shall be (bit_num-1)."]
     #[inline(always)]

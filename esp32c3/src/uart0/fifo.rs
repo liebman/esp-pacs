@@ -45,6 +45,17 @@ impl R {
         RXFIFO_RD_BYTE_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::FIFO")
+            .field(
+                "rxfifo_rd_byte",
+                &format_args!("{}", self.rxfifo_rd_byte().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - UART 0 accesses FIFO via this register."]
     #[inline(always)]

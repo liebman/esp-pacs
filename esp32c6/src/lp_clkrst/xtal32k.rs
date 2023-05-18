@@ -72,6 +72,29 @@ impl R {
         DAC_XTAL32K_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::XTAL32K")
+            .field(
+                "dres_xtal32k",
+                &format_args!("{}", self.dres_xtal32k().bits()),
+            )
+            .field(
+                "dgm_xtal32k",
+                &format_args!("{}", self.dgm_xtal32k().bits()),
+            )
+            .field(
+                "dbuf_xtal32k",
+                &format_args!("{}", self.dbuf_xtal32k().bit()),
+            )
+            .field(
+                "dac_xtal32k",
+                &format_args!("{}", self.dac_xtal32k().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 22:24 - need_des"]
     #[inline(always)]

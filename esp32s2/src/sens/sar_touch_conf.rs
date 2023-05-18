@@ -103,6 +103,41 @@ impl R {
         TOUCH_APPROACH_PAD0_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_CONF")
+            .field(
+                "touch_outen",
+                &format_args!("{}", self.touch_outen().bits()),
+            )
+            .field(
+                "touch_data_sel",
+                &format_args!("{}", self.touch_data_sel().bits()),
+            )
+            .field(
+                "touch_denoise_end",
+                &format_args!("{}", self.touch_denoise_end().bit()),
+            )
+            .field(
+                "touch_unit_end",
+                &format_args!("{}", self.touch_unit_end().bit()),
+            )
+            .field(
+                "touch_approach_pad2",
+                &format_args!("{}", self.touch_approach_pad2().bits()),
+            )
+            .field(
+                "touch_approach_pad1",
+                &format_args!("{}", self.touch_approach_pad1().bits()),
+            )
+            .field(
+                "touch_approach_pad0",
+                &format_args!("{}", self.touch_approach_pad0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:14 - Enable touch controller output."]
     #[inline(always)]

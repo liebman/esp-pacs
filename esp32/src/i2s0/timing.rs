@@ -170,6 +170,63 @@ impl R {
         TX_BCK_IN_INV_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::TIMING")
+            .field(
+                "tx_bck_in_delay",
+                &format_args!("{}", self.tx_bck_in_delay().bits()),
+            )
+            .field(
+                "tx_ws_in_delay",
+                &format_args!("{}", self.tx_ws_in_delay().bits()),
+            )
+            .field(
+                "rx_bck_in_delay",
+                &format_args!("{}", self.rx_bck_in_delay().bits()),
+            )
+            .field(
+                "rx_ws_in_delay",
+                &format_args!("{}", self.rx_ws_in_delay().bits()),
+            )
+            .field(
+                "rx_sd_in_delay",
+                &format_args!("{}", self.rx_sd_in_delay().bits()),
+            )
+            .field(
+                "tx_bck_out_delay",
+                &format_args!("{}", self.tx_bck_out_delay().bits()),
+            )
+            .field(
+                "tx_ws_out_delay",
+                &format_args!("{}", self.tx_ws_out_delay().bits()),
+            )
+            .field(
+                "tx_sd_out_delay",
+                &format_args!("{}", self.tx_sd_out_delay().bits()),
+            )
+            .field(
+                "rx_ws_out_delay",
+                &format_args!("{}", self.rx_ws_out_delay().bits()),
+            )
+            .field(
+                "rx_bck_out_delay",
+                &format_args!("{}", self.rx_bck_out_delay().bits()),
+            )
+            .field("tx_dsync_sw", &format_args!("{}", self.tx_dsync_sw().bit()))
+            .field("rx_dsync_sw", &format_args!("{}", self.rx_dsync_sw().bit()))
+            .field(
+                "data_enable_delay",
+                &format_args!("{}", self.data_enable_delay().bits()),
+            )
+            .field(
+                "tx_bck_in_inv",
+                &format_args!("{}", self.tx_bck_in_inv().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

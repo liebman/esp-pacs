@@ -189,6 +189,74 @@ impl R {
         SET_LINE_CODE_INT_RAW_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::INT_RAW")
+            .field(
+                "jtag_in_flush_int_raw",
+                &format_args!("{}", self.jtag_in_flush_int_raw().bit()),
+            )
+            .field("sof_int_raw", &format_args!("{}", self.sof_int_raw().bit()))
+            .field(
+                "serial_out_recv_pkt_int_raw",
+                &format_args!("{}", self.serial_out_recv_pkt_int_raw().bit()),
+            )
+            .field(
+                "serial_in_empty_int_raw",
+                &format_args!("{}", self.serial_in_empty_int_raw().bit()),
+            )
+            .field(
+                "pid_err_int_raw",
+                &format_args!("{}", self.pid_err_int_raw().bit()),
+            )
+            .field(
+                "crc5_err_int_raw",
+                &format_args!("{}", self.crc5_err_int_raw().bit()),
+            )
+            .field(
+                "crc16_err_int_raw",
+                &format_args!("{}", self.crc16_err_int_raw().bit()),
+            )
+            .field(
+                "stuff_err_int_raw",
+                &format_args!("{}", self.stuff_err_int_raw().bit()),
+            )
+            .field(
+                "in_token_rec_in_ep1_int_raw",
+                &format_args!("{}", self.in_token_rec_in_ep1_int_raw().bit()),
+            )
+            .field(
+                "usb_bus_reset_int_raw",
+                &format_args!("{}", self.usb_bus_reset_int_raw().bit()),
+            )
+            .field(
+                "out_ep1_zero_payload_int_raw",
+                &format_args!("{}", self.out_ep1_zero_payload_int_raw().bit()),
+            )
+            .field(
+                "out_ep2_zero_payload_int_raw",
+                &format_args!("{}", self.out_ep2_zero_payload_int_raw().bit()),
+            )
+            .field(
+                "rts_chg_int_raw",
+                &format_args!("{}", self.rts_chg_int_raw().bit()),
+            )
+            .field(
+                "dtr_chg_int_raw",
+                &format_args!("{}", self.dtr_chg_int_raw().bit()),
+            )
+            .field(
+                "get_line_code_int_raw",
+                &format_args!("{}", self.get_line_code_int_raw().bit()),
+            )
+            .field(
+                "set_line_code_int_raw",
+                &format_args!("{}", self.set_line_code_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw interrupt bit turns to high level when flush cmd is received for IN endpoint 2 of JTAG."]
     #[inline(always)]

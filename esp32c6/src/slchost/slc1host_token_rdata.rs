@@ -43,6 +43,29 @@ impl R {
         SLC1_RX_PF_EOF_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::SLC1HOST_TOKEN_RDATA")
+            .field(
+                "slc1_token0",
+                &format_args!("{}", self.slc1_token0().bits()),
+            )
+            .field(
+                "slc1_rx_pf_valid",
+                &format_args!("{}", self.slc1_rx_pf_valid().bit()),
+            )
+            .field(
+                "hostslchost_slc1_token1",
+                &format_args!("{}", self.hostslchost_slc1_token1().bits()),
+            )
+            .field(
+                "slc1_rx_pf_eof",
+                &format_args!("{}", self.slc1_rx_pf_eof().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "*******Description***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slc1host_token_rdata](index.html) module"]
 pub struct SLC1HOST_TOKEN_RDATA_SPEC;
 impl crate::RegisterSpec for SLC1HOST_TOKEN_RDATA_SPEC {

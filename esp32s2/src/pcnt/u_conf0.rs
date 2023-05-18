@@ -176,6 +176,67 @@ impl R {
         CH1_LCTRL_MODE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::U_CONF0")
+            .field(
+                "filter_thres",
+                &format_args!("{}", self.filter_thres().bits()),
+            )
+            .field("filter_en", &format_args!("{}", self.filter_en().bit()))
+            .field("thr_zero_en", &format_args!("{}", self.thr_zero_en().bit()))
+            .field(
+                "thr_h_lim_en",
+                &format_args!("{}", self.thr_h_lim_en().bit()),
+            )
+            .field(
+                "thr_l_lim_en",
+                &format_args!("{}", self.thr_l_lim_en().bit()),
+            )
+            .field(
+                "thr_thres0_en",
+                &format_args!("{}", self.thr_thres0_en().bit()),
+            )
+            .field(
+                "thr_thres1_en",
+                &format_args!("{}", self.thr_thres1_en().bit()),
+            )
+            .field(
+                "ch0_neg_mode",
+                &format_args!("{}", self.ch0_neg_mode().bits()),
+            )
+            .field(
+                "ch0_pos_mode",
+                &format_args!("{}", self.ch0_pos_mode().bits()),
+            )
+            .field(
+                "ch0_hctrl_mode",
+                &format_args!("{}", self.ch0_hctrl_mode().bits()),
+            )
+            .field(
+                "ch0_lctrl_mode",
+                &format_args!("{}", self.ch0_lctrl_mode().bits()),
+            )
+            .field(
+                "ch1_neg_mode",
+                &format_args!("{}", self.ch1_neg_mode().bits()),
+            )
+            .field(
+                "ch1_pos_mode",
+                &format_args!("{}", self.ch1_pos_mode().bits()),
+            )
+            .field(
+                "ch1_hctrl_mode",
+                &format_args!("{}", self.ch1_hctrl_mode().bits()),
+            )
+            .field(
+                "ch1_lctrl_mode",
+                &format_args!("{}", self.ch1_lctrl_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - This sets the maximum threshold, in APB_CLK cycles, for the filter. Any pulses with width less than this will be ignored when the filter is enabled."]
     #[inline(always)]

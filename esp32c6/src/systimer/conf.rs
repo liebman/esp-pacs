@@ -148,6 +148,55 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::CONF")
+            .field(
+                "systimer_clk_fo",
+                &format_args!("{}", self.systimer_clk_fo().bit()),
+            )
+            .field("etm_en", &format_args!("{}", self.etm_en().bit()))
+            .field(
+                "target2_work_en",
+                &format_args!("{}", self.target2_work_en().bit()),
+            )
+            .field(
+                "target1_work_en",
+                &format_args!("{}", self.target1_work_en().bit()),
+            )
+            .field(
+                "target0_work_en",
+                &format_args!("{}", self.target0_work_en().bit()),
+            )
+            .field(
+                "timer_unit1_core1_stall_en",
+                &format_args!("{}", self.timer_unit1_core1_stall_en().bit()),
+            )
+            .field(
+                "timer_unit1_core0_stall_en",
+                &format_args!("{}", self.timer_unit1_core0_stall_en().bit()),
+            )
+            .field(
+                "timer_unit0_core1_stall_en",
+                &format_args!("{}", self.timer_unit0_core1_stall_en().bit()),
+            )
+            .field(
+                "timer_unit0_core0_stall_en",
+                &format_args!("{}", self.timer_unit0_core0_stall_en().bit()),
+            )
+            .field(
+                "timer_unit1_work_en",
+                &format_args!("{}", self.timer_unit1_work_en().bit()),
+            )
+            .field(
+                "timer_unit0_work_en",
+                &format_args!("{}", self.timer_unit0_work_en().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - systimer clock force on"]
     #[inline(always)]

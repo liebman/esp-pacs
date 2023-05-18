@@ -85,6 +85,33 @@ impl R {
         BOD_MODE0_INT_RAW_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::INT_RAW")
+            .field(
+                "vddbat_charge_upvoltage_int_raw",
+                &format_args!("{}", self.vddbat_charge_upvoltage_int_raw().bit()),
+            )
+            .field(
+                "vddbat_charge_undervoltage_int_raw",
+                &format_args!("{}", self.vddbat_charge_undervoltage_int_raw().bit()),
+            )
+            .field(
+                "vddbat_upvoltage_int_raw",
+                &format_args!("{}", self.vddbat_upvoltage_int_raw().bit()),
+            )
+            .field(
+                "vddbat_undervoltage_int_raw",
+                &format_args!("{}", self.vddbat_undervoltage_int_raw().bit()),
+            )
+            .field(
+                "bod_mode0_int_raw",
+                &format_args!("{}", self.bod_mode0_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - need_des"]
     #[inline(always)]

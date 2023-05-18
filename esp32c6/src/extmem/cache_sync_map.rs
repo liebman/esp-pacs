@@ -46,6 +46,17 @@ impl R {
         CACHE_SYNC_MAP_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_SYNC_MAP")
+            .field(
+                "cache_sync_map",
+                &format_args!("{}", self.cache_sync_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Those bits are used to indicate which caches in the two-level cache structure will apply the sync operation. \\[4\\]: L1-Cache"]
     #[inline(always)]

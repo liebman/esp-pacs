@@ -90,6 +90,31 @@ impl R {
         IN_ETM_EN_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_CONF0_CH")
+            .field("in_rst", &format_args!("{}", self.in_rst().bit()))
+            .field(
+                "in_loop_test",
+                &format_args!("{}", self.in_loop_test().bit()),
+            )
+            .field(
+                "indscr_burst_en",
+                &format_args!("{}", self.indscr_burst_en().bit()),
+            )
+            .field(
+                "in_data_burst_en",
+                &format_args!("{}", self.in_data_burst_en().bit()),
+            )
+            .field(
+                "mem_trans_en",
+                &format_args!("{}", self.mem_trans_en().bit()),
+            )
+            .field("in_etm_en", &format_args!("{}", self.in_etm_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This bit is used to reset DMA channel 0 Rx FSM and Rx FIFO pointer."]
     #[inline(always)]

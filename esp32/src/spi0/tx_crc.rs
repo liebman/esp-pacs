@@ -45,6 +45,14 @@ impl R {
         DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::TX_CRC")
+            .field("data", &format_args!("{}", self.data().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - For SPI1 the value of crc32 for 256 bits data."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         PERI_IN_SEL_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_PERI_SEL_CH")
+            .field(
+                "peri_in_sel",
+                &format_args!("{}", self.peri_in_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - This register is used to select peripheral for Rx channel 0. 0:SPI2. 1: SPI3. 2: UHCI0. 3: I2S0. 4: I2S1. 5: LCD_CAM. 6: AES. 7: SHA. 8: ADC_DAC. 9: RMT."]
     #[inline(always)]

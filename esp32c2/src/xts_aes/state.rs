@@ -22,6 +22,14 @@ impl R {
         STATE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTS_AES::STATE")
+            .field("state", &format_args!("{}", self.state().bits()))
+            .finish()
+    }
+}
 #[doc = "XTS-AES status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [state](index.html) module"]
 pub struct STATE_SPEC;
 impl crate::RegisterSpec for STATE_SPEC {

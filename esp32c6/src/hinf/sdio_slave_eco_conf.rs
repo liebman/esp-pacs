@@ -87,6 +87,37 @@ impl R {
         SDIO_SLAVE_SDCLK_PAD_RDN_ENA_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::SDIO_SLAVE_ECO_CONF")
+            .field(
+                "sdio_slave_rdn_result",
+                &format_args!("{}", self.sdio_slave_rdn_result().bit()),
+            )
+            .field(
+                "sdio_slave_rdn_ena",
+                &format_args!("{}", self.sdio_slave_rdn_ena().bit()),
+            )
+            .field(
+                "sdio_slave_sdio_clk_rdn_result",
+                &format_args!("{}", self.sdio_slave_sdio_clk_rdn_result().bit()),
+            )
+            .field(
+                "sdio_slave_sdio_clk_rdn_ena",
+                &format_args!("{}", self.sdio_slave_sdio_clk_rdn_ena().bit()),
+            )
+            .field(
+                "sdio_slave_sdclk_pad_rdn_result",
+                &format_args!("{}", self.sdio_slave_sdclk_pad_rdn_result().bit()),
+            )
+            .field(
+                "sdio_slave_sdclk_pad_rdn_ena",
+                &format_args!("{}", self.sdio_slave_sdclk_pad_rdn_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - redundant registers for sdio_slave"]
     #[inline(always)]

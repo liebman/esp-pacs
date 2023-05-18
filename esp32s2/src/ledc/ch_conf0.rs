@@ -92,6 +92,22 @@ impl R {
         OVF_CNT_RESET_ST_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_CONF0")
+            .field("timer_sel", &format_args!("{}", self.timer_sel().bits()))
+            .field("sig_out_en", &format_args!("{}", self.sig_out_en().bit()))
+            .field("idle_lv", &format_args!("{}", self.idle_lv().bit()))
+            .field("ovf_num", &format_args!("{}", self.ovf_num().bits()))
+            .field("ovf_cnt_en", &format_args!("{}", self.ovf_cnt_en().bit()))
+            .field(
+                "ovf_cnt_reset_st",
+                &format_args!("{}", self.ovf_cnt_reset_st().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field is used to select one of timers for channel %s. 0: select timer 0. 1: select timer 1. 2: select timer 2. 3: select timer 3."]
     #[inline(always)]

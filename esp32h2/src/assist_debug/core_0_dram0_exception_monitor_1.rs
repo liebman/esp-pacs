@@ -22,6 +22,17 @@ impl R {
         CORE_0_DRAM0_RECORDING_PC_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_DRAM0_EXCEPTION_MONITOR_1")
+            .field(
+                "core_0_dram0_recording_pc_0",
+                &format_args!("{}", self.core_0_dram0_recording_pc_0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "exception monitor status register3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_dram0_exception_monitor_1](index.html) module"]
 pub struct CORE_0_DRAM0_EXCEPTION_MONITOR_1_SPEC;
 impl crate::RegisterSpec for CORE_0_DRAM0_EXCEPTION_MONITOR_1_SPEC {

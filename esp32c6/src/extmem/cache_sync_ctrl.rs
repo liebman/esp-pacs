@@ -90,6 +90,37 @@ impl R {
         CACHE_SYNC_RGID_R::new(((self.bits >> 5) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_SYNC_CTRL")
+            .field(
+                "cache_invalidate_ena",
+                &format_args!("{}", self.cache_invalidate_ena().bit()),
+            )
+            .field(
+                "cache_clean_ena",
+                &format_args!("{}", self.cache_clean_ena().bit()),
+            )
+            .field(
+                "cache_writeback_ena",
+                &format_args!("{}", self.cache_writeback_ena().bit()),
+            )
+            .field(
+                "cache_writeback_invalidate_ena",
+                &format_args!("{}", self.cache_writeback_invalidate_ena().bit()),
+            )
+            .field(
+                "cache_sync_done",
+                &format_args!("{}", self.cache_sync_done().bit()),
+            )
+            .field(
+                "cache_sync_rgid",
+                &format_args!("{}", self.cache_sync_rgid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable invalidate operation. It will be cleared by hardware after invalidate operation done. Note that this bit and the other sync-bits (clean_ena, writeback_ena, writeback_invalidate_ena) are mutually exclusive, that is, those bits can not be set to 1 at the same time."]
     #[inline(always)]

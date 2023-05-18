@@ -85,6 +85,30 @@ impl R {
         SAMPLE_CLK_DIVIDER_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CFG_TIMING")
+            .field("ncrc", &format_args!("{}", self.ncrc().bits()))
+            .field(
+                "pst_end_cmd_low_value",
+                &format_args!("{}", self.pst_end_cmd_low_value().bits()),
+            )
+            .field(
+                "pst_end_data_low_value",
+                &format_args!("{}", self.pst_end_data_low_value().bits()),
+            )
+            .field(
+                "sdclk_stop_thres",
+                &format_args!("{}", self.sdclk_stop_thres().bits()),
+            )
+            .field(
+                "sample_clk_divider",
+                &format_args!("{}", self.sample_clk_divider().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - configure Ncrc parameter in sdr50/104 mode, no more than 6."]
     #[inline(always)]

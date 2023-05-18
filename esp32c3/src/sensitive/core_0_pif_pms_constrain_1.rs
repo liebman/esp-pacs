@@ -176,6 +176,65 @@ impl R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_0_UART1_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_CONSTRAIN_1")
+            .field(
+                "core_0_pif_pms_constrain_world_0_uart",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_uart().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_g0spi_1",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_g0spi_1().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_g0spi_0",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_g0spi_0().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_gpio",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_gpio().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_fe2",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_fe2().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_fe",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_fe().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_timer",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_timer().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_rtc",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_rtc().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_io_mux",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_io_mux().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_wdg",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_wdg().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_misc",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_misc().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_i2c",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_i2c().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_0_uart1",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_0_uart1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - core_0_pif_pms_constrain_world_0_uart"]
     #[inline(always)]

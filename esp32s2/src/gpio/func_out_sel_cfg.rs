@@ -73,6 +73,17 @@ impl R {
         OEN_INV_SEL_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::FUNC_OUT_SEL_CFG")
+            .field("out_sel", &format_args!("{}", self.out_sel().bits()))
+            .field("inv_sel", &format_args!("{}", self.inv_sel().bit()))
+            .field("oen_sel", &format_args!("{}", self.oen_sel().bit()))
+            .field("oen_inv_sel", &format_args!("{}", self.oen_inv_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - Selection control for GPIO output n. If a value s (0&lt;=s&lt;256) is written to this field, the peripheral output signal s will be connected to GPIO output n. If a value 256 is written to this field, bit n of GPIO_OUT_REG/GPIO_OUT1_REG and GPIO_ENABLE_REG/GPIO_ENABLE1_REG will be selected as the output value and output enable."]
     #[inline(always)]

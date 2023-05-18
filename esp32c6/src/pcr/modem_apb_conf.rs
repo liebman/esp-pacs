@@ -55,6 +55,21 @@ impl R {
         MODEM_RST_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::MODEM_APB_CONF")
+            .field(
+                "modem_apb_clk_en",
+                &format_args!("{}", self.modem_apb_clk_en().bit()),
+            )
+            .field(
+                "modem_rst_en",
+                &format_args!("{}", self.modem_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This field indicates if modem_apb clock is enable. 0: disable, 1: enable(default)."]
     #[inline(always)]

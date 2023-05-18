@@ -46,6 +46,17 @@ impl R {
         CORE_1_NMI_MASK_TRIGGER_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_1_NMI_MASK_TRIGGER_ADDR")
+            .field(
+                "core_1_nmi_mask_trigger_addr",
+                &format_args!("{}", self.core_1_nmi_mask_trigger_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - this field to used to set trigger address"]
     #[inline(always)]

@@ -36,6 +36,25 @@ impl R {
         IN_EP3_RD_ADDR_R::new(((self.bits >> 9) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::IN_EP3_ST")
+            .field(
+                "in_ep3_state",
+                &format_args!("{}", self.in_ep3_state().bits()),
+            )
+            .field(
+                "in_ep3_wr_addr",
+                &format_args!("{}", self.in_ep3_wr_addr().bits()),
+            )
+            .field(
+                "in_ep3_rd_addr",
+                &format_args!("{}", self.in_ep3_rd_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "JTAG IN endpoint status information.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_ep3_st](index.html) module"]
 pub struct IN_EP3_ST_SPEC;
 impl crate::RegisterSpec for IN_EP3_ST_SPEC {

@@ -54,6 +54,18 @@ impl R {
         LP_ENABLE_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CLKENA")
+            .field(
+                "cclk_enable",
+                &format_args!("{}", self.cclk_enable().bits()),
+            )
+            .field("lp_enable", &format_args!("{}", self.lp_enable().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Clock-enable control for two SD card clocks and one MMC card clock is supported. One bit per card. 0: Clock disabled; 1: Clock enabled."]
     #[inline(always)]

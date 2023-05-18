@@ -45,6 +45,14 @@ impl R {
         LOAD_HI_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::T0LOADHI")
+            .field("load_hi", &format_args!("{}", self.load_hi().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - higher 32 bits of the value that will load into timer 0 time-base counter"]
     #[inline(always)]

@@ -29,6 +29,15 @@ impl R {
         TX_MEM_CNT_R::new(((self.bits >> 3) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::MEM_CNT_STATUS")
+            .field("rx_mem_cnt", &format_args!("{}", self.rx_mem_cnt().bits()))
+            .field("tx_mem_cnt", &format_args!("{}", self.tx_mem_cnt().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mem_cnt_status](index.html) module"]
 pub struct MEM_CNT_STATUS_SPEC;
 impl crate::RegisterSpec for MEM_CNT_STATUS_SPEC {

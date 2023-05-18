@@ -316,6 +316,125 @@ impl R {
         TASK_TIMER3_PAUSE_RESUME_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::EVT_TASK_EN1")
+            .field(
+                "task_timer0_res_update_en",
+                &format_args!("{}", self.task_timer0_res_update_en().bit()),
+            )
+            .field(
+                "task_timer1_res_update_en",
+                &format_args!("{}", self.task_timer1_res_update_en().bit()),
+            )
+            .field(
+                "task_timer2_res_update_en",
+                &format_args!("{}", self.task_timer2_res_update_en().bit()),
+            )
+            .field(
+                "task_timer3_res_update_en",
+                &format_args!("{}", self.task_timer3_res_update_en().bit()),
+            )
+            .field(
+                "task_timer0_cap_en",
+                &format_args!("{}", self.task_timer0_cap_en().bit()),
+            )
+            .field(
+                "task_timer1_cap_en",
+                &format_args!("{}", self.task_timer1_cap_en().bit()),
+            )
+            .field(
+                "task_timer2_cap_en",
+                &format_args!("{}", self.task_timer2_cap_en().bit()),
+            )
+            .field(
+                "task_timer3_cap_en",
+                &format_args!("{}", self.task_timer3_cap_en().bit()),
+            )
+            .field(
+                "task_sig_out_dis_ch0_en",
+                &format_args!("{}", self.task_sig_out_dis_ch0_en().bit()),
+            )
+            .field(
+                "task_sig_out_dis_ch1_en",
+                &format_args!("{}", self.task_sig_out_dis_ch1_en().bit()),
+            )
+            .field(
+                "task_sig_out_dis_ch2_en",
+                &format_args!("{}", self.task_sig_out_dis_ch2_en().bit()),
+            )
+            .field(
+                "task_sig_out_dis_ch3_en",
+                &format_args!("{}", self.task_sig_out_dis_ch3_en().bit()),
+            )
+            .field(
+                "task_sig_out_dis_ch4_en",
+                &format_args!("{}", self.task_sig_out_dis_ch4_en().bit()),
+            )
+            .field(
+                "task_sig_out_dis_ch5_en",
+                &format_args!("{}", self.task_sig_out_dis_ch5_en().bit()),
+            )
+            .field(
+                "task_ovf_cnt_rst_ch0_en",
+                &format_args!("{}", self.task_ovf_cnt_rst_ch0_en().bit()),
+            )
+            .field(
+                "task_ovf_cnt_rst_ch1_en",
+                &format_args!("{}", self.task_ovf_cnt_rst_ch1_en().bit()),
+            )
+            .field(
+                "task_ovf_cnt_rst_ch2_en",
+                &format_args!("{}", self.task_ovf_cnt_rst_ch2_en().bit()),
+            )
+            .field(
+                "task_ovf_cnt_rst_ch3_en",
+                &format_args!("{}", self.task_ovf_cnt_rst_ch3_en().bit()),
+            )
+            .field(
+                "task_ovf_cnt_rst_ch4_en",
+                &format_args!("{}", self.task_ovf_cnt_rst_ch4_en().bit()),
+            )
+            .field(
+                "task_ovf_cnt_rst_ch5_en",
+                &format_args!("{}", self.task_ovf_cnt_rst_ch5_en().bit()),
+            )
+            .field(
+                "task_timer0_rst_en",
+                &format_args!("{}", self.task_timer0_rst_en().bit()),
+            )
+            .field(
+                "task_timer1_rst_en",
+                &format_args!("{}", self.task_timer1_rst_en().bit()),
+            )
+            .field(
+                "task_timer2_rst_en",
+                &format_args!("{}", self.task_timer2_rst_en().bit()),
+            )
+            .field(
+                "task_timer3_rst_en",
+                &format_args!("{}", self.task_timer3_rst_en().bit()),
+            )
+            .field(
+                "task_timer0_pause_resume_en",
+                &format_args!("{}", self.task_timer0_pause_resume_en().bit()),
+            )
+            .field(
+                "task_timer1_pause_resume_en",
+                &format_args!("{}", self.task_timer1_pause_resume_en().bit()),
+            )
+            .field(
+                "task_timer2_pause_resume_en",
+                &format_args!("{}", self.task_timer2_pause_resume_en().bit()),
+            )
+            .field(
+                "task_timer3_pause_resume_en",
+                &format_args!("{}", self.task_timer3_pause_resume_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Ledc timer0 res update task enable register, write 1 to enable this task."]
     #[inline(always)]

@@ -56,6 +56,21 @@ impl R {
         CLK_SDM_INV_PHASE_SEL_R::new(((self.bits >> 1) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SDM_INV_PHASE_CONF")
+            .field(
+                "clk_sdm_inv_phase_ena",
+                &format_args!("{}", self.clk_sdm_inv_phase_ena().bit()),
+            )
+            .field(
+                "clk_sdm_inv_phase_sel",
+                &format_args!("{}", self.clk_sdm_inv_phase_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - xxxx"]
     #[inline(always)]

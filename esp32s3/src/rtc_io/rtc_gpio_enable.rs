@@ -46,6 +46,17 @@ impl R {
         RTC_GPIO_ENABLE_R::new((self.bits >> 10) & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::RTC_GPIO_ENABLE")
+            .field(
+                "rtc_gpio_enable",
+                &format_args!("{}", self.rtc_gpio_enable().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 10:31 - RTC GPIO 0 ~ 21 enable"]
     #[inline(always)]

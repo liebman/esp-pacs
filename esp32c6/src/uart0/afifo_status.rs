@@ -43,6 +43,29 @@ impl R {
         RX_AFIFO_EMPTY_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::AFIFO_STATUS")
+            .field(
+                "tx_afifo_full",
+                &format_args!("{}", self.tx_afifo_full().bit()),
+            )
+            .field(
+                "tx_afifo_empty",
+                &format_args!("{}", self.tx_afifo_empty().bit()),
+            )
+            .field(
+                "rx_afifo_full",
+                &format_args!("{}", self.rx_afifo_full().bit()),
+            )
+            .field(
+                "rx_afifo_empty",
+                &format_args!("{}", self.rx_afifo_empty().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "UART AFIFO Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [afifo_status](index.html) module"]
 pub struct AFIFO_STATUS_SPEC;
 impl crate::RegisterSpec for AFIFO_STATUS_SPEC {

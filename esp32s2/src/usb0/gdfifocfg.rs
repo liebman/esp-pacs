@@ -56,6 +56,18 @@ impl R {
         EPINFOBASEADDR_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GDFIFOCFG")
+            .field("gdfifocfg", &format_args!("{}", self.gdfifocfg().bits()))
+            .field(
+                "epinfobaseaddr",
+                &format_args!("{}", self.epinfobaseaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]

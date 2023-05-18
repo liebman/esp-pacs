@@ -123,6 +123,49 @@ impl R {
         OUT_TOTAL_EOF_INT_ENA_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_INT_ENA")
+            .field(
+                "inlink_dscr_empty_int_ena",
+                &format_args!("{}", self.inlink_dscr_empty_int_ena().bit()),
+            )
+            .field(
+                "outlink_dscr_error_int_ena",
+                &format_args!("{}", self.outlink_dscr_error_int_ena().bit()),
+            )
+            .field(
+                "inlink_dscr_error_int_ena",
+                &format_args!("{}", self.inlink_dscr_error_int_ena().bit()),
+            )
+            .field(
+                "in_done_int_ena",
+                &format_args!("{}", self.in_done_int_ena().bit()),
+            )
+            .field(
+                "in_err_eof_int_ena",
+                &format_args!("{}", self.in_err_eof_int_ena().bit()),
+            )
+            .field(
+                "in_suc_eof_int_ena",
+                &format_args!("{}", self.in_suc_eof_int_ena().bit()),
+            )
+            .field(
+                "out_done_int_ena",
+                &format_args!("{}", self.out_done_int_ena().bit()),
+            )
+            .field(
+                "out_eof_int_ena",
+                &format_args!("{}", self.out_eof_int_ena().bit()),
+            )
+            .field(
+                "out_total_eof_int_ena",
+                &format_args!("{}", self.out_total_eof_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The enable bit for lack of enough inlink descriptors."]
     #[inline(always)]

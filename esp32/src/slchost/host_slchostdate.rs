@@ -46,6 +46,17 @@ impl R {
         HOST_SLCHOST_DATE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOSTDATE")
+            .field(
+                "host_slchost_date",
+                &format_args!("{}", self.host_slchost_date().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

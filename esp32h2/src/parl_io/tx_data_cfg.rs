@@ -66,6 +66,22 @@ impl R {
         TX_BUS_WID_SEL_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::TX_DATA_CFG")
+            .field("tx_bitlen", &format_args!("{}", self.tx_bitlen().bits()))
+            .field(
+                "tx_data_order_inv",
+                &format_args!("{}", self.tx_data_order_inv().bit()),
+            )
+            .field(
+                "tx_bus_wid_sel",
+                &format_args!("{}", self.tx_bus_wid_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 9:27 - Configures expected byte number of sent data."]
     #[inline(always)]

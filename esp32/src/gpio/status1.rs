@@ -45,6 +45,14 @@ impl R {
         INT_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::STATUS1")
+            .field("int", &format_args!("{}", self.int().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - GPIO32~39 interrupt status"]
     #[inline(always)]

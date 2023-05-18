@@ -126,6 +126,49 @@ impl R {
         SPI_SMEM_DOUTS_MODE_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_DOUT_MODE")
+            .field(
+                "spi_smem_dout0_mode",
+                &format_args!("{}", self.spi_smem_dout0_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout1_mode",
+                &format_args!("{}", self.spi_smem_dout1_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout2_mode",
+                &format_args!("{}", self.spi_smem_dout2_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout3_mode",
+                &format_args!("{}", self.spi_smem_dout3_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout4_mode",
+                &format_args!("{}", self.spi_smem_dout4_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout5_mode",
+                &format_args!("{}", self.spi_smem_dout5_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout6_mode",
+                &format_args!("{}", self.spi_smem_dout6_mode().bit()),
+            )
+            .field(
+                "spi_smem_dout7_mode",
+                &format_args!("{}", self.spi_smem_dout7_mode().bit()),
+            )
+            .field(
+                "spi_smem_douts_mode",
+                &format_args!("{}", self.spi_smem_douts_mode().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SPI_D output delay mode. 0: No delay. 1: Delay one cycle at MSPI_CORE_CLK negative edge."]
     #[inline(always)]

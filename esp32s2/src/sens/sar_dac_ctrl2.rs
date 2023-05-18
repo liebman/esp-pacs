@@ -112,6 +112,21 @@ impl R {
         DAC_CW_EN2_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_DAC_CTRL2")
+            .field("dac_dc1", &format_args!("{}", self.dac_dc1().bits()))
+            .field("dac_dc2", &format_args!("{}", self.dac_dc2().bits()))
+            .field("dac_scale1", &format_args!("{}", self.dac_scale1().bits()))
+            .field("dac_scale2", &format_args!("{}", self.dac_scale2().bits()))
+            .field("dac_inv1", &format_args!("{}", self.dac_inv1().bits()))
+            .field("dac_inv2", &format_args!("{}", self.dac_inv2().bits()))
+            .field("dac_cw_en1", &format_args!("{}", self.dac_cw_en1().bit()))
+            .field("dac_cw_en2", &format_args!("{}", self.dac_cw_en2().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - DC offset for DAC1 CW generator."]
     #[inline(always)]

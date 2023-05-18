@@ -76,6 +76,29 @@ impl R {
         I2S_MCLK_SEL_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::I2S_RX_CLKM_CONF")
+            .field(
+                "i2s_rx_clkm_div_num",
+                &format_args!("{}", self.i2s_rx_clkm_div_num().bits()),
+            )
+            .field(
+                "i2s_rx_clkm_sel",
+                &format_args!("{}", self.i2s_rx_clkm_sel().bits()),
+            )
+            .field(
+                "i2s_rx_clkm_en",
+                &format_args!("{}", self.i2s_rx_clkm_en().bit()),
+            )
+            .field(
+                "i2s_mclk_sel",
+                &format_args!("{}", self.i2s_mclk_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 12:19 - Integral I2S clock divider value"]
     #[inline(always)]

@@ -69,6 +69,25 @@ impl R {
         TPGM_INACTIVE_R::new(((self.bits >> 13) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::WR_TIM_CONF0_RS_BYPASS")
+            .field(
+                "bypass_rs_correction",
+                &format_args!("{}", self.bypass_rs_correction().bit()),
+            )
+            .field(
+                "bypass_rs_blk_num",
+                &format_args!("{}", self.bypass_rs_blk_num().bits()),
+            )
+            .field(
+                "tpgm_inactive",
+                &format_args!("{}", self.tpgm_inactive().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to bypass reed solomon correction step."]
     #[inline(always)]

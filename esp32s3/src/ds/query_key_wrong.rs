@@ -22,6 +22,17 @@ impl R {
         QUERY_KEY_WRONG_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DS::QUERY_KEY_WRONG")
+            .field(
+                "query_key_wrong",
+                &format_args!("{}", self.query_key_wrong().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Checks the reason why DS_KEY is not ready\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [query_key_wrong](index.html) module"]
 pub struct QUERY_KEY_WRONG_SPEC;
 impl crate::RegisterSpec for QUERY_KEY_WRONG_SPEC {

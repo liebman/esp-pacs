@@ -45,6 +45,14 @@ impl R {
         HPOINT_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::LSCH_HPOINT")
+            .field("hpoint", &format_args!("{}", self.hpoint().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - The output value changes to high when lstimerx(x=\\[0 3\\]) selected by low speed channel0 has reached reg_hpoint_lsch0\\[19:0\\]"]
     #[inline(always)]

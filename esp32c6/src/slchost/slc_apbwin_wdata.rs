@@ -46,6 +46,17 @@ impl R {
         SLC_APBWIN_WDATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::SLC_APBWIN_WDATA")
+            .field(
+                "slc_apbwin_wdata",
+                &format_args!("{}", self.slc_apbwin_wdata().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - *******Description***********"]
     #[inline(always)]

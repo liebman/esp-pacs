@@ -108,6 +108,36 @@ impl R {
         LP_CPU_CK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::CLK_EN")
+            .field("rng_ck_en", &format_args!("{}", self.rng_ck_en().bit()))
+            .field(
+                "otp_dbg_ck_en",
+                &format_args!("{}", self.otp_dbg_ck_en().bit()),
+            )
+            .field(
+                "lp_uart_ck_en",
+                &format_args!("{}", self.lp_uart_ck_en().bit()),
+            )
+            .field("lp_io_ck_en", &format_args!("{}", self.lp_io_ck_en().bit()))
+            .field(
+                "lp_ext_i2c_ck_en",
+                &format_args!("{}", self.lp_ext_i2c_ck_en().bit()),
+            )
+            .field(
+                "lp_ana_i2c_ck_en",
+                &format_args!("{}", self.lp_ana_i2c_ck_en().bit()),
+            )
+            .field("efuse_ck_en", &format_args!("{}", self.efuse_ck_en().bit()))
+            .field(
+                "lp_cpu_ck_en",
+                &format_args!("{}", self.lp_cpu_ck_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - need_des"]
     #[inline(always)]

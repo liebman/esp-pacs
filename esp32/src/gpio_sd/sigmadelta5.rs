@@ -55,6 +55,18 @@ impl R {
         SD5_PRESCALE_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::SIGMADELTA5")
+            .field("sd5_in", &format_args!("{}", self.sd5_in().bits()))
+            .field(
+                "sd5_prescale",
+                &format_args!("{}", self.sd5_prescale().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

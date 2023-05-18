@@ -29,6 +29,21 @@ impl R {
         PGM_DONE_INT_ST_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::INT_ST")
+            .field(
+                "read_done_int_st",
+                &format_args!("{}", self.read_done_int_st().bit()),
+            )
+            .field(
+                "pgm_done_int_st",
+                &format_args!("{}", self.pgm_done_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "eFuse interrupt status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

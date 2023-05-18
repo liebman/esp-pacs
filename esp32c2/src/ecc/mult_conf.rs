@@ -90,6 +90,25 @@ impl R {
         VERIFICATION_RESULT_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ECC::MULT_CONF")
+            .field("start", &format_args!("{}", self.start().bit()))
+            .field("key_length", &format_args!("{}", self.key_length().bit()))
+            .field(
+                "security_mode",
+                &format_args!("{}", self.security_mode().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field("work_mode", &format_args!("{}", self.work_mode().bits()))
+            .field(
+                "verification_result",
+                &format_args!("{}", self.verification_result().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to reset receiver"]
     #[inline(always)]

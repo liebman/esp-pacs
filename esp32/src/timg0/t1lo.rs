@@ -22,6 +22,14 @@ impl R {
         LO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::T1LO")
+            .field("lo", &format_args!("{}", self.lo().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [t1lo](index.html) module"]
 pub struct T1LO_SPEC;
 impl crate::RegisterSpec for T1LO_SPEC {

@@ -46,6 +46,17 @@ impl R {
         IDLE_INTR_CNT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::IDLE_INTR_CNT")
+            .field(
+                "idle_intr_cnt",
+                &format_args!("{}", self.idle_intr_cnt().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Configure the number of cycles before triggering idle interrupt."]
     #[inline(always)]

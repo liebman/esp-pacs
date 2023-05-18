@@ -22,6 +22,14 @@ impl R {
         DSCADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::DSCADDR")
+            .field("dscaddr", &format_args!("{}", self.dscaddr().bits()))
+            .finish()
+    }
+}
 #[doc = "Host descriptor address pointer\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dscaddr](index.html) module"]
 pub struct DSCADDR_SPEC;
 impl crate::RegisterSpec for DSCADDR_SPEC {

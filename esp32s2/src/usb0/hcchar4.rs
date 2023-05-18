@@ -126,6 +126,23 @@ impl R {
         H_CHENA4_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCCHAR4")
+            .field("h_mps4", &format_args!("{}", self.h_mps4().bits()))
+            .field("h_epnum4", &format_args!("{}", self.h_epnum4().bits()))
+            .field("h_epdir4", &format_args!("{}", self.h_epdir4().bit()))
+            .field("h_lspddev4", &format_args!("{}", self.h_lspddev4().bit()))
+            .field("h_eptype4", &format_args!("{}", self.h_eptype4().bits()))
+            .field("h_ec4", &format_args!("{}", self.h_ec4().bit()))
+            .field("h_devaddr4", &format_args!("{}", self.h_devaddr4().bits()))
+            .field("h_oddfrm4", &format_args!("{}", self.h_oddfrm4().bit()))
+            .field("h_chdis4", &format_args!("{}", self.h_chdis4().bit()))
+            .field("h_chena4", &format_args!("{}", self.h_chena4().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10"]
     #[inline(always)]

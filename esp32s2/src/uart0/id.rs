@@ -45,6 +45,14 @@ impl R {
         ID_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::ID")
+            .field("id", &format_args!("{}", self.id().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This register is used to configure the UART_ID."]
     #[inline(always)]

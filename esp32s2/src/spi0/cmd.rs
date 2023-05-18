@@ -54,6 +54,18 @@ impl R {
         USR_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CMD")
+            .field(
+                "conf_bitlen",
+                &format_args!("{}", self.conf_bitlen().bits()),
+            )
+            .field("usr", &format_args!("{}", self.usr().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:22 - Define the spi_clk cycles of SPI_CONF state. Can be configured in CONF state."]
     #[inline(always)]

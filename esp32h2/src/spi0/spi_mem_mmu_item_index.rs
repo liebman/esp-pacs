@@ -46,6 +46,17 @@ impl R {
         SPI_MMU_ITEM_INDEX_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_MMU_ITEM_INDEX")
+            .field(
+                "spi_mmu_item_index",
+                &format_args!("{}", self.spi_mmu_item_index().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - MSPI-MMU item index"]
     #[inline(always)]

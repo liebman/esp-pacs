@@ -46,6 +46,17 @@ impl R {
         CACHE_CORE0_ACS_INT_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE1::CACHE_CORE0_ACS_INT_MAP")
+            .field(
+                "cache_core0_acs_int_map",
+                &format_args!("{}", self.cache_core0_acs_int_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - this register used to map cache_core0_acs interrupt to one of core1's external interrupt"]
     #[inline(always)]

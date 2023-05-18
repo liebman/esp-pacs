@@ -99,6 +99,23 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CHCONF0")
+            .field("div_cnt", &format_args!("{}", self.div_cnt().bits()))
+            .field("idle_thres", &format_args!("{}", self.idle_thres().bits()))
+            .field("mem_size", &format_args!("{}", self.mem_size().bits()))
+            .field("carrier_en", &format_args!("{}", self.carrier_en().bit()))
+            .field(
+                "carrier_out_lv",
+                &format_args!("{}", self.carrier_out_lv().bit()),
+            )
+            .field("mem_pd", &format_args!("{}", self.mem_pd().bit()))
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register is used to configure the frequency divider's factor in channel0."]
     #[inline(always)]

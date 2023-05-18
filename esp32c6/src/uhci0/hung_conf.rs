@@ -94,6 +94,37 @@ impl R {
         RXFIFO_TIMEOUT_ENA_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::HUNG_CONF")
+            .field(
+                "txfifo_timeout",
+                &format_args!("{}", self.txfifo_timeout().bits()),
+            )
+            .field(
+                "txfifo_timeout_shift",
+                &format_args!("{}", self.txfifo_timeout_shift().bits()),
+            )
+            .field(
+                "txfifo_timeout_ena",
+                &format_args!("{}", self.txfifo_timeout_ena().bit()),
+            )
+            .field(
+                "rxfifo_timeout",
+                &format_args!("{}", self.rxfifo_timeout().bits()),
+            )
+            .field(
+                "rxfifo_timeout_shift",
+                &format_args!("{}", self.rxfifo_timeout_shift().bits()),
+            )
+            .field(
+                "rxfifo_timeout_ena",
+                &format_args!("{}", self.rxfifo_timeout_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Stores the timeout value. DMA generates UHCI_TX_HUNG_INT for timeout when receiving data."]
     #[inline(always)]

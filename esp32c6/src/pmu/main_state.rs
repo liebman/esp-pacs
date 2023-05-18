@@ -36,6 +36,25 @@ impl R {
         MAIN_CUR_ST_STATE_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::MAIN_STATE")
+            .field(
+                "main_last_st_state",
+                &format_args!("{}", self.main_last_st_state().bits()),
+            )
+            .field(
+                "main_tar_st_state",
+                &format_args!("{}", self.main_tar_st_state().bits()),
+            )
+            .field(
+                "main_cur_st_state",
+                &format_args!("{}", self.main_cur_st_state().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [main_state](index.html) module"]
 pub struct MAIN_STATE_SPEC;
 impl crate::RegisterSpec for MAIN_STATE_SPEC {

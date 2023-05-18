@@ -45,6 +45,14 @@ impl R {
         REG_UPDATE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::REG_UPDATE")
+            .field("reg_update", &format_args!("{}", self.reg_update().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Software write 1 would synchronize registers into UART Core clock domain and would be cleared by hardware after synchronization is done."]
     #[inline(always)]

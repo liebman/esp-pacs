@@ -46,6 +46,17 @@ impl R {
         LP_PERI_TIMEOUT_INTR_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::LP_PERI_TIMEOUT_INTR_MAP")
+            .field(
+                "lp_peri_timeout_intr_map",
+                &format_args!("{}", self.lp_peri_timeout_intr_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - CORE0_LP_PERI_TIMEOUT_INTR mapping register"]
     #[inline(always)]

@@ -92,6 +92,28 @@ impl R {
         N_MIN_ERR_R::new(((self.bits >> 25) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::PLC_CONF0")
+            .field(
+                "good_pack_max",
+                &format_args!("{}", self.good_pack_max().bits()),
+            )
+            .field("n_err_seg", &format_args!("{}", self.n_err_seg().bits()))
+            .field("shift_rate", &format_args!("{}", self.shift_rate().bits()))
+            .field(
+                "max_slide_sample",
+                &format_args!("{}", self.max_slide_sample().bits()),
+            )
+            .field(
+                "pack_len_8k",
+                &format_args!("{}", self.pack_len_8k().bits()),
+            )
+            .field("n_min_err", &format_args!("{}", self.n_min_err().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5"]
     #[inline(always)]

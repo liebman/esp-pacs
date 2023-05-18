@@ -46,6 +46,17 @@ impl R {
         LPCK_DIV_NUM_R::new((self.bits & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::LPCK_DIV_INT")
+            .field(
+                "lpck_div_num",
+                &format_args!("{}", self.lpck_div_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - This field is used to set the integer number of the divider value."]
     #[inline(always)]

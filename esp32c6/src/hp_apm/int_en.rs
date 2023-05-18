@@ -72,6 +72,29 @@ impl R {
         M3_APM_INT_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_APM::INT_EN")
+            .field(
+                "m0_apm_int_en",
+                &format_args!("{}", self.m0_apm_int_en().bit()),
+            )
+            .field(
+                "m1_apm_int_en",
+                &format_args!("{}", self.m1_apm_int_en().bit()),
+            )
+            .field(
+                "m2_apm_int_en",
+                &format_args!("{}", self.m2_apm_int_en().bit()),
+            )
+            .field(
+                "m3_apm_int_en",
+                &format_args!("{}", self.m3_apm_int_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - APM M0 interrupt enable"]
     #[inline(always)]

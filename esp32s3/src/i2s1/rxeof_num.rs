@@ -46,6 +46,14 @@ impl R {
         RX_EOF_NUM_R::new((self.bits & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::RXEOF_NUM")
+            .field("rx_eof_num", &format_args!("{}", self.rx_eof_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - The receive data bit length is (I2S_RX_BITS_MOD\\[4:0\\] + 1) * (REG_RX_EOF_NUM\\[11:0\\] + 1) . It will trigger in_suc_eof interrupt in the configured DMA RX channel."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         CORE_X_IRAM0_DRAM0_LIMIT_CYCLE_0_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR_0")
+            .field(
+                "core_x_iram0_dram0_limit_cycle_0",
+                &format_args!("{}", self.core_x_iram0_dram0_limit_cycle_0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - reg_core_x_iram0_dram0_limit_cycle_0"]
     #[inline(always)]

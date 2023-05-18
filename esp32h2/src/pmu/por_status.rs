@@ -22,6 +22,14 @@ impl R {
         POR_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POR_STATUS")
+            .field("por_done", &format_args!("{}", self.por_done().bit()))
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [por_status](index.html) module"]
 pub struct POR_STATUS_SPEC;
 impl crate::RegisterSpec for POR_STATUS_SPEC {

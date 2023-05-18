@@ -116,6 +116,45 @@ impl R {
         HOST_HSPEED_CON_EN_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_CONF")
+            .field(
+                "host_frc_sdio11",
+                &format_args!("{}", self.host_frc_sdio11().bits()),
+            )
+            .field(
+                "host_frc_sdio20",
+                &format_args!("{}", self.host_frc_sdio20().bits()),
+            )
+            .field(
+                "host_frc_neg_samp",
+                &format_args!("{}", self.host_frc_neg_samp().bits()),
+            )
+            .field(
+                "host_frc_pos_samp",
+                &format_args!("{}", self.host_frc_pos_samp().bits()),
+            )
+            .field(
+                "host_frc_quick_in",
+                &format_args!("{}", self.host_frc_quick_in().bits()),
+            )
+            .field(
+                "host_sdio20_int_delay",
+                &format_args!("{}", self.host_sdio20_int_delay().bit()),
+            )
+            .field(
+                "host_sdio_pad_pullup",
+                &format_args!("{}", self.host_sdio_pad_pullup().bit()),
+            )
+            .field(
+                "host_hspeed_con_en",
+                &format_args!("{}", self.host_hspeed_con_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4"]
     #[inline(always)]

@@ -113,6 +113,39 @@ impl R {
         OTG_ENABLE_IC_USB_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GHWCFG2")
+            .field("otgmode", &format_args!("{}", self.otgmode().bits()))
+            .field("otgarch", &format_args!("{}", self.otgarch().bits()))
+            .field("singpnt", &format_args!("{}", self.singpnt().bit()))
+            .field("hsphytype", &format_args!("{}", self.hsphytype().bits()))
+            .field("fsphytype", &format_args!("{}", self.fsphytype().bits()))
+            .field("numdeveps", &format_args!("{}", self.numdeveps().bits()))
+            .field("numhstchnl", &format_args!("{}", self.numhstchnl().bits()))
+            .field(
+                "periosupport",
+                &format_args!("{}", self.periosupport().bit()),
+            )
+            .field(
+                "dynfifosizing",
+                &format_args!("{}", self.dynfifosizing().bit()),
+            )
+            .field(
+                "multiprocintrpt",
+                &format_args!("{}", self.multiprocintrpt().bit()),
+            )
+            .field("nptxqdepth", &format_args!("{}", self.nptxqdepth().bits()))
+            .field("ptxqdepth", &format_args!("{}", self.ptxqdepth().bits()))
+            .field("tknqdepth", &format_args!("{}", self.tknqdepth().bits()))
+            .field(
+                "otg_enable_ic_usb",
+                &format_args!("{}", self.otg_enable_ic_usb().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ghwcfg2](index.html) module"]
 pub struct GHWCFG2_SPEC;
 impl crate::RegisterSpec for GHWCFG2_SPEC {

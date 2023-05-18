@@ -86,6 +86,33 @@ impl R {
         SAR_SAR1_INT_EN_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_READER1_CTRL")
+            .field(
+                "sar_sar1_clk_div",
+                &format_args!("{}", self.sar_sar1_clk_div().bits()),
+            )
+            .field(
+                "sar_sar1_clk_gated",
+                &format_args!("{}", self.sar_sar1_clk_gated().bit()),
+            )
+            .field(
+                "sar_sar1_sample_num",
+                &format_args!("{}", self.sar_sar1_sample_num().bits()),
+            )
+            .field(
+                "sar_sar1_data_inv",
+                &format_args!("{}", self.sar_sar1_data_inv().bit()),
+            )
+            .field(
+                "sar_sar1_int_en",
+                &format_args!("{}", self.sar_sar1_int_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - clock divider"]
     #[inline(always)]

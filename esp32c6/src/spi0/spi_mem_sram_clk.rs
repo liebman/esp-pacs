@@ -43,6 +43,29 @@ impl R {
         SPI_MEM_SCLK_EQU_SYSCLK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_SRAM_CLK")
+            .field(
+                "spi_mem_sclkcnt_l",
+                &format_args!("{}", self.spi_mem_sclkcnt_l().bits()),
+            )
+            .field(
+                "spi_mem_sclkcnt_h",
+                &format_args!("{}", self.spi_mem_sclkcnt_h().bits()),
+            )
+            .field(
+                "spi_mem_sclkcnt_n",
+                &format_args!("{}", self.spi_mem_sclkcnt_n().bits()),
+            )
+            .field(
+                "spi_mem_sclk_equ_sysclk",
+                &format_args!("{}", self.spi_mem_sclk_equ_sysclk().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI0 external RAM clock control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_sram_clk](index.html) module"]
 pub struct SPI_MEM_SRAM_CLK_SPEC;
 impl crate::RegisterSpec for SPI_MEM_SRAM_CLK_SPEC {

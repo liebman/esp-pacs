@@ -81,6 +81,37 @@ impl R {
         SPI_MEM_PMS_IVD_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_PMS_REJECT")
+            .field(
+                "spi_mem_reject_addr",
+                &format_args!("{}", self.spi_mem_reject_addr().bits()),
+            )
+            .field(
+                "spi_mem_pm_en",
+                &format_args!("{}", self.spi_mem_pm_en().bit()),
+            )
+            .field(
+                "spi_mem_pms_ld",
+                &format_args!("{}", self.spi_mem_pms_ld().bit()),
+            )
+            .field(
+                "spi_mem_pms_st",
+                &format_args!("{}", self.spi_mem_pms_st().bit()),
+            )
+            .field(
+                "spi_mem_pms_multi_hit",
+                &format_args!("{}", self.spi_mem_pms_multi_hit().bit()),
+            )
+            .field(
+                "spi_mem_pms_ivd",
+                &format_args!("{}", self.spi_mem_pms_ivd().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 26 - Set this bit to enable SPI0/1 transfer permission control function."]
     #[inline(always)]

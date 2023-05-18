@@ -45,6 +45,17 @@ impl R {
         INTERRUPT_ENA_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::IRQ_ENA")
+            .field(
+                "interrupt_ena",
+                &format_args!("{}", self.interrupt_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - sha interrupt enable register. 1'b0: disable(default) 1'b1: enable"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         MIN_TIME_CK8M_OFF_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER2")
+            .field(
+                "min_time_ck8m_off",
+                &format_args!("{}", self.min_time_ck8m_off().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 24:31 - minimal cycles in slow_clk_rtc for CK8M in power down state"]
     #[inline(always)]

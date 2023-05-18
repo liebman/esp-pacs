@@ -78,6 +78,22 @@ impl R {
         D_DQS_MODE_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::DOUT_MODE")
+            .field("dout0_mode", &format_args!("{}", self.dout0_mode().bit()))
+            .field("dout1_mode", &format_args!("{}", self.dout1_mode().bit()))
+            .field("dout2_mode", &format_args!("{}", self.dout2_mode().bit()))
+            .field("dout3_mode", &format_args!("{}", self.dout3_mode().bit()))
+            .field("dout4_mode", &format_args!("{}", self.dout4_mode().bit()))
+            .field("dout5_mode", &format_args!("{}", self.dout5_mode().bit()))
+            .field("dout6_mode", &format_args!("{}", self.dout6_mode().bit()))
+            .field("dout7_mode", &format_args!("{}", self.dout7_mode().bit()))
+            .field("d_dqs_mode", &format_args!("{}", self.d_dqs_mode().bit()))
+            .finish()
+    }
+}
 #[doc = "SPI output delay mode configuration\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dout_mode](index.html) module"]
 pub struct DOUT_MODE_SPEC;
 impl crate::RegisterSpec for DOUT_MODE_SPEC {

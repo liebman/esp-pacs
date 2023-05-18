@@ -131,6 +131,50 @@ impl R {
         DET_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::BROWN_OUT")
+            .field(
+                "brown_out_int_wait",
+                &format_args!("{}", self.brown_out_int_wait().bits()),
+            )
+            .field(
+                "brown_out_close_flash_ena",
+                &format_args!("{}", self.brown_out_close_flash_ena().bit()),
+            )
+            .field(
+                "brown_out_pd_rf_ena",
+                &format_args!("{}", self.brown_out_pd_rf_ena().bit()),
+            )
+            .field(
+                "brown_out_rst_wait",
+                &format_args!("{}", self.brown_out_rst_wait().bits()),
+            )
+            .field(
+                "brown_out_rst_ena",
+                &format_args!("{}", self.brown_out_rst_ena().bit()),
+            )
+            .field(
+                "brown_out_rst_sel",
+                &format_args!("{}", self.brown_out_rst_sel().bit()),
+            )
+            .field(
+                "brown_out_ana_rst_en",
+                &format_args!("{}", self.brown_out_ana_rst_en().bit()),
+            )
+            .field(
+                "brown_out_cnt_clr",
+                &format_args!("{}", self.brown_out_cnt_clr().bit()),
+            )
+            .field(
+                "brown_out_ena",
+                &format_args!("{}", self.brown_out_ena().bit()),
+            )
+            .field("det", &format_args!("{}", self.det().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:13 - brown out interrupt wait cycles"]
     #[inline(always)]

@@ -106,6 +106,41 @@ impl R {
         PRO_AHB_RTCSLOW_0_H_W_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_AHB_1")
+            .field(
+                "pro_ahb_rtcslow_0_spltaddr",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_spltaddr().bits()),
+            )
+            .field(
+                "pro_ahb_rtcslow_0_l_f",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_l_f().bit()),
+            )
+            .field(
+                "pro_ahb_rtcslow_0_l_r",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_l_r().bit()),
+            )
+            .field(
+                "pro_ahb_rtcslow_0_l_w",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_l_w().bit()),
+            )
+            .field(
+                "pro_ahb_rtcslow_0_h_f",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_h_f().bit()),
+            )
+            .field(
+                "pro_ahb_rtcslow_0_h_r",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_h_r().bit()),
+            )
+            .field(
+                "pro_ahb_rtcslow_0_h_w",
+                &format_args!("{}", self.pro_ahb_rtcslow_0_h_w().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - Configure the split address of RTCSlow_0 for PeriBus2 access."]
     #[inline(always)]

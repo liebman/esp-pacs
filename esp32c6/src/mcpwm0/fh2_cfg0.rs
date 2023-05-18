@@ -180,6 +180,53 @@ impl R {
         TZ2_B_OST_U_R::new(((self.bits >> 22) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::FH2_CFG0")
+            .field("tz2_sw_cbc", &format_args!("{}", self.tz2_sw_cbc().bit()))
+            .field("tz2_f2_cbc", &format_args!("{}", self.tz2_f2_cbc().bit()))
+            .field("tz2_f1_cbc", &format_args!("{}", self.tz2_f1_cbc().bit()))
+            .field("tz2_f0_cbc", &format_args!("{}", self.tz2_f0_cbc().bit()))
+            .field("tz2_sw_ost", &format_args!("{}", self.tz2_sw_ost().bit()))
+            .field("tz2_f2_ost", &format_args!("{}", self.tz2_f2_ost().bit()))
+            .field("tz2_f1_ost", &format_args!("{}", self.tz2_f1_ost().bit()))
+            .field("tz2_f0_ost", &format_args!("{}", self.tz2_f0_ost().bit()))
+            .field(
+                "tz2_a_cbc_d",
+                &format_args!("{}", self.tz2_a_cbc_d().bits()),
+            )
+            .field(
+                "tz2_a_cbc_u",
+                &format_args!("{}", self.tz2_a_cbc_u().bits()),
+            )
+            .field(
+                "tz2_a_ost_d",
+                &format_args!("{}", self.tz2_a_ost_d().bits()),
+            )
+            .field(
+                "tz2_a_ost_u",
+                &format_args!("{}", self.tz2_a_ost_u().bits()),
+            )
+            .field(
+                "tz2_b_cbc_d",
+                &format_args!("{}", self.tz2_b_cbc_d().bits()),
+            )
+            .field(
+                "tz2_b_cbc_u",
+                &format_args!("{}", self.tz2_b_cbc_u().bits()),
+            )
+            .field(
+                "tz2_b_ost_d",
+                &format_args!("{}", self.tz2_b_ost_d().bits()),
+            )
+            .field(
+                "tz2_b_ost_u",
+                &format_args!("{}", self.tz2_b_ost_u().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable register for software force cycle-by-cycle mode action. 0: disable, 1: enable"]
     #[inline(always)]

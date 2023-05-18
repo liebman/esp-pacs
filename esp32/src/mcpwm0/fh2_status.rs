@@ -29,6 +29,15 @@ impl R {
         FH2_OST_ON_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::FH2_STATUS")
+            .field("fh2_cbc_on", &format_args!("{}", self.fh2_cbc_on().bit()))
+            .field("fh2_ost_on", &format_args!("{}", self.fh2_ost_on().bit()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fh2_status](index.html) module"]
 pub struct FH2_STATUS_SPEC;
 impl crate::RegisterSpec for FH2_STATUS_SPEC {

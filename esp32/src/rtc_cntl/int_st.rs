@@ -78,6 +78,43 @@ impl R {
         MAIN_TIMER_INT_ST_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::INT_ST")
+            .field(
+                "slp_wakeup_int_st",
+                &format_args!("{}", self.slp_wakeup_int_st().bit()),
+            )
+            .field(
+                "slp_reject_int_st",
+                &format_args!("{}", self.slp_reject_int_st().bit()),
+            )
+            .field(
+                "sdio_idle_int_st",
+                &format_args!("{}", self.sdio_idle_int_st().bit()),
+            )
+            .field("wdt_int_st", &format_args!("{}", self.wdt_int_st().bit()))
+            .field(
+                "time_valid_int_st",
+                &format_args!("{}", self.time_valid_int_st().bit()),
+            )
+            .field("sar_int_st", &format_args!("{}", self.sar_int_st().bit()))
+            .field(
+                "touch_int_st",
+                &format_args!("{}", self.touch_int_st().bit()),
+            )
+            .field(
+                "brown_out_int_st",
+                &format_args!("{}", self.brown_out_int_st().bit()),
+            )
+            .field(
+                "main_timer_int_st",
+                &format_args!("{}", self.main_timer_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

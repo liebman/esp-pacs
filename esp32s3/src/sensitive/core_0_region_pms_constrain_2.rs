@@ -168,6 +168,90 @@ impl R {
         CORE_0_REGION_PMS_CONSTRAIN_WORLD_1_AREA_10_R::new(((self.bits >> 20) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_REGION_PMS_CONSTRAIN_2")
+            .field(
+                "core_0_region_pms_constrain_world_1_area_0",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_0().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_1",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_1().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_2",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_2().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_3",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_3().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_4",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_4().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_5",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_5().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_6",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_6().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_7",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_7().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_8",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_8().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_9",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_9().bits()
+                ),
+            )
+            .field(
+                "core_0_region_pms_constrain_world_1_area_10",
+                &format_args!(
+                    "{}",
+                    self.core_0_region_pms_constrain_world_1_area_10().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Region 0 permission in world 1 for core0."]
     #[inline(always)]

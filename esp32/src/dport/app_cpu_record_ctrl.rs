@@ -66,6 +66,25 @@ impl R {
         APP_CPU_PDEBUG_ENABLE_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::APP_CPU_RECORD_CTRL")
+            .field(
+                "app_cpu_record_enable",
+                &format_args!("{}", self.app_cpu_record_enable().bit()),
+            )
+            .field(
+                "app_cpu_record_disable",
+                &format_args!("{}", self.app_cpu_record_disable().bit()),
+            )
+            .field(
+                "app_cpu_pdebug_enable",
+                &format_args!("{}", self.app_cpu_pdebug_enable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

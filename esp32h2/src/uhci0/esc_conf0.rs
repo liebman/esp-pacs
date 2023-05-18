@@ -65,6 +65,22 @@ impl R {
         SEPER_ESC_CHAR1_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::ESC_CONF0")
+            .field("seper_char", &format_args!("{}", self.seper_char().bits()))
+            .field(
+                "seper_esc_char0",
+                &format_args!("{}", self.seper_esc_char0().bits()),
+            )
+            .field(
+                "seper_esc_char1",
+                &format_args!("{}", self.seper_esc_char1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - a"]
     #[inline(always)]

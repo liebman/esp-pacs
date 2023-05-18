@@ -45,6 +45,14 @@ impl R {
         BUF11_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::W11")
+            .field("buf11", &format_args!("{}", self.buf11().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - data buffer"]
     #[inline(always)]

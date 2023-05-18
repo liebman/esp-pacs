@@ -72,6 +72,29 @@ impl R {
         TX_HUNG_INT_ENA_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::INT_ENA")
+            .field(
+                "rx_done_int_ena",
+                &format_args!("{}", self.rx_done_int_ena().bit()),
+            )
+            .field(
+                "tx_done_int_ena",
+                &format_args!("{}", self.tx_done_int_ena().bit()),
+            )
+            .field(
+                "rx_hung_int_ena",
+                &format_args!("{}", self.rx_hung_int_ena().bit()),
+            )
+            .field(
+                "tx_hung_int_ena",
+                &format_args!("{}", self.tx_hung_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The interrupt enable bit for the i2s_rx_done_int interrupt"]
     #[inline(always)]

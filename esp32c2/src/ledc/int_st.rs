@@ -127,6 +127,74 @@ impl R {
         OVF_CNT_CH5_INT_ST_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_ST")
+            .field("ovf_int_st", &format_args!("{}", self.ovf_int_st().bit()))
+            .field(
+                "timer1_ovf_int_st",
+                &format_args!("{}", self.timer1_ovf_int_st().bit()),
+            )
+            .field(
+                "timer2_ovf_int_st",
+                &format_args!("{}", self.timer2_ovf_int_st().bit()),
+            )
+            .field(
+                "timer3_ovf_int_st",
+                &format_args!("{}", self.timer3_ovf_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_ch0_int_st",
+                &format_args!("{}", self.duty_chng_end_ch0_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_ch1_int_st",
+                &format_args!("{}", self.duty_chng_end_ch1_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_ch2_int_st",
+                &format_args!("{}", self.duty_chng_end_ch2_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_ch3_int_st",
+                &format_args!("{}", self.duty_chng_end_ch3_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_ch4_int_st",
+                &format_args!("{}", self.duty_chng_end_ch4_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_ch5_int_st",
+                &format_args!("{}", self.duty_chng_end_ch5_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_ch0_int_st",
+                &format_args!("{}", self.ovf_cnt_ch0_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_ch1_int_st",
+                &format_args!("{}", self.ovf_cnt_ch1_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_ch2_int_st",
+                &format_args!("{}", self.ovf_cnt_ch2_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_ch3_int_st",
+                &format_args!("{}", self.ovf_cnt_ch3_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_ch4_int_st",
+                &format_args!("{}", self.ovf_cnt_ch4_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_ch5_int_st",
+                &format_args!("{}", self.ovf_cnt_ch5_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Masked interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

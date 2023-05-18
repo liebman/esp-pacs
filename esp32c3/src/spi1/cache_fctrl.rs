@@ -100,6 +100,23 @@ impl R {
         FADDR_QUAD_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::CACHE_FCTRL")
+            .field(
+                "cache_usr_addr_4byte",
+                &format_args!("{}", self.cache_usr_addr_4byte().bit()),
+            )
+            .field("fdin_dual", &format_args!("{}", self.fdin_dual().bit()))
+            .field("fdout_dual", &format_args!("{}", self.fdout_dual().bit()))
+            .field("faddr_dual", &format_args!("{}", self.faddr_dual().bit()))
+            .field("fdin_quad", &format_args!("{}", self.fdin_quad().bit()))
+            .field("fdout_quad", &format_args!("{}", self.fdout_quad().bit()))
+            .field("faddr_quad", &format_args!("{}", self.faddr_quad().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - For SPI1, cache read flash with 4 bytes address, 1: enable, 0:disable."]
     #[inline(always)]

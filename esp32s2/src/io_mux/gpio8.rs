@@ -135,6 +135,24 @@ impl R {
         FILTER_EN_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IO_MUX::GPIO8")
+            .field("mcu_oe", &format_args!("{}", self.mcu_oe().bit()))
+            .field("slp_sel", &format_args!("{}", self.slp_sel().bit()))
+            .field("mcu_wpd", &format_args!("{}", self.mcu_wpd().bit()))
+            .field("mcu_wpu", &format_args!("{}", self.mcu_wpu().bit()))
+            .field("mcu_ie", &format_args!("{}", self.mcu_ie().bit()))
+            .field("fun_wpd", &format_args!("{}", self.fun_wpd().bit()))
+            .field("fun_wpu", &format_args!("{}", self.fun_wpu().bit()))
+            .field("fun_ie", &format_args!("{}", self.fun_ie().bit()))
+            .field("fun_drv", &format_args!("{}", self.fun_drv().bits()))
+            .field("mcu_sel", &format_args!("{}", self.mcu_sel().bits()))
+            .field("filter_en", &format_args!("{}", self.filter_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Output enable of the pin in sleep mode. 1: Output enabled. 0: Output disabled."]
     #[inline(always)]

@@ -99,6 +99,26 @@ impl R {
         ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PERI_BACKUP::CONFIG")
+            .field("flow_err", &format_args!("{}", self.flow_err().bits()))
+            .field(
+                "addr_map_mode",
+                &format_args!("{}", self.addr_map_mode().bit()),
+            )
+            .field(
+                "burst_limit",
+                &format_args!("{}", self.burst_limit().bits()),
+            )
+            .field("tout_thres", &format_args!("{}", self.tout_thres().bits()))
+            .field("size", &format_args!("{}", self.size().bits()))
+            .field("to_mem", &format_args!("{}", self.to_mem().bit()))
+            .field("ena", &format_args!("{}", self.ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - x"]
     #[inline(always)]

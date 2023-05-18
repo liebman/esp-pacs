@@ -86,6 +86,33 @@ impl R {
         HP_SLEEP_DIG_SYS_CLK_SEL_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_SLEEP_SYSCLK")
+            .field(
+                "hp_sleep_dig_sys_clk_no_div",
+                &format_args!("{}", self.hp_sleep_dig_sys_clk_no_div().bit()),
+            )
+            .field(
+                "hp_sleep_icg_sys_clock_en",
+                &format_args!("{}", self.hp_sleep_icg_sys_clock_en().bit()),
+            )
+            .field(
+                "hp_sleep_sys_clk_slp_sel",
+                &format_args!("{}", self.hp_sleep_sys_clk_slp_sel().bit()),
+            )
+            .field(
+                "hp_sleep_icg_slp_sel",
+                &format_args!("{}", self.hp_sleep_icg_slp_sel().bit()),
+            )
+            .field(
+                "hp_sleep_dig_sys_clk_sel",
+                &format_args!("{}", self.hp_sleep_dig_sys_clk_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 26 - need_des"]
     #[inline(always)]

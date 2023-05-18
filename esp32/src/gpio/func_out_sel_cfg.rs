@@ -73,6 +73,17 @@ impl R {
         OEN_INV_SEL_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::FUNC_OUT_SEL_CFG")
+            .field("out_sel", &format_args!("{}", self.out_sel().bits()))
+            .field("inv_sel", &format_args!("{}", self.inv_sel().bit()))
+            .field("oen_sel", &format_args!("{}", self.oen_sel().bit()))
+            .field("oen_inv_sel", &format_args!("{}", self.oen_inv_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - select one of the 256 output to 40 GPIO"]
     #[inline(always)]

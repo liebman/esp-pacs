@@ -46,6 +46,17 @@ impl R {
         APLL_TICK_NUM_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::APLL_TICK_CONF")
+            .field(
+                "apll_tick_num",
+                &format_args!("{}", self.apll_tick_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

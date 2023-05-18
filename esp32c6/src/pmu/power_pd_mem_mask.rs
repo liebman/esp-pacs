@@ -96,6 +96,37 @@ impl R {
         PD_HP_MEM0_MASK_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_PD_MEM_MASK")
+            .field(
+                "pd_hp_mem2_pd_mask",
+                &format_args!("{}", self.pd_hp_mem2_pd_mask().bits()),
+            )
+            .field(
+                "pd_hp_mem1_pd_mask",
+                &format_args!("{}", self.pd_hp_mem1_pd_mask().bits()),
+            )
+            .field(
+                "pd_hp_mem0_pd_mask",
+                &format_args!("{}", self.pd_hp_mem0_pd_mask().bits()),
+            )
+            .field(
+                "pd_hp_mem2_mask",
+                &format_args!("{}", self.pd_hp_mem2_mask().bits()),
+            )
+            .field(
+                "pd_hp_mem1_mask",
+                &format_args!("{}", self.pd_hp_mem1_mask().bits()),
+            )
+            .field(
+                "pd_hp_mem0_mask",
+                &format_args!("{}", self.pd_hp_mem0_mask().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - need_des"]
     #[inline(always)]

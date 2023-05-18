@@ -46,6 +46,17 @@ impl R {
         SLC0_RX_PKT_H_DSCR_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0_RXPKT_H_DSCR")
+            .field(
+                "slc0_rx_pkt_h_dscr_addr",
+                &format_args!("{}", self.slc0_rx_pkt_h_dscr_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

@@ -48,6 +48,20 @@ impl R {
         CORE_0_IRAM0_PMS_MONITOR_VIOLATE_INTR_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE1::CORE_0_IRAM0_PMS_MONITOR_VIOLATE_INTR_MAP")
+            .field(
+                "core_0_iram0_pms_monitor_violate_intr_map",
+                &format_args!(
+                    "{}",
+                    self.core_0_iram0_pms_monitor_violate_intr_map().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - this register used to map core0_IRam0_pms_monitor_violatile interrupt to one of core1's external interrupt"]
     #[inline(always)]

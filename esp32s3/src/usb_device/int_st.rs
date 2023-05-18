@@ -99,6 +99,58 @@ impl R {
         OUT_EP2_ZERO_PAYLOAD_INT_ST_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::INT_ST")
+            .field(
+                "jtag_in_flush_int_st",
+                &format_args!("{}", self.jtag_in_flush_int_st().bit()),
+            )
+            .field("sof_int_st", &format_args!("{}", self.sof_int_st().bit()))
+            .field(
+                "serial_out_recv_pkt_int_st",
+                &format_args!("{}", self.serial_out_recv_pkt_int_st().bit()),
+            )
+            .field(
+                "serial_in_empty_int_st",
+                &format_args!("{}", self.serial_in_empty_int_st().bit()),
+            )
+            .field(
+                "pid_err_int_st",
+                &format_args!("{}", self.pid_err_int_st().bit()),
+            )
+            .field(
+                "crc5_err_int_st",
+                &format_args!("{}", self.crc5_err_int_st().bit()),
+            )
+            .field(
+                "crc16_err_int_st",
+                &format_args!("{}", self.crc16_err_int_st().bit()),
+            )
+            .field(
+                "stuff_err_int_st",
+                &format_args!("{}", self.stuff_err_int_st().bit()),
+            )
+            .field(
+                "in_token_rec_in_ep1_int_st",
+                &format_args!("{}", self.in_token_rec_in_ep1_int_st().bit()),
+            )
+            .field(
+                "usb_bus_reset_int_st",
+                &format_args!("{}", self.usb_bus_reset_int_st().bit()),
+            )
+            .field(
+                "out_ep1_zero_payload_int_st",
+                &format_args!("{}", self.out_ep1_zero_payload_int_st().bit()),
+            )
+            .field(
+                "out_ep2_zero_payload_int_st",
+                &format_args!("{}", self.out_ep2_zero_payload_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Masked interrupt\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

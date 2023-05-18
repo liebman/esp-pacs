@@ -113,6 +113,45 @@ impl R {
         IDLE_INT_ENA_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::INTERRUPT_ENABLE")
+            .field(
+                "ext_receive_int_ena",
+                &format_args!("{}", self.ext_receive_int_ena().bit()),
+            )
+            .field(
+                "ext_transmit_int_ena",
+                &format_args!("{}", self.ext_transmit_int_ena().bit()),
+            )
+            .field(
+                "ext_err_warning_int_ena",
+                &format_args!("{}", self.ext_err_warning_int_ena().bit()),
+            )
+            .field(
+                "ext_data_overrun_int_ena",
+                &format_args!("{}", self.ext_data_overrun_int_ena().bit()),
+            )
+            .field(
+                "err_passive_int_ena",
+                &format_args!("{}", self.err_passive_int_ena().bit()),
+            )
+            .field(
+                "arbitration_lost_int_ena",
+                &format_args!("{}", self.arbitration_lost_int_ena().bit()),
+            )
+            .field(
+                "bus_err_int_ena",
+                &format_args!("{}", self.bus_err_int_ena().bit()),
+            )
+            .field(
+                "idle_int_ena",
+                &format_args!("{}", self.idle_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: enabled, when the receive buffer status is 'full' the TWAI controller requests the respective interrupt. 0: disable"]
     #[inline(always)]

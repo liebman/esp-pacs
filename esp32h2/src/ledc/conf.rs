@@ -108,6 +108,42 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CONF")
+            .field(
+                "apb_clk_sel",
+                &format_args!("{}", self.apb_clk_sel().bits()),
+            )
+            .field(
+                "gamma_ram_clk_en_ch0",
+                &format_args!("{}", self.gamma_ram_clk_en_ch0().bit()),
+            )
+            .field(
+                "gamma_ram_clk_en_ch1",
+                &format_args!("{}", self.gamma_ram_clk_en_ch1().bit()),
+            )
+            .field(
+                "gamma_ram_clk_en_ch2",
+                &format_args!("{}", self.gamma_ram_clk_en_ch2().bit()),
+            )
+            .field(
+                "gamma_ram_clk_en_ch3",
+                &format_args!("{}", self.gamma_ram_clk_en_ch3().bit()),
+            )
+            .field(
+                "gamma_ram_clk_en_ch4",
+                &format_args!("{}", self.gamma_ram_clk_en_ch4().bit()),
+            )
+            .field(
+                "gamma_ram_clk_en_ch5",
+                &format_args!("{}", self.gamma_ram_clk_en_ch5().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This bit is used to select clock source for the 4 timers . 2'd1: APB_CLK 2'd2: RTC8M_CLK 2'd3: XTAL_CLK"]
     #[inline(always)]

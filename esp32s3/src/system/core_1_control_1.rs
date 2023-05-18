@@ -46,6 +46,17 @@ impl R {
         CONTROL_CORE_1_MESSAGE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CORE_1_CONTROL_1")
+            .field(
+                "control_core_1_message",
+                &format_args!("{}", self.control_core_1_message().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - it's only a R/W register, no function, software can write any value"]
     #[inline(always)]

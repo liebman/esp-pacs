@@ -66,6 +66,25 @@ impl R {
         PRO_ICACHE_MASK_BUS2_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_ICACHE_CTRL1")
+            .field(
+                "pro_icache_mask_bus0",
+                &format_args!("{}", self.pro_icache_mask_bus0().bit()),
+            )
+            .field(
+                "pro_icache_mask_bus1",
+                &format_args!("{}", self.pro_icache_mask_bus1().bit()),
+            )
+            .field(
+                "pro_icache_mask_bus2",
+                &format_args!("{}", self.pro_icache_mask_bus2().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable ibus0, 0: enable, 1: disable"]
     #[inline(always)]

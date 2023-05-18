@@ -45,6 +45,14 @@ impl R {
         KEY_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::KEY_0")
+            .field("key_0", &format_args!("{}", self.key_0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This bits stores key_0 that is a part of key material."]
     #[inline(always)]

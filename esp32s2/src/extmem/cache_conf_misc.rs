@@ -58,6 +58,21 @@ impl R {
         PRO_CACHE_IGNORE_SYNC_MMU_ENTRY_FAULT_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_CONF_MISC")
+            .field(
+                "pro_cache_ignore_preload_mmu_entry_fault",
+                &format_args!("{}", self.pro_cache_ignore_preload_mmu_entry_fault().bit()),
+            )
+            .field(
+                "pro_cache_ignore_sync_mmu_entry_fault",
+                &format_args!("{}", self.pro_cache_ignore_sync_mmu_entry_fault().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable checking mmu entry fault by preload operation."]
     #[inline(always)]

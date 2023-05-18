@@ -71,6 +71,45 @@ impl R {
         L1_DBUS3_OVF_INT_ST_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_ACS_CNT_INT_ST")
+            .field(
+                "l1_ibus0_ovf_int_st",
+                &format_args!("{}", self.l1_ibus0_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_ibus1_ovf_int_st",
+                &format_args!("{}", self.l1_ibus1_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_ibus2_ovf_int_st",
+                &format_args!("{}", self.l1_ibus2_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_ibus3_ovf_int_st",
+                &format_args!("{}", self.l1_ibus3_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_bus0_ovf_int_st",
+                &format_args!("{}", self.l1_bus0_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_bus1_ovf_int_st",
+                &format_args!("{}", self.l1_bus1_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_dbus2_ovf_int_st",
+                &format_args!("{}", self.l1_dbus2_ovf_int_st().bit()),
+            )
+            .field(
+                "l1_dbus3_ovf_int_st",
+                &format_args!("{}", self.l1_dbus3_ovf_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache Access Counter Interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l1_cache_acs_cnt_int_st](index.html) module"]
 pub struct L1_CACHE_ACS_CNT_INT_ST_SPEC;
 impl crate::RegisterSpec for L1_CACHE_ACS_CNT_INT_ST_SPEC {

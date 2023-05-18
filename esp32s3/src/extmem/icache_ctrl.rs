@@ -73,6 +73,29 @@ impl R {
         ICACHE_BLOCKSIZE_MODE_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_CTRL")
+            .field(
+                "icache_enable",
+                &format_args!("{}", self.icache_enable().bit()),
+            )
+            .field(
+                "icache_way_mode",
+                &format_args!("{}", self.icache_way_mode().bit()),
+            )
+            .field(
+                "icache_size_mode",
+                &format_args!("{}", self.icache_size_mode().bit()),
+            )
+            .field(
+                "icache_blocksize_mode",
+                &format_args!("{}", self.icache_blocksize_mode().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable, 1: enable"]
     #[inline(always)]

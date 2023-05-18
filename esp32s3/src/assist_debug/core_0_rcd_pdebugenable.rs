@@ -46,6 +46,17 @@ impl R {
         CORE_0_RCD_PDEBUGENABLE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_RCD_PDEBUGENABLE")
+            .field(
+                "core_0_rcd_pdebugenable",
+                &format_args!("{}", self.core_0_rcd_pdebugenable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Core0 Pdebugenable,set 1 to open core0 Pdebug interface,then can get core0 PC"]
     #[inline(always)]

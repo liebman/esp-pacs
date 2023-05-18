@@ -126,6 +126,50 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::SYS_CONF")
+            .field(
+                "apb_fifo_mask",
+                &format_args!("{}", self.apb_fifo_mask().bit()),
+            )
+            .field(
+                "mem_clk_force_on",
+                &format_args!("{}", self.mem_clk_force_on().bit()),
+            )
+            .field(
+                "rmt_mem_force_pd",
+                &format_args!("{}", self.rmt_mem_force_pd().bit()),
+            )
+            .field(
+                "rmt_mem_force_pu",
+                &format_args!("{}", self.rmt_mem_force_pu().bit()),
+            )
+            .field(
+                "rmt_sclk_div_num",
+                &format_args!("{}", self.rmt_sclk_div_num().bits()),
+            )
+            .field(
+                "rmt_sclk_div_a",
+                &format_args!("{}", self.rmt_sclk_div_a().bits()),
+            )
+            .field(
+                "rmt_sclk_div_b",
+                &format_args!("{}", self.rmt_sclk_div_b().bits()),
+            )
+            .field(
+                "rmt_sclk_sel",
+                &format_args!("{}", self.rmt_sclk_sel().bits()),
+            )
+            .field(
+                "rmt_sclk_active",
+                &format_args!("{}", self.rmt_sclk_active().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1'h1: access memory directly. 1'h0: access memory by FIFO."]
     #[inline(always)]

@@ -169,6 +169,80 @@ impl R {
         VDD_SPI_DREFH_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA0")
+            .field("rd_dis", &format_args!("{}", self.rd_dis().bits()))
+            .field(
+                "dis_rtc_ram_boot",
+                &format_args!("{}", self.dis_rtc_ram_boot().bit()),
+            )
+            .field("dis_icache", &format_args!("{}", self.dis_icache().bit()))
+            .field("dis_dcache", &format_args!("{}", self.dis_dcache().bit()))
+            .field(
+                "dis_download_icache",
+                &format_args!("{}", self.dis_download_icache().bit()),
+            )
+            .field(
+                "dis_download_dcache",
+                &format_args!("{}", self.dis_download_dcache().bit()),
+            )
+            .field(
+                "dis_force_download",
+                &format_args!("{}", self.dis_force_download().bit()),
+            )
+            .field("dis_usb", &format_args!("{}", self.dis_usb().bit()))
+            .field("dis_can", &format_args!("{}", self.dis_can().bit()))
+            .field(
+                "dis_boot_remap",
+                &format_args!("{}", self.dis_boot_remap().bit()),
+            )
+            .field(
+                "rpt4_reserved5",
+                &format_args!("{}", self.rpt4_reserved5().bit()),
+            )
+            .field(
+                "soft_dis_jtag",
+                &format_args!("{}", self.soft_dis_jtag().bit()),
+            )
+            .field(
+                "hard_dis_jtag",
+                &format_args!("{}", self.hard_dis_jtag().bit()),
+            )
+            .field(
+                "dis_download_manual_encrypt",
+                &format_args!("{}", self.dis_download_manual_encrypt().bit()),
+            )
+            .field("usb_drefh", &format_args!("{}", self.usb_drefh().bits()))
+            .field("usb_drefl", &format_args!("{}", self.usb_drefl().bits()))
+            .field(
+                "usb_exchg_pins",
+                &format_args!("{}", self.usb_exchg_pins().bit()),
+            )
+            .field(
+                "ext_phy_enable",
+                &format_args!("{}", self.ext_phy_enable().bit()),
+            )
+            .field(
+                "usb_force_nopersist",
+                &format_args!("{}", self.usb_force_nopersist().bit()),
+            )
+            .field(
+                "rpt4_reserved0",
+                &format_args!("{}", self.rpt4_reserved0().bits()),
+            )
+            .field(
+                "vdd_spi_modecurlim",
+                &format_args!("{}", self.vdd_spi_modecurlim().bit()),
+            )
+            .field(
+                "vdd_spi_drefh",
+                &format_args!("{}", self.vdd_spi_drefh().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Register 1 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data0](index.html) module"]
 pub struct RD_REPEAT_DATA0_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA0_SPEC {

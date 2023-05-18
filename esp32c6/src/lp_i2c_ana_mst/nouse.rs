@@ -46,6 +46,17 @@ impl R {
         LP_I2C_ANA_MAST_I2C_MST_NOUSE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C_ANA_MST::NOUSE")
+            .field(
+                "lp_i2c_ana_mast_i2c_mst_nouse",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c_mst_nouse().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - need_des"]
     #[inline(always)]

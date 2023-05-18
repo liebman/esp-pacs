@@ -46,6 +46,17 @@ impl R {
         SLV_RDBUF_DBITLEN_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLV_RDBUF_DLEN")
+            .field(
+                "slv_rdbuf_dbitlen",
+                &format_args!("{}", self.slv_rdbuf_dbitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - In the slave mode it is the length in bits for read-buffer operations. The register value shall be (bit_num-1)."]
     #[inline(always)]

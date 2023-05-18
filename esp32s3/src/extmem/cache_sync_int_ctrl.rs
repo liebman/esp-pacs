@@ -76,6 +76,29 @@ impl R {
         DCACHE_SYNC_INT_ENA_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_SYNC_INT_CTRL")
+            .field(
+                "icache_sync_int_st",
+                &format_args!("{}", self.icache_sync_int_st().bit()),
+            )
+            .field(
+                "icache_sync_int_ena",
+                &format_args!("{}", self.icache_sync_int_ena().bit()),
+            )
+            .field(
+                "dcache_sync_int_st",
+                &format_args!("{}", self.dcache_sync_int_st().bit()),
+            )
+            .field(
+                "dcache_sync_int_ena",
+                &format_args!("{}", self.dcache_sync_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - The bit is used to enable the interrupt by icache sync done."]
     #[inline(always)]

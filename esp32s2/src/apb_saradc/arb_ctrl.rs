@@ -112,6 +112,45 @@ impl R {
         ADC_ARB_FIX_PRIORITY_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::ARB_CTRL")
+            .field(
+                "adc_arb_apb_force",
+                &format_args!("{}", self.adc_arb_apb_force().bit()),
+            )
+            .field(
+                "adc_arb_rtc_force",
+                &format_args!("{}", self.adc_arb_rtc_force().bit()),
+            )
+            .field(
+                "adc_arb_wifi_force",
+                &format_args!("{}", self.adc_arb_wifi_force().bit()),
+            )
+            .field(
+                "adc_arb_grant_force",
+                &format_args!("{}", self.adc_arb_grant_force().bit()),
+            )
+            .field(
+                "adc_arb_apb_priority",
+                &format_args!("{}", self.adc_arb_apb_priority().bits()),
+            )
+            .field(
+                "adc_arb_rtc_priority",
+                &format_args!("{}", self.adc_arb_rtc_priority().bits()),
+            )
+            .field(
+                "adc_arb_wifi_priority",
+                &format_args!("{}", self.adc_arb_wifi_priority().bits()),
+            )
+            .field(
+                "adc_arb_fix_priority",
+                &format_args!("{}", self.adc_arb_fix_priority().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - ADC2 arbiter forces to enable DIG ADC2 CTRL."]
     #[inline(always)]

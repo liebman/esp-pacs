@@ -91,6 +91,34 @@ impl R {
         SWD_AUTO_FEED_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SWD_CONF")
+            .field(
+                "swd_reset_flag",
+                &format_args!("{}", self.swd_reset_flag().bit()),
+            )
+            .field(
+                "swd_feed_int",
+                &format_args!("{}", self.swd_feed_int().bit()),
+            )
+            .field(
+                "swd_bypass_rst",
+                &format_args!("{}", self.swd_bypass_rst().bit()),
+            )
+            .field(
+                "swd_signal_width",
+                &format_args!("{}", self.swd_signal_width().bits()),
+            )
+            .field("swd_disable", &format_args!("{}", self.swd_disable().bit()))
+            .field(
+                "swd_auto_feed_en",
+                &format_args!("{}", self.swd_auto_feed_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 17 - Bypass swd rst"]
     #[inline(always)]

@@ -82,6 +82,30 @@ impl R {
         DMA_TX_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_OUT_LINK")
+            .field(
+                "outlink_addr",
+                &format_args!("{}", self.outlink_addr().bits()),
+            )
+            .field(
+                "outlink_stop",
+                &format_args!("{}", self.outlink_stop().bit()),
+            )
+            .field(
+                "outlink_start",
+                &format_args!("{}", self.outlink_start().bit()),
+            )
+            .field(
+                "outlink_restart",
+                &format_args!("{}", self.outlink_restart().bit()),
+            )
+            .field("dma_tx_ena", &format_args!("{}", self.dma_tx_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - The address of the first outlink descriptor."]
     #[inline(always)]

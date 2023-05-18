@@ -50,6 +50,33 @@ impl R {
         CORE1_DBUS_REJECT_ST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CORE1_ACS_CACHE_INT_ST")
+            .field(
+                "core1_ibus_acs_msk_icache_st",
+                &format_args!("{}", self.core1_ibus_acs_msk_icache_st().bit()),
+            )
+            .field(
+                "core1_ibus_wr_icache_st",
+                &format_args!("{}", self.core1_ibus_wr_icache_st().bit()),
+            )
+            .field(
+                "core1_ibus_reject_st",
+                &format_args!("{}", self.core1_ibus_reject_st().bit()),
+            )
+            .field(
+                "core1_dbus_acs_msk_dcache_st",
+                &format_args!("{}", self.core1_dbus_acs_msk_dcache_st().bit()),
+            )
+            .field(
+                "core1_dbus_reject_st",
+                &format_args!("{}", self.core1_dbus_reject_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "******* Description ***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core1_acs_cache_int_st](index.html) module"]
 pub struct CORE1_ACS_CACHE_INT_ST_SPEC;
 impl crate::RegisterSpec for CORE1_ACS_CACHE_INT_ST_SPEC {

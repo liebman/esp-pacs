@@ -76,6 +76,29 @@ impl R {
         FILTER_CH0_WINDOW_WIDTH_R::new(((self.bits >> 13) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::GLITCH_FILTER_CH")
+            .field(
+                "filter_ch0_en",
+                &format_args!("{}", self.filter_ch0_en().bit()),
+            )
+            .field(
+                "filter_ch0_input_io_num",
+                &format_args!("{}", self.filter_ch0_input_io_num().bits()),
+            )
+            .field(
+                "filter_ch0_window_thres",
+                &format_args!("{}", self.filter_ch0_window_thres().bits()),
+            )
+            .field(
+                "filter_ch0_window_width",
+                &format_args!("{}", self.filter_ch0_window_width().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Glitch Filter channel enable bit."]
     #[inline(always)]

@@ -47,6 +47,14 @@ impl R {
         CLK_MODE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL1")
+            .field("clk_mode", &format_args!("{}", self.clk_mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on."]
     #[inline(always)]

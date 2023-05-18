@@ -45,6 +45,14 @@ impl R {
         DATA_3_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::DATA_3")
+            .field("data_3", &format_args!("{}", self.data_3().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - In reset mode, it is acceptance code register 3 with R/W Permission. In operation mode, when software initiate write operation, it is tx data register 3 and when software initiate read operation, it is rx data register 3."]
     #[inline(always)]

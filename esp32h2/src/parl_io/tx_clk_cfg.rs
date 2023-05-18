@@ -54,6 +54,21 @@ impl R {
         TX_CLK_O_INV_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::TX_CLK_CFG")
+            .field(
+                "tx_clk_i_inv",
+                &format_args!("{}", self.tx_clk_i_inv().bit()),
+            )
+            .field(
+                "tx_clk_o_inv",
+                &format_args!("{}", self.tx_clk_o_inv().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - Set this bit to invert the input Tx core clock."]
     #[inline(always)]

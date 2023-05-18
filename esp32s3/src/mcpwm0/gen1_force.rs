@@ -104,6 +104,41 @@ impl R {
         GEN1_B_NCIFORCE_MODE_R::new(((self.bits >> 14) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::GEN1_FORCE")
+            .field(
+                "gen1_cntuforce_upmethod",
+                &format_args!("{}", self.gen1_cntuforce_upmethod().bits()),
+            )
+            .field(
+                "gen1_a_cntuforce_mode",
+                &format_args!("{}", self.gen1_a_cntuforce_mode().bits()),
+            )
+            .field(
+                "gen1_b_cntuforce_mode",
+                &format_args!("{}", self.gen1_b_cntuforce_mode().bits()),
+            )
+            .field(
+                "gen1_a_nciforce",
+                &format_args!("{}", self.gen1_a_nciforce().bit()),
+            )
+            .field(
+                "gen1_a_nciforce_mode",
+                &format_args!("{}", self.gen1_a_nciforce_mode().bits()),
+            )
+            .field(
+                "gen1_b_nciforce",
+                &format_args!("{}", self.gen1_b_nciforce().bit()),
+            )
+            .field(
+                "gen1_b_nciforce_mode",
+                &format_args!("{}", self.gen1_b_nciforce_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Updating method for continuous software force of PWM generator 1. When all bits are set to 0: immediately, when bit0 is set to 1: TEZ,,when bit1 is set to 1: TEP, when bit2 is set to 1: TEA, when bit3 is set to 1: TEB, when bit4 is set to 1: sync, when bit5 is set to 1: disable update. (TEA/B here and below means an event generated when the timer's value equals to that of register A/B.)"]
     #[inline(always)]

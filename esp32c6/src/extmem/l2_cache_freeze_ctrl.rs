@@ -36,6 +36,25 @@ impl R {
         L2_CACHE_FREEZE_DONE_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_FREEZE_CTRL")
+            .field(
+                "l2_cache_freeze_en",
+                &format_args!("{}", self.l2_cache_freeze_en().bit()),
+            )
+            .field(
+                "l2_cache_freeze_mode",
+                &format_args!("{}", self.l2_cache_freeze_mode().bit()),
+            )
+            .field(
+                "l2_cache_freeze_done",
+                &format_args!("{}", self.l2_cache_freeze_done().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache Freeze control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l2_cache_freeze_ctrl](index.html) module"]
 pub struct L2_CACHE_FREEZE_CTRL_SPEC;
 impl crate::RegisterSpec for L2_CACHE_FREEZE_CTRL_SPEC {

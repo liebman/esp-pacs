@@ -121,6 +121,37 @@ impl R {
         FIFO_PRT_EN_R::new(((self.bits >> 26) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::FIFO_CONF")
+            .field(
+                "rxfifo_wm_thrhd",
+                &format_args!("{}", self.rxfifo_wm_thrhd().bits()),
+            )
+            .field(
+                "txfifo_wm_thrhd",
+                &format_args!("{}", self.txfifo_wm_thrhd().bits()),
+            )
+            .field("nonfifo_en", &format_args!("{}", self.nonfifo_en().bit()))
+            .field(
+                "fifo_addr_cfg_en",
+                &format_args!("{}", self.fifo_addr_cfg_en().bit()),
+            )
+            .field("rx_fifo_rst", &format_args!("{}", self.rx_fifo_rst().bit()))
+            .field("tx_fifo_rst", &format_args!("{}", self.tx_fifo_rst().bit()))
+            .field(
+                "nonfifo_rx_thres",
+                &format_args!("{}", self.nonfifo_rx_thres().bits()),
+            )
+            .field(
+                "nonfifo_tx_thres",
+                &format_args!("{}", self.nonfifo_tx_thres().bits()),
+            )
+            .field("fifo_prt_en", &format_args!("{}", self.fifo_prt_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - The water mark threshold of RX FIFO in non-FIFO mode. When I2C_FIFO_PRT_EN is 1 and RX FIFO counter is bigger than I2C_RXFIFO_WM_THRHD\\[4:0\\], I2C_RXFIFO_WM_INT_RAW bit will be valid."]
     #[inline(always)]

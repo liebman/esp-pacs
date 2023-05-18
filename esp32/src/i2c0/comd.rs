@@ -54,6 +54,18 @@ impl R {
         COMMAND_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::COMD")
+            .field("command", &format_args!("{}", self.command().bits()))
+            .field(
+                "command_done",
+                &format_args!("{}", self.command_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - This is the content of command0. It consists of three part. op_code is the command 0: RSTART 1: WRITE 2: READ 3: STOP . 4:END. Byte_num represent the number of data need to be send or data need to be received. ack_check_en ack_exp and ack value are used to control the ack bit."]
     #[inline(always)]

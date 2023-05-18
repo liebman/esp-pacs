@@ -72,6 +72,26 @@ impl R {
         TIME_UPDATE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME_UPDATE")
+            .field(
+                "timer_sys_stall",
+                &format_args!("{}", self.timer_sys_stall().bit()),
+            )
+            .field(
+                "timer_xtl_off",
+                &format_args!("{}", self.timer_xtl_off().bit()),
+            )
+            .field(
+                "timer_sys_rst",
+                &format_args!("{}", self.timer_sys_rst().bit()),
+            )
+            .field("time_update", &format_args!("{}", self.time_update().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - Enable to record system stall time"]
     #[inline(always)]

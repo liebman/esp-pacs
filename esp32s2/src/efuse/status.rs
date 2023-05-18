@@ -71,6 +71,36 @@ impl R {
         REPEAT_ERR_CNT_R::new(((self.bits >> 10) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::STATUS")
+            .field("state", &format_args!("{}", self.state().bits()))
+            .field("otp_load_sw", &format_args!("{}", self.otp_load_sw().bit()))
+            .field(
+                "otp_vddq_c_sync2",
+                &format_args!("{}", self.otp_vddq_c_sync2().bit()),
+            )
+            .field(
+                "otp_strobe_sw",
+                &format_args!("{}", self.otp_strobe_sw().bit()),
+            )
+            .field("otp_csb_sw", &format_args!("{}", self.otp_csb_sw().bit()))
+            .field(
+                "otp_pgenb_sw",
+                &format_args!("{}", self.otp_pgenb_sw().bit()),
+            )
+            .field(
+                "otp_vddq_is_sw",
+                &format_args!("{}", self.otp_vddq_is_sw().bit()),
+            )
+            .field(
+                "repeat_err_cnt",
+                &format_args!("{}", self.repeat_err_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "eFuse status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {

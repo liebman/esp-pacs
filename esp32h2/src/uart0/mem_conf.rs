@@ -54,6 +54,21 @@ impl R {
         MEM_FORCE_PU_R::new(((self.bits >> 26) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::MEM_CONF")
+            .field(
+                "mem_force_pd",
+                &format_args!("{}", self.mem_force_pd().bit()),
+            )
+            .field(
+                "mem_force_pu",
+                &format_args!("{}", self.mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 25 - Set this bit to force power down UART memory."]
     #[inline(always)]

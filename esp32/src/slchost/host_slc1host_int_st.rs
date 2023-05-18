@@ -197,6 +197,117 @@ impl R {
         HOST_SLC1_BT_RX_NEW_PACKET_INT_ST_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLC1HOST_INT_ST")
+            .field(
+                "host_slc1_tohost_bit0_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit0_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit1_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit1_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit2_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit2_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit3_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit3_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit4_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit4_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit5_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit5_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit6_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit6_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tohost_bit7_int_st",
+                &format_args!("{}", self.host_slc1_tohost_bit7_int_st().bit()),
+            )
+            .field(
+                "host_slc1_token0_1to0_int_st",
+                &format_args!("{}", self.host_slc1_token0_1to0_int_st().bit()),
+            )
+            .field(
+                "host_slc1_token1_1to0_int_st",
+                &format_args!("{}", self.host_slc1_token1_1to0_int_st().bit()),
+            )
+            .field(
+                "host_slc1_token0_0to1_int_st",
+                &format_args!("{}", self.host_slc1_token0_0to1_int_st().bit()),
+            )
+            .field(
+                "host_slc1_token1_0to1_int_st",
+                &format_args!("{}", self.host_slc1_token1_0to1_int_st().bit()),
+            )
+            .field(
+                "host_slc1host_rx_sof_int_st",
+                &format_args!("{}", self.host_slc1host_rx_sof_int_st().bit()),
+            )
+            .field(
+                "host_slc1host_rx_eof_int_st",
+                &format_args!("{}", self.host_slc1host_rx_eof_int_st().bit()),
+            )
+            .field(
+                "host_slc1host_rx_start_int_st",
+                &format_args!("{}", self.host_slc1host_rx_start_int_st().bit()),
+            )
+            .field(
+                "host_slc1host_tx_start_int_st",
+                &format_args!("{}", self.host_slc1host_tx_start_int_st().bit()),
+            )
+            .field(
+                "host_slc1_rx_udf_int_st",
+                &format_args!("{}", self.host_slc1_rx_udf_int_st().bit()),
+            )
+            .field(
+                "host_slc1_tx_ovf_int_st",
+                &format_args!("{}", self.host_slc1_tx_ovf_int_st().bit()),
+            )
+            .field(
+                "host_slc1_rx_pf_valid_int_st",
+                &format_args!("{}", self.host_slc1_rx_pf_valid_int_st().bit()),
+            )
+            .field(
+                "host_slc1_ext_bit0_int_st",
+                &format_args!("{}", self.host_slc1_ext_bit0_int_st().bit()),
+            )
+            .field(
+                "host_slc1_ext_bit1_int_st",
+                &format_args!("{}", self.host_slc1_ext_bit1_int_st().bit()),
+            )
+            .field(
+                "host_slc1_ext_bit2_int_st",
+                &format_args!("{}", self.host_slc1_ext_bit2_int_st().bit()),
+            )
+            .field(
+                "host_slc1_ext_bit3_int_st",
+                &format_args!("{}", self.host_slc1_ext_bit3_int_st().bit()),
+            )
+            .field(
+                "host_slc1_wifi_rx_new_packet_int_st",
+                &format_args!("{}", self.host_slc1_wifi_rx_new_packet_int_st().bit()),
+            )
+            .field(
+                "host_slc1_host_rd_retry_int_st",
+                &format_args!("{}", self.host_slc1_host_rd_retry_int_st().bit()),
+            )
+            .field(
+                "host_slc1_bt_rx_new_packet_int_st",
+                &format_args!("{}", self.host_slc1_bt_rx_new_packet_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [host_slc1host_int_st](index.html) module"]
 pub struct HOST_SLC1HOST_INT_ST_SPEC;
 impl crate::RegisterSpec for HOST_SLC1HOST_INT_ST_SPEC {

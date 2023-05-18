@@ -54,6 +54,21 @@ impl R {
         PGM_DONE_INT_RAW_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::INT_RAW")
+            .field(
+                "read_done_int_raw",
+                &format_args!("{}", self.read_done_int_raw().bit()),
+            )
+            .field(
+                "pgm_done_int_raw",
+                &format_args!("{}", self.pgm_done_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw bit signal for read_done interrupt."]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         M_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::M_MEM")
+            .field("m_0", &format_args!("{}", self.m_0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Stores the %sth 32-bit piece of the message."]
     #[inline(always)]

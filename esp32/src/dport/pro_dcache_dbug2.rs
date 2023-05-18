@@ -22,6 +22,17 @@ impl R {
         PRO_CACHE_VADDR_R::new(self.bits & 0x07ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_DCACHE_DBUG2")
+            .field(
+                "pro_cache_vaddr",
+                &format_args!("{}", self.pro_cache_vaddr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_dcache_dbug2](index.html) module"]
 pub struct PRO_DCACHE_DBUG2_SPEC;
 impl crate::RegisterSpec for PRO_DCACHE_DBUG2_SPEC {

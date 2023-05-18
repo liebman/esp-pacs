@@ -63,6 +63,25 @@ impl R {
         TARGET2_INT_RAW_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::INT_RAW")
+            .field(
+                "target0_int_raw",
+                &format_args!("{}", self.target0_int_raw().bit()),
+            )
+            .field(
+                "target1_int_raw",
+                &format_args!("{}", self.target1_int_raw().bit()),
+            )
+            .field(
+                "target2_int_raw",
+                &format_args!("{}", self.target2_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - interupt0 raw"]
     #[inline(always)]

@@ -22,6 +22,14 @@ impl R {
         DUTY_R_R::new(self.bits & 0x01ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::HSCH_DUTY_R")
+            .field("duty_r", &format_args!("{}", self.duty_r().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hsch_duty_r](index.html) module"]
 pub struct HSCH_DUTY_R_SPEC;
 impl crate::RegisterSpec for HSCH_DUTY_R_SPEC {

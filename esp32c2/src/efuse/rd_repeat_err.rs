@@ -120,6 +120,70 @@ impl R {
         RPT4_RESERVED_ERR_R::new(((self.bits >> 22) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_ERR")
+            .field("rd_dis_err", &format_args!("{}", self.rd_dis_err().bits()))
+            .field(
+                "wdt_delay_sel_err",
+                &format_args!("{}", self.wdt_delay_sel_err().bits()),
+            )
+            .field(
+                "dis_pad_jtag_err",
+                &format_args!("{}", self.dis_pad_jtag_err().bit()),
+            )
+            .field(
+                "dis_download_icache_err",
+                &format_args!("{}", self.dis_download_icache_err().bit()),
+            )
+            .field(
+                "dis_download_manual_encrypt_err",
+                &format_args!("{}", self.dis_download_manual_encrypt_err().bit()),
+            )
+            .field(
+                "spi_boot_encrypt_decrypt_cnt_err",
+                &format_args!("{}", self.spi_boot_encrypt_decrypt_cnt_err().bits()),
+            )
+            .field(
+                "xts_key_length_256_err",
+                &format_args!("{}", self.xts_key_length_256_err().bit()),
+            )
+            .field(
+                "uart_print_control_err",
+                &format_args!("{}", self.uart_print_control_err().bits()),
+            )
+            .field(
+                "force_send_resume_err",
+                &format_args!("{}", self.force_send_resume_err().bit()),
+            )
+            .field(
+                "dis_download_mode_err",
+                &format_args!("{}", self.dis_download_mode_err().bit()),
+            )
+            .field(
+                "dis_direct_boot_err",
+                &format_args!("{}", self.dis_direct_boot_err().bit()),
+            )
+            .field(
+                "enable_security_download_err",
+                &format_args!("{}", self.enable_security_download_err().bit()),
+            )
+            .field(
+                "flash_tpuw_err",
+                &format_args!("{}", self.flash_tpuw_err().bits()),
+            )
+            .field(
+                "secure_boot_en_err",
+                &format_args!("{}", self.secure_boot_en_err().bit()),
+            )
+            .field(
+                "rpt4_reserved_err",
+                &format_args!("{}", self.rpt4_reserved_err().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Programming error record register 0 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_err](index.html) module"]
 pub struct RD_REPEAT_ERR_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_ERR_SPEC {

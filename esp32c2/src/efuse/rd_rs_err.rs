@@ -57,6 +57,28 @@ impl R {
         BLK3_FAIL_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_RS_ERR")
+            .field(
+                "blk1_err_num",
+                &format_args!("{}", self.blk1_err_num().bits()),
+            )
+            .field("blk1_fail", &format_args!("{}", self.blk1_fail().bit()))
+            .field(
+                "blk2_err_num",
+                &format_args!("{}", self.blk2_err_num().bits()),
+            )
+            .field("blk2_fail", &format_args!("{}", self.blk2_fail().bit()))
+            .field(
+                "blk3_err_num",
+                &format_args!("{}", self.blk3_err_num().bits()),
+            )
+            .field("blk3_fail", &format_args!("{}", self.blk3_fail().bit()))
+            .finish()
+    }
+}
 #[doc = "Programming error record register 0 of BLOCK1-10.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_rs_err](index.html) module"]
 pub struct RD_RS_ERR_SPEC;
 impl crate::RegisterSpec for RD_RS_ERR_SPEC {

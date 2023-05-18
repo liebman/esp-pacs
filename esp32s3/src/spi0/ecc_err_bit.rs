@@ -43,6 +43,29 @@ impl R {
         ECC_ERR_CNT_R::new(((self.bits >> 17) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::ECC_ERR_BIT")
+            .field(
+                "ecc_data_err_bit",
+                &format_args!("{}", self.ecc_data_err_bit().bits()),
+            )
+            .field(
+                "ecc_chk_err_bit",
+                &format_args!("{}", self.ecc_chk_err_bit().bits()),
+            )
+            .field(
+                "ecc_byte_err",
+                &format_args!("{}", self.ecc_byte_err().bit()),
+            )
+            .field(
+                "ecc_err_cnt",
+                &format_args!("{}", self.ecc_err_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "MSPI ECC error bits register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ecc_err_bit](index.html) module"]
 pub struct ECC_ERR_BIT_SPEC;
 impl crate::RegisterSpec for ECC_ERR_BIT_SPEC {

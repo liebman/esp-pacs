@@ -46,6 +46,17 @@ impl R {
         OCCUPY_PRO_TRACE_R::new(self.bits & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::OCCUPY_3")
+            .field(
+                "occupy_pro_trace",
+                &format_args!("{}", self.occupy_pro_trace().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - Configure one block of SRAM Block 4-21 is used as trace memory."]
     #[inline(always)]

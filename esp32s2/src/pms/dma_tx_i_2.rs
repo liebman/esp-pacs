@@ -61,6 +61,25 @@ impl R {
         DMA_TX_I_ILG_INTR_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::DMA_TX_I_2")
+            .field(
+                "dma_tx_i_ilg_clr",
+                &format_args!("{}", self.dma_tx_i_ilg_clr().bit()),
+            )
+            .field(
+                "dma_tx_i_ilg_en",
+                &format_args!("{}", self.dma_tx_i_ilg_en().bit()),
+            )
+            .field(
+                "dma_tx_i_ilg_intr",
+                &format_args!("{}", self.dma_tx_i_ilg_intr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear signal for TX Copy DMA access interrupt."]
     #[inline(always)]

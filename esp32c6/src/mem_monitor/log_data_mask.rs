@@ -46,6 +46,17 @@ impl R {
         LOG_DATA_MASK_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MEM_MONITOR::LOG_DATA_MASK")
+            .field(
+                "log_data_mask",
+                &format_args!("{}", self.log_data_mask().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - byte mask enable, BIT0 mask the first byte of MEM_MONITOR_LOG_CHECK_DATA, and BIT1 mask second byte, and so on."]
     #[inline(always)]

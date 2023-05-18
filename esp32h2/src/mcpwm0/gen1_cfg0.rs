@@ -64,6 +64,25 @@ impl R {
         GEN1_T1_SEL_R::new(((self.bits >> 7) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::GEN1_CFG0")
+            .field(
+                "gen1_cfg_upmethod",
+                &format_args!("{}", self.gen1_cfg_upmethod().bits()),
+            )
+            .field(
+                "gen1_t0_sel",
+                &format_args!("{}", self.gen1_t0_sel().bits()),
+            )
+            .field(
+                "gen1_t1_sel",
+                &format_args!("{}", self.gen1_t1_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Update method for PWM generator 1's active register of configuration. When all bits are set to 0: immediately, when bit0 is set to 1: TEZ, when bit1 is set to 1:sync;when bit3 is set to 1:disable the update."]
     #[inline(always)]

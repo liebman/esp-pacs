@@ -56,6 +56,21 @@ impl R {
         CORE_1_IRAM0_PMS_MONITOR_VIOLATE_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_IRAM0_PMS_MONITOR_1")
+            .field(
+                "core_1_iram0_pms_monitor_violate_clr",
+                &format_args!("{}", self.core_1_iram0_pms_monitor_violate_clr().bit()),
+            )
+            .field(
+                "core_1_iram0_pms_monitor_violate_en",
+                &format_args!("{}", self.core_1_iram0_pms_monitor_violate_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to clear core1 iram0 permission violated interrupt"]
     #[inline(always)]

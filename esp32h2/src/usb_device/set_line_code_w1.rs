@@ -36,6 +36,22 @@ impl R {
         BDATA_BITS_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::SET_LINE_CODE_W1")
+            .field(
+                "bchar_format",
+                &format_args!("{}", self.bchar_format().bits()),
+            )
+            .field(
+                "bparity_type",
+                &format_args!("{}", self.bparity_type().bits()),
+            )
+            .field("bdata_bits", &format_args!("{}", self.bdata_bits().bits()))
+            .finish()
+    }
+}
 #[doc = "W1 of SET_LINE_CODING command.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [set_line_code_w1](index.html) module"]
 pub struct SET_LINE_CODE_W1_SPEC;
 impl crate::RegisterSpec for SET_LINE_CODE_W1_SPEC {

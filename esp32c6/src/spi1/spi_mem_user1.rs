@@ -56,6 +56,21 @@ impl R {
         SPI_MEM_USR_ADDR_BITLEN_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_USER1")
+            .field(
+                "spi_mem_usr_dummy_cyclelen",
+                &format_args!("{}", self.spi_mem_usr_dummy_cyclelen().bits()),
+            )
+            .field(
+                "spi_mem_usr_addr_bitlen",
+                &format_args!("{}", self.spi_mem_usr_addr_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - The length in spi_mem_clk cycles of dummy phase. The register value shall be (cycle_num-1)."]
     #[inline(always)]

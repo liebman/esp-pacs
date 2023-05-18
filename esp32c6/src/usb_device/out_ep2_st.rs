@@ -36,6 +36,25 @@ impl R {
         OUT_EP2_RD_ADDR_R::new(((self.bits >> 9) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::OUT_EP2_ST")
+            .field(
+                "out_ep2_state",
+                &format_args!("{}", self.out_ep2_state().bits()),
+            )
+            .field(
+                "out_ep2_wr_addr",
+                &format_args!("{}", self.out_ep2_wr_addr().bits()),
+            )
+            .field(
+                "out_ep2_rd_addr",
+                &format_args!("{}", self.out_ep2_rd_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "JTAG OUT endpoint status information.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [out_ep2_st](index.html) module"]
 pub struct OUT_EP2_ST_SPEC;
 impl crate::RegisterSpec for OUT_EP2_ST_SPEC {

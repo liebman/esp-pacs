@@ -22,6 +22,14 @@ impl R {
         RND_DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::RNG_DATA")
+            .field("rnd_data", &format_args!("{}", self.rnd_data().bits()))
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rng_data](index.html) module"]
 pub struct RNG_DATA_SPEC;
 impl crate::RegisterSpec for RNG_DATA_SPEC {

@@ -75,6 +75,27 @@ impl R {
         TG0_TIMER1_READY_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::TIMERGROUP0_CONF")
+            .field("tg0_clk_en", &format_args!("{}", self.tg0_clk_en().bit()))
+            .field("tg0_rst_en", &format_args!("{}", self.tg0_rst_en().bit()))
+            .field(
+                "tg0_wdt_ready",
+                &format_args!("{}", self.tg0_wdt_ready().bit()),
+            )
+            .field(
+                "tg0_timer0_ready",
+                &format_args!("{}", self.tg0_timer0_ready().bit()),
+            )
+            .field(
+                "tg0_timer1_ready",
+                &format_args!("{}", self.tg0_timer1_ready().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable timer_group0 apb clock"]
     #[inline(always)]

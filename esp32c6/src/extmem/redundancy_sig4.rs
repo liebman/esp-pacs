@@ -22,6 +22,17 @@ impl R {
         CACHE_REDCY_SIG4_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::REDUNDANCY_SIG4")
+            .field(
+                "cache_redcy_sig4",
+                &format_args!("{}", self.cache_redcy_sig4().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache redundancy signal 0 register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [redundancy_sig4](index.html) module"]
 pub struct REDUNDANCY_SIG4_SPEC;
 impl crate::RegisterSpec for REDUNDANCY_SIG4_SPEC {

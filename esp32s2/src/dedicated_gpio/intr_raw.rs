@@ -71,6 +71,21 @@ impl R {
         GPIO7_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEDICATED_GPIO::INTR_RAW")
+            .field("gpio0", &format_args!("{}", self.gpio0().bit()))
+            .field("gpio1", &format_args!("{}", self.gpio1().bit()))
+            .field("gpio2", &format_args!("{}", self.gpio2().bit()))
+            .field("gpio3", &format_args!("{}", self.gpio3().bit()))
+            .field("gpio4", &format_args!("{}", self.gpio4().bit()))
+            .field("gpio5", &format_args!("{}", self.gpio5().bit()))
+            .field("gpio6", &format_args!("{}", self.gpio6().bit()))
+            .field("gpio7", &format_args!("{}", self.gpio7().bit()))
+            .finish()
+    }
+}
 #[doc = "Raw interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intr_raw](index.html) module"]
 pub struct INTR_RAW_SPEC;
 impl crate::RegisterSpec for INTR_RAW_SPEC {

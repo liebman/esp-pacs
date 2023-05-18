@@ -56,6 +56,21 @@ impl R {
         TSENS_SAMPLE_EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::APB_TSENS_SAMPLE")
+            .field(
+                "tsens_sample_rate",
+                &format_args!("{}", self.tsens_sample_rate().bits()),
+            )
+            .field(
+                "tsens_sample_en",
+                &format_args!("{}", self.tsens_sample_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - HW sample rate"]
     #[inline(always)]

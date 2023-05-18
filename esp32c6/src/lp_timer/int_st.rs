@@ -29,6 +29,18 @@ impl R {
         SOC_WAKEUP_INT_ST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_TIMER::INT_ST")
+            .field("overflow_st", &format_args!("{}", self.overflow_st().bit()))
+            .field(
+                "soc_wakeup_int_st",
+                &format_args!("{}", self.soc_wakeup_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

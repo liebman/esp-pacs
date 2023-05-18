@@ -45,6 +45,14 @@ impl R {
         BYTE_COUNT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::BYTCNT")
+            .field("byte_count", &format_args!("{}", self.byte_count().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Number of bytes to be transferred, should be an integral multiple of Block Size for block transfers. For data transfers of undefined byte lengths, byte count should be set to 0. When byte count is set to 0, it is the responsibility of host to explicitly send stop/abort command to terminate data transfer."]
     #[inline(always)]

@@ -54,6 +54,18 @@ impl R {
         FORCE_NO_WR_RD_DIS_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::CONF")
+            .field("op_code", &format_args!("{}", self.op_code().bits()))
+            .field(
+                "force_no_wr_rd_dis",
+                &format_args!("{}", self.force_no_wr_rd_dis().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - efuse operation code"]
     #[inline(always)]

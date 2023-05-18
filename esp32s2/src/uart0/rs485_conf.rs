@@ -100,6 +100,32 @@ impl R {
         RS485_TX_DLY_NUM_R::new(((self.bits >> 6) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::RS485_CONF")
+            .field("rs485_en", &format_args!("{}", self.rs485_en().bit()))
+            .field("dl0_en", &format_args!("{}", self.dl0_en().bit()))
+            .field("dl1_en", &format_args!("{}", self.dl1_en().bit()))
+            .field(
+                "rs485tx_rx_en",
+                &format_args!("{}", self.rs485tx_rx_en().bit()),
+            )
+            .field(
+                "rs485rxby_tx_en",
+                &format_args!("{}", self.rs485rxby_tx_en().bit()),
+            )
+            .field(
+                "rs485_rx_dly_num",
+                &format_args!("{}", self.rs485_rx_dly_num().bit()),
+            )
+            .field(
+                "rs485_tx_dly_num",
+                &format_args!("{}", self.rs485_tx_dly_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to choose RS485 mode."]
     #[inline(always)]

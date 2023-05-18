@@ -22,6 +22,17 @@ impl R {
         PROCPU_NMI_INT1_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::PCPU_NMI_INT1")
+            .field(
+                "procpu_nmi_int1",
+                &format_args!("{}", self.procpu_nmi_int1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "GPIO PRO_CPU(not shielded) interrupt status register for GPIO32-34\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pcpu_nmi_int1](index.html) module"]
 pub struct PCPU_NMI_INT1_SPEC;
 impl crate::RegisterSpec for PCPU_NMI_INT1_SPEC {

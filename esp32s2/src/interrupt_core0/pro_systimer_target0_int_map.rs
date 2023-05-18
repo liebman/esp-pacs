@@ -46,6 +46,17 @@ impl R {
         PRO_SYSTIMER_TARGET0_INT_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::PRO_SYSTIMER_TARGET0_INT_MAP")
+            .field(
+                "pro_systimer_target0_int_map",
+                &format_args!("{}", self.pro_systimer_target0_int_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - This register is used to map SYSTIMER_TARGET0_INT interrupt signal to one of the CPU interrupts."]
     #[inline(always)]

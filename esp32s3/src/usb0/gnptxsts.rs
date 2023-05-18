@@ -36,6 +36,22 @@ impl R {
         NPTXQTOP_R::new(((self.bits >> 24) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GNPTXSTS")
+            .field(
+                "nptxfspcavail",
+                &format_args!("{}", self.nptxfspcavail().bits()),
+            )
+            .field(
+                "nptxqspcavail",
+                &format_args!("{}", self.nptxqspcavail().bits()),
+            )
+            .field("nptxqtop", &format_args!("{}", self.nptxqtop().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gnptxsts](index.html) module"]
 pub struct GNPTXSTS_SPEC;
 impl crate::RegisterSpec for GNPTXSTS_SPEC {

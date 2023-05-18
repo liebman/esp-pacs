@@ -233,6 +233,141 @@ impl R {
         CH_TX_THR_EVENT_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::INT_ENA")
+            .field(
+                "ch0_tx_end_int_ena",
+                &format_args!("{}", self.ch0_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_end_int_ena",
+                &format_args!("{}", self.ch1_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch2_tx_end_int_ena",
+                &format_args!("{}", self.ch2_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch3_tx_end_int_ena",
+                &format_args!("{}", self.ch3_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch4_tx_end_int_ena",
+                &format_args!("{}", self.ch4_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch5_tx_end_int_ena",
+                &format_args!("{}", self.ch5_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch6_tx_end_int_ena",
+                &format_args!("{}", self.ch6_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch7_tx_end_int_ena",
+                &format_args!("{}", self.ch7_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch0_rx_end_int_ena",
+                &format_args!("{}", self.ch0_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch1_rx_end_int_ena",
+                &format_args!("{}", self.ch1_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch2_rx_end_int_ena",
+                &format_args!("{}", self.ch2_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch3_rx_end_int_ena",
+                &format_args!("{}", self.ch3_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch4_rx_end_int_ena",
+                &format_args!("{}", self.ch4_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch5_rx_end_int_ena",
+                &format_args!("{}", self.ch5_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch6_rx_end_int_ena",
+                &format_args!("{}", self.ch6_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch7_rx_end_int_ena",
+                &format_args!("{}", self.ch7_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch0_err_int_ena",
+                &format_args!("{}", self.ch0_err_int_ena().bit()),
+            )
+            .field(
+                "ch1_err_int_ena",
+                &format_args!("{}", self.ch1_err_int_ena().bit()),
+            )
+            .field(
+                "ch2_err_int_ena",
+                &format_args!("{}", self.ch2_err_int_ena().bit()),
+            )
+            .field(
+                "ch3_err_int_ena",
+                &format_args!("{}", self.ch3_err_int_ena().bit()),
+            )
+            .field(
+                "ch4_err_int_ena",
+                &format_args!("{}", self.ch4_err_int_ena().bit()),
+            )
+            .field(
+                "ch5_err_int_ena",
+                &format_args!("{}", self.ch5_err_int_ena().bit()),
+            )
+            .field(
+                "ch6_err_int_ena",
+                &format_args!("{}", self.ch6_err_int_ena().bit()),
+            )
+            .field(
+                "ch7_err_int_ena",
+                &format_args!("{}", self.ch7_err_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch0_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch1_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch2_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch2_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch3_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch3_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch4_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch4_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch5_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch5_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch6_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch6_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch7_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch7_tx_thr_event_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Set this bit to enable rmt_ch[0-7]_tx_end_int_st."]
     #[inline(always)]

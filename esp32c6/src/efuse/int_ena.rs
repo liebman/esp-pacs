@@ -54,6 +54,21 @@ impl R {
         PGM_DONE_INT_ENA_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::INT_ENA")
+            .field(
+                "read_done_int_ena",
+                &format_args!("{}", self.read_done_int_ena().bit()),
+            )
+            .field(
+                "pgm_done_int_ena",
+                &format_args!("{}", self.pgm_done_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The enable signal for read_done interrupt."]
     #[inline(always)]

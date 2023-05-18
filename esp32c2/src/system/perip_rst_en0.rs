@@ -135,6 +135,42 @@ impl R {
         ADC2_ARB_RST_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::PERIP_RST_EN0")
+            .field("spi01_rst", &format_args!("{}", self.spi01_rst().bit()))
+            .field("uart_rst", &format_args!("{}", self.uart_rst().bit()))
+            .field("uart1_rst", &format_args!("{}", self.uart1_rst().bit()))
+            .field("spi2_rst", &format_args!("{}", self.spi2_rst().bit()))
+            .field(
+                "i2c_ext0_rst",
+                &format_args!("{}", self.i2c_ext0_rst().bit()),
+            )
+            .field("ledc_rst", &format_args!("{}", self.ledc_rst().bit()))
+            .field(
+                "timergroup_rst",
+                &format_args!("{}", self.timergroup_rst().bit()),
+            )
+            .field(
+                "uart_mem_rst",
+                &format_args!("{}", self.uart_mem_rst().bit()),
+            )
+            .field(
+                "apb_saradc_rst",
+                &format_args!("{}", self.apb_saradc_rst().bit()),
+            )
+            .field(
+                "systimer_rst",
+                &format_args!("{}", self.systimer_rst().bit()),
+            )
+            .field(
+                "adc2_arb_rst",
+                &format_args!("{}", self.adc2_arb_rst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - Set 1 to let SPI01 reset"]
     #[inline(always)]

@@ -48,6 +48,20 @@ impl R {
         BACKUP_BUS_PMS_CONSTRAIN_RTCFAST_SPLTADDR_R::new((self.bits & 0x07ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_CONSTRAIN_5")
+            .field(
+                "backup_bus_pms_constrain_rtcfast_spltaddr",
+                &format_args!(
+                    "{}",
+                    self.backup_bus_pms_constrain_rtcfast_spltaddr().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - BackUp access rtcfast_spltaddr permission."]
     #[inline(always)]

@@ -150,6 +150,73 @@ impl R {
         L1_CACHE_DATA_MEM_FORCE_PU_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_DATA_MEM_POWER_CTRL")
+            .field(
+                "l1_icache0_data_mem_force_on",
+                &format_args!("{}", self.l1_icache0_data_mem_force_on().bit()),
+            )
+            .field(
+                "l1_icache0_data_mem_force_pd",
+                &format_args!("{}", self.l1_icache0_data_mem_force_pd().bit()),
+            )
+            .field(
+                "l1_icache0_data_mem_force_pu",
+                &format_args!("{}", self.l1_icache0_data_mem_force_pu().bit()),
+            )
+            .field(
+                "l1_icache1_data_mem_force_on",
+                &format_args!("{}", self.l1_icache1_data_mem_force_on().bit()),
+            )
+            .field(
+                "l1_icache1_data_mem_force_pd",
+                &format_args!("{}", self.l1_icache1_data_mem_force_pd().bit()),
+            )
+            .field(
+                "l1_icache1_data_mem_force_pu",
+                &format_args!("{}", self.l1_icache1_data_mem_force_pu().bit()),
+            )
+            .field(
+                "l1_icache2_data_mem_force_on",
+                &format_args!("{}", self.l1_icache2_data_mem_force_on().bit()),
+            )
+            .field(
+                "l1_icache2_data_mem_force_pd",
+                &format_args!("{}", self.l1_icache2_data_mem_force_pd().bit()),
+            )
+            .field(
+                "l1_icache2_data_mem_force_pu",
+                &format_args!("{}", self.l1_icache2_data_mem_force_pu().bit()),
+            )
+            .field(
+                "l1_icache3_data_mem_force_on",
+                &format_args!("{}", self.l1_icache3_data_mem_force_on().bit()),
+            )
+            .field(
+                "l1_icache3_data_mem_force_pd",
+                &format_args!("{}", self.l1_icache3_data_mem_force_pd().bit()),
+            )
+            .field(
+                "l1_icache3_data_mem_force_pu",
+                &format_args!("{}", self.l1_icache3_data_mem_force_pu().bit()),
+            )
+            .field(
+                "l1_cache_data_mem_force_on",
+                &format_args!("{}", self.l1_cache_data_mem_force_on().bit()),
+            )
+            .field(
+                "l1_cache_data_mem_force_pd",
+                &format_args!("{}", self.l1_cache_data_mem_force_pd().bit()),
+            )
+            .field(
+                "l1_cache_data_mem_force_pu",
+                &format_args!("{}", self.l1_cache_data_mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - The bit is used to close clock gating of L1-Cache data memory. 1: close gating, 0: open clock gating."]
     #[inline(always)]

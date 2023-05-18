@@ -46,6 +46,17 @@ impl R {
         APB_START_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PERI_BACKUP::APB_ADDR")
+            .field(
+                "apb_start_addr",
+                &format_args!("{}", self.apb_start_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - x"]
     #[inline(always)]

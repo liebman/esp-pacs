@@ -56,6 +56,21 @@ impl R {
         SOC_WAKEUP_WAIT_CFG_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::SLP_WAKEUP_CNTL6")
+            .field(
+                "soc_wakeup_wait",
+                &format_args!("{}", self.soc_wakeup_wait().bits()),
+            )
+            .field(
+                "soc_wakeup_wait_cfg",
+                &format_args!("{}", self.soc_wakeup_wait_cfg().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - need_des"]
     #[inline(always)]

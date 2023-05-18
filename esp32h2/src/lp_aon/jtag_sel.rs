@@ -45,6 +45,14 @@ impl R {
         SOFT_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::JTAG_SEL")
+            .field("soft", &format_args!("{}", self.soft().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - If strapping_sel_jtag feature is disabled by efuse, and if neither pad_jtag or usb_jtag is disabled by efuse, this field determines which one jtag between usb_jtag and pad_jtag will be used. 1'b1(default): usb_jtag, 1'b0: pad_jtag."]
     #[inline(always)]

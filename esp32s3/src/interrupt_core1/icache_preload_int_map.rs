@@ -46,6 +46,17 @@ impl R {
         ICACHE_PRELOAD_INT_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE1::ICACHE_PRELOAD_INT_MAP")
+            .field(
+                "icache_preload_int_map",
+                &format_args!("{}", self.icache_preload_int_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - this register used to map icache_preload interrupt to one of core1's external interrupt"]
     #[inline(always)]

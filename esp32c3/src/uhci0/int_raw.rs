@@ -117,6 +117,49 @@ impl R {
         APP_CTRL1_INT_RAW_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::INT_RAW")
+            .field(
+                "rx_start_int_raw",
+                &format_args!("{}", self.rx_start_int_raw().bit()),
+            )
+            .field(
+                "tx_start_int_raw",
+                &format_args!("{}", self.tx_start_int_raw().bit()),
+            )
+            .field(
+                "rx_hung_int_raw",
+                &format_args!("{}", self.rx_hung_int_raw().bit()),
+            )
+            .field(
+                "tx_hung_int_raw",
+                &format_args!("{}", self.tx_hung_int_raw().bit()),
+            )
+            .field(
+                "send_s_reg_q_int_raw",
+                &format_args!("{}", self.send_s_reg_q_int_raw().bit()),
+            )
+            .field(
+                "send_a_reg_q_int_raw",
+                &format_args!("{}", self.send_a_reg_q_int_raw().bit()),
+            )
+            .field(
+                "out_eof_int_raw",
+                &format_args!("{}", self.out_eof_int_raw().bit()),
+            )
+            .field(
+                "app_ctrl0_int_raw",
+                &format_args!("{}", self.app_ctrl0_int_raw().bit()),
+            )
+            .field(
+                "app_ctrl1_int_raw",
+                &format_args!("{}", self.app_ctrl1_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - a"]
     #[inline(always)]

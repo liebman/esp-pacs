@@ -46,6 +46,17 @@ impl R {
         CACHE_MUX_MODE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::CACHE_MUX_MODE")
+            .field(
+                "cache_mux_mode",
+                &format_args!("{}", self.cache_mux_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

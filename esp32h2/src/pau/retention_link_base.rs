@@ -46,6 +46,17 @@ impl R {
         LINK_BASE_ADDR_R::new(self.bits & 0x07ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PAU::RETENTION_LINK_BASE")
+            .field(
+                "link_base_addr",
+                &format_args!("{}", self.link_base_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:26 - retention dma link base"]
     #[inline(always)]

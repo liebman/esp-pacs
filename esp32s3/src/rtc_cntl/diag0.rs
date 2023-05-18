@@ -22,6 +22,17 @@ impl R {
         LOW_POWER_DIAG1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::DIAG0")
+            .field(
+                "low_power_diag1",
+                &format_args!("{}", self.low_power_diag1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "No public\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [diag0](index.html) module"]
 pub struct DIAG0_SPEC;
 impl crate::RegisterSpec for DIAG0_SPEC {

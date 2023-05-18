@@ -68,6 +68,25 @@ impl R {
         CLK_FORCE_ON_AUTOMATIC_ENCRYPT_DECRYPT_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_ENCRYPT_DECRYPT_CLK_FORCE_ON")
+            .field(
+                "clk_force_on_db_encrypt",
+                &format_args!("{}", self.clk_force_on_db_encrypt().bit()),
+            )
+            .field(
+                "clk_force_on_g0cb_decrypt",
+                &format_args!("{}", self.clk_force_on_g0cb_decrypt().bit()),
+            )
+            .field(
+                "clk_force_on_automatic_encrypt_decrypt",
+                &format_args!("{}", self.clk_force_on_automatic_encrypt_decrypt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to close clock gating of encrypt clock. 1: close gating, 0: open clock gating."]
     #[inline(always)]

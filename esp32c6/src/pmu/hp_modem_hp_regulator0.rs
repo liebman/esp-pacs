@@ -96,6 +96,37 @@ impl R {
         HP_MODEM_HP_REGULATOR_DBIAS_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_MODEM_HP_REGULATOR0")
+            .field(
+                "hp_modem_hp_regulator_slp_mem_xpd",
+                &format_args!("{}", self.hp_modem_hp_regulator_slp_mem_xpd().bit()),
+            )
+            .field(
+                "hp_modem_hp_regulator_slp_logic_xpd",
+                &format_args!("{}", self.hp_modem_hp_regulator_slp_logic_xpd().bit()),
+            )
+            .field(
+                "hp_modem_hp_regulator_xpd",
+                &format_args!("{}", self.hp_modem_hp_regulator_xpd().bit()),
+            )
+            .field(
+                "hp_modem_hp_regulator_slp_mem_dbias",
+                &format_args!("{}", self.hp_modem_hp_regulator_slp_mem_dbias().bits()),
+            )
+            .field(
+                "hp_modem_hp_regulator_slp_logic_dbias",
+                &format_args!("{}", self.hp_modem_hp_regulator_slp_logic_dbias().bits()),
+            )
+            .field(
+                "hp_modem_hp_regulator_dbias",
+                &format_args!("{}", self.hp_modem_hp_regulator_dbias().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - need_des"]
     #[inline(always)]

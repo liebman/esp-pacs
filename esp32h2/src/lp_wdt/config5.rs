@@ -65,6 +65,25 @@ impl R {
         CHIP_RESET_KEY_R::new(((self.bits >> 9) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_WDT::CONFIG5")
+            .field(
+                "chip_reset_target",
+                &format_args!("{}", self.chip_reset_target().bits()),
+            )
+            .field(
+                "chip_reset_en",
+                &format_args!("{}", self.chip_reset_en().bit()),
+            )
+            .field(
+                "chip_reset_key",
+                &format_args!("{}", self.chip_reset_key().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - need_des"]
     #[inline(always)]

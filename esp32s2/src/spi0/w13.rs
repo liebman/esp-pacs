@@ -45,6 +45,14 @@ impl R {
         BUF13_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::W13")
+            .field("buf13", &format_args!("{}", self.buf13().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - 32 bits data buffer 13, transferred in the unit of byte. Byte addressable in slave half-duplex mode."]
     #[inline(always)]

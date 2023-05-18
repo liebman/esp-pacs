@@ -66,6 +66,25 @@ impl R {
         RX_TIMEOUT_THRESHOLD_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::RX_CFG1")
+            .field(
+                "rx_timeout_en",
+                &format_args!("{}", self.rx_timeout_en().bit()),
+            )
+            .field(
+                "rx_ext_en_sel",
+                &format_args!("{}", self.rx_ext_en_sel().bits()),
+            )
+            .field(
+                "rx_timeout_threshold",
+                &format_args!("{}", self.rx_timeout_threshold().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - Write 1 to update rx register configuration signals."]
     #[inline(always)]

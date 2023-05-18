@@ -90,6 +90,37 @@ impl R {
         GPIO_PIN5_HOLD_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::PAD_HOLD")
+            .field(
+                "gpio_pin0_hold",
+                &format_args!("{}", self.gpio_pin0_hold().bit()),
+            )
+            .field(
+                "gpio_pin1_hold",
+                &format_args!("{}", self.gpio_pin1_hold().bit()),
+            )
+            .field(
+                "gpio_pin2_hold",
+                &format_args!("{}", self.gpio_pin2_hold().bit()),
+            )
+            .field(
+                "gpio_pin3_hold",
+                &format_args!("{}", self.gpio_pin3_hold().bit()),
+            )
+            .field(
+                "gpio_pin4_hold",
+                &format_args!("{}", self.gpio_pin4_hold().bit()),
+            )
+            .field(
+                "gpio_pin5_hold",
+                &format_args!("{}", self.gpio_pin5_hold().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - the hold configure of rtc gpio0"]
     #[inline(always)]

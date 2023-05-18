@@ -46,6 +46,17 @@ impl R {
         CACHE_TAG_CONTENT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_TAG_CONTENT")
+            .field(
+                "cache_tag_content",
+                &format_args!("{}", self.cache_tag_content().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This is a constant place where we can write data to or read data from the tag memory on the specified cache."]
     #[inline(always)]

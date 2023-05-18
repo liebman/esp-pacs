@@ -46,6 +46,17 @@ impl R {
         OCCUPY_MAC_DUMP_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::OCCUPY_2")
+            .field(
+                "occupy_mac_dump",
+                &format_args!("{}", self.occupy_mac_dump().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Configure whether SRAM Block 18-21 is used as mac dump."]
     #[inline(always)]

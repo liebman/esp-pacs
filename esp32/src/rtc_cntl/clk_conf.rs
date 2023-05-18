@@ -486,6 +486,68 @@ impl R {
         ANA_CLK_RTC_SEL_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::CLK_CONF")
+            .field("ck8m_div", &format_args!("{}", self.ck8m_div().bits()))
+            .field("enb_ck8m", &format_args!("{}", self.enb_ck8m().bit()))
+            .field(
+                "enb_ck8m_div",
+                &format_args!("{}", self.enb_ck8m_div().bit()),
+            )
+            .field(
+                "dig_xtal32k_en",
+                &format_args!("{}", self.dig_xtal32k_en().bit()),
+            )
+            .field(
+                "dig_clk8m_d256_en",
+                &format_args!("{}", self.dig_clk8m_d256_en().bit()),
+            )
+            .field(
+                "dig_clk8m_en",
+                &format_args!("{}", self.dig_clk8m_en().bit()),
+            )
+            .field(
+                "ck8m_dfreq_force",
+                &format_args!("{}", self.ck8m_dfreq_force().bit()),
+            )
+            .field(
+                "ck8m_div_sel",
+                &format_args!("{}", self.ck8m_div_sel().bits()),
+            )
+            .field(
+                "xtal_force_nogating",
+                &format_args!("{}", self.xtal_force_nogating().bit()),
+            )
+            .field(
+                "ck8m_force_nogating",
+                &format_args!("{}", self.ck8m_force_nogating().bit()),
+            )
+            .field("ck8m_dfreq", &format_args!("{}", self.ck8m_dfreq().bits()))
+            .field(
+                "ck8m_force_pd",
+                &format_args!("{}", self.ck8m_force_pd().bit()),
+            )
+            .field(
+                "ck8m_force_pu",
+                &format_args!("{}", self.ck8m_force_pu().bit()),
+            )
+            .field(
+                "soc_clk_sel",
+                &format_args!("{}", self.soc_clk_sel().bits()),
+            )
+            .field(
+                "fast_clk_rtc_sel",
+                &format_args!("{}", self.fast_clk_rtc_sel().bit()),
+            )
+            .field(
+                "ana_clk_rtc_sel",
+                &format_args!("{}", self.ana_clk_rtc_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:5 - CK8M_D256_OUT divider. 00: div128 01: div256 10: div512 11: div1024."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         SW_STALL_PROCPU_C1_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SW_CPU_STALL")
+            .field(
+                "sw_stall_procpu_c1",
+                &format_args!("{}", self.sw_stall_procpu_c1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 26:31 - Need add desc"]
     #[inline(always)]

@@ -234,6 +234,71 @@ impl R {
         UART_RX_BRK_EOF_EN_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::CONF0")
+            .field("in_rst", &format_args!("{}", self.in_rst().bit()))
+            .field("out_rst", &format_args!("{}", self.out_rst().bit()))
+            .field(
+                "ahbm_fifo_rst",
+                &format_args!("{}", self.ahbm_fifo_rst().bit()),
+            )
+            .field("ahbm_rst", &format_args!("{}", self.ahbm_rst().bit()))
+            .field(
+                "in_loop_test",
+                &format_args!("{}", self.in_loop_test().bit()),
+            )
+            .field(
+                "out_loop_test",
+                &format_args!("{}", self.out_loop_test().bit()),
+            )
+            .field(
+                "out_auto_wrback",
+                &format_args!("{}", self.out_auto_wrback().bit()),
+            )
+            .field(
+                "out_no_restart_clr",
+                &format_args!("{}", self.out_no_restart_clr().bit()),
+            )
+            .field(
+                "out_eof_mode",
+                &format_args!("{}", self.out_eof_mode().bit()),
+            )
+            .field("uart0_ce", &format_args!("{}", self.uart0_ce().bit()))
+            .field("uart1_ce", &format_args!("{}", self.uart1_ce().bit()))
+            .field(
+                "outdscr_burst_en",
+                &format_args!("{}", self.outdscr_burst_en().bit()),
+            )
+            .field(
+                "indscr_burst_en",
+                &format_args!("{}", self.indscr_burst_en().bit()),
+            )
+            .field(
+                "mem_trans_en",
+                &format_args!("{}", self.mem_trans_en().bit()),
+            )
+            .field("seper_en", &format_args!("{}", self.seper_en().bit()))
+            .field("head_en", &format_args!("{}", self.head_en().bit()))
+            .field("crc_rec_en", &format_args!("{}", self.crc_rec_en().bit()))
+            .field(
+                "uart_idle_eof_en",
+                &format_args!("{}", self.uart_idle_eof_en().bit()),
+            )
+            .field("len_eof_en", &format_args!("{}", self.len_eof_en().bit()))
+            .field(
+                "encode_crc_en",
+                &format_args!("{}", self.encode_crc_en().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "uart_rx_brk_eof_en",
+                &format_args!("{}", self.uart_rx_brk_eof_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to reset in DMA FSM."]
     #[inline(always)]

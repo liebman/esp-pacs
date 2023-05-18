@@ -59,6 +59,21 @@ impl R {
         CPU_PERI_TIMEOUT_PROTECT_EN_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::CPU_PERI_TIMEOUT_CONF")
+            .field(
+                "cpu_peri_timeout_thres",
+                &format_args!("{}", self.cpu_peri_timeout_thres().bits()),
+            )
+            .field(
+                "cpu_peri_timeout_protect_en",
+                &format_args!("{}", self.cpu_peri_timeout_protect_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Set the timeout threshold for bus access, corresponding to the number of clock cycles of the clock domain."]
     #[inline(always)]

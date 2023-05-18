@@ -162,6 +162,39 @@ impl R {
         STUPPKTRCVD2_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DOEPINT2")
+            .field("xfercompl2", &format_args!("{}", self.xfercompl2().bit()))
+            .field("epdisbld2", &format_args!("{}", self.epdisbld2().bit()))
+            .field("ahberr2", &format_args!("{}", self.ahberr2().bit()))
+            .field("setup2", &format_args!("{}", self.setup2().bit()))
+            .field(
+                "outtknepdis2",
+                &format_args!("{}", self.outtknepdis2().bit()),
+            )
+            .field(
+                "stsphsercvd2",
+                &format_args!("{}", self.stsphsercvd2().bit()),
+            )
+            .field(
+                "back2backsetup2",
+                &format_args!("{}", self.back2backsetup2().bit()),
+            )
+            .field("outpkterr2", &format_args!("{}", self.outpkterr2().bit()))
+            .field("bnaintr2", &format_args!("{}", self.bnaintr2().bit()))
+            .field("pktdrpsts2", &format_args!("{}", self.pktdrpsts2().bit()))
+            .field("bbleerr2", &format_args!("{}", self.bbleerr2().bit()))
+            .field("nakintrpt2", &format_args!("{}", self.nakintrpt2().bit()))
+            .field("nyepintrpt2", &format_args!("{}", self.nyepintrpt2().bit()))
+            .field(
+                "stuppktrcvd2",
+                &format_args!("{}", self.stuppktrcvd2().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

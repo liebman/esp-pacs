@@ -64,6 +64,16 @@ impl R {
         THP_A_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::WR_TIM_CONF1")
+            .field("tsup_a", &format_args!("{}", self.tsup_a().bits()))
+            .field("pwr_on_num", &format_args!("{}", self.pwr_on_num().bits()))
+            .field("thp_a", &format_args!("{}", self.thp_a().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Configures the programming setup time."]
     #[inline(always)]

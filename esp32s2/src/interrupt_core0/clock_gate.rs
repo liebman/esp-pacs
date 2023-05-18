@@ -54,6 +54,18 @@ impl R {
         PRO_NMI_MASK_HW_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::CLOCK_GATE")
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "pro_nmi_mask_hw",
+                &format_args!("{}", self.pro_nmi_mask_hw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This bit is used to enable or disable the clock of interrupt matrix. 1: enable the clock. 0: disable the clock."]
     #[inline(always)]

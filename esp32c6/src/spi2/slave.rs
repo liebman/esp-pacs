@@ -139,6 +139,45 @@ impl R {
         MST_FD_WAIT_DMA_TX_DATA_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::SLAVE")
+            .field("clk_mode", &format_args!("{}", self.clk_mode().bits()))
+            .field("clk_mode_13", &format_args!("{}", self.clk_mode_13().bit()))
+            .field(
+                "rsck_data_out",
+                &format_args!("{}", self.rsck_data_out().bit()),
+            )
+            .field(
+                "slv_rddma_bitlen_en",
+                &format_args!("{}", self.slv_rddma_bitlen_en().bit()),
+            )
+            .field(
+                "slv_wrdma_bitlen_en",
+                &format_args!("{}", self.slv_wrdma_bitlen_en().bit()),
+            )
+            .field(
+                "slv_rdbuf_bitlen_en",
+                &format_args!("{}", self.slv_rdbuf_bitlen_en().bit()),
+            )
+            .field(
+                "slv_wrbuf_bitlen_en",
+                &format_args!("{}", self.slv_wrbuf_bitlen_en().bit()),
+            )
+            .field(
+                "dma_seg_magic_value",
+                &format_args!("{}", self.dma_seg_magic_value().bits()),
+            )
+            .field("mode", &format_args!("{}", self.mode().bit()))
+            .field("usr_conf", &format_args!("{}", self.usr_conf().bit()))
+            .field(
+                "mst_fd_wait_dma_tx_data",
+                &format_args!("{}", self.mst_fd_wait_dma_tx_data().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on. Can be configured in CONF state."]
     #[inline(always)]

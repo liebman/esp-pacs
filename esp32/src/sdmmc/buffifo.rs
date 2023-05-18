@@ -45,6 +45,14 @@ impl R {
         BUFFIFO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::BUFFIFO")
+            .field("buffifo", &format_args!("{}", self.buffifo().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - CPU write and read transmit data by FIFO. This register points to the current Data FIFO ."]
     #[inline(always)]

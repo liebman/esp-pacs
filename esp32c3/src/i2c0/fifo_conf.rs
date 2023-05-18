@@ -101,6 +101,29 @@ impl R {
         FIFO_PRT_EN_R::new(((self.bits >> 14) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::FIFO_CONF")
+            .field(
+                "rxfifo_wm_thrhd",
+                &format_args!("{}", self.rxfifo_wm_thrhd().bits()),
+            )
+            .field(
+                "txfifo_wm_thrhd",
+                &format_args!("{}", self.txfifo_wm_thrhd().bits()),
+            )
+            .field("nonfifo_en", &format_args!("{}", self.nonfifo_en().bit()))
+            .field(
+                "fifo_addr_cfg_en",
+                &format_args!("{}", self.fifo_addr_cfg_en().bit()),
+            )
+            .field("rx_fifo_rst", &format_args!("{}", self.rx_fifo_rst().bit()))
+            .field("tx_fifo_rst", &format_args!("{}", self.tx_fifo_rst().bit()))
+            .field("fifo_prt_en", &format_args!("{}", self.fifo_prt_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - reg_rxfifo_wm_thrhd"]
     #[inline(always)]

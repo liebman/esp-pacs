@@ -64,6 +64,41 @@ impl R {
         SPI_ALL_AXI_TRANS_AFIFO_EMPTY_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_AXI_ERR_ADDR")
+            .field(
+                "spi_mem_axi_err_addr",
+                &format_args!("{}", self.spi_mem_axi_err_addr().bits()),
+            )
+            .field(
+                "spi_mem_all_fifo_empty",
+                &format_args!("{}", self.spi_mem_all_fifo_empty().bit()),
+            )
+            .field(
+                "spi_rdata_afifo_rempty",
+                &format_args!("{}", self.spi_rdata_afifo_rempty().bit()),
+            )
+            .field(
+                "spi_raddr_afifo_rempty",
+                &format_args!("{}", self.spi_raddr_afifo_rempty().bit()),
+            )
+            .field(
+                "spi_wdata_afifo_rempty",
+                &format_args!("{}", self.spi_wdata_afifo_rempty().bit()),
+            )
+            .field(
+                "spi_wblen_afifo_rempty",
+                &format_args!("{}", self.spi_wblen_afifo_rempty().bit()),
+            )
+            .field(
+                "spi_all_axi_trans_afifo_empty",
+                &format_args!("{}", self.spi_all_axi_trans_afifo_empty().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI0 AXI request error address.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_axi_err_addr](index.html) module"]
 pub struct SPI_MEM_AXI_ERR_ADDR_SPEC;
 impl crate::RegisterSpec for SPI_MEM_AXI_ERR_ADDR_SPEC {

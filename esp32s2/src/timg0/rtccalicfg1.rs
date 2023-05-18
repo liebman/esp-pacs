@@ -29,6 +29,21 @@ impl R {
         RTC_CALI_VALUE_R::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::RTCCALICFG1")
+            .field(
+                "rtc_cali_cycling_data_vld",
+                &format_args!("{}", self.rtc_cali_cycling_data_vld().bit()),
+            )
+            .field(
+                "rtc_cali_value",
+                &format_args!("{}", self.rtc_cali_value().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "RTC calibration configuration register 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rtccalicfg1](index.html) module"]
 pub struct RTCCALICFG1_SPEC;
 impl crate::RegisterSpec for RTCCALICFG1_SPEC {

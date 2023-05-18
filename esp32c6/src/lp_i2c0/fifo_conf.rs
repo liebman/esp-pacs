@@ -92,6 +92,25 @@ impl R {
         FIFO_PRT_EN_R::new(((self.bits >> 14) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::FIFO_CONF")
+            .field(
+                "rxfifo_wm_thrhd",
+                &format_args!("{}", self.rxfifo_wm_thrhd().bits()),
+            )
+            .field(
+                "txfifo_wm_thrhd",
+                &format_args!("{}", self.txfifo_wm_thrhd().bits()),
+            )
+            .field("nonfifo_en", &format_args!("{}", self.nonfifo_en().bit()))
+            .field("rx_fifo_rst", &format_args!("{}", self.rx_fifo_rst().bit()))
+            .field("tx_fifo_rst", &format_args!("{}", self.tx_fifo_rst().bit()))
+            .field("fifo_prt_en", &format_args!("{}", self.fifo_prt_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The water mark threshold of rx FIFO in nonfifo access mode. When reg_reg_fifo_prt_en is 1 and rx FIFO counter is bigger than reg_rxfifo_wm_thrhd\\[3:0\\], reg_rxfifo_wm_int_raw bit will be valid."]
     #[inline(always)]

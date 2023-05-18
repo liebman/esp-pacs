@@ -46,6 +46,17 @@ impl R {
         BACKUP_BUS_PMS_MONITOR_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_MONITOR_0")
+            .field(
+                "backup_bus_pms_monitor_lock",
+                &format_args!("{}", self.backup_bus_pms_monitor_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - backup_bus_pms_monitor_lock"]
     #[inline(always)]

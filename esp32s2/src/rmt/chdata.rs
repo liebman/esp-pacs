@@ -45,6 +45,14 @@ impl R {
         CH_DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CHDATA")
+            .field("ch_data", &format_args!("{}", self.ch_data().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The read and write data register for CHANNEL%s by apb fifo access."]
     #[inline(always)]

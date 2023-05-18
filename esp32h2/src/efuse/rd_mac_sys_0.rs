@@ -22,6 +22,14 @@ impl R {
         MAC_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_MAC_SYS_0")
+            .field("mac_0", &format_args!("{}", self.mac_0().bits()))
+            .finish()
+    }
+}
 #[doc = "BLOCK1 data register $n.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_mac_sys_0](index.html) module"]
 pub struct RD_MAC_SYS_0_SPEC;
 impl crate::RegisterSpec for RD_MAC_SYS_0_SPEC {

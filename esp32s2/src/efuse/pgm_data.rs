@@ -46,6 +46,14 @@ impl R {
         PGM_DATA_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::PGM_DATA")
+            .field("pgm_data_0", &format_args!("{}", self.pgm_data_0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The content of the %sth 32-bit data to be programmed."]
     #[inline(always)]

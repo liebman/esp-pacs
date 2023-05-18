@@ -36,6 +36,16 @@ impl R {
         CAP2_EDGE_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CAP_STATUS")
+            .field("cap0_edge", &format_args!("{}", self.cap0_edge().bit()))
+            .field("cap1_edge", &format_args!("{}", self.cap1_edge().bit()))
+            .field("cap2_edge", &format_args!("{}", self.cap2_edge().bit()))
+            .finish()
+    }
+}
 #[doc = "Edge of last capture trigger\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cap_status](index.html) module"]
 pub struct CAP_STATUS_SPEC;
 impl crate::RegisterSpec for CAP_STATUS_SPEC {

@@ -45,6 +45,14 @@ impl R {
         TX_ERR_CNT_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::TX_ERR_CNT")
+            .field("tx_err_cnt", &format_args!("{}", self.tx_err_cnt().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - The TX error counter register, reflects value changes under transmission status."]
     #[inline(always)]

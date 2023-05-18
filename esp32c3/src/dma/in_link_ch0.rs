@@ -89,6 +89,31 @@ impl R {
         INLINK_PARK_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_LINK_CH0")
+            .field(
+                "inlink_addr",
+                &format_args!("{}", self.inlink_addr().bits()),
+            )
+            .field(
+                "inlink_auto_ret",
+                &format_args!("{}", self.inlink_auto_ret().bit()),
+            )
+            .field("inlink_stop", &format_args!("{}", self.inlink_stop().bit()))
+            .field(
+                "inlink_start",
+                &format_args!("{}", self.inlink_start().bit()),
+            )
+            .field(
+                "inlink_restart",
+                &format_args!("{}", self.inlink_restart().bit()),
+            )
+            .field("inlink_park", &format_args!("{}", self.inlink_park().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - This register stores the 20 least significant bits of the first inlink descriptor's address."]
     #[inline(always)]

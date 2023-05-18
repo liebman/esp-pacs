@@ -64,6 +64,25 @@ impl R {
         APP_ROM_MPU_ENA_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::ROM_MPU_ENA")
+            .field(
+                "share_rom_mpu_ena",
+                &format_args!("{}", self.share_rom_mpu_ena().bit()),
+            )
+            .field(
+                "pro_rom_mpu_ena",
+                &format_args!("{}", self.pro_rom_mpu_ena().bit()),
+            )
+            .field(
+                "app_rom_mpu_ena",
+                &format_args!("{}", self.app_rom_mpu_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

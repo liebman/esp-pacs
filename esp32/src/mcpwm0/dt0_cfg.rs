@@ -146,6 +146,58 @@ impl R {
         DT0_CLK_SEL_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::DT0_CFG")
+            .field(
+                "dt0_fed_upmethod",
+                &format_args!("{}", self.dt0_fed_upmethod().bits()),
+            )
+            .field(
+                "dt0_red_upmethod",
+                &format_args!("{}", self.dt0_red_upmethod().bits()),
+            )
+            .field(
+                "dt0_deb_mode",
+                &format_args!("{}", self.dt0_deb_mode().bit()),
+            )
+            .field(
+                "dt0_a_outswap",
+                &format_args!("{}", self.dt0_a_outswap().bit()),
+            )
+            .field(
+                "dt0_b_outswap",
+                &format_args!("{}", self.dt0_b_outswap().bit()),
+            )
+            .field(
+                "dt0_red_insel",
+                &format_args!("{}", self.dt0_red_insel().bit()),
+            )
+            .field(
+                "dt0_fed_insel",
+                &format_args!("{}", self.dt0_fed_insel().bit()),
+            )
+            .field(
+                "dt0_red_outinvert",
+                &format_args!("{}", self.dt0_red_outinvert().bit()),
+            )
+            .field(
+                "dt0_fed_outinvert",
+                &format_args!("{}", self.dt0_fed_outinvert().bit()),
+            )
+            .field(
+                "dt0_a_outbypass",
+                &format_args!("{}", self.dt0_a_outbypass().bit()),
+            )
+            .field(
+                "dt0_b_outbypass",
+                &format_args!("{}", self.dt0_b_outbypass().bit()),
+            )
+            .field("dt0_clk_sel", &format_args!("{}", self.dt0_clk_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3"]
     #[inline(always)]

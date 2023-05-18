@@ -45,6 +45,14 @@ impl R {
         DDR_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::UHS")
+            .field("ddr", &format_args!("{}", self.ddr().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:17 - DDR mode selecton,1 bit for each card. 0-Non-DDR mdoe. 1-DDR mdoe."]
     #[inline(always)]

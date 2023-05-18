@@ -46,6 +46,17 @@ impl R {
         EDMA_PMS_LCD_CAM_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::EDMA_PMS_LCD_CAM_LOCK")
+            .field(
+                "edma_pms_lcd_cam_lock",
+                &format_args!("{}", self.edma_pms_lcd_cam_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to lock EDMA-LCD/CAM permission control registers."]
     #[inline(always)]

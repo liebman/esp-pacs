@@ -45,6 +45,14 @@ impl R {
         SD_DATE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::VERSION")
+            .field("sd_date", &format_args!("{}", self.sd_date().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27"]
     #[inline(always)]

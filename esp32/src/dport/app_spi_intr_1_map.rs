@@ -46,6 +46,17 @@ impl R {
         APP_SPI_INTR_1_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::APP_SPI_INTR_1_MAP")
+            .field(
+                "app_spi_intr_1_map",
+                &format_args!("{}", self.app_spi_intr_1_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4"]
     #[inline(always)]

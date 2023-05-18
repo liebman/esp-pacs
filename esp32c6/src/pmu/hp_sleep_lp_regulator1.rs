@@ -46,6 +46,17 @@ impl R {
         HP_SLEEP_LP_REGULATOR_DRV_B_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_SLEEP_LP_REGULATOR1")
+            .field(
+                "hp_sleep_lp_regulator_drv_b",
+                &format_args!("{}", self.hp_sleep_lp_regulator_drv_b().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 28:31 - need_des"]
     #[inline(always)]

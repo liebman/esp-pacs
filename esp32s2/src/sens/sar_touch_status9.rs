@@ -29,6 +29,21 @@ impl R {
         TOUCH_PAD9_DEBOUNCE_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_STATUS9")
+            .field(
+                "touch_pad9_data",
+                &format_args!("{}", self.touch_pad9_data().bits()),
+            )
+            .field(
+                "touch_pad9_debounce",
+                &format_args!("{}", self.touch_pad9_debounce().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Touch pad 9 status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar_touch_status9](index.html) module"]
 pub struct SAR_TOUCH_STATUS9_SPEC;
 impl crate::RegisterSpec for SAR_TOUCH_STATUS9_SPEC {

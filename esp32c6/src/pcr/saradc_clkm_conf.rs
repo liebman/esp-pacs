@@ -86,6 +86,33 @@ impl R {
         SARADC_CLKM_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SARADC_CLKM_CONF")
+            .field(
+                "saradc_clkm_div_a",
+                &format_args!("{}", self.saradc_clkm_div_a().bits()),
+            )
+            .field(
+                "saradc_clkm_div_b",
+                &format_args!("{}", self.saradc_clkm_div_b().bits()),
+            )
+            .field(
+                "saradc_clkm_div_num",
+                &format_args!("{}", self.saradc_clkm_div_num().bits()),
+            )
+            .field(
+                "saradc_clkm_sel",
+                &format_args!("{}", self.saradc_clkm_sel().bits()),
+            )
+            .field(
+                "saradc_clkm_en",
+                &format_args!("{}", self.saradc_clkm_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - The denominator of the frequency divider factor of the saradc function clock."]
     #[inline(always)]

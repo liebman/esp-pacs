@@ -46,6 +46,14 @@ impl R {
         WAKEUP_ENA_R::new((self.bits >> 15) & 0x0001_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::WAKEUP_STATE")
+            .field("wakeup_ena", &format_args!("{}", self.wakeup_ena().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 15:31 - Enables the wakeup bitmap."]
     #[inline(always)]

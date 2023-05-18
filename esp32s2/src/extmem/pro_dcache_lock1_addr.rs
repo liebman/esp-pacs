@@ -46,6 +46,17 @@ impl R {
         PRO_DCACHE_LOCK1_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_DCACHE_LOCK1_ADDR")
+            .field(
+                "pro_dcache_lock1_addr",
+                &format_args!("{}", self.pro_dcache_lock1_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the second start virtual address of data locking, which is combined with PRO_DCACHE_LOCK1_SIZE_REG"]
     #[inline(always)]

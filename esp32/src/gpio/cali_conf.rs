@@ -55,6 +55,18 @@ impl R {
         CALI_START_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::cali_conf")
+            .field(
+                "cali_rtc_max",
+                &format_args!("{}", self.cali_rtc_max().bits()),
+            )
+            .field("cali_start", &format_args!("{}", self.cali_start().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9"]
     #[inline(always)]

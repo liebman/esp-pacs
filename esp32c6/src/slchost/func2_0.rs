@@ -45,6 +45,17 @@ impl R {
         SLC_FUNC2_INT_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::FUNC2_0")
+            .field(
+                "slc_func2_int",
+                &format_args!("{}", self.slc_func2_int().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - *******Description***********"]
     #[inline(always)]

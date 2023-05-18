@@ -46,6 +46,17 @@ impl R {
         SEND_Q5_WORD0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::Q5_WORD0")
+            .field(
+                "send_q5_word0",
+                &format_args!("{}", self.send_q5_word0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This register stores the content of short packet's first dword"]
     #[inline(always)]

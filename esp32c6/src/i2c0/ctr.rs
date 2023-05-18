@@ -150,6 +150,55 @@ impl R {
         ADDR_BROADCASTING_EN_R::new(((self.bits >> 14) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::CTR")
+            .field(
+                "sda_force_out",
+                &format_args!("{}", self.sda_force_out().bit()),
+            )
+            .field(
+                "scl_force_out",
+                &format_args!("{}", self.scl_force_out().bit()),
+            )
+            .field(
+                "sample_scl_level",
+                &format_args!("{}", self.sample_scl_level().bit()),
+            )
+            .field(
+                "rx_full_ack_level",
+                &format_args!("{}", self.rx_full_ack_level().bit()),
+            )
+            .field("ms_mode", &format_args!("{}", self.ms_mode().bit()))
+            .field(
+                "tx_lsb_first",
+                &format_args!("{}", self.tx_lsb_first().bit()),
+            )
+            .field(
+                "rx_lsb_first",
+                &format_args!("{}", self.rx_lsb_first().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "arbitration_en",
+                &format_args!("{}", self.arbitration_en().bit()),
+            )
+            .field(
+                "slv_tx_auto_start_en",
+                &format_args!("{}", self.slv_tx_auto_start_en().bit()),
+            )
+            .field(
+                "addr_10bit_rw_check_en",
+                &format_args!("{}", self.addr_10bit_rw_check_en().bit()),
+            )
+            .field(
+                "addr_broadcasting_en",
+                &format_args!("{}", self.addr_broadcasting_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: direct output, 0: open drain output."]
     #[inline(always)]

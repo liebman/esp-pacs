@@ -65,6 +65,25 @@ impl R {
         FILTER_RESET_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::FILTER_CTRL0")
+            .field(
+                "filter_channel1",
+                &format_args!("{}", self.filter_channel1().bits()),
+            )
+            .field(
+                "filter_channel0",
+                &format_args!("{}", self.filter_channel0().bits()),
+            )
+            .field(
+                "filter_reset",
+                &format_args!("{}", self.filter_reset().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 18:21 - Need add description"]
     #[inline(always)]

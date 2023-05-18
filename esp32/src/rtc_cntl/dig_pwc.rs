@@ -270,6 +270,111 @@ impl R {
         DG_WRAP_PD_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::DIG_PWC")
+            .field(
+                "lslp_mem_force_pd",
+                &format_args!("{}", self.lslp_mem_force_pd().bit()),
+            )
+            .field(
+                "lslp_mem_force_pu",
+                &format_args!("{}", self.lslp_mem_force_pu().bit()),
+            )
+            .field(
+                "rom0_force_pd",
+                &format_args!("{}", self.rom0_force_pd().bit()),
+            )
+            .field(
+                "rom0_force_pu",
+                &format_args!("{}", self.rom0_force_pu().bit()),
+            )
+            .field(
+                "inter_ram0_force_pd",
+                &format_args!("{}", self.inter_ram0_force_pd().bit()),
+            )
+            .field(
+                "inter_ram0_force_pu",
+                &format_args!("{}", self.inter_ram0_force_pu().bit()),
+            )
+            .field(
+                "inter_ram1_force_pd",
+                &format_args!("{}", self.inter_ram1_force_pd().bit()),
+            )
+            .field(
+                "inter_ram1_force_pu",
+                &format_args!("{}", self.inter_ram1_force_pu().bit()),
+            )
+            .field(
+                "inter_ram2_force_pd",
+                &format_args!("{}", self.inter_ram2_force_pd().bit()),
+            )
+            .field(
+                "inter_ram2_force_pu",
+                &format_args!("{}", self.inter_ram2_force_pu().bit()),
+            )
+            .field(
+                "inter_ram3_force_pd",
+                &format_args!("{}", self.inter_ram3_force_pd().bit()),
+            )
+            .field(
+                "inter_ram3_force_pu",
+                &format_args!("{}", self.inter_ram3_force_pu().bit()),
+            )
+            .field(
+                "inter_ram4_force_pd",
+                &format_args!("{}", self.inter_ram4_force_pd().bit()),
+            )
+            .field(
+                "inter_ram4_force_pu",
+                &format_args!("{}", self.inter_ram4_force_pu().bit()),
+            )
+            .field(
+                "wifi_force_pd",
+                &format_args!("{}", self.wifi_force_pd().bit()),
+            )
+            .field(
+                "wifi_force_pu",
+                &format_args!("{}", self.wifi_force_pu().bit()),
+            )
+            .field(
+                "dg_wrap_force_pd",
+                &format_args!("{}", self.dg_wrap_force_pd().bit()),
+            )
+            .field(
+                "dg_wrap_force_pu",
+                &format_args!("{}", self.dg_wrap_force_pu().bit()),
+            )
+            .field("rom0_pd_en", &format_args!("{}", self.rom0_pd_en().bit()))
+            .field(
+                "inter_ram0_pd_en",
+                &format_args!("{}", self.inter_ram0_pd_en().bit()),
+            )
+            .field(
+                "inter_ram1_pd_en",
+                &format_args!("{}", self.inter_ram1_pd_en().bit()),
+            )
+            .field(
+                "inter_ram2_pd_en",
+                &format_args!("{}", self.inter_ram2_pd_en().bit()),
+            )
+            .field(
+                "inter_ram3_pd_en",
+                &format_args!("{}", self.inter_ram3_pd_en().bit()),
+            )
+            .field(
+                "inter_ram4_pd_en",
+                &format_args!("{}", self.inter_ram4_pd_en().bit()),
+            )
+            .field("wifi_pd_en", &format_args!("{}", self.wifi_pd_en().bit()))
+            .field(
+                "dg_wrap_pd_en",
+                &format_args!("{}", self.dg_wrap_pd_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - memories in digital core force PD in sleep"]
     #[inline(always)]

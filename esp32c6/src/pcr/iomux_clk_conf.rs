@@ -56,6 +56,21 @@ impl R {
         IOMUX_FUNC_CLK_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::IOMUX_CLK_CONF")
+            .field(
+                "iomux_func_clk_sel",
+                &format_args!("{}", self.iomux_func_clk_sel().bits()),
+            )
+            .field(
+                "iomux_func_clk_en",
+                &format_args!("{}", self.iomux_func_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 20:21 - set this field to select clock-source. 0: do not select anyone clock, 1: 80MHz, 2: FOSC, 3(default): XTAL."]
     #[inline(always)]

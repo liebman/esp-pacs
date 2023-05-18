@@ -45,6 +45,14 @@ impl R {
         HFLBADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HFLBADDR")
+            .field("hflbaddr", &format_args!("{}", self.hflbaddr().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

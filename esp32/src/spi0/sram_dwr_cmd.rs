@@ -56,6 +56,21 @@ impl R {
         CACHE_SRAM_USR_WR_CMD_BITLEN_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SRAM_DWR_CMD")
+            .field(
+                "cache_sram_usr_wr_cmd_value",
+                &format_args!("{}", self.cache_sram_usr_wr_cmd_value().bits()),
+            )
+            .field(
+                "cache_sram_usr_wr_cmd_bitlen",
+                &format_args!("{}", self.cache_sram_usr_wr_cmd_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - For SPI0 When cache mode is enable it is the write command value of command phase for SRAM."]
     #[inline(always)]

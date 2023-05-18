@@ -82,6 +82,30 @@ impl R {
         SOC_WAKEUP_INT_RAW_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::INT_RAW")
+            .field(
+                "lp_cpu_exc_int_raw",
+                &format_args!("{}", self.lp_cpu_exc_int_raw().bit()),
+            )
+            .field(
+                "sdio_idle_int_raw",
+                &format_args!("{}", self.sdio_idle_int_raw().bit()),
+            )
+            .field("sw_int_raw", &format_args!("{}", self.sw_int_raw().bit()))
+            .field(
+                "soc_sleep_reject_int_raw",
+                &format_args!("{}", self.soc_sleep_reject_int_raw().bit()),
+            )
+            .field(
+                "soc_wakeup_int_raw",
+                &format_args!("{}", self.soc_wakeup_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - need_des"]
     #[inline(always)]

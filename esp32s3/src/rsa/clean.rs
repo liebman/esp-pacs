@@ -22,6 +22,14 @@ impl R {
         CLEAN_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA::CLEAN")
+            .field("clean", &format_args!("{}", self.clean().bit()))
+            .finish()
+    }
+}
 #[doc = "RSA clean register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clean](index.html) module"]
 pub struct CLEAN_SPEC;
 impl crate::RegisterSpec for CLEAN_SPEC {

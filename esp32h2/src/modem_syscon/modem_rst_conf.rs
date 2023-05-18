@@ -153,6 +153,50 @@ impl R {
         RST_DATA_DUMP_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_SYSCON::MODEM_RST_CONF")
+            .field("rst_fe", &format_args!("{}", self.rst_fe().bit()))
+            .field(
+                "rst_btmac_apb",
+                &format_args!("{}", self.rst_btmac_apb().bit()),
+            )
+            .field("rst_btmac", &format_args!("{}", self.rst_btmac().bit()))
+            .field(
+                "rst_btbb_apb",
+                &format_args!("{}", self.rst_btbb_apb().bit()),
+            )
+            .field("rst_btbb", &format_args!("{}", self.rst_btbb().bit()))
+            .field("rst_etm", &format_args!("{}", self.rst_etm().bit()))
+            .field("rst_zbmac", &format_args!("{}", self.rst_zbmac().bit()))
+            .field(
+                "rst_modem_ecb",
+                &format_args!("{}", self.rst_modem_ecb().bit()),
+            )
+            .field(
+                "rst_modem_ccm",
+                &format_args!("{}", self.rst_modem_ccm().bit()),
+            )
+            .field(
+                "rst_modem_bah",
+                &format_args!("{}", self.rst_modem_bah().bit()),
+            )
+            .field(
+                "rst_modem_sec",
+                &format_args!("{}", self.rst_modem_sec().bit()),
+            )
+            .field(
+                "rst_ble_timer",
+                &format_args!("{}", self.rst_ble_timer().bit()),
+            )
+            .field(
+                "rst_data_dump",
+                &format_args!("{}", self.rst_data_dump().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 14 - ."]
     #[inline(always)]

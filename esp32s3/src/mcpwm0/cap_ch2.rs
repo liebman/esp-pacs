@@ -22,6 +22,14 @@ impl R {
         CAP2_VALUE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CAP_CH2")
+            .field("cap2_value", &format_args!("{}", self.cap2_value().bits()))
+            .finish()
+    }
+}
 #[doc = "Value of last capture on channel 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cap_ch2](index.html) module"]
 pub struct CAP_CH2_SPEC;
 impl crate::RegisterSpec for CAP_CH2_SPEC {

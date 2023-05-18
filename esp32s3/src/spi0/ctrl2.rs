@@ -100,6 +100,38 @@ impl R {
         SYNC_RESET_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL2")
+            .field(
+                "cs_setup_time",
+                &format_args!("{}", self.cs_setup_time().bits()),
+            )
+            .field(
+                "cs_hold_time",
+                &format_args!("{}", self.cs_hold_time().bits()),
+            )
+            .field(
+                "ecc_cs_hold_time",
+                &format_args!("{}", self.ecc_cs_hold_time().bits()),
+            )
+            .field(
+                "ecc_skip_page_corner",
+                &format_args!("{}", self.ecc_skip_page_corner().bit()),
+            )
+            .field(
+                "ecc_16to18_byte_en",
+                &format_args!("{}", self.ecc_16to18_byte_en().bit()),
+            )
+            .field(
+                "cs_hold_delay",
+                &format_args!("{}", self.cs_hold_delay().bits()),
+            )
+            .field("sync_reset", &format_args!("{}", self.sync_reset().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - (cycles-1) of PREP phase by SPI_CLK, which is the SPI_CS setup time. These bits are combined with SPI_MEM_CS_SETUP bit."]
     #[inline(always)]

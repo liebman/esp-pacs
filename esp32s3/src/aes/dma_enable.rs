@@ -45,6 +45,14 @@ impl R {
         DMA_ENABLE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::DMA_ENABLE")
+            .field("dma_enable", &format_args!("{}", self.dma_enable().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Defines the working mode of the AES accelerator. 1'b0: typical AES working mode, 1'b1: DMA-AES working mode."]
     #[inline(always)]

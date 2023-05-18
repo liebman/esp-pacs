@@ -72,6 +72,29 @@ impl R {
         CNT_THR_EVENT_U3_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::INT_RAW")
+            .field(
+                "cnt_thr_event_u0",
+                &format_args!("{}", self.cnt_thr_event_u0().bit()),
+            )
+            .field(
+                "cnt_thr_event_u1",
+                &format_args!("{}", self.cnt_thr_event_u1().bit()),
+            )
+            .field(
+                "cnt_thr_event_u2",
+                &format_args!("{}", self.cnt_thr_event_u2().bit()),
+            )
+            .field(
+                "cnt_thr_event_u3",
+                &format_args!("{}", self.cnt_thr_event_u3().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw interrupt status bit for the PCNT_CNT_THR_EVENT_U0_INT interrupt."]
     #[inline(always)]

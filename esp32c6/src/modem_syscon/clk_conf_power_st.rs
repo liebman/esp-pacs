@@ -96,6 +96,37 @@ impl R {
         CLK_MODEM_APB_ST_MAP_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_SYSCON::CLK_CONF_POWER_ST")
+            .field(
+                "clk_zb_st_map",
+                &format_args!("{}", self.clk_zb_st_map().bits()),
+            )
+            .field(
+                "clk_fe_st_map",
+                &format_args!("{}", self.clk_fe_st_map().bits()),
+            )
+            .field(
+                "clk_bt_st_map",
+                &format_args!("{}", self.clk_bt_st_map().bits()),
+            )
+            .field(
+                "clk_wifi_st_map",
+                &format_args!("{}", self.clk_wifi_st_map().bits()),
+            )
+            .field(
+                "clk_modem_peri_st_map",
+                &format_args!("{}", self.clk_modem_peri_st_map().bits()),
+            )
+            .field(
+                "clk_modem_apb_st_map",
+                &format_args!("{}", self.clk_modem_apb_st_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:11"]
     #[inline(always)]

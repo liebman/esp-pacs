@@ -76,6 +76,29 @@ impl R {
         FORCE_HP_MEM_PU_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_PD_MEM_CNTL")
+            .field(
+                "force_hp_mem_iso",
+                &format_args!("{}", self.force_hp_mem_iso().bits()),
+            )
+            .field(
+                "force_hp_mem_pd",
+                &format_args!("{}", self.force_hp_mem_pd().bits()),
+            )
+            .field(
+                "force_hp_mem_no_iso",
+                &format_args!("{}", self.force_hp_mem_no_iso().bits()),
+            )
+            .field(
+                "force_hp_mem_pu",
+                &format_args!("{}", self.force_hp_mem_pu().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - need_des"]
     #[inline(always)]

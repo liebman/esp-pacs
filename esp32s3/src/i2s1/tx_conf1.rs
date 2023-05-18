@@ -103,6 +103,41 @@ impl R {
         TX_BCK_NO_DLY_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::TX_CONF1")
+            .field(
+                "tx_tdm_ws_width",
+                &format_args!("{}", self.tx_tdm_ws_width().bits()),
+            )
+            .field(
+                "tx_bck_div_num",
+                &format_args!("{}", self.tx_bck_div_num().bits()),
+            )
+            .field(
+                "tx_bits_mod",
+                &format_args!("{}", self.tx_bits_mod().bits()),
+            )
+            .field(
+                "tx_half_sample_bits",
+                &format_args!("{}", self.tx_half_sample_bits().bits()),
+            )
+            .field(
+                "tx_tdm_chan_bits",
+                &format_args!("{}", self.tx_tdm_chan_bits().bits()),
+            )
+            .field(
+                "tx_msb_shift",
+                &format_args!("{}", self.tx_msb_shift().bit()),
+            )
+            .field(
+                "tx_bck_no_dly",
+                &format_args!("{}", self.tx_bck_no_dly().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - The width of tx_ws_out in TDM mode is (I2S_TX_TDM_WS_WIDTH\\[6:0\\] +1) * T_bck"]
     #[inline(always)]

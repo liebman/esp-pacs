@@ -29,6 +29,15 @@ impl R {
         DMA_TX_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_STATUS")
+            .field("dma_rx_en", &format_args!("{}", self.dma_rx_en().bit()))
+            .field("dma_tx_en", &format_args!("{}", self.dma_tx_en().bit()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_status](index.html) module"]
 pub struct DMA_STATUS_SPEC;
 impl crate::RegisterSpec for DMA_STATUS_SPEC {

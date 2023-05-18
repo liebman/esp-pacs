@@ -46,6 +46,17 @@ impl R {
         GPIO_STATUS_INT_R::new((self.bits >> 10) & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::RTC_GPIO_STATUS")
+            .field(
+                "gpio_status_int",
+                &format_args!("{}", self.gpio_status_int().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 10:31 - GPIO0 ~ 21 interrupt status register. Bit10 corresponds to GPIO0, bit11 corresponds to GPIO1, etc. This register should be used together with RTCIO_RTC_GPIO_PINn_INT_TYPE in RTCIO_RTC_GPIO_PINn_REG. 0: no interrupt; 1: corresponding interrupt."]
     #[inline(always)]

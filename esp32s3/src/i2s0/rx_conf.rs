@@ -194,6 +194,66 @@ impl R {
         RX_PDM_SINC_DSR_16_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::RX_CONF")
+            .field("rx_start", &format_args!("{}", self.rx_start().bit()))
+            .field(
+                "rx_slave_mod",
+                &format_args!("{}", self.rx_slave_mod().bit()),
+            )
+            .field("rx_mono", &format_args!("{}", self.rx_mono().bit()))
+            .field(
+                "rx_big_endian",
+                &format_args!("{}", self.rx_big_endian().bit()),
+            )
+            .field("rx_update", &format_args!("{}", self.rx_update().bit()))
+            .field(
+                "rx_mono_fst_vld",
+                &format_args!("{}", self.rx_mono_fst_vld().bit()),
+            )
+            .field(
+                "rx_pcm_conf",
+                &format_args!("{}", self.rx_pcm_conf().bits()),
+            )
+            .field(
+                "rx_pcm_bypass",
+                &format_args!("{}", self.rx_pcm_bypass().bit()),
+            )
+            .field(
+                "rx_stop_mode",
+                &format_args!("{}", self.rx_stop_mode().bits()),
+            )
+            .field(
+                "rx_left_align",
+                &format_args!("{}", self.rx_left_align().bit()),
+            )
+            .field(
+                "rx_24_fill_en",
+                &format_args!("{}", self.rx_24_fill_en().bit()),
+            )
+            .field(
+                "rx_ws_idle_pol",
+                &format_args!("{}", self.rx_ws_idle_pol().bit()),
+            )
+            .field(
+                "rx_bit_order",
+                &format_args!("{}", self.rx_bit_order().bit()),
+            )
+            .field("rx_tdm_en", &format_args!("{}", self.rx_tdm_en().bit()))
+            .field("rx_pdm_en", &format_args!("{}", self.rx_pdm_en().bit()))
+            .field(
+                "rx_pdm2pcm_en",
+                &format_args!("{}", self.rx_pdm2pcm_en().bit()),
+            )
+            .field(
+                "rx_pdm_sinc_dsr_16_en",
+                &format_args!("{}", self.rx_pdm_sinc_dsr_16_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to reset receiver"]
     #[inline(always)]

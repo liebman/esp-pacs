@@ -46,6 +46,17 @@ impl R {
         XTAL32K_CLK_FACTOR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::XTAL32K_CLK_FACTOR")
+            .field(
+                "xtal32k_clk_factor",
+                &format_args!("{}", self.xtal32k_clk_factor().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Configures the divider factor for the 32 kHz crystal oscillator."]
     #[inline(always)]

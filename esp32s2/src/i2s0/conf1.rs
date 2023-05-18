@@ -90,6 +90,34 @@ impl R {
         TX_ZEROS_RM_EN_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::CONF1")
+            .field(
+                "tx_pcm_conf",
+                &format_args!("{}", self.tx_pcm_conf().bits()),
+            )
+            .field(
+                "tx_pcm_bypass",
+                &format_args!("{}", self.tx_pcm_bypass().bit()),
+            )
+            .field(
+                "rx_pcm_conf",
+                &format_args!("{}", self.rx_pcm_conf().bits()),
+            )
+            .field(
+                "rx_pcm_bypass",
+                &format_args!("{}", self.rx_pcm_bypass().bit()),
+            )
+            .field("tx_stop_en", &format_args!("{}", self.tx_stop_en().bit()))
+            .field(
+                "tx_zeros_rm_en",
+                &format_args!("{}", self.tx_zeros_rm_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Compress/Decompress module configuration bits. 0: decompress transmitted data 1:compress transmitted data"]
     #[inline(always)]

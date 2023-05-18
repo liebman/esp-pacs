@@ -46,6 +46,14 @@ impl R {
         FPGA_DEBUG_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::FPGA_DEBUG")
+            .field("fpga_debug", &format_args!("{}", self.fpga_debug().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Only used in fpga debug."]
     #[inline(always)]

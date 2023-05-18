@@ -86,6 +86,33 @@ impl R {
         CORE0_DBUS_REJECT_INT_ENA_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CORE0_ACS_CACHE_INT_ENA")
+            .field(
+                "core0_ibus_acs_msk_ic_int_ena",
+                &format_args!("{}", self.core0_ibus_acs_msk_ic_int_ena().bit()),
+            )
+            .field(
+                "core0_ibus_wr_ic_int_ena",
+                &format_args!("{}", self.core0_ibus_wr_ic_int_ena().bit()),
+            )
+            .field(
+                "core0_ibus_reject_int_ena",
+                &format_args!("{}", self.core0_ibus_reject_int_ena().bit()),
+            )
+            .field(
+                "core0_dbus_acs_msk_dc_int_ena",
+                &format_args!("{}", self.core0_dbus_acs_msk_dc_int_ena().bit()),
+            )
+            .field(
+                "core0_dbus_reject_int_ena",
+                &format_args!("{}", self.core0_dbus_reject_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable interrupt by cpu access icache while the corresponding ibus is disabled which include speculative access."]
     #[inline(always)]

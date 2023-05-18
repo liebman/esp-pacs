@@ -65,6 +65,25 @@ impl R {
         TIME_SAMPLING_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::BUS_TIMING_1")
+            .field(
+                "time_segment1",
+                &format_args!("{}", self.time_segment1().bits()),
+            )
+            .field(
+                "time_segment2",
+                &format_args!("{}", self.time_segment2().bits()),
+            )
+            .field(
+                "time_sampling",
+                &format_args!("{}", self.time_sampling().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The number of clock cycles in TSEG1 per bit timing. Software has R/W permission in reset mode and RO in operation mode."]
     #[inline(always)]

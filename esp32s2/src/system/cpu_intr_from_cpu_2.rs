@@ -46,6 +46,17 @@ impl R {
         CPU_INTR_FROM_CPU_2_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CPU_INTR_FROM_CPU_2")
+            .field(
+                "cpu_intr_from_cpu_2",
+                &format_args!("{}", self.cpu_intr_from_cpu_2().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to generate CPU interrupt 2. This bit needs to be reset by software in the ISR process."]
     #[inline(always)]

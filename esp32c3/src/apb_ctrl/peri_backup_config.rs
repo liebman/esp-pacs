@@ -96,6 +96,37 @@ impl R {
         PERI_BACKUP_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::PERI_BACKUP_CONFIG")
+            .field(
+                "peri_backup_flow_err",
+                &format_args!("{}", self.peri_backup_flow_err().bits()),
+            )
+            .field(
+                "peri_backup_burst_limit",
+                &format_args!("{}", self.peri_backup_burst_limit().bits()),
+            )
+            .field(
+                "peri_backup_tout_thres",
+                &format_args!("{}", self.peri_backup_tout_thres().bits()),
+            )
+            .field(
+                "peri_backup_size",
+                &format_args!("{}", self.peri_backup_size().bits()),
+            )
+            .field(
+                "peri_backup_to_mem",
+                &format_args!("{}", self.peri_backup_to_mem().bit()),
+            )
+            .field(
+                "peri_backup_ena",
+                &format_args!("{}", self.peri_backup_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:8 - reg_peri_backup_burst_limit"]
     #[inline(always)]

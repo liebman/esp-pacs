@@ -46,6 +46,14 @@ impl R {
         SIGLE_DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::CONF_SIGLE_DATA")
+            .field("sigle_data", &format_args!("{}", self.sigle_data().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The right channel or left channel transmits constant value stored in this register according to I2S_TX_CHAN_MOD and I2S_TX_MSB_RIGHT."]
     #[inline(always)]

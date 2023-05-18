@@ -95,6 +95,34 @@ impl R {
         CARRIER1_IN_INVERT_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CARRIER1_CFG")
+            .field("carrier1_en", &format_args!("{}", self.carrier1_en().bit()))
+            .field(
+                "carrier1_prescale",
+                &format_args!("{}", self.carrier1_prescale().bits()),
+            )
+            .field(
+                "carrier1_duty",
+                &format_args!("{}", self.carrier1_duty().bits()),
+            )
+            .field(
+                "carrier1_oshtwth",
+                &format_args!("{}", self.carrier1_oshtwth().bits()),
+            )
+            .field(
+                "carrier1_out_invert",
+                &format_args!("{}", self.carrier1_out_invert().bit()),
+            )
+            .field(
+                "carrier1_in_invert",
+                &format_args!("{}", self.carrier1_in_invert().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

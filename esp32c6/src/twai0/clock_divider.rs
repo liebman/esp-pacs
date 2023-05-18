@@ -54,6 +54,15 @@ impl R {
         CLOCK_OFF_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::CLOCK_DIVIDER")
+            .field("cd", &format_args!("{}", self.cd().bits()))
+            .field("clock_off", &format_args!("{}", self.clock_off().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - These bits are used to define the frequency at the external CLKOUT pin."]
     #[inline(always)]

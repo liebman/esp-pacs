@@ -46,6 +46,17 @@ impl R {
         ICACHE_AUTOLOAD_SCT1_SIZE_R::new(self.bits & 0x07ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_AUTOLOAD_SCT1_SIZE")
+            .field(
+                "icache_autoload_sct1_size",
+                &format_args!("{}", self.icache_autoload_sct1_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:26 - The bits are used to configure the length of the second section for autoload operation. It should be combined with icache_autoload_sct1_ena."]
     #[inline(always)]

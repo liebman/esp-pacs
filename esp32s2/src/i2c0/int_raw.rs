@@ -134,6 +134,81 @@ impl R {
         SLAVE_STRETCH_INT_RAW_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::INT_RAW")
+            .field(
+                "rxfifo_wm_int_raw",
+                &format_args!("{}", self.rxfifo_wm_int_raw().bit()),
+            )
+            .field(
+                "txfifo_wm_int_raw",
+                &format_args!("{}", self.txfifo_wm_int_raw().bit()),
+            )
+            .field(
+                "rxfifo_ovf_int_raw",
+                &format_args!("{}", self.rxfifo_ovf_int_raw().bit()),
+            )
+            .field(
+                "end_detect_int_raw",
+                &format_args!("{}", self.end_detect_int_raw().bit()),
+            )
+            .field(
+                "byte_trans_done_int_raw",
+                &format_args!("{}", self.byte_trans_done_int_raw().bit()),
+            )
+            .field(
+                "arbitration_lost_int_raw",
+                &format_args!("{}", self.arbitration_lost_int_raw().bit()),
+            )
+            .field(
+                "mst_txfifo_udf_int_raw",
+                &format_args!("{}", self.mst_txfifo_udf_int_raw().bit()),
+            )
+            .field(
+                "trans_complete_int_raw",
+                &format_args!("{}", self.trans_complete_int_raw().bit()),
+            )
+            .field(
+                "time_out_int_raw",
+                &format_args!("{}", self.time_out_int_raw().bit()),
+            )
+            .field(
+                "trans_start_int_raw",
+                &format_args!("{}", self.trans_start_int_raw().bit()),
+            )
+            .field(
+                "nack_int_raw",
+                &format_args!("{}", self.nack_int_raw().bit()),
+            )
+            .field(
+                "txfifo_ovf_int_raw",
+                &format_args!("{}", self.txfifo_ovf_int_raw().bit()),
+            )
+            .field(
+                "rxfifo_udf_int_raw",
+                &format_args!("{}", self.rxfifo_udf_int_raw().bit()),
+            )
+            .field(
+                "scl_st_to_int_raw",
+                &format_args!("{}", self.scl_st_to_int_raw().bit()),
+            )
+            .field(
+                "scl_main_st_to_int_raw",
+                &format_args!("{}", self.scl_main_st_to_int_raw().bit()),
+            )
+            .field(
+                "det_start_int_raw",
+                &format_args!("{}", self.det_start_int_raw().bit()),
+            )
+            .field(
+                "slave_stretch_int_raw",
+                &format_args!("{}", self.slave_stretch_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Raw interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

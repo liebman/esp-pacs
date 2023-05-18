@@ -56,6 +56,21 @@ impl R {
         INTERNAL_SRAM_ALLOC_MAC_DUMP_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_3")
+            .field(
+                "internal_sram_usage_mac_dump_sram",
+                &format_args!("{}", self.internal_sram_usage_mac_dump_sram().bits()),
+            )
+            .field(
+                "internal_sram_alloc_mac_dump",
+                &format_args!("{}", self.internal_sram_alloc_mac_dump().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - internal_sram_usage_mac_dump_sram"]
     #[inline(always)]

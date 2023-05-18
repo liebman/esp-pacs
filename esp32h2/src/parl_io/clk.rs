@@ -45,6 +45,14 @@ impl R {
         EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::CLK")
+            .field("en", &format_args!("{}", self.en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - Force clock on for this register file"]
     #[inline(always)]

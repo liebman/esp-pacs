@@ -56,6 +56,21 @@ impl R {
         LP_I2C_ANA_MAST_I2C_MAT_CLK_EN_R::new(((self.bits >> 28) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C_ANA_MST::DATE")
+            .field(
+                "lp_i2c_ana_mast_i2c_mat_date",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c_mat_date().bits()),
+            )
+            .field(
+                "lp_i2c_ana_mast_i2c_mat_clk_en",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c_mat_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - need_des"]
     #[inline(always)]

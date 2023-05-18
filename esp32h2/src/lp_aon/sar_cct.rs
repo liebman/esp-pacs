@@ -46,6 +46,17 @@ impl R {
         SAR2_PWDET_CCT_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::SAR_CCT")
+            .field(
+                "sar2_pwdet_cct",
+                &format_args!("{}", self.sar2_pwdet_cct().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 29:31 - need_des"]
     #[inline(always)]

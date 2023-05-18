@@ -59,6 +59,21 @@ impl R {
         LP_PERI_TIMEOUT_PROTECT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::BUS_TIMEOUT")
+            .field(
+                "lp_peri_timeout_thres",
+                &format_args!("{}", self.lp_peri_timeout_thres().bits()),
+            )
+            .field(
+                "lp_peri_timeout_protect_en",
+                &format_args!("{}", self.lp_peri_timeout_protect_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 14:29 - need_des"]
     #[inline(always)]

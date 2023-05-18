@@ -45,6 +45,17 @@ impl R {
         PAD_FORCE_HOLD_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::PWC")
+            .field(
+                "pad_force_hold",
+                &format_args!("{}", self.pad_force_hold().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 21 - rtc pad force hold"]
     #[inline(always)]

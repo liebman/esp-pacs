@@ -99,6 +99,58 @@ impl R {
         RPT4_RESERVED2_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA3")
+            .field(
+                "dis_download_mode",
+                &format_args!("{}", self.dis_download_mode().bit()),
+            )
+            .field(
+                "dis_legacy_spi_boot",
+                &format_args!("{}", self.dis_legacy_spi_boot().bit()),
+            )
+            .field(
+                "uart_print_channel",
+                &format_args!("{}", self.uart_print_channel().bit()),
+            )
+            .field(
+                "rpt4_reserved3",
+                &format_args!("{}", self.rpt4_reserved3().bit()),
+            )
+            .field(
+                "dis_usb_download_mode",
+                &format_args!("{}", self.dis_usb_download_mode().bit()),
+            )
+            .field(
+                "enable_security_download",
+                &format_args!("{}", self.enable_security_download().bit()),
+            )
+            .field(
+                "uart_print_control",
+                &format_args!("{}", self.uart_print_control().bits()),
+            )
+            .field(
+                "pin_power_selection",
+                &format_args!("{}", self.pin_power_selection().bit()),
+            )
+            .field("flash_type", &format_args!("{}", self.flash_type().bit()))
+            .field(
+                "force_send_resume",
+                &format_args!("{}", self.force_send_resume().bit()),
+            )
+            .field(
+                "secure_version",
+                &format_args!("{}", self.secure_version().bits()),
+            )
+            .field(
+                "rpt4_reserved2",
+                &format_args!("{}", self.rpt4_reserved2().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Register 4 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data3](index.html) module"]
 pub struct RD_REPEAT_DATA3_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA3_SPEC {

@@ -76,6 +76,29 @@ impl R {
         BT_POWERUP_TIMER_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER3")
+            .field(
+                "wifi_wait_timer",
+                &format_args!("{}", self.wifi_wait_timer().bits()),
+            )
+            .field(
+                "wifi_powerup_timer",
+                &format_args!("{}", self.wifi_powerup_timer().bits()),
+            )
+            .field(
+                "bt_wait_timer",
+                &format_args!("{}", self.bt_wait_timer().bits()),
+            )
+            .field(
+                "bt_powerup_timer",
+                &format_args!("{}", self.bt_powerup_timer().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - No public"]
     #[inline(always)]

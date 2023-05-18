@@ -76,6 +76,29 @@ impl R {
         DRESET_MASK_PROCPU_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::RESET_STATE")
+            .field(
+                "reset_cause_procpu",
+                &format_args!("{}", self.reset_cause_procpu().bits()),
+            )
+            .field(
+                "stat_vector_sel_procpu",
+                &format_args!("{}", self.stat_vector_sel_procpu().bit()),
+            )
+            .field(
+                "ocd_halt_on_reset_procpu",
+                &format_args!("{}", self.ocd_halt_on_reset_procpu().bit()),
+            )
+            .field(
+                "dreset_mask_procpu",
+                &format_args!("{}", self.dreset_mask_procpu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - reset cause of PRO CPU"]
     #[inline(always)]

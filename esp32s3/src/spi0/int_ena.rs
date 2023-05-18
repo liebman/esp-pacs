@@ -55,6 +55,21 @@ impl R {
         ECC_ERR_INT_ENA_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::INT_ENA")
+            .field(
+                "total_trans_end_int_ena",
+                &format_args!("{}", self.total_trans_end_int_ena().bit()),
+            )
+            .field(
+                "ecc_err_int_ena",
+                &format_args!("{}", self.ecc_err_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - The enable bit for SPI_MEM_TOTAL_TRANS_END_INT interrupt."]
     #[inline(always)]

@@ -162,6 +162,27 @@ impl R {
         HYS_SEL_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IO_MUX::GPIO")
+            .field("mcu_oe", &format_args!("{}", self.mcu_oe().bit()))
+            .field("slp_sel", &format_args!("{}", self.slp_sel().bit()))
+            .field("mcu_wpd", &format_args!("{}", self.mcu_wpd().bit()))
+            .field("mcu_wpu", &format_args!("{}", self.mcu_wpu().bit()))
+            .field("mcu_ie", &format_args!("{}", self.mcu_ie().bit()))
+            .field("mcu_drv", &format_args!("{}", self.mcu_drv().bits()))
+            .field("fun_wpd", &format_args!("{}", self.fun_wpd().bit()))
+            .field("fun_wpu", &format_args!("{}", self.fun_wpu().bit()))
+            .field("fun_ie", &format_args!("{}", self.fun_ie().bit()))
+            .field("fun_drv", &format_args!("{}", self.fun_drv().bits()))
+            .field("mcu_sel", &format_args!("{}", self.mcu_sel().bits()))
+            .field("filter_en", &format_args!("{}", self.filter_en().bit()))
+            .field("hys_en", &format_args!("{}", self.hys_en().bit()))
+            .field("hys_sel", &format_args!("{}", self.hys_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Output enable of the pad in sleep mode. 1: output enabled. 0: output disabled."]
     #[inline(always)]

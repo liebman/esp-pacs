@@ -22,6 +22,17 @@ impl R {
         PRO_CACHE_MMU_FAULT_VADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_CACHE_MMU_FAULT_VADDR")
+            .field(
+                "pro_cache_mmu_fault_vaddr",
+                &format_args!("{}", self.pro_cache_mmu_fault_vaddr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_cache_mmu_fault_vaddr](index.html) module"]
 pub struct PRO_CACHE_MMU_FAULT_VADDR_SPEC;
 impl crate::RegisterSpec for PRO_CACHE_MMU_FAULT_VADDR_SPEC {

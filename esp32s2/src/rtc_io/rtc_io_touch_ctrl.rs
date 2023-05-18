@@ -56,6 +56,21 @@ impl R {
         IO_TOUCH_BUFMODE_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::RTC_IO_TOUCH_CTRL")
+            .field(
+                "io_touch_bufsel",
+                &format_args!("{}", self.io_touch_bufsel().bits()),
+            )
+            .field(
+                "io_touch_bufmode",
+                &format_args!("{}", self.io_touch_bufmode().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3"]
     #[inline(always)]

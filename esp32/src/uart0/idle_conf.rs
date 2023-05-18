@@ -65,6 +65,22 @@ impl R {
         TX_BRK_NUM_R::new(((self.bits >> 20) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::IDLE_CONF")
+            .field(
+                "rx_idle_thrhd",
+                &format_args!("{}", self.rx_idle_thrhd().bits()),
+            )
+            .field(
+                "tx_idle_num",
+                &format_args!("{}", self.tx_idle_num().bits()),
+            )
+            .field("tx_brk_num", &format_args!("{}", self.tx_brk_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - when receiver takes more time than this register value to receive a byte data. it will produce frame end signal for uhci to stop receiving data."]
     #[inline(always)]

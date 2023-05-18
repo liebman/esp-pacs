@@ -57,6 +57,37 @@ impl R {
         CORE0_DBUS_WR_ICACHE_ST_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CORE0_ACS_CACHE_INT_ST")
+            .field(
+                "core0_ibus_acs_msk_icache_st",
+                &format_args!("{}", self.core0_ibus_acs_msk_icache_st().bit()),
+            )
+            .field(
+                "core0_ibus_wr_icache_st",
+                &format_args!("{}", self.core0_ibus_wr_icache_st().bit()),
+            )
+            .field(
+                "core0_ibus_reject_st",
+                &format_args!("{}", self.core0_ibus_reject_st().bit()),
+            )
+            .field(
+                "core0_dbus_acs_msk_icache_st",
+                &format_args!("{}", self.core0_dbus_acs_msk_icache_st().bit()),
+            )
+            .field(
+                "core0_dbus_reject_st",
+                &format_args!("{}", self.core0_dbus_reject_st().bit()),
+            )
+            .field(
+                "core0_dbus_wr_icache_st",
+                &format_args!("{}", self.core0_dbus_wr_icache_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "This description will be updated in the near future.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core0_acs_cache_int_st](index.html) module"]
 pub struct CORE0_ACS_CACHE_INT_ST_SPEC;
 impl crate::RegisterSpec for CORE0_ACS_CACHE_INT_ST_SPEC {

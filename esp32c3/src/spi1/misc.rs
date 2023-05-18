@@ -72,6 +72,23 @@ impl R {
         CS_KEEP_ACTIVE_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::MISC")
+            .field("cs0_dis", &format_args!("{}", self.cs0_dis().bit()))
+            .field("cs1_dis", &format_args!("{}", self.cs1_dis().bit()))
+            .field(
+                "ck_idle_edge",
+                &format_args!("{}", self.ck_idle_edge().bit()),
+            )
+            .field(
+                "cs_keep_active",
+                &format_args!("{}", self.cs_keep_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SPI_CS0 pin enable, 1: disable SPI_CS0, 0: SPI_CS0 pin is active to select SPI device, such as flash, external RAM and so on."]
     #[inline(always)]

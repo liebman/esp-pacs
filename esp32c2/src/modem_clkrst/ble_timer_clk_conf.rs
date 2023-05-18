@@ -56,6 +56,21 @@ impl R {
         BLETIMER_CLK_IS_ACTIVE_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_CLKRST::BLE_TIMER_CLK_CONF")
+            .field(
+                "bletimer_use_xtal",
+                &format_args!("{}", self.bletimer_use_xtal().bit()),
+            )
+            .field(
+                "bletimer_clk_is_active",
+                &format_args!("{}", self.bletimer_clk_is_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - ."]
     #[inline(always)]

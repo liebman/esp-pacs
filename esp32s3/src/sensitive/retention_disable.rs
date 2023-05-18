@@ -46,6 +46,17 @@ impl R {
         RETENTION_DISABLE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::RETENTION_DISABLE")
+            .field(
+                "retention_disable",
+                &format_args!("{}", self.retention_disable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to disable retention function and lock disable state."]
     #[inline(always)]

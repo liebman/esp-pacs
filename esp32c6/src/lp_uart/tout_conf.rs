@@ -64,6 +64,22 @@ impl R {
         RX_TOUT_THRHD_R::new(((self.bits >> 2) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::TOUT_CONF")
+            .field("rx_tout_en", &format_args!("{}", self.rx_tout_en().bit()))
+            .field(
+                "rx_tout_flow_dis",
+                &format_args!("{}", self.rx_tout_flow_dis().bit()),
+            )
+            .field(
+                "rx_tout_thrhd",
+                &format_args!("{}", self.rx_tout_thrhd().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This is the enble bit for uart receiver's timeout function."]
     #[inline(always)]

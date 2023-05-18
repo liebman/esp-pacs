@@ -79,6 +79,29 @@ impl R {
         SLAVE_BYTE_ACK_LVL_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_STRETCH_CONF")
+            .field(
+                "stretch_protect_num",
+                &format_args!("{}", self.stretch_protect_num().bits()),
+            )
+            .field(
+                "slave_scl_stretch_en",
+                &format_args!("{}", self.slave_scl_stretch_en().bit()),
+            )
+            .field(
+                "slave_byte_ack_ctl_en",
+                &format_args!("{}", self.slave_byte_ack_ctl_en().bit()),
+            )
+            .field(
+                "slave_byte_ack_lvl",
+                &format_args!("{}", self.slave_byte_ack_lvl().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - Configure the period of I2C slave stretching SCL line."]
     #[inline(always)]

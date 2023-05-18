@@ -46,6 +46,17 @@ impl R {
         APB_PERIPHERAL_ACCESS_SPLIT_BURST_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::APB_PERIPHERAL_ACCESS_1")
+            .field(
+                "apb_peripheral_access_split_burst",
+                &format_args!("{}", self.apb_peripheral_access_split_burst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to support split function for AHB access to APB peripherals."]
     #[inline(always)]

@@ -101,6 +101,38 @@ impl R {
         RX_FIFO_MOD_FORCE_EN_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::FIFO_CONF")
+            .field(
+                "rx_data_num",
+                &format_args!("{}", self.rx_data_num().bits()),
+            )
+            .field(
+                "tx_data_num",
+                &format_args!("{}", self.tx_data_num().bits()),
+            )
+            .field("dscr_en", &format_args!("{}", self.dscr_en().bit()))
+            .field(
+                "tx_fifo_mod",
+                &format_args!("{}", self.tx_fifo_mod().bits()),
+            )
+            .field(
+                "rx_fifo_mod",
+                &format_args!("{}", self.rx_fifo_mod().bits()),
+            )
+            .field(
+                "tx_fifo_mod_force_en",
+                &format_args!("{}", self.tx_fifo_mod_force_en().bit()),
+            )
+            .field(
+                "rx_fifo_mod_force_en",
+                &format_args!("{}", self.rx_fifo_mod_force_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5"]
     #[inline(always)]

@@ -53,6 +53,15 @@ impl R {
         REDCY_ANDOR_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSCON::REDCY_SIG0")
+            .field("redcy_sig0", &format_args!("{}", self.redcy_sig0().bits()))
+            .field("redcy_andor", &format_args!("{}", self.redcy_andor().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:30"]
     #[inline(always)]

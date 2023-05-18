@@ -257,6 +257,67 @@ impl R {
         X32N_DRV_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::XTAL_32K_PAD")
+            .field(
+                "dbias_xtal_32k",
+                &format_args!("{}", self.dbias_xtal_32k().bits()),
+            )
+            .field(
+                "dres_xtal_32k",
+                &format_args!("{}", self.dres_xtal_32k().bits()),
+            )
+            .field("x32p_fun_ie", &format_args!("{}", self.x32p_fun_ie().bit()))
+            .field("x32p_slp_oe", &format_args!("{}", self.x32p_slp_oe().bit()))
+            .field("x32p_slp_ie", &format_args!("{}", self.x32p_slp_ie().bit()))
+            .field(
+                "x32p_slp_sel",
+                &format_args!("{}", self.x32p_slp_sel().bit()),
+            )
+            .field(
+                "x32p_fun_sel",
+                &format_args!("{}", self.x32p_fun_sel().bits()),
+            )
+            .field("x32n_fun_ie", &format_args!("{}", self.x32n_fun_ie().bit()))
+            .field("x32n_slp_oe", &format_args!("{}", self.x32n_slp_oe().bit()))
+            .field("x32n_slp_ie", &format_args!("{}", self.x32n_slp_ie().bit()))
+            .field(
+                "x32n_slp_sel",
+                &format_args!("{}", self.x32n_slp_sel().bit()),
+            )
+            .field(
+                "x32n_fun_sel",
+                &format_args!("{}", self.x32n_fun_sel().bits()),
+            )
+            .field(
+                "x32p_mux_sel",
+                &format_args!("{}", self.x32p_mux_sel().bit()),
+            )
+            .field(
+                "x32n_mux_sel",
+                &format_args!("{}", self.x32n_mux_sel().bit()),
+            )
+            .field(
+                "xpd_xtal_32k",
+                &format_args!("{}", self.xpd_xtal_32k().bit()),
+            )
+            .field(
+                "dac_xtal_32k",
+                &format_args!("{}", self.dac_xtal_32k().bits()),
+            )
+            .field("x32p_rue", &format_args!("{}", self.x32p_rue().bit()))
+            .field("x32p_rde", &format_args!("{}", self.x32p_rde().bit()))
+            .field("x32p_hold", &format_args!("{}", self.x32p_hold().bit()))
+            .field("x32p_drv", &format_args!("{}", self.x32p_drv().bits()))
+            .field("x32n_rue", &format_args!("{}", self.x32n_rue().bit()))
+            .field("x32n_rde", &format_args!("{}", self.x32n_rde().bit()))
+            .field("x32n_hold", &format_args!("{}", self.x32n_hold().bit()))
+            .field("x32n_drv", &format_args!("{}", self.x32n_drv().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 1:2 - 32K XTAL self-bias reference control."]
     #[inline(always)]

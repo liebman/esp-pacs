@@ -42,6 +42,36 @@ impl R {
         CORE_0_PIF_PMS_MONITOR_NONWORD_VIOLATE_STATUS_HWORLD_R::new(((self.bits >> 3) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_MONITOR_5")
+            .field(
+                "core_0_pif_pms_monitor_nonword_violate_intr",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_monitor_nonword_violate_intr().bit()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_monitor_nonword_violate_status_hsize",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_monitor_nonword_violate_status_hsize()
+                        .bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_monitor_nonword_violate_status_hworld",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_monitor_nonword_violate_status_hworld()
+                        .bits()
+                ),
+            )
+            .finish()
+    }
+}
 #[doc = "Core0 permission report register 5.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_pif_pms_monitor_5](index.html) module"]
 pub struct CORE_0_PIF_PMS_MONITOR_5_SPEC;
 impl crate::RegisterSpec for CORE_0_PIF_PMS_MONITOR_5_SPEC {

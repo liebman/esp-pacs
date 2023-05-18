@@ -22,6 +22,17 @@ impl R {
         RX_FIFO_RD_BIT_CNT_R::new((self.bits >> 13) & 0x0007_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::RX_ST1")
+            .field(
+                "rx_fifo_rd_bit_cnt",
+                &format_args!("{}", self.rx_fifo_rd_bit_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Parallel IO RX status register1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rx_st1](index.html) module"]
 pub struct RX_ST1_SPEC;
 impl crate::RegisterSpec for RX_ST1_SPEC {

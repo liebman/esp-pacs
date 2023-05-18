@@ -56,6 +56,21 @@ impl R {
         MAIN_TIMER_LP_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_TIMER::LP_INT_ENA")
+            .field(
+                "main_timer_overflow_lp_int_ena",
+                &format_args!("{}", self.main_timer_overflow_lp_int_ena().bit()),
+            )
+            .field(
+                "main_timer_lp_int_ena",
+                &format_args!("{}", self.main_timer_lp_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

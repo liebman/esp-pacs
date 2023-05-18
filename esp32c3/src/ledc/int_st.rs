@@ -127,6 +127,77 @@ impl R {
         OVF_CNT_LSCH5_INT_ST_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_ST")
+            .field(
+                "lstimer0_ovf_int_st",
+                &format_args!("{}", self.lstimer0_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer1_ovf_int_st",
+                &format_args!("{}", self.lstimer1_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer2_ovf_int_st",
+                &format_args!("{}", self.lstimer2_ovf_int_st().bit()),
+            )
+            .field(
+                "lstimer3_ovf_int_st",
+                &format_args!("{}", self.lstimer3_ovf_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch0_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch0_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch1_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch1_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch2_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch2_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch3_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch3_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch4_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch4_int_st().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch5_int_st",
+                &format_args!("{}", self.duty_chng_end_lsch5_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch0_int_st",
+                &format_args!("{}", self.ovf_cnt_lsch0_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch1_int_st",
+                &format_args!("{}", self.ovf_cnt_lsch1_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch2_int_st",
+                &format_args!("{}", self.ovf_cnt_lsch2_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch3_int_st",
+                &format_args!("{}", self.ovf_cnt_lsch3_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch4_int_st",
+                &format_args!("{}", self.ovf_cnt_lsch4_int_st().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch5_int_st",
+                &format_args!("{}", self.ovf_cnt_lsch5_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "LEDC_INT_ST.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

@@ -55,6 +55,18 @@ impl R {
         MIN_PERIOD_R::new(((self.bits >> 2) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::PLC_CONF2")
+            .field(
+                "cvsd_seg_mod",
+                &format_args!("{}", self.cvsd_seg_mod().bits()),
+            )
+            .field("min_period", &format_args!("{}", self.min_period().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

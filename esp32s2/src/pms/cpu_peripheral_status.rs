@@ -22,6 +22,17 @@ impl R {
         CPU_PERI_BYTE_ERROR_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::CPU_PERIPHERAL_STATUS")
+            .field(
+                "cpu_peri_byte_error_addr",
+                &format_args!("{}", self.cpu_peri_byte_error_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "PeribBus1 peripheral access status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpu_peripheral_status](index.html) module"]
 pub struct CPU_PERIPHERAL_STATUS_SPEC;
 impl crate::RegisterSpec for CPU_PERIPHERAL_STATUS_SPEC {

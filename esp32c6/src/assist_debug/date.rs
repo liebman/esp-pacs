@@ -46,6 +46,17 @@ impl R {
         ASSIST_DEBUG_DATE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::DATE")
+            .field(
+                "assist_debug_date",
+                &format_args!("{}", self.assist_debug_date().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - version register"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         USR_ADDR_VALUE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::ADDR")
+            .field(
+                "usr_addr_value",
+                &format_args!("{}", self.usr_addr_value().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - 31:8\\]:address to slave, \\[7:0\\]:Reserved. Can be configured in CONF state."]
     #[inline(always)]

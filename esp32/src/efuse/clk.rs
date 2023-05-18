@@ -63,6 +63,16 @@ impl R {
         EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::CLK")
+            .field("sel0", &format_args!("{}", self.sel0().bits()))
+            .field("sel1", &format_args!("{}", self.sel1().bits()))
+            .field("en", &format_args!("{}", self.en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - efuse timing configure"]
     #[inline(always)]

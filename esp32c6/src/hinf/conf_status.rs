@@ -71,6 +71,30 @@ impl R {
         SDIO_SWITCH_END_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CONF_STATUS")
+            .field(
+                "func0_config0",
+                &format_args!("{}", self.func0_config0().bits()),
+            )
+            .field("sdr25_st", &format_args!("{}", self.sdr25_st().bit()))
+            .field("sdr50_st", &format_args!("{}", self.sdr50_st().bit()))
+            .field("sdr104_st", &format_args!("{}", self.sdr104_st().bit()))
+            .field("ddr50_st", &format_args!("{}", self.ddr50_st().bit()))
+            .field("tune_st", &format_args!("{}", self.tune_st().bits()))
+            .field(
+                "sdio_switch_volt_st",
+                &format_args!("{}", self.sdio_switch_volt_st().bit()),
+            )
+            .field(
+                "sdio_switch_end",
+                &format_args!("{}", self.sdio_switch_end().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "func0 config0 status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [conf_status](index.html) module"]
 pub struct CONF_STATUS_SPEC;
 impl crate::RegisterSpec for CONF_STATUS_SPEC {

@@ -65,6 +65,25 @@ impl R {
         TARGET0_WORK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::TARGET0_CONF")
+            .field(
+                "target0_period",
+                &format_args!("{}", self.target0_period().bits()),
+            )
+            .field(
+                "target0_period_mode",
+                &format_args!("{}", self.target0_period_mode().bit()),
+            )
+            .field(
+                "target0_work_en",
+                &format_args!("{}", self.target0_work_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:29 - Set alarm period for system timer target 0, only valid in periodic alarms mode."]
     #[inline(always)]

@@ -105,6 +105,41 @@ impl R {
         RETENTION_WAIT_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::RETENTION_CTRL")
+            .field(
+                "retention_tag_mode",
+                &format_args!("{}", self.retention_tag_mode().bits()),
+            )
+            .field(
+                "retention_target",
+                &format_args!("{}", self.retention_target().bits()),
+            )
+            .field(
+                "retention_clk_sel",
+                &format_args!("{}", self.retention_clk_sel().bit()),
+            )
+            .field(
+                "retention_done_wait",
+                &format_args!("{}", self.retention_done_wait().bits()),
+            )
+            .field(
+                "retention_clkoff_wait",
+                &format_args!("{}", self.retention_clkoff_wait().bits()),
+            )
+            .field(
+                "retention_en",
+                &format_args!("{}", self.retention_en().bit()),
+            )
+            .field(
+                "retention_wait",
+                &format_args!("{}", self.retention_wait().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 10:13 - No public"]
     #[inline(always)]

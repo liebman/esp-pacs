@@ -126,6 +126,49 @@ impl R {
         COCPU_SWD_INT_ENA_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_COCPU_INT_ENA")
+            .field(
+                "cocpu_touch_done_int_ena",
+                &format_args!("{}", self.cocpu_touch_done_int_ena().bit()),
+            )
+            .field(
+                "cocpu_touch_inactive_int_ena",
+                &format_args!("{}", self.cocpu_touch_inactive_int_ena().bit()),
+            )
+            .field(
+                "cocpu_touch_active_int_ena",
+                &format_args!("{}", self.cocpu_touch_active_int_ena().bit()),
+            )
+            .field(
+                "cocpu_saradc1_int_ena",
+                &format_args!("{}", self.cocpu_saradc1_int_ena().bit()),
+            )
+            .field(
+                "cocpu_saradc2_int_ena",
+                &format_args!("{}", self.cocpu_saradc2_int_ena().bit()),
+            )
+            .field(
+                "cocpu_tsens_int_ena",
+                &format_args!("{}", self.cocpu_tsens_int_ena().bit()),
+            )
+            .field(
+                "cocpu_start_int_ena",
+                &format_args!("{}", self.cocpu_start_int_ena().bit()),
+            )
+            .field(
+                "cocpu_sw_int_ena",
+                &format_args!("{}", self.cocpu_sw_int_ena().bit()),
+            )
+            .field(
+                "cocpu_swd_int_ena",
+                &format_args!("{}", self.cocpu_swd_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - TOUCH_DONE_INT interrupt enable bit"]
     #[inline(always)]

@@ -112,6 +112,53 @@ impl R {
         L1_CACHE_TAG_MEM_WR_EN_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_TAG_MEM_ACS_CONF")
+            .field(
+                "l1_icache0_tag_mem_rd_en",
+                &format_args!("{}", self.l1_icache0_tag_mem_rd_en().bit()),
+            )
+            .field(
+                "l1_icache0_tag_mem_wr_en",
+                &format_args!("{}", self.l1_icache0_tag_mem_wr_en().bit()),
+            )
+            .field(
+                "l1_icache1_tag_mem_rd_en",
+                &format_args!("{}", self.l1_icache1_tag_mem_rd_en().bit()),
+            )
+            .field(
+                "l1_icache1_tag_mem_wr_en",
+                &format_args!("{}", self.l1_icache1_tag_mem_wr_en().bit()),
+            )
+            .field(
+                "l1_icache2_tag_mem_rd_en",
+                &format_args!("{}", self.l1_icache2_tag_mem_rd_en().bit()),
+            )
+            .field(
+                "l1_icache2_tag_mem_wr_en",
+                &format_args!("{}", self.l1_icache2_tag_mem_wr_en().bit()),
+            )
+            .field(
+                "l1_icache3_tag_mem_rd_en",
+                &format_args!("{}", self.l1_icache3_tag_mem_rd_en().bit()),
+            )
+            .field(
+                "l1_icache3_tag_mem_wr_en",
+                &format_args!("{}", self.l1_icache3_tag_mem_wr_en().bit()),
+            )
+            .field(
+                "l1_cache_tag_mem_rd_en",
+                &format_args!("{}", self.l1_cache_tag_mem_rd_en().bit()),
+            )
+            .field(
+                "l1_cache_tag_mem_wr_en",
+                &format_args!("{}", self.l1_cache_tag_mem_wr_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - The bit is used to enable config-bus read L1-Cache tag memoryory. 0: disable, 1: enable."]
     #[inline(always)]

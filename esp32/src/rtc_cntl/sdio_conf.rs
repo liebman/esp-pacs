@@ -106,6 +106,24 @@ impl R {
         XPD_SDIO_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SDIO_CONF")
+            .field("sdio_pd_en", &format_args!("{}", self.sdio_pd_en().bit()))
+            .field("sdio_force", &format_args!("{}", self.sdio_force().bit()))
+            .field("sdio_tieh", &format_args!("{}", self.sdio_tieh().bit()))
+            .field(
+                "reg1p8_ready",
+                &format_args!("{}", self.reg1p8_ready().bit()),
+            )
+            .field("drefl_sdio", &format_args!("{}", self.drefl_sdio().bits()))
+            .field("drefm_sdio", &format_args!("{}", self.drefm_sdio().bits()))
+            .field("drefh_sdio", &format_args!("{}", self.drefh_sdio().bits()))
+            .field("xpd_sdio", &format_args!("{}", self.xpd_sdio().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 21 - power down SDIO_REG in sleep. Only active when reg_sdio_force = 0"]
     #[inline(always)]

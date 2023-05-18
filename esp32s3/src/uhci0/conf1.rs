@@ -108,6 +108,36 @@ impl R {
         SW_START_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::CONF1")
+            .field(
+                "check_sum_en",
+                &format_args!("{}", self.check_sum_en().bit()),
+            )
+            .field(
+                "check_seq_en",
+                &format_args!("{}", self.check_seq_en().bit()),
+            )
+            .field("crc_disable", &format_args!("{}", self.crc_disable().bit()))
+            .field("save_head", &format_args!("{}", self.save_head().bit()))
+            .field(
+                "tx_check_sum_re",
+                &format_args!("{}", self.tx_check_sum_re().bit()),
+            )
+            .field(
+                "tx_ack_num_re",
+                &format_args!("{}", self.tx_ack_num_re().bit()),
+            )
+            .field(
+                "wait_sw_start",
+                &format_args!("{}", self.wait_sw_start().bit()),
+            )
+            .field("sw_start", &format_args!("{}", self.sw_start().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This is the enable bit to check header checksum when UHCI receives a data packet."]
     #[inline(always)]

@@ -91,6 +91,34 @@ impl R {
         CS_KEEP_ACTIVE_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::MISC")
+            .field("trans_end", &format_args!("{}", self.trans_end().bit()))
+            .field(
+                "trans_end_int_ena",
+                &format_args!("{}", self.trans_end_int_ena().bit()),
+            )
+            .field(
+                "cspi_st_trans_end",
+                &format_args!("{}", self.cspi_st_trans_end().bit()),
+            )
+            .field(
+                "cspi_st_trans_end_int_ena",
+                &format_args!("{}", self.cspi_st_trans_end_int_ena().bit()),
+            )
+            .field(
+                "ck_idle_edge",
+                &format_args!("{}", self.ck_idle_edge().bit()),
+            )
+            .field(
+                "cs_keep_active",
+                &format_args!("{}", self.cs_keep_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - The bit is used to indicate the spi0_mst_st controlled transmitting is done."]
     #[inline(always)]

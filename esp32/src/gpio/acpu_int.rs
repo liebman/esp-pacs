@@ -22,6 +22,14 @@ impl R {
         APPCPU_INT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::ACPU_INT")
+            .field("appcpu_int", &format_args!("{}", self.appcpu_int().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [acpu_int](index.html) module"]
 pub struct ACPU_INT_SPEC;
 impl crate::RegisterSpec for ACPU_INT_SPEC {

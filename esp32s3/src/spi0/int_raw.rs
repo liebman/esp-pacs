@@ -55,6 +55,21 @@ impl R {
         ECC_ERR_INT_RAW_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::INT_RAW")
+            .field(
+                "total_trans_end_int_raw",
+                &format_args!("{}", self.total_trans_end_int_raw().bit()),
+            )
+            .field(
+                "ecc_err_int_raw",
+                &format_args!("{}", self.ecc_err_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - The raw bit for SPI_MEM_TOTAL_TRANS_END_INT interrupt. 1: Triggered when SPI1 transfer is done and flash is already idle. When WRSR/PP/SE/BE/CE is sent and PES/PER command is sent, this bit is set when WRSR/PP/SE/BE/CE is success. 0: Others."]
     #[inline(always)]

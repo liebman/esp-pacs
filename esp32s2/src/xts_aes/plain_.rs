@@ -45,6 +45,14 @@ impl R {
         PLAIN_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTS_AES::PLAIN_")
+            .field("plain_0", &format_args!("{}", self.plain_0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This register stores %sth 32-bit piece of plaintext."]
     #[inline(always)]

@@ -225,6 +225,46 @@ impl R {
         USR_COMMAND_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::USER")
+            .field("doutdin", &format_args!("{}", self.doutdin().bit()))
+            .field("qpi_mode", &format_args!("{}", self.qpi_mode().bit()))
+            .field("opi_mode", &format_args!("{}", self.opi_mode().bit()))
+            .field("tsck_i_edge", &format_args!("{}", self.tsck_i_edge().bit()))
+            .field("cs_hold", &format_args!("{}", self.cs_hold().bit()))
+            .field("cs_setup", &format_args!("{}", self.cs_setup().bit()))
+            .field("rsck_i_edge", &format_args!("{}", self.rsck_i_edge().bit()))
+            .field("ck_out_edge", &format_args!("{}", self.ck_out_edge().bit()))
+            .field("fwrite_dual", &format_args!("{}", self.fwrite_dual().bit()))
+            .field("fwrite_quad", &format_args!("{}", self.fwrite_quad().bit()))
+            .field("fwrite_oct", &format_args!("{}", self.fwrite_oct().bit()))
+            .field(
+                "usr_conf_nxt",
+                &format_args!("{}", self.usr_conf_nxt().bit()),
+            )
+            .field("sio", &format_args!("{}", self.sio().bit()))
+            .field(
+                "usr_miso_highpart",
+                &format_args!("{}", self.usr_miso_highpart().bit()),
+            )
+            .field(
+                "usr_mosi_highpart",
+                &format_args!("{}", self.usr_mosi_highpart().bit()),
+            )
+            .field(
+                "usr_dummy_idle",
+                &format_args!("{}", self.usr_dummy_idle().bit()),
+            )
+            .field("usr_mosi", &format_args!("{}", self.usr_mosi().bit()))
+            .field("usr_miso", &format_args!("{}", self.usr_miso().bit()))
+            .field("usr_dummy", &format_args!("{}", self.usr_dummy().bit()))
+            .field("usr_addr", &format_args!("{}", self.usr_addr().bit()))
+            .field("usr_command", &format_args!("{}", self.usr_command().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set the bit to enable full duplex communication. 1: enable 0: disable. Can be configured in CONF state."]
     #[inline(always)]

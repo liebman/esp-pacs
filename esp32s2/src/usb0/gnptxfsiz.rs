@@ -55,6 +55,18 @@ impl R {
         NPTXFDEP_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GNPTXFSIZ")
+            .field(
+                "nptxfstaddr",
+                &format_args!("{}", self.nptxfstaddr().bits()),
+            )
+            .field("nptxfdep", &format_args!("{}", self.nptxfdep().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]

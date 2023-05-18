@@ -45,6 +45,14 @@ impl R {
         LOCK_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ATOMIC::ADDR_LOCK")
+            .field("lock", &format_args!("{}", self.lock().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - read to acquire hardware lock, write to release hardware lock"]
     #[inline(always)]

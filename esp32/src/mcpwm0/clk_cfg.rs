@@ -45,6 +45,17 @@ impl R {
         CLK_PRESCALE_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CLK_CFG")
+            .field(
+                "clk_prescale",
+                &format_args!("{}", self.clk_prescale().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

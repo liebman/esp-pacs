@@ -72,6 +72,29 @@ impl R {
         PLC_MEM_FORCE_PU_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::PD_CONF")
+            .field(
+                "fifo_force_pd",
+                &format_args!("{}", self.fifo_force_pd().bit()),
+            )
+            .field(
+                "fifo_force_pu",
+                &format_args!("{}", self.fifo_force_pu().bit()),
+            )
+            .field(
+                "plc_mem_force_pd",
+                &format_args!("{}", self.plc_mem_force_pd().bit()),
+            )
+            .field(
+                "plc_mem_force_pu",
+                &format_args!("{}", self.plc_mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

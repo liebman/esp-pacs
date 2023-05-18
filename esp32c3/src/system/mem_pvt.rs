@@ -72,6 +72,23 @@ impl R {
         MEM_VT_SEL_R::new(((self.bits >> 22) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::MEM_PVT")
+            .field(
+                "mem_path_len",
+                &format_args!("{}", self.mem_path_len().bits()),
+            )
+            .field("monitor_en", &format_args!("{}", self.monitor_en().bit()))
+            .field(
+                "mem_timing_err_cnt",
+                &format_args!("{}", self.mem_timing_err_cnt().bits()),
+            )
+            .field("mem_vt_sel", &format_args!("{}", self.mem_vt_sel().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - reg_mem_path_len"]
     #[inline(always)]

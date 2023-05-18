@@ -108,6 +108,36 @@ impl R {
         OP2_FORCE_UP_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::UPDATE_CFG")
+            .field(
+                "global_up_en",
+                &format_args!("{}", self.global_up_en().bit()),
+            )
+            .field(
+                "global_force_up",
+                &format_args!("{}", self.global_force_up().bit()),
+            )
+            .field("op0_up_en", &format_args!("{}", self.op0_up_en().bit()))
+            .field(
+                "op0_force_up",
+                &format_args!("{}", self.op0_force_up().bit()),
+            )
+            .field("op1_up_en", &format_args!("{}", self.op1_up_en().bit()))
+            .field(
+                "op1_force_up",
+                &format_args!("{}", self.op1_force_up().bit()),
+            )
+            .field("op2_up_en", &format_args!("{}", self.op2_up_en().bit()))
+            .field(
+                "op2_force_up",
+                &format_args!("{}", self.op2_force_up().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

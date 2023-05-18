@@ -83,6 +83,18 @@ impl R {
         SEL_MAC_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PAU::REGDMA_CONF")
+            .field("flow_err", &format_args!("{}", self.flow_err().bits()))
+            .field("to_mem", &format_args!("{}", self.to_mem().bit()))
+            .field("link_sel", &format_args!("{}", self.link_sel().bits()))
+            .field("to_mem_mac", &format_args!("{}", self.to_mem_mac().bit()))
+            .field("sel_mac", &format_args!("{}", self.sel_mac().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - backup start signal"]
     #[inline(always)]

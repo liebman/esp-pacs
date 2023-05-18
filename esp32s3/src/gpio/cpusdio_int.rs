@@ -22,6 +22,14 @@ impl R {
         SDIO_INT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::CPUSDIO_INT")
+            .field("sdio_int", &format_args!("{}", self.sdio_int().bits()))
+            .finish()
+    }
+}
 #[doc = "GPIO CPUSDIO interrupt status register for GPIO0-31\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpusdio_int](index.html) module"]
 pub struct CPUSDIO_INT_SPEC;
 impl crate::RegisterSpec for CPUSDIO_INT_SPEC {

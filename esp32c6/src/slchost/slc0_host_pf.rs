@@ -22,6 +22,17 @@ impl R {
         SLC0_PF_DATA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::SLC0_HOST_PF")
+            .field(
+                "slc0_pf_data",
+                &format_args!("{}", self.slc0_pf_data().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "*******Description***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slc0_host_pf](index.html) module"]
 pub struct SLC0_HOST_PF_SPEC;
 impl crate::RegisterSpec for SLC0_HOST_PF_SPEC {

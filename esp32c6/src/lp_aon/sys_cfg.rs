@@ -47,6 +47,17 @@ impl R {
         FORCE_DOWNLOAD_BOOT_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::SYS_CFG")
+            .field(
+                "force_download_boot",
+                &format_args!("{}", self.force_download_boot().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

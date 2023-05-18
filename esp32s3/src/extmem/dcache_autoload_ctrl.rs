@@ -113,6 +113,45 @@ impl R {
         DCACHE_AUTOLOAD_BUFFER_CLEAR_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_AUTOLOAD_CTRL")
+            .field(
+                "dcache_autoload_sct0_ena",
+                &format_args!("{}", self.dcache_autoload_sct0_ena().bit()),
+            )
+            .field(
+                "dcache_autoload_sct1_ena",
+                &format_args!("{}", self.dcache_autoload_sct1_ena().bit()),
+            )
+            .field(
+                "dcache_autoload_ena",
+                &format_args!("{}", self.dcache_autoload_ena().bit()),
+            )
+            .field(
+                "dcache_autoload_done",
+                &format_args!("{}", self.dcache_autoload_done().bit()),
+            )
+            .field(
+                "dcache_autoload_order",
+                &format_args!("{}", self.dcache_autoload_order().bit()),
+            )
+            .field(
+                "dcache_autoload_rqst",
+                &format_args!("{}", self.dcache_autoload_rqst().bits()),
+            )
+            .field(
+                "dcache_autoload_size",
+                &format_args!("{}", self.dcache_autoload_size().bits()),
+            )
+            .field(
+                "dcache_autoload_buffer_clear",
+                &format_args!("{}", self.dcache_autoload_buffer_clear().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bits are used to enable the first section for autoload operation."]
     #[inline(always)]

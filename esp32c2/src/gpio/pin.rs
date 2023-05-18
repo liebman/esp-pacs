@@ -99,6 +99,29 @@ impl R {
         INT_ENA_R::new(((self.bits >> 13) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::PIN")
+            .field(
+                "sync2_bypass",
+                &format_args!("{}", self.sync2_bypass().bits()),
+            )
+            .field("pad_driver", &format_args!("{}", self.pad_driver().bit()))
+            .field(
+                "sync1_bypass",
+                &format_args!("{}", self.sync1_bypass().bits()),
+            )
+            .field("int_type", &format_args!("{}", self.int_type().bits()))
+            .field(
+                "wakeup_enable",
+                &format_args!("{}", self.wakeup_enable().bit()),
+            )
+            .field("config", &format_args!("{}", self.config().bits()))
+            .field("int_ena", &format_args!("{}", self.int_ena().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - set GPIO input_sync2 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
     #[inline(always)]

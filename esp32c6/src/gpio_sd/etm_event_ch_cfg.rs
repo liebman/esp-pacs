@@ -56,6 +56,21 @@ impl R {
         ETM_CH0_EVENT_EN_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::ETM_EVENT_CH_CFG")
+            .field(
+                "etm_ch0_event_sel",
+                &format_args!("{}", self.etm_ch0_event_sel().bits()),
+            )
+            .field(
+                "etm_ch0_event_en",
+                &format_args!("{}", self.etm_ch0_event_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - Etm event channel select gpio."]
     #[inline(always)]

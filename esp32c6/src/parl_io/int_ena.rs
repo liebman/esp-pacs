@@ -65,6 +65,25 @@ impl R {
         TX_EOF_INT_ENA_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::INT_ENA")
+            .field(
+                "tx_fifo_rempty_int_ena",
+                &format_args!("{}", self.tx_fifo_rempty_int_ena().bit()),
+            )
+            .field(
+                "rx_fifo_wfull_int_ena",
+                &format_args!("{}", self.rx_fifo_wfull_int_ena().bit()),
+            )
+            .field(
+                "tx_eof_int_ena",
+                &format_args!("{}", self.tx_eof_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Write 1 to enable TX_FIFO_REMPTY_INTR."]
     #[inline(always)]

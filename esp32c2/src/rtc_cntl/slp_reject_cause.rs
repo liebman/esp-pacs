@@ -46,6 +46,17 @@ impl R {
         REJECT_CAUSE_R::new(self.bits & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_REJECT_CAUSE")
+            .field(
+                "reject_cause",
+                &format_args!("{}", self.reject_cause().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - sleep reject cause"]
     #[inline(always)]

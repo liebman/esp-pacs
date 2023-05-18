@@ -126,6 +126,49 @@ impl R {
         SPI_MEM_DINS_MODE_R::new(((self.bits >> 24) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_DIN_MODE")
+            .field(
+                "spi_mem_din0_mode",
+                &format_args!("{}", self.spi_mem_din0_mode().bits()),
+            )
+            .field(
+                "spi_mem_din1_mode",
+                &format_args!("{}", self.spi_mem_din1_mode().bits()),
+            )
+            .field(
+                "spi_mem_din2_mode",
+                &format_args!("{}", self.spi_mem_din2_mode().bits()),
+            )
+            .field(
+                "spi_mem_din3_mode",
+                &format_args!("{}", self.spi_mem_din3_mode().bits()),
+            )
+            .field(
+                "spi_mem_din4_mode",
+                &format_args!("{}", self.spi_mem_din4_mode().bits()),
+            )
+            .field(
+                "spi_mem_din5_mode",
+                &format_args!("{}", self.spi_mem_din5_mode().bits()),
+            )
+            .field(
+                "spi_mem_din6_mode",
+                &format_args!("{}", self.spi_mem_din6_mode().bits()),
+            )
+            .field(
+                "spi_mem_din7_mode",
+                &format_args!("{}", self.spi_mem_din7_mode().bits()),
+            )
+            .field(
+                "spi_mem_dins_mode",
+                &format_args!("{}", self.spi_mem_dins_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb, 3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge, 6: input with the spi_clk low edge"]
     #[inline(always)]

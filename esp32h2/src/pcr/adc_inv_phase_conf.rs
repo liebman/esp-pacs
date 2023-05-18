@@ -46,6 +46,17 @@ impl R {
         CLK_ADC_INV_PHASE_ENA_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::ADC_INV_PHASE_CONF")
+            .field(
+                "clk_adc_inv_phase_ena",
+                &format_args!("{}", self.clk_adc_inv_phase_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - xxxx"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         INTERNAL_SRAM_USAGE_LOG_SRAM_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_4")
+            .field(
+                "internal_sram_usage_log_sram",
+                &format_args!("{}", self.internal_sram_usage_log_sram().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - internal_sram_usage_log_sram"]
     #[inline(always)]

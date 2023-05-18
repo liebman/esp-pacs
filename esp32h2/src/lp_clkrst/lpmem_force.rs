@@ -46,6 +46,17 @@ impl R {
         LPMEM_CLK_FORCE_ON_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::LPMEM_FORCE")
+            .field(
+                "lpmem_clk_force_on",
+                &format_args!("{}", self.lpmem_clk_force_on().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

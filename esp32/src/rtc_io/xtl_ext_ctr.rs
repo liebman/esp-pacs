@@ -45,6 +45,14 @@ impl R {
         SEL_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::XTL_EXT_CTR")
+            .field("sel", &format_args!("{}", self.sel().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 27:31 - select the external xtl power source Ó0Ó select GPIO0 Ó1Ó select GPIO2 ...Ò17Ó select GPIO17"]
     #[inline(always)]

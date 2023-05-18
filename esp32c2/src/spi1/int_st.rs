@@ -57,6 +57,37 @@ impl R {
         BROWN_OUT_INT_ST_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::INT_ST")
+            .field(
+                "per_end_int_st",
+                &format_args!("{}", self.per_end_int_st().bit()),
+            )
+            .field(
+                "pes_end_int_st",
+                &format_args!("{}", self.pes_end_int_st().bit()),
+            )
+            .field(
+                "wpe_end_int_st",
+                &format_args!("{}", self.wpe_end_int_st().bit()),
+            )
+            .field(
+                "slv_st_end_int_st",
+                &format_args!("{}", self.slv_st_end_int_st().bit()),
+            )
+            .field(
+                "mst_st_end_int_st",
+                &format_args!("{}", self.mst_st_end_int_st().bit()),
+            )
+            .field(
+                "brown_out_int_st",
+                &format_args!("{}", self.brown_out_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI1 interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

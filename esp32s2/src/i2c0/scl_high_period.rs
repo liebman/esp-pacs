@@ -56,6 +56,21 @@ impl R {
         SCL_WAIT_HIGH_PERIOD_R::new(((self.bits >> 14) & 0x3fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_HIGH_PERIOD")
+            .field(
+                "scl_high_period",
+                &format_args!("{}", self.scl_high_period().bits()),
+            )
+            .field(
+                "scl_wait_high_period",
+                &format_args!("{}", self.scl_wait_high_period().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - This register is used to configure for how long SCL remains high in master mode, in I2C module clock cycles."]
     #[inline(always)]

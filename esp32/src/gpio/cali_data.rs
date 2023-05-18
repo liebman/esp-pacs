@@ -36,6 +36,25 @@ impl R {
         CALI_RDY_SYNC2_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::cali_data")
+            .field(
+                "cali_value_sync2",
+                &format_args!("{}", self.cali_value_sync2().bits()),
+            )
+            .field(
+                "cali_rdy_real",
+                &format_args!("{}", self.cali_rdy_real().bit()),
+            )
+            .field(
+                "cali_rdy_sync2",
+                &format_args!("{}", self.cali_rdy_sync2().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cali_data](index.html) module"]
 pub struct CALI_DATA_SPEC;
 impl crate::RegisterSpec for CALI_DATA_SPEC {

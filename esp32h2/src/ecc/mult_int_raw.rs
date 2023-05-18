@@ -22,6 +22,17 @@ impl R {
         CALC_DONE_INT_RAW_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ECC::MULT_INT_RAW")
+            .field(
+                "calc_done_int_raw",
+                &format_args!("{}", self.calc_done_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "ECC interrupt raw register, valid in level.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mult_int_raw](index.html) module"]
 pub struct MULT_INT_RAW_SPEC;
 impl crate::RegisterSpec for MULT_INT_RAW_SPEC {

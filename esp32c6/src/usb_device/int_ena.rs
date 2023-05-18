@@ -189,6 +189,74 @@ impl R {
         SET_LINE_CODE_INT_ENA_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::INT_ENA")
+            .field(
+                "jtag_in_flush_int_ena",
+                &format_args!("{}", self.jtag_in_flush_int_ena().bit()),
+            )
+            .field("sof_int_ena", &format_args!("{}", self.sof_int_ena().bit()))
+            .field(
+                "serial_out_recv_pkt_int_ena",
+                &format_args!("{}", self.serial_out_recv_pkt_int_ena().bit()),
+            )
+            .field(
+                "serial_in_empty_int_ena",
+                &format_args!("{}", self.serial_in_empty_int_ena().bit()),
+            )
+            .field(
+                "pid_err_int_ena",
+                &format_args!("{}", self.pid_err_int_ena().bit()),
+            )
+            .field(
+                "crc5_err_int_ena",
+                &format_args!("{}", self.crc5_err_int_ena().bit()),
+            )
+            .field(
+                "crc16_err_int_ena",
+                &format_args!("{}", self.crc16_err_int_ena().bit()),
+            )
+            .field(
+                "stuff_err_int_ena",
+                &format_args!("{}", self.stuff_err_int_ena().bit()),
+            )
+            .field(
+                "in_token_rec_in_ep1_int_ena",
+                &format_args!("{}", self.in_token_rec_in_ep1_int_ena().bit()),
+            )
+            .field(
+                "usb_bus_reset_int_ena",
+                &format_args!("{}", self.usb_bus_reset_int_ena().bit()),
+            )
+            .field(
+                "out_ep1_zero_payload_int_ena",
+                &format_args!("{}", self.out_ep1_zero_payload_int_ena().bit()),
+            )
+            .field(
+                "out_ep2_zero_payload_int_ena",
+                &format_args!("{}", self.out_ep2_zero_payload_int_ena().bit()),
+            )
+            .field(
+                "rts_chg_int_ena",
+                &format_args!("{}", self.rts_chg_int_ena().bit()),
+            )
+            .field(
+                "dtr_chg_int_ena",
+                &format_args!("{}", self.dtr_chg_int_ena().bit()),
+            )
+            .field(
+                "get_line_code_int_ena",
+                &format_args!("{}", self.get_line_code_int_ena().bit()),
+            )
+            .field(
+                "set_line_code_int_ena",
+                &format_args!("{}", self.set_line_code_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The interrupt enable bit for the USB_DEVICE_JTAG_IN_FLUSH_INT interrupt."]
     #[inline(always)]

@@ -22,6 +22,14 @@ impl R {
         CNT_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::HSTIMER_VALUE")
+            .field("cnt", &format_args!("{}", self.cnt().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hstimer_value](index.html) module"]
 pub struct HSTIMER_VALUE_SPEC;
 impl crate::RegisterSpec for HSTIMER_VALUE_SPEC {

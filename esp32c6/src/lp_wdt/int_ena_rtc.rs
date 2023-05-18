@@ -55,6 +55,18 @@ impl R {
         WDT_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_WDT::INT_ENA_RTC")
+            .field(
+                "super_wdt_int_ena",
+                &format_args!("{}", self.super_wdt_int_ena().bit()),
+            )
+            .field("wdt_int_ena", &format_args!("{}", self.wdt_int_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

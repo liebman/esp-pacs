@@ -192,6 +192,77 @@ impl R {
         OVF_CNT_LSCH5_INT_RAW_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_RAW")
+            .field(
+                "lstimer0_ovf_int_raw",
+                &format_args!("{}", self.lstimer0_ovf_int_raw().bit()),
+            )
+            .field(
+                "lstimer1_ovf_int_raw",
+                &format_args!("{}", self.lstimer1_ovf_int_raw().bit()),
+            )
+            .field(
+                "lstimer2_ovf_int_raw",
+                &format_args!("{}", self.lstimer2_ovf_int_raw().bit()),
+            )
+            .field(
+                "lstimer3_ovf_int_raw",
+                &format_args!("{}", self.lstimer3_ovf_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch0_int_raw",
+                &format_args!("{}", self.duty_chng_end_lsch0_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch1_int_raw",
+                &format_args!("{}", self.duty_chng_end_lsch1_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch2_int_raw",
+                &format_args!("{}", self.duty_chng_end_lsch2_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch3_int_raw",
+                &format_args!("{}", self.duty_chng_end_lsch3_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch4_int_raw",
+                &format_args!("{}", self.duty_chng_end_lsch4_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch5_int_raw",
+                &format_args!("{}", self.duty_chng_end_lsch5_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch0_int_raw",
+                &format_args!("{}", self.ovf_cnt_lsch0_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch1_int_raw",
+                &format_args!("{}", self.ovf_cnt_lsch1_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch2_int_raw",
+                &format_args!("{}", self.ovf_cnt_lsch2_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch3_int_raw",
+                &format_args!("{}", self.ovf_cnt_lsch3_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch4_int_raw",
+                &format_args!("{}", self.ovf_cnt_lsch4_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_lsch5_int_raw",
+                &format_args!("{}", self.ovf_cnt_lsch5_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - reg_lstimer0_ovf_int_raw."]
     #[inline(always)]

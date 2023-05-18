@@ -45,6 +45,14 @@ impl R {
         WDT_FEED_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::WDTFEED")
+            .field("wdt_feed", &format_args!("{}", self.wdt_feed().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - Need add desc"]
     #[inline(always)]

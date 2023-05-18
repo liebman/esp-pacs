@@ -180,6 +180,35 @@ impl R {
         WR_BIT_ORDER_R::new(((self.bits >> 26) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL")
+            .field("ext_hold_en", &format_args!("{}", self.ext_hold_en().bit()))
+            .field("dummy_out", &format_args!("{}", self.dummy_out().bit()))
+            .field("faddr_dual", &format_args!("{}", self.faddr_dual().bit()))
+            .field("faddr_quad", &format_args!("{}", self.faddr_quad().bit()))
+            .field("faddr_oct", &format_args!("{}", self.faddr_oct().bit()))
+            .field("fcmd_dual", &format_args!("{}", self.fcmd_dual().bit()))
+            .field("fcmd_quad", &format_args!("{}", self.fcmd_quad().bit()))
+            .field("fcmd_oct", &format_args!("{}", self.fcmd_oct().bit()))
+            .field("fread_dual", &format_args!("{}", self.fread_dual().bit()))
+            .field("fread_quad", &format_args!("{}", self.fread_quad().bit()))
+            .field("fread_oct", &format_args!("{}", self.fread_oct().bit()))
+            .field("q_pol", &format_args!("{}", self.q_pol().bit()))
+            .field("d_pol", &format_args!("{}", self.d_pol().bit()))
+            .field("wp", &format_args!("{}", self.wp().bit()))
+            .field(
+                "rd_bit_order",
+                &format_args!("{}", self.rd_bit_order().bit()),
+            )
+            .field(
+                "wr_bit_order",
+                &format_args!("{}", self.wr_bit_order().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - Set the bit to hold spi. The bit is combined with SPI_USR_PREP_HOLD,SPI_USR_CMD_HOLD,SPI_USR_ADDR_HOLD,SPI_USR_DUMMY_HOLD,SPI_USR_DIN_HOLD,SPI_USR_DOUT_HOLD and SPI_USR_HOLD_POL. Can be configured in CONF state."]
     #[inline(always)]

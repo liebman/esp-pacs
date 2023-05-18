@@ -56,6 +56,21 @@ impl R {
         SWITCH_ICG_CNTL_WAIT_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_CK_CNTL")
+            .field(
+                "modify_icg_cntl_wait",
+                &format_args!("{}", self.modify_icg_cntl_wait().bits()),
+            )
+            .field(
+                "switch_icg_cntl_wait",
+                &format_args!("{}", self.switch_icg_cntl_wait().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - need_des"]
     #[inline(always)]

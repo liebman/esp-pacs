@@ -66,6 +66,25 @@ impl R {
         SPI_SMEM_EXTRA_DUMMY_CYCLELEN_R::new(((self.bits >> 2) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_TIMING_CALI")
+            .field(
+                "spi_smem_timing_clk_ena",
+                &format_args!("{}", self.spi_smem_timing_clk_ena().bit()),
+            )
+            .field(
+                "spi_smem_timing_cali",
+                &format_args!("{}", self.spi_smem_timing_cali().bit()),
+            )
+            .field(
+                "spi_smem_extra_dummy_cyclelen",
+                &format_args!("{}", self.spi_smem_extra_dummy_cyclelen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to power on HCLK. When PLL is powered on, the frequency of HCLK equals to that of PLL. Otherwise, the frequency equals to that of XTAL."]
     #[inline(always)]

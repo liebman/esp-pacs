@@ -74,6 +74,33 @@ impl R {
         L1_CACHE_WRAP_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_WRAP_AROUND_CTRL")
+            .field(
+                "l1_icache0_wrap",
+                &format_args!("{}", self.l1_icache0_wrap().bit()),
+            )
+            .field(
+                "l1_icache1_wrap",
+                &format_args!("{}", self.l1_icache1_wrap().bit()),
+            )
+            .field(
+                "l1_icache2_wrap",
+                &format_args!("{}", self.l1_icache2_wrap().bit()),
+            )
+            .field(
+                "l1_icache3_wrap",
+                &format_args!("{}", self.l1_icache3_wrap().bit()),
+            )
+            .field(
+                "l1_cache_wrap",
+                &format_args!("{}", self.l1_cache_wrap().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - Set this bit as 1 to enable L1-DCache wrap around mode."]
     #[inline(always)]

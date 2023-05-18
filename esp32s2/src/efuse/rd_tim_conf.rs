@@ -73,6 +73,20 @@ impl R {
         READ_INIT_NUM_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_TIM_CONF")
+            .field("thr_a", &format_args!("{}", self.thr_a().bits()))
+            .field("trd", &format_args!("{}", self.trd().bits()))
+            .field("tsur_a", &format_args!("{}", self.tsur_a().bits()))
+            .field(
+                "read_init_num",
+                &format_args!("{}", self.read_init_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Configures the hold time of read operation."]
     #[inline(always)]

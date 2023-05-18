@@ -46,6 +46,17 @@ impl R {
         TIMER_VALUE0_HIGH_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME_HIGH0")
+            .field(
+                "timer_value0_high",
+                &format_args!("{}", self.timer_value0_high().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - RTC timer high 16 bits"]
     #[inline(always)]

@@ -197,6 +197,117 @@ impl R {
         MMU_ENTRY_FAULT_ST_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_DBG_STATUS1")
+            .field(
+                "dbus0_acs_msk_dcache_st",
+                &format_args!("{}", self.dbus0_acs_msk_dcache_st().bit()),
+            )
+            .field(
+                "dbus1_acs_msk_dcache_st",
+                &format_args!("{}", self.dbus1_acs_msk_dcache_st().bit()),
+            )
+            .field(
+                "dbus2_acs_msk_dcache_st",
+                &format_args!("{}", self.dbus2_acs_msk_dcache_st().bit()),
+            )
+            .field(
+                "dbus0_acs_cnt_ovf_st",
+                &format_args!("{}", self.dbus0_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus1_acs_cnt_ovf_st",
+                &format_args!("{}", self.dbus1_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus2_acs_cnt_ovf_st",
+                &format_args!("{}", self.dbus2_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus0_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.dbus0_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus1_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.dbus1_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus2_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.dbus2_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus0_acs_wb_cnt_ovf_st",
+                &format_args!("{}", self.dbus0_acs_wb_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus1_acs_wb_cnt_ovf_st",
+                &format_args!("{}", self.dbus1_acs_wb_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus2_acs_wb_cnt_ovf_st",
+                &format_args!("{}", self.dbus2_acs_wb_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus0_abandon_cnt_ovf_st",
+                &format_args!("{}", self.dbus0_abandon_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus1_abandon_cnt_ovf_st",
+                &format_args!("{}", self.dbus1_abandon_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dbus2_abandon_cnt_ovf_st",
+                &format_args!("{}", self.dbus2_abandon_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dc_preload_miss_cnt_ovf_st",
+                &format_args!("{}", self.dc_preload_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dc_preload_evict_cnt_ovf_st",
+                &format_args!("{}", self.dc_preload_evict_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dc_preload_cnt_ovf_st",
+                &format_args!("{}", self.dc_preload_cnt_ovf_st().bit()),
+            )
+            .field(
+                "dc_sync_size_fault_st",
+                &format_args!("{}", self.dc_sync_size_fault_st().bit()),
+            )
+            .field(
+                "dc_preload_size_fault_st",
+                &format_args!("{}", self.dc_preload_size_fault_st().bit()),
+            )
+            .field(
+                "dcache_write_flash_st",
+                &format_args!("{}", self.dcache_write_flash_st().bit()),
+            )
+            .field(
+                "dcache_reject_st",
+                &format_args!("{}", self.dcache_reject_st().bit()),
+            )
+            .field(
+                "dcache_set_preload_ilg_st",
+                &format_args!("{}", self.dcache_set_preload_ilg_st().bit()),
+            )
+            .field(
+                "dcache_set_sync_ilg_st",
+                &format_args!("{}", self.dcache_set_sync_ilg_st().bit()),
+            )
+            .field(
+                "dcache_set_lock_ilg_st",
+                &format_args!("{}", self.dcache_set_lock_ilg_st().bit()),
+            )
+            .field(
+                "mmu_entry_fault_st",
+                &format_args!("{}", self.mmu_entry_fault_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cache_dbg_status1](index.html) module"]
 pub struct CACHE_DBG_STATUS1_SPEC;
 impl crate::RegisterSpec for CACHE_DBG_STATUS1_SPEC {

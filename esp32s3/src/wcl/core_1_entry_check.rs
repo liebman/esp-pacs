@@ -46,6 +46,17 @@ impl R {
         CORE_1_ENTRY_CHECK_R::new(((self.bits >> 1) & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_1_ENTRY_CHECK")
+            .field(
+                "core_1_entry_check",
+                &format_args!("{}", self.core_1_entry_check().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 1:13 - This filed is used to enable entry address check"]
     #[inline(always)]

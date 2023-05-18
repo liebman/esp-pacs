@@ -46,6 +46,17 @@ impl R {
         ENABLE1_DATA_W1TC_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::ENABLE1_W1TC")
+            .field(
+                "enable1_data_w1tc",
+                &format_args!("{}", self.enable1_data_w1tc().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - GPIO32~39 output enable write 1 to clear"]
     #[inline(always)]

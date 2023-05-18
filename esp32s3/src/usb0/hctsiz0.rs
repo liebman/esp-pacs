@@ -73,6 +73,20 @@ impl R {
         H_DOPNG0_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCTSIZ0")
+            .field(
+                "h_xfersize0",
+                &format_args!("{}", self.h_xfersize0().bits()),
+            )
+            .field("h_pktcnt0", &format_args!("{}", self.h_pktcnt0().bits()))
+            .field("h_pid0", &format_args!("{}", self.h_pid0().bits()))
+            .field("h_dopng0", &format_args!("{}", self.h_dopng0().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:18"]
     #[inline(always)]

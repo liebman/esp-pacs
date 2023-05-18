@@ -22,6 +22,17 @@ impl R {
         INLINK_DSCR_BF1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_DSCR_BF1_CH")
+            .field(
+                "inlink_dscr_bf1",
+                &format_args!("{}", self.inlink_dscr_bf1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "The second-to-last inlink descriptor address of Rx channel 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_dscr_bf1_ch](index.html) module"]
 pub struct IN_DSCR_BF1_CH_SPEC;
 impl crate::RegisterSpec for IN_DSCR_BF1_CH_SPEC {

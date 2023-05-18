@@ -66,6 +66,25 @@ impl R {
         LDO_READY_IGNORE_EN_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::SDIO_SLAVE_LDO_CONF")
+            .field(
+                "ldo_ready_ctl_in_en",
+                &format_args!("{}", self.ldo_ready_ctl_in_en().bit()),
+            )
+            .field(
+                "ldo_ready_thres",
+                &format_args!("{}", self.ldo_ready_thres().bits()),
+            )
+            .field(
+                "ldo_ready_ignore_en",
+                &format_args!("{}", self.ldo_ready_ignore_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - control ldo ready signal by sdio slave itself"]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         LOAD_LO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::TLOADLO")
+            .field("load_lo", &format_args!("{}", self.load_lo().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Low 32 bits of the value that a reload will load onto timer %s time-base Counter."]
     #[inline(always)]

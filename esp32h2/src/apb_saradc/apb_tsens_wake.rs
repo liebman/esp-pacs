@@ -81,6 +81,27 @@ impl R {
         WAKEUP_EN_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::APB_TSENS_WAKE")
+            .field(
+                "wakeup_th_low",
+                &format_args!("{}", self.wakeup_th_low().bits()),
+            )
+            .field(
+                "wakeup_th_high",
+                &format_args!("{}", self.wakeup_th_high().bits()),
+            )
+            .field(
+                "wakeup_over_upper_th",
+                &format_args!("{}", self.wakeup_over_upper_th().bit()),
+            )
+            .field("wakeup_mode", &format_args!("{}", self.wakeup_mode().bit()))
+            .field("wakeup_en", &format_args!("{}", self.wakeup_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - reg_wakeup_th_low"]
     #[inline(always)]

@@ -45,6 +45,14 @@ impl R {
         T_STRING_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::T_STRING")
+            .field("t_string", &format_args!("{}", self.t_string().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - sha t_string(used if and only if mode == sha_256/t)"]
     #[inline(always)]

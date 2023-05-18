@@ -46,6 +46,17 @@ impl R {
         TIMER_ALARM_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FRC_TIMER::TIMER_ALARM")
+            .field(
+                "timer_alarm",
+                &format_args!("{}", self.timer_alarm().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

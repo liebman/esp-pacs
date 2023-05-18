@@ -136,6 +136,61 @@ impl R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SYSTIMER_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_CONSTRAIN_6")
+            .field(
+                "core_0_pif_pms_constrain_world_1_bt",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_bt().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_i2c_ext0",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_i2c_ext0().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_uhci0",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_uhci0().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_rmt",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_rmt().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_ledc",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_ledc().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_bb",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_bb().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_timergroup",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_timergroup().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_timergroup1",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_timergroup1().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_systimer",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_systimer().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - core_0_pif_pms_constrain_world_1_bt"]
     #[inline(always)]

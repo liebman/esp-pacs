@@ -78,6 +78,34 @@ impl R {
         MISS_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::STATUS")
+            .field(
+                "receive_buffer",
+                &format_args!("{}", self.receive_buffer().bit()),
+            )
+            .field("overrun", &format_args!("{}", self.overrun().bit()))
+            .field(
+                "transmit_buffer",
+                &format_args!("{}", self.transmit_buffer().bit()),
+            )
+            .field(
+                "transmission_complete",
+                &format_args!("{}", self.transmission_complete().bit()),
+            )
+            .field("receive", &format_args!("{}", self.receive().bit()))
+            .field("transmit", &format_args!("{}", self.transmit().bit()))
+            .field("err", &format_args!("{}", self.err().bit()))
+            .field(
+                "node_bus_off",
+                &format_args!("{}", self.node_bus_off().bit()),
+            )
+            .field("miss", &format_args!("{}", self.miss().bit()))
+            .finish()
+    }
+}
 #[doc = "TWAI status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {

@@ -46,6 +46,17 @@ impl R {
         EDMA_BOUNDARY_0_R::new((self.bits & 0x3fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::EDMA_BOUNDARY_0")
+            .field(
+                "edma_boundary_0",
+                &format_args!("{}", self.edma_boundary_0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - This field is used to configure the boundary 0 of external RAM. The unit is 4K. For example, set this field to 0x80, then the address boundary 0 would be 0x3C080000 (0x3C000000 + 0x80 * 4K)."]
     #[inline(always)]

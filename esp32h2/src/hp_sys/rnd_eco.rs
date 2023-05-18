@@ -52,6 +52,18 @@ impl R {
         REDCY_RESULT_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::RND_ECO")
+            .field("redcy_ena", &format_args!("{}", self.redcy_ena().bit()))
+            .field(
+                "redcy_result",
+                &format_args!("{}", self.redcy_result().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Only reserved for ECO."]
     #[inline(always)]

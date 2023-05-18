@@ -63,6 +63,25 @@ impl R {
         RTC_CALI_TIMEOUT_THRES_R::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::RTCCALICFG2")
+            .field(
+                "rtc_cali_timeout",
+                &format_args!("{}", self.rtc_cali_timeout().bit()),
+            )
+            .field(
+                "rtc_cali_timeout_rst_cnt",
+                &format_args!("{}", self.rtc_cali_timeout_rst_cnt().bits()),
+            )
+            .field(
+                "rtc_cali_timeout_thres",
+                &format_args!("{}", self.rtc_cali_timeout_thres().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 3:6 - reg_rtc_cali_timeout_rst_cnt.Cyclesthatreleasecalibrationtimeoutreset"]
     #[inline(always)]

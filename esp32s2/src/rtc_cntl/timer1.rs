@@ -82,6 +82,30 @@ impl R {
         PLL_BUF_WAIT_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER1")
+            .field(
+                "cpu_stall_en",
+                &format_args!("{}", self.cpu_stall_en().bit()),
+            )
+            .field(
+                "cpu_stall_wait",
+                &format_args!("{}", self.cpu_stall_wait().bits()),
+            )
+            .field("ck8m_wait", &format_args!("{}", self.ck8m_wait().bits()))
+            .field(
+                "xtl_buf_wait",
+                &format_args!("{}", self.xtl_buf_wait().bits()),
+            )
+            .field(
+                "pll_buf_wait",
+                &format_args!("{}", self.pll_buf_wait().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enables CPU stalling."]
     #[inline(always)]

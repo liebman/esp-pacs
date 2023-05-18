@@ -46,6 +46,17 @@ impl R {
         WIFI_MAC_CRC_LOW_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_WDATA1")
+            .field(
+                "wifi_mac_crc_low",
+                &format_args!("{}", self.wifi_mac_crc_low().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - program for low 32bit WIFI_MAC_Address"]
     #[inline(always)]

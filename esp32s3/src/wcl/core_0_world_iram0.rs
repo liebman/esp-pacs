@@ -46,6 +46,17 @@ impl R {
         CORE_0_WORLD_IRAM0_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_World_IRam0")
+            .field(
+                "core_0_world_iram0",
+                &format_args!("{}", self.core_0_world_iram0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - this field is used to read current world of Iram0 bus"]
     #[inline(always)]

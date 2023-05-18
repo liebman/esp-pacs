@@ -46,6 +46,17 @@ impl R {
         ANA_WAIT_TARGET_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::SLP_WAKEUP_CNTL7")
+            .field(
+                "ana_wait_target",
+                &format_args!("{}", self.ana_wait_target().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:31 - need_des"]
     #[inline(always)]

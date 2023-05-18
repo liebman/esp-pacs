@@ -54,6 +54,18 @@ impl R {
         CLK_DEBUG_ENA_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_LPCON::TEST_CONF")
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "clk_debug_ena",
+                &format_args!("{}", self.clk_debug_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

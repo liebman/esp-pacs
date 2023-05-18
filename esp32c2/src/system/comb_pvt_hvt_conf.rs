@@ -59,6 +59,21 @@ impl R {
         COMB_PVT_MONITOR_EN_HVT_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::COMB_PVT_HVT_CONF")
+            .field(
+                "comb_path_len_hvt",
+                &format_args!("{}", self.comb_path_len_hvt().bits()),
+            )
+            .field(
+                "comb_pvt_monitor_en_hvt",
+                &format_args!("{}", self.comb_pvt_monitor_en_hvt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - reg_comb_path_len_hvt"]
     #[inline(always)]

@@ -45,6 +45,17 @@ impl R {
         FAST_ORI_GATE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::LP_CLK_EN")
+            .field(
+                "fast_ori_gate",
+                &format_args!("{}", self.fast_ori_gate().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

@@ -55,6 +55,18 @@ impl R {
         RESET_EVENT_BYPASS_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::RESET_EVENT_BYPASS")
+            .field("apm", &format_args!("{}", self.apm().bit()))
+            .field(
+                "reset_event_bypass",
+                &format_args!("{}", self.reset_event_bypass().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This field is used to control reset event relationship for tee_reg/apm_reg/hp_system_reg. 1: tee_reg/apm_reg/hp_system_reg will only be reset by power-reset. some reset event will be bypass. 0: tee_reg/apm_reg/hp_system_reg will not only be reset by power-reset, but also some reset event."]
     #[inline(always)]

@@ -76,6 +76,29 @@ impl R {
         PBUS_MEM_FORCE_PD_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::FRONT_END_MEM_PD")
+            .field(
+                "agc_mem_force_pu",
+                &format_args!("{}", self.agc_mem_force_pu().bit()),
+            )
+            .field(
+                "agc_mem_force_pd",
+                &format_args!("{}", self.agc_mem_force_pd().bit()),
+            )
+            .field(
+                "pbus_mem_force_pu",
+                &format_args!("{}", self.pbus_mem_force_pu().bit()),
+            )
+            .field(
+                "pbus_mem_force_pd",
+                &format_args!("{}", self.pbus_mem_force_pd().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

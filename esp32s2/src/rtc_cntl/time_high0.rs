@@ -22,6 +22,17 @@ impl R {
         TIMER_VALUE0_HIGH_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME_HIGH0")
+            .field(
+                "timer_value0_high",
+                &format_args!("{}", self.timer_value0_high().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Stores the higher 16 bits of RTC timer 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [time_high0](index.html) module"]
 pub struct TIME_HIGH0_SPEC;
 impl crate::RegisterSpec for TIME_HIGH0_SPEC {

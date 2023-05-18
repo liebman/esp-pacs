@@ -71,6 +71,45 @@ impl R {
         RD_FLASH_CRYPT_CONFIG_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_RDATA5")
+            .field(
+                "rd_spi_pad_config_clk",
+                &format_args!("{}", self.rd_spi_pad_config_clk().bits()),
+            )
+            .field(
+                "rd_spi_pad_config_q",
+                &format_args!("{}", self.rd_spi_pad_config_q().bits()),
+            )
+            .field(
+                "rd_spi_pad_config_d",
+                &format_args!("{}", self.rd_spi_pad_config_d().bits()),
+            )
+            .field(
+                "rd_spi_pad_config_cs0",
+                &format_args!("{}", self.rd_spi_pad_config_cs0().bits()),
+            )
+            .field(
+                "rd_chip_ver_rev2",
+                &format_args!("{}", self.rd_chip_ver_rev2().bit()),
+            )
+            .field(
+                "rd_vol_level_hp_inv",
+                &format_args!("{}", self.rd_vol_level_hp_inv().bits()),
+            )
+            .field(
+                "rd_wafer_version_minor",
+                &format_args!("{}", self.rd_wafer_version_minor().bits()),
+            )
+            .field(
+                "rd_flash_crypt_config",
+                &format_args!("{}", self.rd_flash_crypt_config().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [blk0_rdata5](index.html) module"]
 pub struct BLK0_RDATA5_SPEC;
 impl crate::RegisterSpec for BLK0_RDATA5_SPEC {

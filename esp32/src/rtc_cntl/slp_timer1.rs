@@ -56,6 +56,18 @@ impl R {
         MAIN_TIMER_ALARM_EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_TIMER1")
+            .field("slp_val_hi", &format_args!("{}", self.slp_val_hi().bits()))
+            .field(
+                "main_timer_alarm_en",
+                &format_args!("{}", self.main_timer_alarm_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - RTC sleep timer high 16 bits"]
     #[inline(always)]

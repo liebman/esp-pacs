@@ -76,6 +76,29 @@ impl R {
         SARADC_SAMPLE_CYCLE_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::APB_SARADC_FSM")
+            .field(
+                "saradc_rstb_wait",
+                &format_args!("{}", self.saradc_rstb_wait().bits()),
+            )
+            .field(
+                "saradc_standby_wait",
+                &format_args!("{}", self.saradc_standby_wait().bits()),
+            )
+            .field(
+                "saradc_start_wait",
+                &format_args!("{}", self.saradc_start_wait().bits()),
+            )
+            .field(
+                "saradc_sample_cycle",
+                &format_args!("{}", self.saradc_sample_cycle().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

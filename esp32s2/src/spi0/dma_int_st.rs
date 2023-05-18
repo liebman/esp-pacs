@@ -158,6 +158,77 @@ impl R {
         SLV_CMDA_INT_ST_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_INT_ST")
+            .field(
+                "inlink_dscr_empty_int_st",
+                &format_args!("{}", self.inlink_dscr_empty_int_st().bit()),
+            )
+            .field(
+                "outlink_dscr_error_int_st",
+                &format_args!("{}", self.outlink_dscr_error_int_st().bit()),
+            )
+            .field(
+                "inlink_dscr_error_int_st",
+                &format_args!("{}", self.inlink_dscr_error_int_st().bit()),
+            )
+            .field(
+                "in_done_int_st",
+                &format_args!("{}", self.in_done_int_st().bit()),
+            )
+            .field(
+                "in_err_eof_int_st",
+                &format_args!("{}", self.in_err_eof_int_st().bit()),
+            )
+            .field(
+                "in_suc_eof_int_st",
+                &format_args!("{}", self.in_suc_eof_int_st().bit()),
+            )
+            .field(
+                "out_done_int_st",
+                &format_args!("{}", self.out_done_int_st().bit()),
+            )
+            .field(
+                "out_eof_int_st",
+                &format_args!("{}", self.out_eof_int_st().bit()),
+            )
+            .field(
+                "out_total_eof_int_st",
+                &format_args!("{}", self.out_total_eof_int_st().bit()),
+            )
+            .field(
+                "infifo_full_err_int_st",
+                &format_args!("{}", self.infifo_full_err_int_st().bit()),
+            )
+            .field(
+                "outfifo_empty_err_int_st",
+                &format_args!("{}", self.outfifo_empty_err_int_st().bit()),
+            )
+            .field(
+                "slv_cmd6_int_st",
+                &format_args!("{}", self.slv_cmd6_int_st().bit()),
+            )
+            .field(
+                "slv_cmd7_int_st",
+                &format_args!("{}", self.slv_cmd7_int_st().bit()),
+            )
+            .field(
+                "slv_cmd8_int_st",
+                &format_args!("{}", self.slv_cmd8_int_st().bit()),
+            )
+            .field(
+                "slv_cmd9_int_st",
+                &format_args!("{}", self.slv_cmd9_int_st().bit()),
+            )
+            .field(
+                "slv_cmda_int_st",
+                &format_args!("{}", self.slv_cmda_int_st().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 11 - The status bit for SPI slave CMD6 interrupt."]
     #[inline(always)]

@@ -117,6 +117,22 @@ impl R {
         DINS_MODE_R::new(((self.bits >> 24) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DIN_MODE")
+            .field("din0_mode", &format_args!("{}", self.din0_mode().bits()))
+            .field("din1_mode", &format_args!("{}", self.din1_mode().bits()))
+            .field("din2_mode", &format_args!("{}", self.din2_mode().bits()))
+            .field("din3_mode", &format_args!("{}", self.din3_mode().bits()))
+            .field("din4_mode", &format_args!("{}", self.din4_mode().bits()))
+            .field("din5_mode", &format_args!("{}", self.din5_mode().bits()))
+            .field("din6_mode", &format_args!("{}", self.din6_mode().bits()))
+            .field("din7_mode", &format_args!("{}", self.din7_mode().bits()))
+            .field("dins_mode", &format_args!("{}", self.dins_mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - SPI_D input delay mode. 0: No delay. 1: Delay for (SPI_MEM_DIN0_NUM+1) cycles at MSPI_CORE_CLK negative edge. 2: Delay for (SPI_MEM_DIN0_NUM+1) cycles at HCLK positive edge and one cycle at MSPI_CORE_CLK positive edge. 3: Delay for (SPI_MEM_DIN0_NUM+1) cycles at HCLK positive edge and one cycle at MSPI_CORE_CLK negative edge. 4: Delay for (SPI_MEM_DIN0_NUM+1) cycles at HCLK negative edge and one cycle at MSPI_CORE_CLK positive edge. 5: Delay for (SPI_MEM_DIN0_NUM+1) cycles at HCLK negative edge and one cycle at MSPI_CORE_CLK negative edge."]
     #[inline(always)]

@@ -84,6 +84,37 @@ impl R {
         L1_DBUS3_OVF_INT_CLR_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_ACS_CNT_INT_CLR")
+            .field(
+                "l1_ibus0_ovf_int_clr",
+                &format_args!("{}", self.l1_ibus0_ovf_int_clr().bit()),
+            )
+            .field(
+                "l1_ibus1_ovf_int_clr",
+                &format_args!("{}", self.l1_ibus1_ovf_int_clr().bit()),
+            )
+            .field(
+                "l1_ibus2_ovf_int_clr",
+                &format_args!("{}", self.l1_ibus2_ovf_int_clr().bit()),
+            )
+            .field(
+                "l1_ibus3_ovf_int_clr",
+                &format_args!("{}", self.l1_ibus3_ovf_int_clr().bit()),
+            )
+            .field(
+                "l1_dbus2_ovf_int_clr",
+                &format_args!("{}", self.l1_dbus2_ovf_int_clr().bit()),
+            )
+            .field(
+                "l1_dbus3_ovf_int_clr",
+                &format_args!("{}", self.l1_dbus3_ovf_int_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - The bit is used to clear counters overflow interrupt and counters in L1-DCache due to bus0 accesses L1-DCache."]
     #[inline(always)]

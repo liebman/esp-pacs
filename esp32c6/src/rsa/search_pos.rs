@@ -46,6 +46,14 @@ impl R {
         SEARCH_POS_R::new((self.bits & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA::SEARCH_POS")
+            .field("search_pos", &format_args!("{}", self.search_pos().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - Configure this field to set search position. This field should be used together with RSA_SEARCH_ENABLE. The field is only meaningful when RSA_SEARCH_ENABLE is high."]
     #[inline(always)]

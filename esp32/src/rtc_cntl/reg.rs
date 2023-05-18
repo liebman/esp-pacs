@@ -126,6 +126,38 @@ impl R {
         FORCE_PU_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::REG")
+            .field(
+                "sck_dcap_force",
+                &format_args!("{}", self.sck_dcap_force().bit()),
+            )
+            .field(
+                "dig_dbias_slp",
+                &format_args!("{}", self.dig_dbias_slp().bits()),
+            )
+            .field(
+                "dig_dbias_wak",
+                &format_args!("{}", self.dig_dbias_wak().bits()),
+            )
+            .field("sck_dcap", &format_args!("{}", self.sck_dcap().bits()))
+            .field("dbias_slp", &format_args!("{}", self.dbias_slp().bits()))
+            .field("dbias_wak", &format_args!("{}", self.dbias_wak().bits()))
+            .field(
+                "dboost_force_pd",
+                &format_args!("{}", self.dboost_force_pd().bit()),
+            )
+            .field(
+                "dboost_force_pu",
+                &format_args!("{}", self.dboost_force_pu().bit()),
+            )
+            .field("force_pd", &format_args!("{}", self.force_pd().bit()))
+            .field("force_pu", &format_args!("{}", self.force_pu().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 7 - N/A"]
     #[inline(always)]

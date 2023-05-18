@@ -63,6 +63,25 @@ impl R {
         L1_CACHE_PRELOCK_RGID_R::new(((self.bits >> 2) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_PRELOCK_CONF")
+            .field(
+                "l1_cache_prelock_sct0_en",
+                &format_args!("{}", self.l1_cache_prelock_sct0_en().bit()),
+            )
+            .field(
+                "l1_cache_prelock_sct1_en",
+                &format_args!("{}", self.l1_cache_prelock_sct1_en().bit()),
+            )
+            .field(
+                "l1_cache_prelock_rgid",
+                &format_args!("{}", self.l1_cache_prelock_rgid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable the first section of prelock function on L1-Cache."]
     #[inline(always)]

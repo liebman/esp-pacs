@@ -117,6 +117,22 @@ impl R {
         FSM_R::new(((self.bits >> 13) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::IDSTS")
+            .field("ti", &format_args!("{}", self.ti().bit()))
+            .field("ri", &format_args!("{}", self.ri().bit()))
+            .field("fbe", &format_args!("{}", self.fbe().bit()))
+            .field("du", &format_args!("{}", self.du().bit()))
+            .field("ces", &format_args!("{}", self.ces().bit()))
+            .field("nis", &format_args!("{}", self.nis().bit()))
+            .field("ais", &format_args!("{}", self.ais().bit()))
+            .field("fbe_code", &format_args!("{}", self.fbe_code().bits()))
+            .field("fsm", &format_args!("{}", self.fsm().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Transmit Interrupt. Indicates that data transmission is finished for a descriptor. Writing 1 clears this bit."]
     #[inline(always)]

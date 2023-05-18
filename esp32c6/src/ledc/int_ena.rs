@@ -186,6 +186,77 @@ impl R {
         OVF_CNT_CH5_INT_ENA_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_ENA")
+            .field(
+                "timer0_ovf_int_ena",
+                &format_args!("{}", self.timer0_ovf_int_ena().bit()),
+            )
+            .field(
+                "timer1_ovf_int_ena",
+                &format_args!("{}", self.timer1_ovf_int_ena().bit()),
+            )
+            .field(
+                "timer2_ovf_int_ena",
+                &format_args!("{}", self.timer2_ovf_int_ena().bit()),
+            )
+            .field(
+                "timer3_ovf_int_ena",
+                &format_args!("{}", self.timer3_ovf_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_ch0_int_ena",
+                &format_args!("{}", self.duty_chng_end_ch0_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_ch1_int_ena",
+                &format_args!("{}", self.duty_chng_end_ch1_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_ch2_int_ena",
+                &format_args!("{}", self.duty_chng_end_ch2_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_ch3_int_ena",
+                &format_args!("{}", self.duty_chng_end_ch3_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_ch4_int_ena",
+                &format_args!("{}", self.duty_chng_end_ch4_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_ch5_int_ena",
+                &format_args!("{}", self.duty_chng_end_ch5_int_ena().bit()),
+            )
+            .field(
+                "ovf_cnt_ch0_int_ena",
+                &format_args!("{}", self.ovf_cnt_ch0_int_ena().bit()),
+            )
+            .field(
+                "ovf_cnt_ch1_int_ena",
+                &format_args!("{}", self.ovf_cnt_ch1_int_ena().bit()),
+            )
+            .field(
+                "ovf_cnt_ch2_int_ena",
+                &format_args!("{}", self.ovf_cnt_ch2_int_ena().bit()),
+            )
+            .field(
+                "ovf_cnt_ch3_int_ena",
+                &format_args!("{}", self.ovf_cnt_ch3_int_ena().bit()),
+            )
+            .field(
+                "ovf_cnt_ch4_int_ena",
+                &format_args!("{}", self.ovf_cnt_ch4_int_ena().bit()),
+            )
+            .field(
+                "ovf_cnt_ch5_int_ena",
+                &format_args!("{}", self.ovf_cnt_ch5_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The interrupt enable bit for the LEDC_TIMER0_OVF_INT interrupt."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         CORE_0_VECBASE_WORLD_MASK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_VECBASE_OVERRIDE_0")
+            .field(
+                "core_0_vecbase_world_mask",
+                &format_args!("{}", self.core_0_vecbase_world_mask().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to mask world, then only world0_value will work."]
     #[inline(always)]

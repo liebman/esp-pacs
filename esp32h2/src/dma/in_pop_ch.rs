@@ -45,6 +45,17 @@ impl R {
         INFIFO_RDATA_R::new((self.bits & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_POP_CH")
+            .field(
+                "infifo_rdata",
+                &format_args!("{}", self.infifo_rdata().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - Set this bit to pop data from DMA FIFO."]
     #[inline(always)]

@@ -56,6 +56,21 @@ impl R {
         HP_SLEEP_PD_LP_PERI_PD_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_SLEEP_LP_DIG_POWER")
+            .field(
+                "hp_sleep_lp_mem_dslp",
+                &format_args!("{}", self.hp_sleep_lp_mem_dslp().bit()),
+            )
+            .field(
+                "hp_sleep_pd_lp_peri_pd_en",
+                &format_args!("{}", self.hp_sleep_pd_lp_peri_pd_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

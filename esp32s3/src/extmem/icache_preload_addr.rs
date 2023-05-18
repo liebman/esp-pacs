@@ -46,6 +46,17 @@ impl R {
         ICACHE_PRELOAD_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_PRELOAD_ADDR")
+            .field(
+                "icache_preload_addr",
+                &format_args!("{}", self.icache_preload_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the start virtual address for preload operation. It should be combined with ICACHE_PRELOAD_SIZE_REG."]
     #[inline(always)]

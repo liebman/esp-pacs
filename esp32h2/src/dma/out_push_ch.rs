@@ -48,6 +48,17 @@ impl R {
         OUTFIFO_WDATA_R::new((self.bits & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_PUSH_CH")
+            .field(
+                "outfifo_wdata",
+                &format_args!("{}", self.outfifo_wdata().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - This register stores the data that need to be pushed into DMA FIFO."]
     #[inline(always)]

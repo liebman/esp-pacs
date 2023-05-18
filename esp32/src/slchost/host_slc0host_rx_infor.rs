@@ -46,6 +46,17 @@ impl R {
         HOST_SLC0HOST_RX_INFOR_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLC0HOST_RX_INFOR")
+            .field(
+                "host_slc0host_rx_infor",
+                &format_args!("{}", self.host_slc0host_rx_infor().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19"]
     #[inline(always)]

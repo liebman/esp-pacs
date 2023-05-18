@@ -66,6 +66,25 @@ impl R {
         CLK_FORCE_ON_CRYPT_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_ENCRYPT_DECRYPT_CLK_FORCE_ON")
+            .field(
+                "clk_force_on_manual_crypt",
+                &format_args!("{}", self.clk_force_on_manual_crypt().bit()),
+            )
+            .field(
+                "clk_force_on_auto_crypt",
+                &format_args!("{}", self.clk_force_on_auto_crypt().bit()),
+            )
+            .field(
+                "clk_force_on_crypt",
+                &format_args!("{}", self.clk_force_on_crypt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to close clock gating of manual crypt clock. 1: close gating, 0: open clock gating."]
     #[inline(always)]

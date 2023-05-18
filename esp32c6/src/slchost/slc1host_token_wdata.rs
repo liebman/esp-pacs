@@ -56,6 +56,21 @@ impl R {
         SLC1HOST_TOKEN1_WD_R::new(((self.bits >> 16) & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::SLC1HOST_TOKEN_WDATA")
+            .field(
+                "slc1host_token0_wd",
+                &format_args!("{}", self.slc1host_token0_wd().bits()),
+            )
+            .field(
+                "slc1host_token1_wd",
+                &format_args!("{}", self.slc1host_token1_wd().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - *******Description***********"]
     #[inline(always)]

@@ -29,6 +29,21 @@ impl R {
         SAR_TOUCH_PAD5_DEBOUNCE_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_STATUS5")
+            .field(
+                "sar_touch_pad5_data",
+                &format_args!("{}", self.sar_touch_pad5_data().bits()),
+            )
+            .field(
+                "sar_touch_pad5_debounce",
+                &format_args!("{}", self.sar_touch_pad5_debounce().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "touch channel status of touch pad 5\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar_touch_status5](index.html) module"]
 pub struct SAR_TOUCH_STATUS5_SPEC;
 impl crate::RegisterSpec for SAR_TOUCH_STATUS5_SPEC {

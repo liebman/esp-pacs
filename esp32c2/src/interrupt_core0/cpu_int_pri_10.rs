@@ -46,6 +46,17 @@ impl R {
         CPU_PRI_10_MAP_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::CPU_INT_PRI_10")
+            .field(
+                "cpu_pri_10_map",
+                &format_args!("{}", self.cpu_pri_10_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Need add description"]
     #[inline(always)]

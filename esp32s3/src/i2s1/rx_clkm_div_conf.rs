@@ -76,6 +76,29 @@ impl R {
         RX_CLKM_DIV_YN1_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::RX_CLKM_DIV_CONF")
+            .field(
+                "rx_clkm_div_z",
+                &format_args!("{}", self.rx_clkm_div_z().bits()),
+            )
+            .field(
+                "rx_clkm_div_y",
+                &format_args!("{}", self.rx_clkm_div_y().bits()),
+            )
+            .field(
+                "rx_clkm_div_x",
+                &format_args!("{}", self.rx_clkm_div_x().bits()),
+            )
+            .field(
+                "rx_clkm_div_yn1",
+                &format_args!("{}", self.rx_clkm_div_yn1().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_Z is b. For b > a/2, the value of I2S_RX_CLKM_DIV_Z is (a-b)."]
     #[inline(always)]

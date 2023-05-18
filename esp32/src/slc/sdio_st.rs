@@ -57,6 +57,25 @@ impl R {
         FUNC2_ACC_STATE_R::new(((self.bits >> 24) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::SDIO_ST")
+            .field("cmd_st", &format_args!("{}", self.cmd_st().bits()))
+            .field("func_st", &format_args!("{}", self.func_st().bits()))
+            .field("sdio_wakeup", &format_args!("{}", self.sdio_wakeup().bit()))
+            .field("bus_st", &format_args!("{}", self.bus_st().bits()))
+            .field(
+                "func1_acc_state",
+                &format_args!("{}", self.func1_acc_state().bits()),
+            )
+            .field(
+                "func2_acc_state",
+                &format_args!("{}", self.func2_acc_state().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sdio_st](index.html) module"]
 pub struct SDIO_ST_SPEC;
 impl crate::RegisterSpec for SDIO_ST_SPEC {

@@ -78,6 +78,25 @@ impl R {
         NUM_CLK_DIV_R::new(((self.bits >> 24) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::HCON")
+            .field("card_type", &format_args!("{}", self.card_type().bit()))
+            .field("card_num", &format_args!("{}", self.card_num().bits()))
+            .field("bus_type", &format_args!("{}", self.bus_type().bit()))
+            .field("data_width", &format_args!("{}", self.data_width().bits()))
+            .field("addr_width", &format_args!("{}", self.addr_width().bits()))
+            .field("dma_width", &format_args!("{}", self.dma_width().bits()))
+            .field("ram_indise", &format_args!("{}", self.ram_indise().bit()))
+            .field("hold", &format_args!("{}", self.hold().bit()))
+            .field(
+                "num_clk_div",
+                &format_args!("{}", self.num_clk_div().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Hardware feature register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hcon](index.html) module"]
 pub struct HCON_SPEC;
 impl crate::RegisterSpec for HCON_SPEC {

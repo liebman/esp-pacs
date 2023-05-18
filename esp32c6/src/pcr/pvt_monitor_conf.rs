@@ -86,6 +86,33 @@ impl R {
         PVT_MONITOR_SITE3_CLK_EN_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::PVT_MONITOR_CONF")
+            .field(
+                "pvt_monitor_clk_en",
+                &format_args!("{}", self.pvt_monitor_clk_en().bit()),
+            )
+            .field(
+                "pvt_monitor_rst_en",
+                &format_args!("{}", self.pvt_monitor_rst_en().bit()),
+            )
+            .field(
+                "pvt_monitor_site1_clk_en",
+                &format_args!("{}", self.pvt_monitor_site1_clk_en().bit()),
+            )
+            .field(
+                "pvt_monitor_site2_clk_en",
+                &format_args!("{}", self.pvt_monitor_site2_clk_en().bit()),
+            )
+            .field(
+                "pvt_monitor_site3_clk_en",
+                &format_args!("{}", self.pvt_monitor_site3_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable apb clock of pvt module"]
     #[inline(always)]

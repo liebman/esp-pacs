@@ -90,6 +90,37 @@ impl R {
         SERIAL_IN_AFIFO_WFULL_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::SER_AFIFO_CONFIG")
+            .field(
+                "serial_in_afifo_reset_wr",
+                &format_args!("{}", self.serial_in_afifo_reset_wr().bit()),
+            )
+            .field(
+                "serial_in_afifo_reset_rd",
+                &format_args!("{}", self.serial_in_afifo_reset_rd().bit()),
+            )
+            .field(
+                "serial_out_afifo_reset_wr",
+                &format_args!("{}", self.serial_out_afifo_reset_wr().bit()),
+            )
+            .field(
+                "serial_out_afifo_reset_rd",
+                &format_args!("{}", self.serial_out_afifo_reset_rd().bit()),
+            )
+            .field(
+                "serial_out_afifo_rempty",
+                &format_args!("{}", self.serial_out_afifo_rempty().bit()),
+            )
+            .field(
+                "serial_in_afifo_wfull",
+                &format_args!("{}", self.serial_in_afifo_wfull().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Write 1 to reset CDC_ACM IN async FIFO write clock domain."]
     #[inline(always)]

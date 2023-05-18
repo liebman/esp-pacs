@@ -45,6 +45,14 @@ impl R {
         ENABLE_R::new((self.bits >> 14) & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::ENABLE")
+            .field("enable", &format_args!("{}", self.enable().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 14:31 - GPIO0~17 output enable"]
     #[inline(always)]

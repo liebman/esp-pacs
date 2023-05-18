@@ -49,6 +49,14 @@ impl R {
         MEAS_TIME_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TOUCH_APPROACH")
+            .field("meas_time", &format_args!("{}", self.meas_time().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 23 - Clear touch sleep channel."]
     #[inline(always)]

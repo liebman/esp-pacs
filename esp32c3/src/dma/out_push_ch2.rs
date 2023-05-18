@@ -55,6 +55,21 @@ impl R {
         OUTFIFO_PUSH_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_PUSH_CH2")
+            .field(
+                "outfifo_wdata",
+                &format_args!("{}", self.outfifo_wdata().bits()),
+            )
+            .field(
+                "outfifo_push",
+                &format_args!("{}", self.outfifo_push().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - This register stores the data that need to be pushed into DMA FIFO."]
     #[inline(always)]

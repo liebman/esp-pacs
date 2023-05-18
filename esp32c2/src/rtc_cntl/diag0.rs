@@ -46,6 +46,17 @@ impl R {
         LOW_POWER_DIAG1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::DIAG0")
+            .field(
+                "low_power_diag1",
+                &format_args!("{}", self.low_power_diag1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Need add desc"]
     #[inline(always)]

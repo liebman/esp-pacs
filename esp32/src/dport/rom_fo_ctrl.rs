@@ -64,6 +64,19 @@ impl R {
         SHARE_ROM_FO_R::new(((self.bits >> 2) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::ROM_FO_CTRL")
+            .field("pro_rom_fo", &format_args!("{}", self.pro_rom_fo().bit()))
+            .field("app_rom_fo", &format_args!("{}", self.app_rom_fo().bit()))
+            .field(
+                "share_rom_fo",
+                &format_args!("{}", self.share_rom_fo().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

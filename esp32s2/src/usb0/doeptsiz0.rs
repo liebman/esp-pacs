@@ -63,6 +63,16 @@ impl R {
         SUPCNT0_R::new(((self.bits >> 29) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DOEPTSIZ0")
+            .field("xfersize0", &format_args!("{}", self.xfersize0().bits()))
+            .field("pktcnt0", &format_args!("{}", self.pktcnt0().bit()))
+            .field("supcnt0", &format_args!("{}", self.supcnt0().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6"]
     #[inline(always)]

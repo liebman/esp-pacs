@@ -92,6 +92,57 @@ impl R {
         HYS_EN_PAD0_ERR_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_ERR3")
+            .field(
+                "dis_download_mode_err",
+                &format_args!("{}", self.dis_download_mode_err().bit()),
+            )
+            .field(
+                "dis_direct_boot_err",
+                &format_args!("{}", self.dis_direct_boot_err().bit()),
+            )
+            .field(
+                "usb_print_err",
+                &format_args!("{}", self.usb_print_err().bit()),
+            )
+            .field(
+                "rpt4_reserved3_err_5",
+                &format_args!("{}", self.rpt4_reserved3_err_5().bit()),
+            )
+            .field(
+                "dis_usb_serial_jtag_download_mode_err",
+                &format_args!("{}", self.dis_usb_serial_jtag_download_mode_err().bit()),
+            )
+            .field(
+                "enable_security_download_err",
+                &format_args!("{}", self.enable_security_download_err().bit()),
+            )
+            .field(
+                "uart_print_control_err",
+                &format_args!("{}", self.uart_print_control_err().bits()),
+            )
+            .field(
+                "force_send_resume_err",
+                &format_args!("{}", self.force_send_resume_err().bit()),
+            )
+            .field(
+                "secure_version_err",
+                &format_args!("{}", self.secure_version_err().bits()),
+            )
+            .field(
+                "secure_boot_disable_fast_wake_err",
+                &format_args!("{}", self.secure_boot_disable_fast_wake_err().bit()),
+            )
+            .field(
+                "hys_en_pad0_err",
+                &format_args!("{}", self.hys_en_pad0_err().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Programming error record register 3 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_err3](index.html) module"]
 pub struct RD_REPEAT_ERR3_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_ERR3_SPEC {

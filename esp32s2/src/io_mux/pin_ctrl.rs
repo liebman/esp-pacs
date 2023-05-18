@@ -82,6 +82,33 @@ impl R {
         PAD_POWER_CTRL_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IO_MUX::PIN_CTRL")
+            .field(
+                "pin_clk_out1",
+                &format_args!("{}", self.pin_clk_out1().bits()),
+            )
+            .field(
+                "pin_clk_out2",
+                &format_args!("{}", self.pin_clk_out2().bits()),
+            )
+            .field(
+                "pin_clk_out3",
+                &format_args!("{}", self.pin_clk_out3().bits()),
+            )
+            .field(
+                "switch_prt_num",
+                &format_args!("{}", self.switch_prt_num().bits()),
+            )
+            .field(
+                "pad_power_ctrl",
+                &format_args!("{}", self.pad_power_ctrl().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Configure I2S0 clock output. 0: output I2S0 clock to CLK_OUT1. 15: disabled."]
     #[inline(always)]

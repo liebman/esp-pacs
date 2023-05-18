@@ -63,6 +63,25 @@ impl R {
         TARGET2_INT_ENA_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::INT_ENA")
+            .field(
+                "target0_int_ena",
+                &format_args!("{}", self.target0_int_ena().bit()),
+            )
+            .field(
+                "target1_int_ena",
+                &format_args!("{}", self.target1_int_ena().bit()),
+            )
+            .field(
+                "target2_int_ena",
+                &format_args!("{}", self.target2_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Interrupt enable bit of system timer target 0."]
     #[inline(always)]

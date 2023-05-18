@@ -106,6 +106,41 @@ impl R {
         APB_SARADC1_DONE_INT_RAW_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::INT_RAW")
+            .field(
+                "apb_saradc_tsens_int_raw",
+                &format_args!("{}", self.apb_saradc_tsens_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres1_low_int_raw",
+                &format_args!("{}", self.apb_saradc_thres1_low_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres0_low_int_raw",
+                &format_args!("{}", self.apb_saradc_thres0_low_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres1_high_int_raw",
+                &format_args!("{}", self.apb_saradc_thres1_high_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc_thres0_high_int_raw",
+                &format_args!("{}", self.apb_saradc_thres0_high_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc2_done_int_raw",
+                &format_args!("{}", self.apb_saradc2_done_int_raw().bit()),
+            )
+            .field(
+                "apb_saradc1_done_int_raw",
+                &format_args!("{}", self.apb_saradc1_done_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 25 - saradc tsens interrupt raw"]
     #[inline(always)]

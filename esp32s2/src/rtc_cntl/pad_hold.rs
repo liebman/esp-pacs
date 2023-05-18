@@ -234,6 +234,80 @@ impl R {
         PAD21_HOLD_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::PAD_HOLD")
+            .field(
+                "touch_pad0_hold",
+                &format_args!("{}", self.touch_pad0_hold().bit()),
+            )
+            .field(
+                "touch_pad1_hold",
+                &format_args!("{}", self.touch_pad1_hold().bit()),
+            )
+            .field(
+                "touch_pad2_hold",
+                &format_args!("{}", self.touch_pad2_hold().bit()),
+            )
+            .field(
+                "touch_pad3_hold",
+                &format_args!("{}", self.touch_pad3_hold().bit()),
+            )
+            .field(
+                "touch_pad4_hold",
+                &format_args!("{}", self.touch_pad4_hold().bit()),
+            )
+            .field(
+                "touch_pad5_hold",
+                &format_args!("{}", self.touch_pad5_hold().bit()),
+            )
+            .field(
+                "touch_pad6_hold",
+                &format_args!("{}", self.touch_pad6_hold().bit()),
+            )
+            .field(
+                "touch_pad7_hold",
+                &format_args!("{}", self.touch_pad7_hold().bit()),
+            )
+            .field(
+                "touch_pad8_hold",
+                &format_args!("{}", self.touch_pad8_hold().bit()),
+            )
+            .field(
+                "touch_pad9_hold",
+                &format_args!("{}", self.touch_pad9_hold().bit()),
+            )
+            .field(
+                "touch_pad10_hold",
+                &format_args!("{}", self.touch_pad10_hold().bit()),
+            )
+            .field(
+                "touch_pad11_hold",
+                &format_args!("{}", self.touch_pad11_hold().bit()),
+            )
+            .field(
+                "touch_pad12_hold",
+                &format_args!("{}", self.touch_pad12_hold().bit()),
+            )
+            .field(
+                "touch_pad13_hold",
+                &format_args!("{}", self.touch_pad13_hold().bit()),
+            )
+            .field(
+                "touch_pad14_hold",
+                &format_args!("{}", self.touch_pad14_hold().bit()),
+            )
+            .field("x32p_hold", &format_args!("{}", self.x32p_hold().bit()))
+            .field("x32n_hold", &format_args!("{}", self.x32n_hold().bit()))
+            .field("pdac1_hold", &format_args!("{}", self.pdac1_hold().bit()))
+            .field("pdac2_hold", &format_args!("{}", self.pdac2_hold().bit()))
+            .field("pad19_hold", &format_args!("{}", self.pad19_hold().bit()))
+            .field("pad20_hold", &format_args!("{}", self.pad20_hold().bit()))
+            .field("pad21_hold", &format_args!("{}", self.pad21_hold().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Sets the touch GPIO 0 to hold."]
     #[inline(always)]

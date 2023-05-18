@@ -74,6 +74,26 @@ impl R {
         RST_TICK_CNT_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::CTRL_TICK_CONF")
+            .field(
+                "xtal_tick_num",
+                &format_args!("{}", self.xtal_tick_num().bits()),
+            )
+            .field(
+                "fosc_tick_num",
+                &format_args!("{}", self.fosc_tick_num().bits()),
+            )
+            .field("tick_enable", &format_args!("{}", self.tick_enable().bit()))
+            .field(
+                "rst_tick_cnt",
+                &format_args!("{}", self.rst_tick_cnt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - ******* Description ***********"]
     #[inline(always)]

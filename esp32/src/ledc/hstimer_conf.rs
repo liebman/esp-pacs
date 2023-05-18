@@ -91,6 +91,19 @@ impl R {
         LIM_R::new(((self.bits >> 31) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::HSTIMER_CONF")
+            .field("duty_res", &format_args!("{}", self.duty_res().bits()))
+            .field("div_num", &format_args!("{}", self.div_num().bits()))
+            .field("pause", &format_args!("{}", self.pause().bit()))
+            .field("rst", &format_args!("{}", self.rst().bit()))
+            .field("tick_sel", &format_args!("{}", self.tick_sel().bit()))
+            .field("lim", &format_args!("{}", self.lim().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - This register controls the range of the counter in high speed timer0. the counter range is \\[0 2**reg_hstimer0_lim\\] the max bit width for counter is 20."]
     #[inline(always)]

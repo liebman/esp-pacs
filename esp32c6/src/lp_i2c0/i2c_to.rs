@@ -55,6 +55,21 @@ impl R {
         I2C_TIME_OUT_EN_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::I2C_TO")
+            .field(
+                "i2c_time_out_value",
+                &format_args!("{}", self.i2c_time_out_value().bits()),
+            )
+            .field(
+                "i2c_time_out_en",
+                &format_args!("{}", self.i2c_time_out_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - This register is used to configure the timeout for receiving a data bit in APB clock cycles."]
     #[inline(always)]

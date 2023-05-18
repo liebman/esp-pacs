@@ -52,6 +52,18 @@ impl R {
         COMMAND15_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::CMD15")
+            .field("command15", &format_args!("{}", self.command15().bits()))
+            .field(
+                "command15_done",
+                &format_args!("{}", self.command15_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - command15"]
     #[inline(always)]

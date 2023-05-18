@@ -50,6 +50,18 @@ impl R {
         G_FN_R::new(((self.bits >> 21) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GRXSTSR")
+            .field("g_chnum", &format_args!("{}", self.g_chnum().bits()))
+            .field("g_bcnt", &format_args!("{}", self.g_bcnt().bits()))
+            .field("g_dpid", &format_args!("{}", self.g_dpid().bits()))
+            .field("g_pktsts", &format_args!("{}", self.g_pktsts().bits()))
+            .field("g_fn", &format_args!("{}", self.g_fn().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [grxstsr](index.html) module"]
 pub struct GRXSTSR_SPEC;
 impl crate::RegisterSpec for GRXSTSR_SPEC {

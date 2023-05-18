@@ -57,6 +57,37 @@ impl R {
         APB_SARADC1_DONE_INT_ST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::INT_ST")
+            .field(
+                "thres1_low_int_st",
+                &format_args!("{}", self.thres1_low_int_st().bit()),
+            )
+            .field(
+                "thres0_low_int_st",
+                &format_args!("{}", self.thres0_low_int_st().bit()),
+            )
+            .field(
+                "thres1_high_int_st",
+                &format_args!("{}", self.thres1_high_int_st().bit()),
+            )
+            .field(
+                "thres0_high_int_st",
+                &format_args!("{}", self.thres0_high_int_st().bit()),
+            )
+            .field(
+                "apb_saradc2_done_int_st",
+                &format_args!("{}", self.apb_saradc2_done_int_st().bit()),
+            )
+            .field(
+                "apb_saradc1_done_int_st",
+                &format_args!("{}", self.apb_saradc1_done_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

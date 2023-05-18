@@ -83,6 +83,33 @@ impl R {
         TIME_OUT_INT_RAW_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::INT_RAW")
+            .field(
+                "slave_trans_complete_int_raw",
+                &format_args!("{}", self.slave_trans_complete_int_raw().bit()),
+            )
+            .field(
+                "arbitration_lost_int_raw",
+                &format_args!("{}", self.arbitration_lost_int_raw().bit()),
+            )
+            .field(
+                "master_trans_complete_int_raw",
+                &format_args!("{}", self.master_trans_complete_int_raw().bit()),
+            )
+            .field(
+                "trans_complete_int_raw",
+                &format_args!("{}", self.trans_complete_int_raw().bit()),
+            )
+            .field(
+                "time_out_int_raw",
+                &format_args!("{}", self.time_out_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - Slave accepted 1 byte and address matched"]
     #[inline(always)]

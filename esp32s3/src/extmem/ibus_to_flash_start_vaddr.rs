@@ -46,6 +46,17 @@ impl R {
         IBUS_TO_FLASH_START_VADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::IBUS_TO_FLASH_START_VADDR")
+            .field(
+                "ibus_to_flash_start_vaddr",
+                &format_args!("{}", self.ibus_to_flash_start_vaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the start virtual address of ibus to access flash. The register is used to give constraints to ibus access counter."]
     #[inline(always)]

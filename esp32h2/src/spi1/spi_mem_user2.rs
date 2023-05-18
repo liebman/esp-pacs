@@ -56,6 +56,21 @@ impl R {
         SPI_MEM_USR_COMMAND_BITLEN_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_USER2")
+            .field(
+                "spi_mem_usr_command_value",
+                &format_args!("{}", self.spi_mem_usr_command_value().bits()),
+            )
+            .field(
+                "spi_mem_usr_command_bitlen",
+                &format_args!("{}", self.spi_mem_usr_command_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The value of command."]
     #[inline(always)]

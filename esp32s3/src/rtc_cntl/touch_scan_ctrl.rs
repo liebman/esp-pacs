@@ -106,6 +106,41 @@ impl R {
         TOUCH_OUT_RING_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TOUCH_SCAN_CTRL")
+            .field(
+                "touch_denoise_res",
+                &format_args!("{}", self.touch_denoise_res().bits()),
+            )
+            .field(
+                "touch_denoise_en",
+                &format_args!("{}", self.touch_denoise_en().bit()),
+            )
+            .field(
+                "touch_inactive_connection",
+                &format_args!("{}", self.touch_inactive_connection().bit()),
+            )
+            .field(
+                "touch_shield_pad_en",
+                &format_args!("{}", self.touch_shield_pad_en().bit()),
+            )
+            .field(
+                "touch_scan_pad_map",
+                &format_args!("{}", self.touch_scan_pad_map().bits()),
+            )
+            .field(
+                "touch_bufdrv",
+                &format_args!("{}", self.touch_bufdrv().bits()),
+            )
+            .field(
+                "touch_out_ring",
+                &format_args!("{}", self.touch_out_ring().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - De-noise resolution: 12/10/8/4 bit"]
     #[inline(always)]

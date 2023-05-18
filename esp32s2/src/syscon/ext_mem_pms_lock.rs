@@ -46,6 +46,17 @@ impl R {
         EXT_MEM_PMS_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSCON::EXT_MEM_PMS_LOCK")
+            .field(
+                "ext_mem_pms_lock",
+                &format_args!("{}", self.ext_mem_pms_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

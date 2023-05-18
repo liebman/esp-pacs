@@ -56,6 +56,21 @@ impl R {
         SRAM_CLKGATE_FORCE_ON_R::new(((self.bits >> 3) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::CLKGATE_FORCE_ON")
+            .field(
+                "rom_clkgate_force_on",
+                &format_args!("{}", self.rom_clkgate_force_on().bits()),
+            )
+            .field(
+                "sram_clkgate_force_on",
+                &format_args!("{}", self.sram_clkgate_force_on().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Set the bit to 1 to force rom always have clock, for low power can clear to 0 then only when have access the rom have clock"]
     #[inline(always)]

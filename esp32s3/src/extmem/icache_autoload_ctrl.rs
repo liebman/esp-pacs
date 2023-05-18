@@ -113,6 +113,45 @@ impl R {
         ICACHE_AUTOLOAD_BUFFER_CLEAR_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_AUTOLOAD_CTRL")
+            .field(
+                "icache_autoload_sct0_ena",
+                &format_args!("{}", self.icache_autoload_sct0_ena().bit()),
+            )
+            .field(
+                "icache_autoload_sct1_ena",
+                &format_args!("{}", self.icache_autoload_sct1_ena().bit()),
+            )
+            .field(
+                "icache_autoload_ena",
+                &format_args!("{}", self.icache_autoload_ena().bit()),
+            )
+            .field(
+                "icache_autoload_done",
+                &format_args!("{}", self.icache_autoload_done().bit()),
+            )
+            .field(
+                "icache_autoload_order",
+                &format_args!("{}", self.icache_autoload_order().bit()),
+            )
+            .field(
+                "icache_autoload_rqst",
+                &format_args!("{}", self.icache_autoload_rqst().bits()),
+            )
+            .field(
+                "icache_autoload_size",
+                &format_args!("{}", self.icache_autoload_size().bits()),
+            )
+            .field(
+                "icache_autoload_buffer_clear",
+                &format_args!("{}", self.icache_autoload_buffer_clear().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bits are used to enable the first section for autoload operation."]
     #[inline(always)]

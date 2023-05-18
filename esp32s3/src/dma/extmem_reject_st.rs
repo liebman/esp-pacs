@@ -36,6 +36,25 @@ impl R {
         EXTMEM_REJECT_PERI_NUM_R::new(((self.bits >> 6) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::EXTMEM_REJECT_ST")
+            .field(
+                "extmem_reject_atrr",
+                &format_args!("{}", self.extmem_reject_atrr().bits()),
+            )
+            .field(
+                "extmem_reject_channel_num",
+                &format_args!("{}", self.extmem_reject_channel_num().bits()),
+            )
+            .field(
+                "extmem_reject_peri_num",
+                &format_args!("{}", self.extmem_reject_peri_num().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Reject status accessing external RAM\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [extmem_reject_st](index.html) module"]
 pub struct EXTMEM_REJECT_ST_SPEC;
 impl crate::RegisterSpec for EXTMEM_REJECT_ST_SPEC {

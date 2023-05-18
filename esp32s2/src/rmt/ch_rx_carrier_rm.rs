@@ -56,6 +56,21 @@ impl R {
         CARRIER_HIGH_THRES_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CH_RX_CARRIER_RM")
+            .field(
+                "carrier_low_thres",
+                &format_args!("{}", self.carrier_low_thres().bits()),
+            )
+            .field(
+                "carrier_high_thres",
+                &format_args!("{}", self.carrier_high_thres().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The low level period in a carrier modulation mode is (REG_RMT_REG_CARRIER_LOW_THRES_CH%s + 1) for channel %s."]
     #[inline(always)]

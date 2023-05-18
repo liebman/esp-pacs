@@ -46,6 +46,17 @@ impl R {
         CORE_1_AREA_DRAM0_1_MIN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_1_AREA_DRAM0_1_MIN")
+            .field(
+                "core_1_area_dram0_1_min",
+                &format_args!("{}", self.core_1_area_dram0_1_min().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Core1 dram0 region1 start addr"]
     #[inline(always)]

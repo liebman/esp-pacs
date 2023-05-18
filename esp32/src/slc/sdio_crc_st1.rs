@@ -52,6 +52,18 @@ impl R {
         ERR_CNT_CLR_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::SDIO_CRC_ST1")
+            .field(
+                "cmd_crc_err_cnt",
+                &format_args!("{}", self.cmd_crc_err_cnt().bits()),
+            )
+            .field("err_cnt_clr", &format_args!("{}", self.err_cnt_clr().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31"]
     #[inline(always)]

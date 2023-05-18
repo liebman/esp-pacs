@@ -46,6 +46,17 @@ impl R {
         HP_MODEM_HP_REGULATOR_DRV_B_R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_MODEM_HP_REGULATOR1")
+            .field(
+                "hp_modem_hp_regulator_drv_b",
+                &format_args!("{}", self.hp_modem_hp_regulator_drv_b().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:31 - need_des"]
     #[inline(always)]

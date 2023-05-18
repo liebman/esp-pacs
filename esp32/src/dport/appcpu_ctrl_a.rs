@@ -46,6 +46,17 @@ impl R {
         APPCPU_RESETTING_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::APPCPU_CTRL_A")
+            .field(
+                "appcpu_resetting",
+                &format_args!("{}", self.appcpu_resetting().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

@@ -22,6 +22,14 @@ impl R {
         BLOCK9_W8_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("OTP_DEBUG::BLK9_W8")
+            .field("block9_w8", &format_args!("{}", self.block9_w8().bits()))
+            .finish()
+    }
+}
 #[doc = "Otp debuger block9 data register8.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [blk9_w8](index.html) module"]
 pub struct BLK9_W8_SPEC;
 impl crate::RegisterSpec for BLK9_W8_SPEC {

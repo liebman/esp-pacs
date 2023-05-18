@@ -74,6 +74,29 @@ impl R {
         TSENS_CLK_SEL_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::TSENS_CTRL2")
+            .field(
+                "tsens_xpd_wait",
+                &format_args!("{}", self.tsens_xpd_wait().bits()),
+            )
+            .field(
+                "tsens_xpd_force",
+                &format_args!("{}", self.tsens_xpd_force().bits()),
+            )
+            .field(
+                "tsens_clk_inv",
+                &format_args!("{}", self.tsens_clk_inv().bit()),
+            )
+            .field(
+                "tsens_clk_sel",
+                &format_args!("{}", self.tsens_clk_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - the time that power up tsens need wait"]
     #[inline(always)]

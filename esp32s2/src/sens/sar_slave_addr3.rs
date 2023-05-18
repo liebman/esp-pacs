@@ -56,6 +56,21 @@ impl R {
         I2C_SLAVE_ADDR4_R::new(((self.bits >> 11) & 0x07ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_SLAVE_ADDR3")
+            .field(
+                "i2c_slave_addr5",
+                &format_args!("{}", self.i2c_slave_addr5().bits()),
+            )
+            .field(
+                "i2c_slave_addr4",
+                &format_args!("{}", self.i2c_slave_addr4().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - RTC I2C slave address 5"]
     #[inline(always)]

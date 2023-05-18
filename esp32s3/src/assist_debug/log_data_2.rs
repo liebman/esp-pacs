@@ -46,6 +46,14 @@ impl R {
         LOG_DATA_2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::LOG_DATA_2")
+            .field("log_data_2", &format_args!("{}", self.log_data_2().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - check data2"]
     #[inline(always)]

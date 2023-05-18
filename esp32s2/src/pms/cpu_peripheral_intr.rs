@@ -63,6 +63,25 @@ impl R {
         CPU_PERI_BYTE_ERROR_INTR_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::CPU_PERIPHERAL_INTR")
+            .field(
+                "cpu_peri_byte_error_clr",
+                &format_args!("{}", self.cpu_peri_byte_error_clr().bit()),
+            )
+            .field(
+                "cpu_peri_byte_error_en",
+                &format_args!("{}", self.cpu_peri_byte_error_en().bit()),
+            )
+            .field(
+                "cpu_peri_byte_error_intr",
+                &format_args!("{}", self.cpu_peri_byte_error_intr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear signal for CPU peripheral access interrupt."]
     #[inline(always)]

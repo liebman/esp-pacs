@@ -106,6 +106,41 @@ impl R {
         PRO_DCACHE_AUTOLOAD_SCT1_ENA_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_DCACHE_AUTOLOAD_CFG")
+            .field(
+                "pro_dcache_autoload_mode",
+                &format_args!("{}", self.pro_dcache_autoload_mode().bit()),
+            )
+            .field(
+                "pro_dcache_autoload_step",
+                &format_args!("{}", self.pro_dcache_autoload_step().bits()),
+            )
+            .field(
+                "pro_dcache_autoload_order",
+                &format_args!("{}", self.pro_dcache_autoload_order().bit()),
+            )
+            .field(
+                "pro_dcache_autoload_rqst",
+                &format_args!("{}", self.pro_dcache_autoload_rqst().bits()),
+            )
+            .field(
+                "pro_dcache_autoload_size",
+                &format_args!("{}", self.pro_dcache_autoload_size().bits()),
+            )
+            .field(
+                "pro_dcache_autoload_sct0_ena",
+                &format_args!("{}", self.pro_dcache_autoload_sct0_ena().bit()),
+            )
+            .field(
+                "pro_dcache_autoload_sct1_ena",
+                &format_args!("{}", self.pro_dcache_autoload_sct1_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Reserved."]
     #[inline(always)]

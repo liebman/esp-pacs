@@ -45,6 +45,14 @@ impl R {
         TEXT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::TEXT")
+            .field("text", &format_args!("{}", self.text().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - SHA Message block and hash result register."]
     #[inline(always)]

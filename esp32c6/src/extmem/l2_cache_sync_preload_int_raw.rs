@@ -56,6 +56,21 @@ impl R {
         L2_CACHE_PLD_ERR_INT_RAW_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_SYNC_PRELOAD_INT_RAW")
+            .field(
+                "l2_cache_pld_done_int_raw",
+                &format_args!("{}", self.l2_cache_pld_done_int_raw().bit()),
+            )
+            .field(
+                "l2_cache_pld_err_int_raw",
+                &format_args!("{}", self.l2_cache_pld_err_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 5 - The raw bit of the interrupt that occurs only when L2-Cache preload-operation is done."]
     #[inline(always)]

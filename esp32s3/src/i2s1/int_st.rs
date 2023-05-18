@@ -43,6 +43,29 @@ impl R {
         TX_HUNG_INT_ST_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::INT_ST")
+            .field(
+                "rx_done_int_st",
+                &format_args!("{}", self.rx_done_int_st().bit()),
+            )
+            .field(
+                "tx_done_int_st",
+                &format_args!("{}", self.tx_done_int_st().bit()),
+            )
+            .field(
+                "rx_hung_int_st",
+                &format_args!("{}", self.rx_hung_int_st().bit()),
+            )
+            .field(
+                "tx_hung_int_st",
+                &format_args!("{}", self.tx_hung_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "I2S interrupt status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

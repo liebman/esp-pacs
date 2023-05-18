@@ -46,6 +46,17 @@ impl R {
         SCL_LOW_PERIOD_R::new((self.bits & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_LOW_PERIOD")
+            .field(
+                "scl_low_period",
+                &format_args!("{}", self.scl_low_period().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - reg_scl_low_period"]
     #[inline(always)]

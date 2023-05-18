@@ -72,6 +72,17 @@ impl R {
         PBL_R::new(((self.bits >> 8) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::BMOD")
+            .field("swr", &format_args!("{}", self.swr().bit()))
+            .field("fb", &format_args!("{}", self.fb().bit()))
+            .field("de", &format_args!("{}", self.de().bit()))
+            .field("pbl", &format_args!("{}", self.pbl().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Software Reset. When set, the DMA Controller resets all its internal registers. It is automatically cleared after one clock cycle."]
     #[inline(always)]

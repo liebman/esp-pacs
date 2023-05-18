@@ -106,6 +106,21 @@ impl R {
         EPENA6_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DOEPCTL6")
+            .field("mps6", &format_args!("{}", self.mps6().bits()))
+            .field("usbactep6", &format_args!("{}", self.usbactep6().bit()))
+            .field("naksts6", &format_args!("{}", self.naksts6().bit()))
+            .field("eptype6", &format_args!("{}", self.eptype6().bits()))
+            .field("snp6", &format_args!("{}", self.snp6().bit()))
+            .field("stall6", &format_args!("{}", self.stall6().bit()))
+            .field("epdis6", &format_args!("{}", self.epdis6().bit()))
+            .field("epena6", &format_args!("{}", self.epena6().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 20"]
     #[inline(always)]

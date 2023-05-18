@@ -46,6 +46,17 @@ impl R {
         TOUCH_OUT_TH5_R::new(self.bits & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_THRES5")
+            .field(
+                "touch_out_th5",
+                &format_args!("{}", self.touch_out_th5().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - Finger threshold for touch pad 5"]
     #[inline(always)]

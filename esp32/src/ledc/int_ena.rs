@@ -268,6 +268,109 @@ impl R {
         DUTY_CHNG_END_LSCH7_INT_ENA_R::new(((self.bits >> 23) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_ENA")
+            .field(
+                "hstimer0_ovf_int_ena",
+                &format_args!("{}", self.hstimer0_ovf_int_ena().bit()),
+            )
+            .field(
+                "hstimer1_ovf_int_ena",
+                &format_args!("{}", self.hstimer1_ovf_int_ena().bit()),
+            )
+            .field(
+                "hstimer2_ovf_int_ena",
+                &format_args!("{}", self.hstimer2_ovf_int_ena().bit()),
+            )
+            .field(
+                "hstimer3_ovf_int_ena",
+                &format_args!("{}", self.hstimer3_ovf_int_ena().bit()),
+            )
+            .field(
+                "lstimer0_ovf_int_ena",
+                &format_args!("{}", self.lstimer0_ovf_int_ena().bit()),
+            )
+            .field(
+                "lstimer1_ovf_int_ena",
+                &format_args!("{}", self.lstimer1_ovf_int_ena().bit()),
+            )
+            .field(
+                "lstimer2_ovf_int_ena",
+                &format_args!("{}", self.lstimer2_ovf_int_ena().bit()),
+            )
+            .field(
+                "lstimer3_ovf_int_ena",
+                &format_args!("{}", self.lstimer3_ovf_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch0_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch0_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch1_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch1_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch2_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch2_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch3_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch3_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch4_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch4_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch5_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch5_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch6_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch6_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_hsch7_int_ena",
+                &format_args!("{}", self.duty_chng_end_hsch7_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch0_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch0_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch1_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch1_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch2_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch2_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch3_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch3_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch4_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch4_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch5_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch5_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch6_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch6_int_ena().bit()),
+            )
+            .field(
+                "duty_chng_end_lsch7_int_ena",
+                &format_args!("{}", self.duty_chng_end_lsch7_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The interrupt enable bit for high speed channel0 counter overflow interrupt."]
     #[inline(always)]

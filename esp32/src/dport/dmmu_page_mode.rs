@@ -56,6 +56,21 @@ impl R {
         DMMU_PAGE_MODE_R::new(((self.bits >> 1) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::DMMU_PAGE_MODE")
+            .field(
+                "internal_sram_dmmu_ena",
+                &format_args!("{}", self.internal_sram_dmmu_ena().bit()),
+            )
+            .field(
+                "dmmu_page_mode",
+                &format_args!("{}", self.dmmu_page_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

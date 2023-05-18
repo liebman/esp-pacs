@@ -54,6 +54,21 @@ impl R {
         AHB_TESTADDR_R::new(((self.bits >> 4) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::AHB_TEST")
+            .field(
+                "ahb_testmode",
+                &format_args!("{}", self.ahb_testmode().bits()),
+            )
+            .field(
+                "ahb_testaddr",
+                &format_args!("{}", self.ahb_testaddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - bit2 is ahb bus test enable ,bit1 is used to choose wrtie(1) or read(0) mode. bit0 is used to choose test only once(1) or continue(0)"]
     #[inline(always)]

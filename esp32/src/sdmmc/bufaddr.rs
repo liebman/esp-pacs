@@ -22,6 +22,14 @@ impl R {
         BUFADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::BUFADDR")
+            .field("bufaddr", &format_args!("{}", self.bufaddr().bits()))
+            .finish()
+    }
+}
 #[doc = "Host buffer address pointer register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bufaddr](index.html) module"]
 pub struct BUFADDR_SPEC;
 impl crate::RegisterSpec for BUFADDR_SPEC {

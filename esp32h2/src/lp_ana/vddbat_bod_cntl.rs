@@ -83,6 +83,33 @@ impl R {
         VDDBAT_UNDERVOLTAGE_TARGET_R::new(((self.bits >> 22) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::VDDBAT_BOD_CNTL")
+            .field(
+                "vddbat_undervoltage_flag",
+                &format_args!("{}", self.vddbat_undervoltage_flag().bit()),
+            )
+            .field(
+                "vddbat_charger",
+                &format_args!("{}", self.vddbat_charger().bit()),
+            )
+            .field(
+                "vddbat_cnt_clr",
+                &format_args!("{}", self.vddbat_cnt_clr().bit()),
+            )
+            .field(
+                "vddbat_upvoltage_target",
+                &format_args!("{}", self.vddbat_upvoltage_target().bits()),
+            )
+            .field(
+                "vddbat_undervoltage_target",
+                &format_args!("{}", self.vddbat_undervoltage_target().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 10 - need_des"]
     #[inline(always)]

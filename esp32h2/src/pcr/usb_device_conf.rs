@@ -63,6 +63,25 @@ impl R {
         USB_DEVICE_READY_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::USB_DEVICE_CONF")
+            .field(
+                "usb_device_clk_en",
+                &format_args!("{}", self.usb_device_clk_en().bit()),
+            )
+            .field(
+                "usb_device_rst_en",
+                &format_args!("{}", self.usb_device_rst_en().bit()),
+            )
+            .field(
+                "usb_device_ready",
+                &format_args!("{}", self.usb_device_ready().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable usb_device clock"]
     #[inline(always)]

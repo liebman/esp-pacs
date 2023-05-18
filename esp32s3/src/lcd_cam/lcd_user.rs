@@ -157,6 +157,50 @@ impl R {
         LCD_CMD_2_CYCLE_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LCD_USER")
+            .field(
+                "lcd_dout_cyclelen",
+                &format_args!("{}", self.lcd_dout_cyclelen().bits()),
+            )
+            .field(
+                "lcd_always_out_en",
+                &format_args!("{}", self.lcd_always_out_en().bit()),
+            )
+            .field(
+                "lcd_8bits_order",
+                &format_args!("{}", self.lcd_8bits_order().bit()),
+            )
+            .field("lcd_update", &format_args!("{}", self.lcd_update().bit()))
+            .field(
+                "lcd_bit_order",
+                &format_args!("{}", self.lcd_bit_order().bit()),
+            )
+            .field(
+                "lcd_byte_order",
+                &format_args!("{}", self.lcd_byte_order().bit()),
+            )
+            .field(
+                "lcd_2byte_en",
+                &format_args!("{}", self.lcd_2byte_en().bit()),
+            )
+            .field("lcd_dout", &format_args!("{}", self.lcd_dout().bit()))
+            .field("lcd_dummy", &format_args!("{}", self.lcd_dummy().bit()))
+            .field("lcd_cmd", &format_args!("{}", self.lcd_cmd().bit()))
+            .field("lcd_start", &format_args!("{}", self.lcd_start().bit()))
+            .field(
+                "lcd_dummy_cyclelen",
+                &format_args!("{}", self.lcd_dummy_cyclelen().bits()),
+            )
+            .field(
+                "lcd_cmd_2_cycle_en",
+                &format_args!("{}", self.lcd_cmd_2_cycle_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:12 - The output data cycles minus 1 of LCD module."]
     #[inline(always)]

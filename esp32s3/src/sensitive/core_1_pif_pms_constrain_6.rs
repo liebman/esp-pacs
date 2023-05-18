@@ -190,6 +190,81 @@ impl R {
         CORE_1_PIF_PMS_CONSTRAIN_WORLD_1_SYSTIMER_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_CONSTRAIN_6")
+            .field(
+                "core_1_pif_pms_constrain_world_1_bt",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_bt().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_i2c_ext0",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_i2c_ext0().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_uhci0",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_uhci0().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_slchost",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_slchost().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_rmt",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_rmt().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_pcnt",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_pcnt().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_slc",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_slc().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_ledc",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_ledc().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_backup",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_backup().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_bb",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_bb().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_pwm0",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_pwm0().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_timergroup",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_timergroup().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_timergroup1",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_timergroup1().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_systimer",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_systimer().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Core1 access bt permission in world1."]
     #[inline(always)]

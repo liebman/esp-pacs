@@ -45,6 +45,14 @@ impl R {
         FIFO_RDATA_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::DATA")
+            .field("fifo_rdata", &format_args!("{}", self.fifo_rdata().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - The value of RX FIFO read data."]
     #[inline(always)]

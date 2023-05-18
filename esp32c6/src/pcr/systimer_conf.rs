@@ -56,6 +56,21 @@ impl R {
         SYSTIMER_RST_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SYSTIMER_CONF")
+            .field(
+                "systimer_clk_en",
+                &format_args!("{}", self.systimer_clk_en().bit()),
+            )
+            .field(
+                "systimer_rst_en",
+                &format_args!("{}", self.systimer_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable systimer apb clock"]
     #[inline(always)]

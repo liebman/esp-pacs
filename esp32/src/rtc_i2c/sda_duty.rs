@@ -45,6 +45,14 @@ impl R {
         SDA_DUTY_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::SDA_DUTY")
+            .field("sda_duty", &format_args!("{}", self.sda_duty().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - Number of FAST_CLK cycles SDA will switch after falling edge of SCL"]
     #[inline(always)]

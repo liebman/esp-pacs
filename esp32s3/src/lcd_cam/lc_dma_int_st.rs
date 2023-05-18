@@ -43,6 +43,29 @@ impl R {
         CAM_HS_INT_ST_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LC_DMA_INT_ST")
+            .field(
+                "lcd_vsync_int_st",
+                &format_args!("{}", self.lcd_vsync_int_st().bit()),
+            )
+            .field(
+                "lcd_trans_done_int_st",
+                &format_args!("{}", self.lcd_trans_done_int_st().bit()),
+            )
+            .field(
+                "cam_vsync_int_st",
+                &format_args!("{}", self.cam_vsync_int_st().bit()),
+            )
+            .field(
+                "cam_hs_int_st",
+                &format_args!("{}", self.cam_hs_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "LCD_camera DMA masked inturrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lc_dma_int_st](index.html) module"]
 pub struct LC_DMA_INT_ST_SPEC;
 impl crate::RegisterSpec for LC_DMA_INT_ST_SPEC {

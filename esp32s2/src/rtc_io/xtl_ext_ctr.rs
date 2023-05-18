@@ -45,6 +45,14 @@ impl R {
         SEL_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::XTL_EXT_CTR")
+            .field("sel", &format_args!("{}", self.sel().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 27:31 - Select the external crystal power down enable source to get into sleep mode. 0: select GPIO0. 1: select GPIO1, etc. The input value on this pin XOR RTC_CNTL_EXT_XTL_CONF_REG\\[30\\] is the crystal power down enable signal."]
     #[inline(always)]

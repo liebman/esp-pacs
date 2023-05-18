@@ -45,6 +45,17 @@ impl R {
         USB_WRAP_DATE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_WRAP::DATE")
+            .field(
+                "usb_wrap_date",
+                &format_args!("{}", self.usb_wrap_date().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Date register"]
     #[inline(always)]

@@ -76,6 +76,29 @@ impl R {
         SPI_DECRYPT_ENABLE_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::SLAVE_SPI_CONFIG")
+            .field(
+                "slave_spi_mask_pro",
+                &format_args!("{}", self.slave_spi_mask_pro().bit()),
+            )
+            .field(
+                "slave_spi_mask_app",
+                &format_args!("{}", self.slave_spi_mask_app().bit()),
+            )
+            .field(
+                "spi_encrypt_enable",
+                &format_args!("{}", self.spi_encrypt_enable().bit()),
+            )
+            .field(
+                "spi_decrypt_enable",
+                &format_args!("{}", self.spi_decrypt_enable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

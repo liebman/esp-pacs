@@ -76,6 +76,29 @@ impl R {
         DG_VDD_DRV_B_MONITOR_R::new(((self.bits >> 20) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::REGULATOR_DRV_CTRL")
+            .field(
+                "regulator_drv_b_monitor",
+                &format_args!("{}", self.regulator_drv_b_monitor().bits()),
+            )
+            .field(
+                "regulator_drv_b_slp",
+                &format_args!("{}", self.regulator_drv_b_slp().bits()),
+            )
+            .field(
+                "dg_vdd_drv_b_slp",
+                &format_args!("{}", self.dg_vdd_drv_b_slp().bits()),
+            )
+            .field(
+                "dg_vdd_drv_b_monitor",
+                &format_args!("{}", self.dg_vdd_drv_b_monitor().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - No public"]
     #[inline(always)]

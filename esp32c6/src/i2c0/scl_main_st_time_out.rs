@@ -46,6 +46,17 @@ impl R {
         SCL_MAIN_ST_TO_I2C_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_MAIN_ST_TIME_OUT")
+            .field(
+                "scl_main_st_to_i2c",
+                &format_args!("{}", self.scl_main_st_to_i2c().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - The threshold value of SCL_MAIN_FSM state unchanged period.nIt should be o more than 23"]
     #[inline(always)]

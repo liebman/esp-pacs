@@ -46,6 +46,17 @@ impl R {
         CORE_1_VECBASE_OVERRIDE_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_VECBASE_OVERRIDE_LOCK")
+            .field(
+                "core_1_vecbase_override_lock",
+                &format_args!("{}", self.core_1_vecbase_override_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to lock core1 vecbase configuration register"]
     #[inline(always)]

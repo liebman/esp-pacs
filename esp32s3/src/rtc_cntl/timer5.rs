@@ -45,6 +45,17 @@ impl R {
         MIN_SLP_VAL_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER5")
+            .field(
+                "min_slp_val",
+                &format_args!("{}", self.min_slp_val().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:15 - minimal sleep cycles in slow_clk_rtc"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         AAD_BLOCK_NUM_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::AAD_BLOCK_NUM")
+            .field(
+                "aad_block_num",
+                &format_args!("{}", self.aad_block_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Stores the ADD Block Number for the GCM operation."]
     #[inline(always)]

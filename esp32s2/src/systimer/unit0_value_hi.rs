@@ -22,6 +22,17 @@ impl R {
         TIMER_VALUE_HI_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::UNIT0_VALUE_HI")
+            .field(
+                "timer_value_hi",
+                &format_args!("{}", self.timer_value_hi().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "System timer value, high 32 bits\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [unit0_value_hi](index.html) module"]
 pub struct UNIT0_VALUE_HI_SPEC;
 impl crate::RegisterSpec for UNIT0_VALUE_HI_SPEC {

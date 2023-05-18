@@ -72,6 +72,23 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::REGCLK")
+            .field("etm_en", &format_args!("{}", self.etm_en().bit()))
+            .field(
+                "wdt_clk_is_active",
+                &format_args!("{}", self.wdt_clk_is_active().bit()),
+            )
+            .field(
+                "timer_clk_is_active",
+                &format_args!("{}", self.timer_clk_is_active().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 28 - enable timer's etm task and event"]
     #[inline(always)]

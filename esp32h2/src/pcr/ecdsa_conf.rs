@@ -61,6 +61,22 @@ impl R {
         ECDSA_READY_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::ECDSA_CONF")
+            .field(
+                "ecdsa_clk_en",
+                &format_args!("{}", self.ecdsa_clk_en().bit()),
+            )
+            .field(
+                "ecdsa_rst_en",
+                &format_args!("{}", self.ecdsa_rst_en().bit()),
+            )
+            .field("ecdsa_ready", &format_args!("{}", self.ecdsa_ready().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable ecdsa clock"]
     #[inline(always)]

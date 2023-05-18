@@ -146,6 +146,57 @@ impl R {
         HP_ACTIVE2SLEEP_BACKUP_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_SLEEP_BACKUP")
+            .field(
+                "hp_modem2sleep_backup_modem_clk_code",
+                &format_args!("{}", self.hp_modem2sleep_backup_modem_clk_code().bits()),
+            )
+            .field(
+                "hp_active2sleep_backup_modem_clk_code",
+                &format_args!("{}", self.hp_active2sleep_backup_modem_clk_code().bits()),
+            )
+            .field(
+                "hp_sleep_retention_mode",
+                &format_args!("{}", self.hp_sleep_retention_mode().bit()),
+            )
+            .field(
+                "hp_modem2sleep_retention_en",
+                &format_args!("{}", self.hp_modem2sleep_retention_en().bit()),
+            )
+            .field(
+                "hp_active2sleep_retention_en",
+                &format_args!("{}", self.hp_active2sleep_retention_en().bit()),
+            )
+            .field(
+                "hp_modem2sleep_backup_clk_sel",
+                &format_args!("{}", self.hp_modem2sleep_backup_clk_sel().bits()),
+            )
+            .field(
+                "hp_active2sleep_backup_clk_sel",
+                &format_args!("{}", self.hp_active2sleep_backup_clk_sel().bits()),
+            )
+            .field(
+                "hp_modem2sleep_backup_mode",
+                &format_args!("{}", self.hp_modem2sleep_backup_mode().bits()),
+            )
+            .field(
+                "hp_active2sleep_backup_mode",
+                &format_args!("{}", self.hp_active2sleep_backup_mode().bits()),
+            )
+            .field(
+                "hp_modem2sleep_backup_en",
+                &format_args!("{}", self.hp_modem2sleep_backup_en().bit()),
+            )
+            .field(
+                "hp_active2sleep_backup_en",
+                &format_args!("{}", self.hp_active2sleep_backup_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 6:7 - need_des"]
     #[inline(always)]

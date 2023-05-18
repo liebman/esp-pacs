@@ -46,6 +46,17 @@ impl R {
         PRO_PMS_DMA_TX_I_ILG_INTR_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::PRO_PMS_DMA_TX_I_ILG_INTR_MAP")
+            .field(
+                "pro_pms_dma_tx_i_ilg_intr_map",
+                &format_args!("{}", self.pro_pms_dma_tx_i_ilg_intr_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - This register is used to map PMS_DMA_TX_I_ILG interrupt signal to one of the CPU interrupts."]
     #[inline(always)]

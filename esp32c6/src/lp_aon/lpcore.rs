@@ -56,6 +56,18 @@ impl R {
         DISABLE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::LPCORE")
+            .field(
+                "etm_wakeup_flag",
+                &format_args!("{}", self.etm_wakeup_flag().bit()),
+            )
+            .field("disable", &format_args!("{}", self.disable().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

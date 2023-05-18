@@ -72,6 +72,29 @@ impl R {
         FFT_FORCE_PU_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BB::BBPD_CTRL")
+            .field(
+                "dc_est_force_pd",
+                &format_args!("{}", self.dc_est_force_pd().bit()),
+            )
+            .field(
+                "dc_est_force_pu",
+                &format_args!("{}", self.dc_est_force_pu().bit()),
+            )
+            .field(
+                "fft_force_pd",
+                &format_args!("{}", self.fft_force_pd().bit()),
+            )
+            .field(
+                "fft_force_pu",
+                &format_args!("{}", self.fft_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

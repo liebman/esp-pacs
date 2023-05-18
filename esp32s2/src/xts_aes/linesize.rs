@@ -45,6 +45,14 @@ impl R {
         LINESIZE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTS_AES::LINESIZE")
+            .field("linesize", &format_args!("{}", self.linesize().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Configures the data size of a single encryption. 0: 128 bits. 1: 256 bits. 2: 512 bits."]
     #[inline(always)]

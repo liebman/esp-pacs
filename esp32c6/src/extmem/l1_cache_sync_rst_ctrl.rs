@@ -74,6 +74,33 @@ impl R {
         L1_CACHE_SYNC_RST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_SYNC_RST_CTRL")
+            .field(
+                "l1_icache0_sync_rst",
+                &format_args!("{}", self.l1_icache0_sync_rst().bit()),
+            )
+            .field(
+                "l1_icache1_sync_rst",
+                &format_args!("{}", self.l1_icache1_sync_rst().bit()),
+            )
+            .field(
+                "l1_icache2_sync_rst",
+                &format_args!("{}", self.l1_icache2_sync_rst().bit()),
+            )
+            .field(
+                "l1_icache3_sync_rst",
+                &format_args!("{}", self.l1_icache3_sync_rst().bit()),
+            )
+            .field(
+                "l1_cache_sync_rst",
+                &format_args!("{}", self.l1_cache_sync_rst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - set this bit to reset sync-logic inside L1-Cache. Recommend that this should only be used to initialize sync-logic when some fatal error of sync-logic occurs."]
     #[inline(always)]

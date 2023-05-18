@@ -46,6 +46,17 @@ impl R {
         BACKUP_PMS_VIOLATE_INTR_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE1::BACKUP_PMS_VIOLATE_INTR_MAP")
+            .field(
+                "backup_pms_violate_intr_map",
+                &format_args!("{}", self.backup_pms_violate_intr_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - this register used to map backup_pms_monitor_violatile interrupt to one of core1's external interrupt"]
     #[inline(always)]

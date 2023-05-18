@@ -36,6 +36,22 @@ impl R {
         SPI_MEM_USR_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_CMD")
+            .field(
+                "spi_mem_mst_st",
+                &format_args!("{}", self.spi_mem_mst_st().bits()),
+            )
+            .field(
+                "spi_mem_slv_st",
+                &format_args!("{}", self.spi_mem_slv_st().bits()),
+            )
+            .field("spi_mem_usr", &format_args!("{}", self.spi_mem_usr().bit()))
+            .finish()
+    }
+}
 #[doc = "SPI0 FSM status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_cmd](index.html) module"]
 pub struct SPI_MEM_CMD_SPEC;
 impl crate::RegisterSpec for SPI_MEM_CMD_SPEC {

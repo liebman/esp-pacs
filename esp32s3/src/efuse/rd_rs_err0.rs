@@ -127,6 +127,62 @@ impl R {
         KEY4_FAIL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_RS_ERR0")
+            .field(
+                "mac_spi_8m_err_num",
+                &format_args!("{}", self.mac_spi_8m_err_num().bits()),
+            )
+            .field(
+                "mac_spi_8m_fail",
+                &format_args!("{}", self.mac_spi_8m_fail().bit()),
+            )
+            .field(
+                "sys_part1_num",
+                &format_args!("{}", self.sys_part1_num().bits()),
+            )
+            .field(
+                "sys_part1_fail",
+                &format_args!("{}", self.sys_part1_fail().bit()),
+            )
+            .field(
+                "usr_data_err_num",
+                &format_args!("{}", self.usr_data_err_num().bits()),
+            )
+            .field(
+                "usr_data_fail",
+                &format_args!("{}", self.usr_data_fail().bit()),
+            )
+            .field(
+                "key0_err_num",
+                &format_args!("{}", self.key0_err_num().bits()),
+            )
+            .field("key0_fail", &format_args!("{}", self.key0_fail().bit()))
+            .field(
+                "key1_err_num",
+                &format_args!("{}", self.key1_err_num().bits()),
+            )
+            .field("key1_fail", &format_args!("{}", self.key1_fail().bit()))
+            .field(
+                "key2_err_num",
+                &format_args!("{}", self.key2_err_num().bits()),
+            )
+            .field("key2_fail", &format_args!("{}", self.key2_fail().bit()))
+            .field(
+                "key3_err_num",
+                &format_args!("{}", self.key3_err_num().bits()),
+            )
+            .field("key3_fail", &format_args!("{}", self.key3_fail().bit()))
+            .field(
+                "key4_err_num",
+                &format_args!("{}", self.key4_err_num().bits()),
+            )
+            .field("key4_fail", &format_args!("{}", self.key4_fail().bit()))
+            .finish()
+    }
+}
 #[doc = "Programming error record register 0 of BLOCK1-10.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_rs_err0](index.html) module"]
 pub struct RD_RS_ERR0_SPEC;
 impl crate::RegisterSpec for RD_RS_ERR0_SPEC {

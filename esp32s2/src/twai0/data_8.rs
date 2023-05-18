@@ -45,6 +45,14 @@ impl R {
         TX_BYTE_8_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::DATA_8")
+            .field("tx_byte_8", &format_args!("{}", self.tx_byte_8().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Stored the 8th byte information of the data to be transmitted under operating mode."]
     #[inline(always)]

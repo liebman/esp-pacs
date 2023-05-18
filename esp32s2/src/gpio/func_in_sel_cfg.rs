@@ -64,6 +64,16 @@ impl R {
         SEL_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::FUNC_IN_SEL_CFG")
+            .field("in_sel", &format_args!("{}", self.in_sel().bits()))
+            .field("in_inv_sel", &format_args!("{}", self.in_inv_sel().bit()))
+            .field("sel", &format_args!("{}", self.sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Selection control for peripheral input signal m, selects a pad from the 54 GPIO matrix pads to connect this input signal. Or selects 0x38 for a constantly high input or 0x3C for a constantly low input."]
     #[inline(always)]

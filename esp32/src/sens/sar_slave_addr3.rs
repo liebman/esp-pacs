@@ -70,6 +70,26 @@ impl R {
         TSENS_RDY_OUT_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_SLAVE_ADDR3")
+            .field(
+                "i2c_slave_addr5",
+                &format_args!("{}", self.i2c_slave_addr5().bits()),
+            )
+            .field(
+                "i2c_slave_addr4",
+                &format_args!("{}", self.i2c_slave_addr4().bits()),
+            )
+            .field("tsens_out", &format_args!("{}", self.tsens_out().bits()))
+            .field(
+                "tsens_rdy_out",
+                &format_args!("{}", self.tsens_rdy_out().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10"]
     #[inline(always)]

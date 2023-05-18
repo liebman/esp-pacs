@@ -45,6 +45,17 @@ impl R {
         SEC_CLK_SEL_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SEC_CONF")
+            .field(
+                "sec_clk_sel",
+                &format_args!("{}", self.sec_clk_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - xxxx"]
     #[inline(always)]

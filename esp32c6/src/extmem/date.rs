@@ -45,6 +45,14 @@ impl R {
         DATE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DATE")
+            .field("date", &format_args!("{}", self.date().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - version control register. Note that this default value stored is the latest date when the hardware logic was updated."]
     #[inline(always)]

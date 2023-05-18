@@ -96,6 +96,37 @@ impl R {
         SPI_MEM_BROWN_OUT_INT_RAW_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_INT_RAW")
+            .field(
+                "spi_mem_per_end_int_raw",
+                &format_args!("{}", self.spi_mem_per_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_pes_end_int_raw",
+                &format_args!("{}", self.spi_mem_pes_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_wpe_end_int_raw",
+                &format_args!("{}", self.spi_mem_wpe_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_slv_st_end_int_raw",
+                &format_args!("{}", self.spi_mem_slv_st_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_mst_st_end_int_raw",
+                &format_args!("{}", self.spi_mem_mst_st_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_brown_out_int_raw",
+                &format_args!("{}", self.spi_mem_brown_out_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw bit for SPI_MEM_PER_END_INT interrupt. 1: Triggered when Auto Resume command (0x7A) is sent and flash is resumed successfully. 0: Others."]
     #[inline(always)]

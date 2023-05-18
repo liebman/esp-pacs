@@ -66,6 +66,25 @@ impl R {
         BOD_SOURCE_ENA_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::VDD_SOURCE_CNTL")
+            .field(
+                "detmode_sel",
+                &format_args!("{}", self.detmode_sel().bits()),
+            )
+            .field(
+                "vgood_event_record",
+                &format_args!("{}", self.vgood_event_record().bits()),
+            )
+            .field(
+                "bod_source_ena",
+                &format_args!("{}", self.bod_source_ena().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - need_des"]
     #[inline(always)]

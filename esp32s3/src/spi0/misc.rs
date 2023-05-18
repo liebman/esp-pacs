@@ -72,6 +72,23 @@ impl R {
         CS_KEEP_ACTIVE_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::MISC")
+            .field("fsub_pin", &format_args!("{}", self.fsub_pin().bit()))
+            .field("ssub_pin", &format_args!("{}", self.ssub_pin().bit()))
+            .field(
+                "ck_idle_edge",
+                &format_args!("{}", self.ck_idle_edge().bit()),
+            )
+            .field(
+                "cs_keep_active",
+                &format_args!("{}", self.cs_keep_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 7 - Flash is connected to SPI SUBPIN bus."]
     #[inline(always)]

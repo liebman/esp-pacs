@@ -76,6 +76,29 @@ impl R {
         SLV_WRSTA_CMD_VALUE_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLAVE3")
+            .field(
+                "slv_rdbuf_cmd_value",
+                &format_args!("{}", self.slv_rdbuf_cmd_value().bits()),
+            )
+            .field(
+                "slv_wrbuf_cmd_value",
+                &format_args!("{}", self.slv_wrbuf_cmd_value().bits()),
+            )
+            .field(
+                "slv_rdsta_cmd_value",
+                &format_args!("{}", self.slv_rdsta_cmd_value().bits()),
+            )
+            .field(
+                "slv_wrsta_cmd_value",
+                &format_args!("{}", self.slv_wrsta_cmd_value().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - In the slave mode it is the value of read-buffer command."]
     #[inline(always)]

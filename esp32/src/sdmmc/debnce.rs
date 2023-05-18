@@ -46,6 +46,17 @@ impl R {
         DEBOUNCE_COUNT_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::DEBNCE")
+            .field(
+                "debounce_count",
+                &format_args!("{}", self.debounce_count().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - Number of host clocks (clk) used by debounce filter logic. The typical debounce time is 5 \\verb+~+ 25 ms to prevent the card instability when the card is inserted or removed."]
     #[inline(always)]

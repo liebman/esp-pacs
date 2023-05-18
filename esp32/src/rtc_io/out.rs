@@ -45,6 +45,14 @@ impl R {
         DATA_R::new((self.bits >> 14) & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::OUT")
+            .field("data", &format_args!("{}", self.data().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 14:31 - GPIO0~17 output value"]
     #[inline(always)]

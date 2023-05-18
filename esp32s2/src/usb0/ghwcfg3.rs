@@ -99,6 +99,31 @@ impl R {
         DFIFODEPTH_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GHWCFG3")
+            .field(
+                "xfersizewidth",
+                &format_args!("{}", self.xfersizewidth().bits()),
+            )
+            .field(
+                "pktsizewidth",
+                &format_args!("{}", self.pktsizewidth().bits()),
+            )
+            .field("otgen", &format_args!("{}", self.otgen().bit()))
+            .field("i2cintsel", &format_args!("{}", self.i2cintsel().bit()))
+            .field("vndctlsupt", &format_args!("{}", self.vndctlsupt().bit()))
+            .field("optfeature", &format_args!("{}", self.optfeature().bit()))
+            .field("rsttype", &format_args!("{}", self.rsttype().bit()))
+            .field("adpsupport", &format_args!("{}", self.adpsupport().bit()))
+            .field("hsicmode", &format_args!("{}", self.hsicmode().bit()))
+            .field("bcsupport", &format_args!("{}", self.bcsupport().bit()))
+            .field("lpmmode", &format_args!("{}", self.lpmmode().bit()))
+            .field("dfifodepth", &format_args!("{}", self.dfifodepth().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ghwcfg3](index.html) module"]
 pub struct GHWCFG3_SPEC;
 impl crate::RegisterSpec for GHWCFG3_SPEC {

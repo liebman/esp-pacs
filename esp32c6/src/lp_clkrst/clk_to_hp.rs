@@ -72,6 +72,23 @@ impl R {
         ICG_HP_FOSC_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::CLK_TO_HP")
+            .field(
+                "icg_hp_xtal32k",
+                &format_args!("{}", self.icg_hp_xtal32k().bit()),
+            )
+            .field("icg_hp_sosc", &format_args!("{}", self.icg_hp_sosc().bit()))
+            .field(
+                "icg_hp_osc32k",
+                &format_args!("{}", self.icg_hp_osc32k().bit()),
+            )
+            .field("icg_hp_fosc", &format_args!("{}", self.icg_hp_fosc().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 28 - need_des"]
     #[inline(always)]

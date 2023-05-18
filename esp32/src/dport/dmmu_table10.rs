@@ -46,6 +46,17 @@ impl R {
         DMMU_TABLE10_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::DMMU_TABLE10")
+            .field(
+                "dmmu_table10",
+                &format_args!("{}", self.dmmu_table10().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6"]
     #[inline(always)]

@@ -65,6 +65,25 @@ impl R {
         SAR_I2C_START_FORCE_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_I2C_CTRL")
+            .field(
+                "sar_i2c_ctrl",
+                &format_args!("{}", self.sar_i2c_ctrl().bits()),
+            )
+            .field(
+                "sar_i2c_start",
+                &format_args!("{}", self.sar_i2c_start().bit()),
+            )
+            .field(
+                "sar_i2c_start_force",
+                &format_args!("{}", self.sar_i2c_start_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - I2C control data only active when reg_sar_i2c_start_force = 1"]
     #[inline(always)]

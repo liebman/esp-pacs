@@ -46,6 +46,17 @@ impl R {
         CIS_CONF_W2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CIS_CONF_W2")
+            .field(
+                "cis_conf_w2",
+                &format_args!("{}", self.cis_conf_w2().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Configure cis addr 47~44"]
     #[inline(always)]

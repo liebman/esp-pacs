@@ -55,6 +55,18 @@ impl R {
         SPI_SWAP_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO_SD::SIGMADELTA_MISC")
+            .field(
+                "function_clk_en",
+                &format_args!("{}", self.function_clk_en().bit()),
+            )
+            .field("spi_swap", &format_args!("{}", self.spi_swap().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - Clock enable bit of sigma delta modulation."]
     #[inline(always)]

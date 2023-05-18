@@ -104,6 +104,21 @@ impl R {
         AHBIDLE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GRSTCTL")
+            .field("csftrst", &format_args!("{}", self.csftrst().bit()))
+            .field("piufssftrst", &format_args!("{}", self.piufssftrst().bit()))
+            .field("frmcntrrst", &format_args!("{}", self.frmcntrrst().bit()))
+            .field("rxfflsh", &format_args!("{}", self.rxfflsh().bit()))
+            .field("txfflsh", &format_args!("{}", self.txfflsh().bit()))
+            .field("txfnum", &format_args!("{}", self.txfnum().bits()))
+            .field("dmareq", &format_args!("{}", self.dmareq().bit()))
+            .field("ahbidle", &format_args!("{}", self.ahbidle().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

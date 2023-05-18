@@ -63,6 +63,16 @@ impl R {
         STATUS_EXT_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::RD_STATUS")
+            .field("status", &format_args!("{}", self.status().bits()))
+            .field("wb_mode", &format_args!("{}", self.wb_mode().bits()))
+            .field("status_ext", &format_args!("{}", self.status_ext().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - In the slave mode, it is the status for master to read out."]
     #[inline(always)]

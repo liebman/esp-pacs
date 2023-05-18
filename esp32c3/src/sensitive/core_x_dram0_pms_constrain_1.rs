@@ -156,6 +156,83 @@ impl R {
         CORE_X_DRAM0_PMS_CONSTRAIN_ROM_WORLD_1_PMS_R::new(((self.bits >> 26) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_X_DRAM0_PMS_CONSTRAIN_1")
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_0_pms_0",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_0_pms_0().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_0_pms_1",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_0_pms_1().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_0_pms_2",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_0_pms_2().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_0_pms_3",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_0_pms_3().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_1_pms_0",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_1_pms_0().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_1_pms_1",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_1_pms_1().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_1_pms_2",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_1_pms_2().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_sram_world_1_pms_3",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_sram_world_1_pms_3().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_rom_world_0_pms",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_rom_world_0_pms().bits()
+                ),
+            )
+            .field(
+                "core_x_dram0_pms_constrain_rom_world_1_pms",
+                &format_args!(
+                    "{}",
+                    self.core_x_dram0_pms_constrain_rom_world_1_pms().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - core_x_dram0_pms_constrain_sram_world_0_pms_0"]
     #[inline(always)]

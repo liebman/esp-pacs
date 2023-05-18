@@ -45,6 +45,14 @@ impl R {
         RX_WEIGHT_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_WIGHT_CH")
+            .field("rx_weight", &format_args!("{}", self.rx_weight().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:11 - The weight of Rx channel 0."]
     #[inline(always)]

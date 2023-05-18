@@ -46,6 +46,17 @@ impl R {
         CACHE_LOCK_MAP_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_LOCK_MAP")
+            .field(
+                "cache_lock_map",
+                &format_args!("{}", self.cache_lock_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Those bits are used to indicate which caches in the two-level cache structure will apply this lock/unlock operation. \\[4\\]: L1-Cache"]
     #[inline(always)]

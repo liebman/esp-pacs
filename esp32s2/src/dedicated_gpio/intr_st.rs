@@ -71,6 +71,45 @@ impl R {
         GPIO7_INT_ST_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEDICATED_GPIO::INTR_ST")
+            .field(
+                "gpio0_int_st",
+                &format_args!("{}", self.gpio0_int_st().bit()),
+            )
+            .field(
+                "gpio1_int_st",
+                &format_args!("{}", self.gpio1_int_st().bit()),
+            )
+            .field(
+                "gpio2_int_st",
+                &format_args!("{}", self.gpio2_int_st().bit()),
+            )
+            .field(
+                "gpio3_int_st",
+                &format_args!("{}", self.gpio3_int_st().bit()),
+            )
+            .field(
+                "gpio4_int_st",
+                &format_args!("{}", self.gpio4_int_st().bit()),
+            )
+            .field(
+                "gpio5_int_st",
+                &format_args!("{}", self.gpio5_int_st().bit()),
+            )
+            .field(
+                "gpio6_int_st",
+                &format_args!("{}", self.gpio6_int_st().bit()),
+            )
+            .field(
+                "gpio7_int_st",
+                &format_args!("{}", self.gpio7_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Masked interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intr_st](index.html) module"]
 pub struct INTR_ST_SPEC;
 impl crate::RegisterSpec for INTR_ST_SPEC {

@@ -103,6 +103,32 @@ impl R {
         DAC_CLK_INV_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_DAC_CTRL1")
+            .field("sw_fstep", &format_args!("{}", self.sw_fstep().bits()))
+            .field("sw_tone_en", &format_args!("{}", self.sw_tone_en().bit()))
+            .field(
+                "debug_bit_sel",
+                &format_args!("{}", self.debug_bit_sel().bits()),
+            )
+            .field(
+                "dac_dig_force",
+                &format_args!("{}", self.dac_dig_force().bit()),
+            )
+            .field(
+                "dac_clk_force_low",
+                &format_args!("{}", self.dac_clk_force_low().bit()),
+            )
+            .field(
+                "dac_clk_force_high",
+                &format_args!("{}", self.dac_clk_force_high().bit()),
+            )
+            .field("dac_clk_inv", &format_args!("{}", self.dac_clk_inv().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - frequency step for CW generator can be used to adjust the frequency"]
     #[inline(always)]

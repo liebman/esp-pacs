@@ -113,6 +113,45 @@ impl R {
         SAR_SAR2_XPD_WAIT_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEAS2_CTRL1")
+            .field(
+                "sar_sar2_cntl_state",
+                &format_args!("{}", self.sar_sar2_cntl_state().bits()),
+            )
+            .field(
+                "sar_sar2_pwdet_cal_en",
+                &format_args!("{}", self.sar_sar2_pwdet_cal_en().bit()),
+            )
+            .field(
+                "sar_sar2_pkdet_cal_en",
+                &format_args!("{}", self.sar_sar2_pkdet_cal_en().bit()),
+            )
+            .field(
+                "sar_sar2_en_test",
+                &format_args!("{}", self.sar_sar2_en_test().bit()),
+            )
+            .field(
+                "sar_sar2_rstb_force",
+                &format_args!("{}", self.sar_sar2_rstb_force().bits()),
+            )
+            .field(
+                "sar_sar2_standby_wait",
+                &format_args!("{}", self.sar_sar2_standby_wait().bits()),
+            )
+            .field(
+                "sar_sar2_rstb_wait",
+                &format_args!("{}", self.sar_sar2_rstb_wait().bits()),
+            )
+            .field(
+                "sar_sar2_xpd_wait",
+                &format_args!("{}", self.sar_sar2_xpd_wait().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - rtc control pwdet enable"]
     #[inline(always)]

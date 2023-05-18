@@ -75,6 +75,23 @@ impl R {
         CAP2_IN_INVERT_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CAP_CH2_CFG")
+            .field("cap2_en", &format_args!("{}", self.cap2_en().bit()))
+            .field("cap2_mode", &format_args!("{}", self.cap2_mode().bits()))
+            .field(
+                "cap2_prescale",
+                &format_args!("{}", self.cap2_prescale().bits()),
+            )
+            .field(
+                "cap2_in_invert",
+                &format_args!("{}", self.cap2_in_invert().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

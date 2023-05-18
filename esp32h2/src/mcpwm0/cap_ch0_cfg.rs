@@ -75,6 +75,23 @@ impl R {
         CAP0_IN_INVERT_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CAP_CH0_CFG")
+            .field("cap0_en", &format_args!("{}", self.cap0_en().bit()))
+            .field("cap0_mode", &format_args!("{}", self.cap0_mode().bits()))
+            .field(
+                "cap0_prescale",
+                &format_args!("{}", self.cap0_prescale().bits()),
+            )
+            .field(
+                "cap0_in_invert",
+                &format_args!("{}", self.cap0_in_invert().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - When set, capture on channel 0 is enabled"]
     #[inline(always)]

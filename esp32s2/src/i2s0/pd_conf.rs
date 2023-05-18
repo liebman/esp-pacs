@@ -99,6 +99,41 @@ impl R {
         DMA_RAM_CLK_FO_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::PD_CONF")
+            .field(
+                "fifo_force_pd",
+                &format_args!("{}", self.fifo_force_pd().bit()),
+            )
+            .field(
+                "fifo_force_pu",
+                &format_args!("{}", self.fifo_force_pu().bit()),
+            )
+            .field(
+                "plc_mem_force_pd",
+                &format_args!("{}", self.plc_mem_force_pd().bit()),
+            )
+            .field(
+                "plc_mem_force_pu",
+                &format_args!("{}", self.plc_mem_force_pu().bit()),
+            )
+            .field(
+                "dma_ram_force_pd",
+                &format_args!("{}", self.dma_ram_force_pd().bit()),
+            )
+            .field(
+                "dma_ram_force_pu",
+                &format_args!("{}", self.dma_ram_force_pu().bit()),
+            )
+            .field(
+                "dma_ram_clk_fo",
+                &format_args!("{}", self.dma_ram_clk_fo().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Force FIFO power-down."]
     #[inline(always)]

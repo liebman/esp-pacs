@@ -70,6 +70,29 @@ impl R {
         SPI_MEM_CS_KEEP_ACTIVE_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_MISC")
+            .field(
+                "spi_mem_fsub_pin",
+                &format_args!("{}", self.spi_mem_fsub_pin().bit()),
+            )
+            .field(
+                "spi_mem_ssub_pin",
+                &format_args!("{}", self.spi_mem_ssub_pin().bit()),
+            )
+            .field(
+                "spi_mem_ck_idle_edge",
+                &format_args!("{}", self.spi_mem_ck_idle_edge().bit()),
+            )
+            .field(
+                "spi_mem_cs_keep_active",
+                &format_args!("{}", self.spi_mem_cs_keep_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 9 - 1: SPI_CLK line is high when idle 0: spi clk line is low when idle"]
     #[inline(always)]

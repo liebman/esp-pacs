@@ -86,6 +86,33 @@ impl R {
         DBUS_CNT_OVF_INT_ENA_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_ILG_INT_ENA")
+            .field(
+                "icache_sync_op_fault_int_ena",
+                &format_args!("{}", self.icache_sync_op_fault_int_ena().bit()),
+            )
+            .field(
+                "icache_preload_op_fault_int_ena",
+                &format_args!("{}", self.icache_preload_op_fault_int_ena().bit()),
+            )
+            .field(
+                "mmu_entry_fault_int_ena",
+                &format_args!("{}", self.mmu_entry_fault_int_ena().bit()),
+            )
+            .field(
+                "ibus_cnt_ovf_int_ena",
+                &format_args!("{}", self.ibus_cnt_ovf_int_ena().bit()),
+            )
+            .field(
+                "dbus_cnt_ovf_int_ena",
+                &format_args!("{}", self.dbus_cnt_ovf_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable interrupt by sync configurations fault."]
     #[inline(always)]

@@ -108,6 +108,33 @@ impl R {
         CS_KEEP_ACTIVE_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::PIN")
+            .field("cs0_dis", &format_args!("{}", self.cs0_dis().bit()))
+            .field("cs1_dis", &format_args!("{}", self.cs1_dis().bit()))
+            .field("cs2_dis", &format_args!("{}", self.cs2_dis().bit()))
+            .field("ck_dis", &format_args!("{}", self.ck_dis().bit()))
+            .field(
+                "master_cs_pol",
+                &format_args!("{}", self.master_cs_pol().bits()),
+            )
+            .field(
+                "master_ck_sel",
+                &format_args!("{}", self.master_ck_sel().bits()),
+            )
+            .field(
+                "ck_idle_edge",
+                &format_args!("{}", self.ck_idle_edge().bit()),
+            )
+            .field(
+                "cs_keep_active",
+                &format_args!("{}", self.cs_keep_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SPI CS0 pin enable, 1: disable CS0, 0: spi_cs0 signal is from/to CS0 pin"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         SAR2_PATT_TAB4_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::SAR2_PATT_TAB4")
+            .field(
+                "sar2_patt_tab4",
+                &format_args!("{}", self.sar2_patt_tab4().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Item 12 ~ 15 for pattern table 2 (each item one byte)"]
     #[inline(always)]

@@ -63,6 +63,19 @@ impl R {
         CACHE_USAGE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::SRAM_USAGE_CONF")
+            .field("sram_usage", &format_args!("{}", self.sram_usage().bits()))
+            .field(
+                "mac_dump_alloc",
+                &format_args!("{}", self.mac_dump_alloc().bits()),
+            )
+            .field("cache_usage", &format_args!("{}", self.cache_usage().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 10:14 - 0: cpu use hp-memory. 1: mac-dump accessing hp-memory."]
     #[inline(always)]

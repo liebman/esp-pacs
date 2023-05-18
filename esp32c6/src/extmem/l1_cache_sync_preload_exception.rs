@@ -57,6 +57,37 @@ impl R {
         CACHE_SYNC_ERR_CODE_R::new(((self.bits >> 12) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_SYNC_PRELOAD_EXCEPTION")
+            .field(
+                "l1_icache0_pld_err_code",
+                &format_args!("{}", self.l1_icache0_pld_err_code().bits()),
+            )
+            .field(
+                "l1_icache1_pld_err_code",
+                &format_args!("{}", self.l1_icache1_pld_err_code().bits()),
+            )
+            .field(
+                "l1_icache2_pld_err_code",
+                &format_args!("{}", self.l1_icache2_pld_err_code().bits()),
+            )
+            .field(
+                "l1_icache3_pld_err_code",
+                &format_args!("{}", self.l1_icache3_pld_err_code().bits()),
+            )
+            .field(
+                "l1_cache_pld_err_code",
+                &format_args!("{}", self.l1_cache_pld_err_code().bits()),
+            )
+            .field(
+                "cache_sync_err_code",
+                &format_args!("{}", self.cache_sync_err_code().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache Sync/Preload Operation exception register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l1_cache_sync_preload_exception](index.html) module"]
 pub struct L1_CACHE_SYNC_PRELOAD_EXCEPTION_SPEC;
 impl crate::RegisterSpec for L1_CACHE_SYNC_PRELOAD_EXCEPTION_SPEC {

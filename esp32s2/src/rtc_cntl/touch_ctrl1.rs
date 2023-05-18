@@ -56,6 +56,21 @@ impl R {
         TOUCH_MEAS_NUM_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TOUCH_CTRL1")
+            .field(
+                "touch_sleep_cycles",
+                &format_args!("{}", self.touch_sleep_cycles().bits()),
+            )
+            .field(
+                "touch_meas_num",
+                &format_args!("{}", self.touch_meas_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Set sleep cycles for touch timer."]
     #[inline(always)]

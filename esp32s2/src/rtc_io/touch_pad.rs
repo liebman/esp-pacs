@@ -156,6 +156,65 @@ impl R {
         TOUCH_PAD0_DRV_R::new(((self.bits >> 29) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::TOUCH_PAD")
+            .field(
+                "touch_pad0_fun_ie",
+                &format_args!("{}", self.touch_pad0_fun_ie().bit()),
+            )
+            .field(
+                "touch_pad0_slp_oe",
+                &format_args!("{}", self.touch_pad0_slp_oe().bit()),
+            )
+            .field(
+                "touch_pad0_slp_ie",
+                &format_args!("{}", self.touch_pad0_slp_ie().bit()),
+            )
+            .field(
+                "touch_pad0_slp_sel",
+                &format_args!("{}", self.touch_pad0_slp_sel().bit()),
+            )
+            .field(
+                "touch_pad0_fun_sel",
+                &format_args!("{}", self.touch_pad0_fun_sel().bits()),
+            )
+            .field(
+                "touch_pad0_mux_sel",
+                &format_args!("{}", self.touch_pad0_mux_sel().bit()),
+            )
+            .field(
+                "touch_pad0_xpd",
+                &format_args!("{}", self.touch_pad0_xpd().bit()),
+            )
+            .field(
+                "touch_pad0_tie_opt",
+                &format_args!("{}", self.touch_pad0_tie_opt().bit()),
+            )
+            .field(
+                "touch_pad0_start",
+                &format_args!("{}", self.touch_pad0_start().bit()),
+            )
+            .field(
+                "touch_pad0_dac",
+                &format_args!("{}", self.touch_pad0_dac().bits()),
+            )
+            .field(
+                "touch_pad0_rue",
+                &format_args!("{}", self.touch_pad0_rue().bit()),
+            )
+            .field(
+                "touch_pad0_rde",
+                &format_args!("{}", self.touch_pad0_rde().bit()),
+            )
+            .field(
+                "touch_pad0_drv",
+                &format_args!("{}", self.touch_pad0_drv().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 13 - Input enable in normal execution."]
     #[inline(always)]

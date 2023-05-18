@@ -106,6 +106,41 @@ impl R {
         PRO_IRAM0_RTCFAST_H_W_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_IRAM0_3")
+            .field(
+                "pro_iram0_rtcfast_spltaddr",
+                &format_args!("{}", self.pro_iram0_rtcfast_spltaddr().bits()),
+            )
+            .field(
+                "pro_iram0_rtcfast_l_f",
+                &format_args!("{}", self.pro_iram0_rtcfast_l_f().bit()),
+            )
+            .field(
+                "pro_iram0_rtcfast_l_r",
+                &format_args!("{}", self.pro_iram0_rtcfast_l_r().bit()),
+            )
+            .field(
+                "pro_iram0_rtcfast_l_w",
+                &format_args!("{}", self.pro_iram0_rtcfast_l_w().bit()),
+            )
+            .field(
+                "pro_iram0_rtcfast_h_f",
+                &format_args!("{}", self.pro_iram0_rtcfast_h_f().bit()),
+            )
+            .field(
+                "pro_iram0_rtcfast_h_r",
+                &format_args!("{}", self.pro_iram0_rtcfast_h_r().bit()),
+            )
+            .field(
+                "pro_iram0_rtcfast_h_w",
+                &format_args!("{}", self.pro_iram0_rtcfast_h_w().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - Configure the split address of RTC FAST for IBUS access."]
     #[inline(always)]

@@ -162,6 +162,27 @@ impl R {
         OUTEPMSK6_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DAINTMSK")
+            .field("inepmsk0", &format_args!("{}", self.inepmsk0().bit()))
+            .field("inepmsk1", &format_args!("{}", self.inepmsk1().bit()))
+            .field("inepmsk2", &format_args!("{}", self.inepmsk2().bit()))
+            .field("inepmsk3", &format_args!("{}", self.inepmsk3().bit()))
+            .field("inepmsk4", &format_args!("{}", self.inepmsk4().bit()))
+            .field("inepmsk5", &format_args!("{}", self.inepmsk5().bit()))
+            .field("inepmsk6", &format_args!("{}", self.inepmsk6().bit()))
+            .field("outepmsk0", &format_args!("{}", self.outepmsk0().bit()))
+            .field("outepmsk1", &format_args!("{}", self.outepmsk1().bit()))
+            .field("outepmsk2", &format_args!("{}", self.outepmsk2().bit()))
+            .field("outepmsk3", &format_args!("{}", self.outepmsk3().bit()))
+            .field("outepmsk4", &format_args!("{}", self.outepmsk4().bit()))
+            .field("outepmsk5", &format_args!("{}", self.outepmsk5().bit()))
+            .field("outepmsk6", &format_args!("{}", self.outepmsk6().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

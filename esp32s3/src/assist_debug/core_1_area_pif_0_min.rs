@@ -46,6 +46,17 @@ impl R {
         CORE_1_AREA_PIF_0_MIN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_1_AREA_PIF_0_MIN")
+            .field(
+                "core_1_area_pif_0_min",
+                &format_args!("{}", self.core_1_area_pif_0_min().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Core1 PIF region0 start addr"]
     #[inline(always)]

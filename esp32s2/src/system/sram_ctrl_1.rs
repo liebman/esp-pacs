@@ -46,6 +46,17 @@ impl R {
         SRAM_FORCE_PD_R::new(self.bits & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::SRAM_CTRL_1")
+            .field(
+                "sram_force_pd",
+                &format_args!("{}", self.sram_force_pd().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - This field is used to power down internal SRAM."]
     #[inline(always)]

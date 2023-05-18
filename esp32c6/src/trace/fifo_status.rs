@@ -29,6 +29,15 @@ impl R {
         WORK_STATUS_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TRACE::FIFO_STATUS")
+            .field("fifo_empty", &format_args!("{}", self.fifo_empty().bit()))
+            .field("work_status", &format_args!("{}", self.work_status().bit()))
+            .finish()
+    }
+}
 #[doc = "fifo status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fifo_status](index.html) module"]
 pub struct FIFO_STATUS_SPEC;
 impl crate::RegisterSpec for FIFO_STATUS_SPEC {

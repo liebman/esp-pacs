@@ -56,6 +56,21 @@ impl R {
         APB_DIV_NUM_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::APB_FREQ_CONF")
+            .field(
+                "apb_decrease_div_num",
+                &format_args!("{}", self.apb_decrease_div_num().bits()),
+            )
+            .field(
+                "apb_div_num",
+                &format_args!("{}", self.apb_div_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - If this field's value is grater than PCR_APB_DIV_NUM, the clk_apb will be automatically down to clk_apb_decrease only when no access is on apb-bus, and will recover to the previous frequency when a new access appears on apb-bus. Set as one within (0,1,3) to set clk_apb_decrease as div1/div2/div4(default) of clk_ahb. Note that enable this function will reduce performance. Users can set this field as zero to disable the auto-decrease-apb-freq function. By default, this function is disable."]
     #[inline(always)]

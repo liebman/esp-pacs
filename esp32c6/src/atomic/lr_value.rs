@@ -46,6 +46,17 @@ impl R {
         GLOABLE_LR_VALUE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ATOMIC::LR_VALUE")
+            .field(
+                "gloable_lr_value",
+                &format_args!("{}", self.gloable_lr_value().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - backup gloable value"]
     #[inline(always)]

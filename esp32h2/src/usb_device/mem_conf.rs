@@ -54,6 +54,18 @@ impl R {
         USB_MEM_CLK_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::MEM_CONF")
+            .field("usb_mem_pd", &format_args!("{}", self.usb_mem_pd().bit()))
+            .field(
+                "usb_mem_clk_en",
+                &format_args!("{}", self.usb_mem_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: power down usb memory."]
     #[inline(always)]

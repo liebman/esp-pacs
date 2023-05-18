@@ -45,6 +45,17 @@ impl R {
         SAR1_DIG_FORCE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEAS1_MUX")
+            .field(
+                "sar1_dig_force",
+                &format_args!("{}", self.sar1_dig_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - 1: SAR ADC1 controlled by DIG ADC1 CTRL"]
     #[inline(always)]

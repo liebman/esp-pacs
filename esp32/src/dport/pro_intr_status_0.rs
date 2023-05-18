@@ -22,6 +22,17 @@ impl R {
         PRO_INTR_STATUS_0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_INTR_STATUS_0")
+            .field(
+                "pro_intr_status_0",
+                &format_args!("{}", self.pro_intr_status_0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_intr_status_0](index.html) module"]
 pub struct PRO_INTR_STATUS_0_SPEC;
 impl crate::RegisterSpec for PRO_INTR_STATUS_0_SPEC {

@@ -46,6 +46,17 @@ impl R {
         CPU_INTR_FROM_CPU_2_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE0::CPU_INTR_FROM_CPU_2_MAP")
+            .field(
+                "cpu_intr_from_cpu_2_map",
+                &format_args!("{}", self.cpu_intr_from_cpu_2_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - reg_core0_cpu_intr_from_cpu_2_map"]
     #[inline(always)]

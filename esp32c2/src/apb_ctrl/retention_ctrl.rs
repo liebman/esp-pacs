@@ -56,6 +56,21 @@ impl R {
         NOBYPASS_CPU_ISO_RST_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::RETENTION_CTRL")
+            .field(
+                "retention_link_addr",
+                &format_args!("{}", self.retention_link_addr().bits()),
+            )
+            .field(
+                "nobypass_cpu_iso_rst",
+                &format_args!("{}", self.nobypass_cpu_iso_rst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:26 - reg_retention_link_addr"]
     #[inline(always)]

@@ -127,6 +127,38 @@ impl R {
         CEATA_DEVICE_INTERRUPT_STATUS_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CTRL")
+            .field(
+                "controller_reset",
+                &format_args!("{}", self.controller_reset().bit()),
+            )
+            .field("fifo_reset", &format_args!("{}", self.fifo_reset().bit()))
+            .field("dma_reset", &format_args!("{}", self.dma_reset().bit()))
+            .field("int_enable", &format_args!("{}", self.int_enable().bit()))
+            .field("read_wait", &format_args!("{}", self.read_wait().bit()))
+            .field(
+                "send_irq_response",
+                &format_args!("{}", self.send_irq_response().bit()),
+            )
+            .field(
+                "abort_read_data",
+                &format_args!("{}", self.abort_read_data().bit()),
+            )
+            .field("send_ccsd", &format_args!("{}", self.send_ccsd().bit()))
+            .field(
+                "send_auto_stop_ccsd",
+                &format_args!("{}", self.send_auto_stop_ccsd().bit()),
+            )
+            .field(
+                "ceata_device_interrupt_status",
+                &format_args!("{}", self.ceata_device_interrupt_status().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - To reset controller, firmware should set this bit. This bit is auto-cleared after two AHB and two sdhost_cclk_in clock cycles."]
     #[inline(always)]

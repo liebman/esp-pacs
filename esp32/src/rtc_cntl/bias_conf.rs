@@ -103,6 +103,38 @@ impl R {
         RST_BIAS_I2C_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::BIAS_CONF")
+            .field("dbg_atten", &format_args!("{}", self.dbg_atten().bits()))
+            .field(
+                "enb_sck_xtal",
+                &format_args!("{}", self.enb_sck_xtal().bit()),
+            )
+            .field(
+                "inc_heartbeat_refresh",
+                &format_args!("{}", self.inc_heartbeat_refresh().bit()),
+            )
+            .field(
+                "dec_heartbeat_period",
+                &format_args!("{}", self.dec_heartbeat_period().bit()),
+            )
+            .field(
+                "inc_heartbeat_period",
+                &format_args!("{}", self.inc_heartbeat_period().bit()),
+            )
+            .field(
+                "dec_heartbeat_width",
+                &format_args!("{}", self.dec_heartbeat_width().bit()),
+            )
+            .field(
+                "rst_bias_i2c",
+                &format_args!("{}", self.rst_bias_i2c().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 24:25 - DBG_ATTEN"]
     #[inline(always)]

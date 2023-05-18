@@ -73,6 +73,29 @@ impl R {
         CS_DELAY_NUM_R::new(((self.bits >> 29) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL2")
+            .field(
+                "cs_setup_time",
+                &format_args!("{}", self.cs_setup_time().bits()),
+            )
+            .field(
+                "cs_hold_time",
+                &format_args!("{}", self.cs_hold_time().bits()),
+            )
+            .field(
+                "cs_delay_mode",
+                &format_args!("{}", self.cs_delay_mode().bits()),
+            )
+            .field(
+                "cs_delay_num",
+                &format_args!("{}", self.cs_delay_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:12 - (cycles+1) of prepare phase by spi clock this bits are combined with SPI_CS_SETUP bit. Can be configured in CONF state."]
     #[inline(always)]

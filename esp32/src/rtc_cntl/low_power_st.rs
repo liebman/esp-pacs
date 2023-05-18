@@ -29,6 +29,21 @@ impl R {
         RDY_FOR_WAKEUP_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::LOW_POWER_ST")
+            .field(
+                "low_power_diag0",
+                &format_args!("{}", self.low_power_diag0().bits()),
+            )
+            .field(
+                "rdy_for_wakeup",
+                &format_args!("{}", self.rdy_for_wakeup().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [low_power_st](index.html) module"]
 pub struct LOW_POWER_ST_SPEC;
 impl crate::RegisterSpec for LOW_POWER_ST_SPEC {

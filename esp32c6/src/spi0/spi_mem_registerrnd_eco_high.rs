@@ -22,6 +22,17 @@ impl R {
         SPI_MEM_REGISTERRND_ECO_HIGH_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_REGISTERRND_ECO_HIGH")
+            .field(
+                "spi_mem_registerrnd_eco_high",
+                &format_args!("{}", self.spi_mem_registerrnd_eco_high().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "MSPI ECO high register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_registerrnd_eco_high](index.html) module"]
 pub struct SPI_MEM_REGISTERRND_ECO_HIGH_SPEC;
 impl crate::RegisterSpec for SPI_MEM_REGISTERRND_ECO_HIGH_SPEC {

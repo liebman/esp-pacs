@@ -66,6 +66,16 @@ impl R {
         MAX_R::new(((self.bits >> 18) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::APP_CACHE_LOCK_3_ADDR")
+            .field("pre", &format_args!("{}", self.pre().bits()))
+            .field("min", &format_args!("{}", self.min().bits()))
+            .field("max", &format_args!("{}", self.max().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13"]
     #[inline(always)]

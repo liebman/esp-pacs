@@ -85,6 +85,30 @@ impl R {
         TSENS_RESET_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TSENS_CTRL2")
+            .field(
+                "tsens_xpd_wait",
+                &format_args!("{}", self.tsens_xpd_wait().bits()),
+            )
+            .field(
+                "tsens_xpd_force",
+                &format_args!("{}", self.tsens_xpd_force().bits()),
+            )
+            .field(
+                "tsens_clk_inv",
+                &format_args!("{}", self.tsens_clk_inv().bit()),
+            )
+            .field(
+                "tsens_clkgate_en",
+                &format_args!("{}", self.tsens_clkgate_en().bit()),
+            )
+            .field("tsens_reset", &format_args!("{}", self.tsens_reset().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11"]
     #[inline(always)]

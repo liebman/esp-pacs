@@ -108,6 +108,36 @@ impl R {
         CLK_EN_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::CTR")
+            .field(
+                "sda_force_out",
+                &format_args!("{}", self.sda_force_out().bit()),
+            )
+            .field(
+                "scl_force_out",
+                &format_args!("{}", self.scl_force_out().bit()),
+            )
+            .field(
+                "sample_scl_level",
+                &format_args!("{}", self.sample_scl_level().bit()),
+            )
+            .field("ms_mode", &format_args!("{}", self.ms_mode().bit()))
+            .field("trans_start", &format_args!("{}", self.trans_start().bit()))
+            .field(
+                "tx_lsb_first",
+                &format_args!("{}", self.tx_lsb_first().bit()),
+            )
+            .field(
+                "rx_lsb_first",
+                &format_args!("{}", self.rx_lsb_first().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: normally ouput sda data 0: exchange the function of sda_o and sda_oe (sda_o is the original internal output sda signal sda_oe is the enable bit for the internal output sda signal)"]
     #[inline(always)]

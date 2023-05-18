@@ -56,6 +56,21 @@ impl R {
         INEP4TXFDEP_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DIEPTXF4")
+            .field(
+                "inep4txfstaddr",
+                &format_args!("{}", self.inep4txfstaddr().bits()),
+            )
+            .field(
+                "inep4txfdep",
+                &format_args!("{}", self.inep4txfdep().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]

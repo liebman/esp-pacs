@@ -52,6 +52,18 @@ impl R {
         COMMAND_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::CMD")
+            .field("command", &format_args!("{}", self.command().bits()))
+            .field(
+                "command_done",
+                &format_args!("{}", self.command_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - Content of command 0. For more information, please refer to the register I2C_COMD0_REG in Chapter I²C Controller"]
     #[inline(always)]

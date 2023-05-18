@@ -66,6 +66,25 @@ impl R {
         PRO_CACHE_RESET_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CACHE_CONTROL")
+            .field(
+                "pro_icache_clk_on",
+                &format_args!("{}", self.pro_icache_clk_on().bit()),
+            )
+            .field(
+                "pro_dcache_clk_on",
+                &format_args!("{}", self.pro_dcache_clk_on().bit()),
+            )
+            .field(
+                "pro_cache_reset",
+                &format_args!("{}", self.pro_cache_reset().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable clock of i-cache."]
     #[inline(always)]

@@ -256,6 +256,97 @@ impl R {
         SENSE1_HOLD_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::SENSOR_PADS")
+            .field(
+                "sense4_fun_ie",
+                &format_args!("{}", self.sense4_fun_ie().bit()),
+            )
+            .field(
+                "sense4_slp_ie",
+                &format_args!("{}", self.sense4_slp_ie().bit()),
+            )
+            .field(
+                "sense4_slp_sel",
+                &format_args!("{}", self.sense4_slp_sel().bit()),
+            )
+            .field(
+                "sense4_fun_sel",
+                &format_args!("{}", self.sense4_fun_sel().bits()),
+            )
+            .field(
+                "sense3_fun_ie",
+                &format_args!("{}", self.sense3_fun_ie().bit()),
+            )
+            .field(
+                "sense3_slp_ie",
+                &format_args!("{}", self.sense3_slp_ie().bit()),
+            )
+            .field(
+                "sense3_slp_sel",
+                &format_args!("{}", self.sense3_slp_sel().bit()),
+            )
+            .field(
+                "sense3_fun_sel",
+                &format_args!("{}", self.sense3_fun_sel().bits()),
+            )
+            .field(
+                "sense2_fun_ie",
+                &format_args!("{}", self.sense2_fun_ie().bit()),
+            )
+            .field(
+                "sense2_slp_ie",
+                &format_args!("{}", self.sense2_slp_ie().bit()),
+            )
+            .field(
+                "sense2_slp_sel",
+                &format_args!("{}", self.sense2_slp_sel().bit()),
+            )
+            .field(
+                "sense2_fun_sel",
+                &format_args!("{}", self.sense2_fun_sel().bits()),
+            )
+            .field(
+                "sense1_fun_ie",
+                &format_args!("{}", self.sense1_fun_ie().bit()),
+            )
+            .field(
+                "sense1_slp_ie",
+                &format_args!("{}", self.sense1_slp_ie().bit()),
+            )
+            .field(
+                "sense1_slp_sel",
+                &format_args!("{}", self.sense1_slp_sel().bit()),
+            )
+            .field(
+                "sense1_fun_sel",
+                &format_args!("{}", self.sense1_fun_sel().bits()),
+            )
+            .field(
+                "sense4_mux_sel",
+                &format_args!("{}", self.sense4_mux_sel().bit()),
+            )
+            .field(
+                "sense3_mux_sel",
+                &format_args!("{}", self.sense3_mux_sel().bit()),
+            )
+            .field(
+                "sense2_mux_sel",
+                &format_args!("{}", self.sense2_mux_sel().bit()),
+            )
+            .field(
+                "sense1_mux_sel",
+                &format_args!("{}", self.sense1_mux_sel().bit()),
+            )
+            .field("sense4_hold", &format_args!("{}", self.sense4_hold().bit()))
+            .field("sense3_hold", &format_args!("{}", self.sense3_hold().bit()))
+            .field("sense2_hold", &format_args!("{}", self.sense2_hold().bit()))
+            .field("sense1_hold", &format_args!("{}", self.sense1_hold().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - the input enable of the pad"]
     #[inline(always)]

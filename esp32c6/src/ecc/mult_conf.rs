@@ -100,6 +100,29 @@ impl R {
         MEM_CLOCK_GATE_FORCE_ON_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ECC::MULT_CONF")
+            .field("start", &format_args!("{}", self.start().bit()))
+            .field("key_length", &format_args!("{}", self.key_length().bit()))
+            .field(
+                "security_mode",
+                &format_args!("{}", self.security_mode().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field("work_mode", &format_args!("{}", self.work_mode().bits()))
+            .field(
+                "verification_result",
+                &format_args!("{}", self.verification_result().bit()),
+            )
+            .field(
+                "mem_clock_gate_force_on",
+                &format_args!("{}", self.mem_clock_gate_force_on().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Write 1 to start caculation of ECC Accelerator. This bit will be self-cleared after the caculatrion is done."]
     #[inline(always)]

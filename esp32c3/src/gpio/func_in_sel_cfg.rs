@@ -64,6 +64,16 @@ impl R {
         SEL_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::FUNC_IN_SEL_CFG")
+            .field("in_sel", &format_args!("{}", self.in_sel().bits()))
+            .field("in_inv_sel", &format_args!("{}", self.in_inv_sel().bit()))
+            .field("sel", &format_args!("{}", self.sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - set this value: s=0-53: connect GPIO\\[s\\] to this port. s=0x38: set this port always high level. s=0x3C: set this port always low level."]
     #[inline(always)]

@@ -153,6 +153,35 @@ impl R {
         WR_BIT_ORDER_R::new(((self.bits >> 26) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL")
+            .field("fcs_crc_en", &format_args!("{}", self.fcs_crc_en().bit()))
+            .field("tx_crc_en", &format_args!("{}", self.tx_crc_en().bit()))
+            .field(
+                "wait_flash_idle_en",
+                &format_args!("{}", self.wait_flash_idle_en().bit()),
+            )
+            .field("fastrd_mode", &format_args!("{}", self.fastrd_mode().bit()))
+            .field("fread_dual", &format_args!("{}", self.fread_dual().bit()))
+            .field("resandres", &format_args!("{}", self.resandres().bit()))
+            .field("fread_quad", &format_args!("{}", self.fread_quad().bit()))
+            .field("wp", &format_args!("{}", self.wp().bit()))
+            .field("wrsr_2b", &format_args!("{}", self.wrsr_2b().bit()))
+            .field("fread_dio", &format_args!("{}", self.fread_dio().bit()))
+            .field("fread_qio", &format_args!("{}", self.fread_qio().bit()))
+            .field(
+                "rd_bit_order",
+                &format_args!("{}", self.rd_bit_order().bit()),
+            )
+            .field(
+                "wr_bit_order",
+                &format_args!("{}", self.wr_bit_order().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 10 - For SPI1 initialize crc32 module before writing encrypted data to flash. Active low."]
     #[inline(always)]

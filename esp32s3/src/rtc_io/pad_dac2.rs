@@ -145,6 +145,49 @@ impl R {
         PDAC2_DRV_R::new(((self.bits >> 29) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::PAD_DAC2")
+            .field("pdac2_dac", &format_args!("{}", self.pdac2_dac().bits()))
+            .field(
+                "pdac2_xpd_dac",
+                &format_args!("{}", self.pdac2_xpd_dac().bit()),
+            )
+            .field(
+                "pdac2_dac_xpd_force",
+                &format_args!("{}", self.pdac2_dac_xpd_force().bit()),
+            )
+            .field(
+                "pdac2_fun_ie",
+                &format_args!("{}", self.pdac2_fun_ie().bit()),
+            )
+            .field(
+                "pdac2_slp_oe",
+                &format_args!("{}", self.pdac2_slp_oe().bit()),
+            )
+            .field(
+                "pdac2_slp_ie",
+                &format_args!("{}", self.pdac2_slp_ie().bit()),
+            )
+            .field(
+                "pdac2_slp_sel",
+                &format_args!("{}", self.pdac2_slp_sel().bit()),
+            )
+            .field(
+                "pdac2_fun_sel",
+                &format_args!("{}", self.pdac2_fun_sel().bits()),
+            )
+            .field(
+                "pdac2_mux_sel",
+                &format_args!("{}", self.pdac2_mux_sel().bit()),
+            )
+            .field("pdac2_rue", &format_args!("{}", self.pdac2_rue().bit()))
+            .field("pdac2_rde", &format_args!("{}", self.pdac2_rde().bit()))
+            .field("pdac2_drv", &format_args!("{}", self.pdac2_drv().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 3:10 - PDAC2_DAC"]
     #[inline(always)]

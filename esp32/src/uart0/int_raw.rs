@@ -148,6 +148,89 @@ impl R {
         AT_CMD_CHAR_DET_INT_RAW_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::INT_RAW")
+            .field(
+                "rxfifo_full_int_raw",
+                &format_args!("{}", self.rxfifo_full_int_raw().bit()),
+            )
+            .field(
+                "txfifo_empty_int_raw",
+                &format_args!("{}", self.txfifo_empty_int_raw().bit()),
+            )
+            .field(
+                "parity_err_int_raw",
+                &format_args!("{}", self.parity_err_int_raw().bit()),
+            )
+            .field(
+                "frm_err_int_raw",
+                &format_args!("{}", self.frm_err_int_raw().bit()),
+            )
+            .field(
+                "rxfifo_ovf_int_raw",
+                &format_args!("{}", self.rxfifo_ovf_int_raw().bit()),
+            )
+            .field(
+                "dsr_chg_int_raw",
+                &format_args!("{}", self.dsr_chg_int_raw().bit()),
+            )
+            .field(
+                "cts_chg_int_raw",
+                &format_args!("{}", self.cts_chg_int_raw().bit()),
+            )
+            .field(
+                "brk_det_int_raw",
+                &format_args!("{}", self.brk_det_int_raw().bit()),
+            )
+            .field(
+                "rxfifo_tout_int_raw",
+                &format_args!("{}", self.rxfifo_tout_int_raw().bit()),
+            )
+            .field(
+                "sw_xon_int_raw",
+                &format_args!("{}", self.sw_xon_int_raw().bit()),
+            )
+            .field(
+                "sw_xoff_int_raw",
+                &format_args!("{}", self.sw_xoff_int_raw().bit()),
+            )
+            .field(
+                "glitch_det_int_raw",
+                &format_args!("{}", self.glitch_det_int_raw().bit()),
+            )
+            .field(
+                "tx_brk_done_int_raw",
+                &format_args!("{}", self.tx_brk_done_int_raw().bit()),
+            )
+            .field(
+                "tx_brk_idle_done_int_raw",
+                &format_args!("{}", self.tx_brk_idle_done_int_raw().bit()),
+            )
+            .field(
+                "tx_done_int_raw",
+                &format_args!("{}", self.tx_done_int_raw().bit()),
+            )
+            .field(
+                "rs485_parity_err_int_raw",
+                &format_args!("{}", self.rs485_parity_err_int_raw().bit()),
+            )
+            .field(
+                "rs485_frm_err_int_raw",
+                &format_args!("{}", self.rs485_frm_err_int_raw().bit()),
+            )
+            .field(
+                "rs485_clash_int_raw",
+                &format_args!("{}", self.rs485_clash_int_raw().bit()),
+            )
+            .field(
+                "at_cmd_char_det_int_raw",
+                &format_args!("{}", self.at_cmd_char_det_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

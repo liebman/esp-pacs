@@ -46,6 +46,14 @@ impl R {
         FOSC_DFREQ_R::new(((self.bits >> 22) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::FOSC_CNTL")
+            .field("fosc_dfreq", &format_args!("{}", self.fosc_dfreq().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 22:31 - need_des"]
     #[inline(always)]

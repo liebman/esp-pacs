@@ -29,6 +29,21 @@ impl R {
         ECC_ERR_INT_ST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::INT_ST")
+            .field(
+                "total_trans_end_int_st",
+                &format_args!("{}", self.total_trans_end_int_st().bit()),
+            )
+            .field(
+                "ecc_err_int_st",
+                &format_args!("{}", self.ecc_err_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI1 interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

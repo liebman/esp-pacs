@@ -74,6 +74,29 @@ impl R {
         SDA_FILTER_EN_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::FILTER_CFG")
+            .field(
+                "scl_filter_thres",
+                &format_args!("{}", self.scl_filter_thres().bits()),
+            )
+            .field(
+                "sda_filter_thres",
+                &format_args!("{}", self.sda_filter_thres().bits()),
+            )
+            .field(
+                "scl_filter_en",
+                &format_args!("{}", self.scl_filter_en().bit()),
+            )
+            .field(
+                "sda_filter_en",
+                &format_args!("{}", self.sda_filter_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - reg_scl_filter_thres"]
     #[inline(always)]

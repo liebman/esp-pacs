@@ -45,6 +45,14 @@ impl R {
         APB_CLK_SEL_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CONF")
+            .field("apb_clk_sel", &format_args!("{}", self.apb_clk_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This bit is used to set the frequency of slow_clk. 1'b1:80mhz 1'b0:8mhz"]
     #[inline(always)]

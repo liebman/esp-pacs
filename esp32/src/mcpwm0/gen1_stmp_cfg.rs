@@ -76,6 +76,29 @@ impl R {
         GEN1_B_SHDW_FULL_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::GEN1_STMP_CFG")
+            .field(
+                "gen1_a_upmethod",
+                &format_args!("{}", self.gen1_a_upmethod().bits()),
+            )
+            .field(
+                "gen1_b_upmethod",
+                &format_args!("{}", self.gen1_b_upmethod().bits()),
+            )
+            .field(
+                "gen1_a_shdw_full",
+                &format_args!("{}", self.gen1_a_shdw_full().bit()),
+            )
+            .field(
+                "gen1_b_shdw_full",
+                &format_args!("{}", self.gen1_b_shdw_full().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3"]
     #[inline(always)]

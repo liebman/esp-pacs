@@ -46,6 +46,17 @@ impl R {
         PRO_DCACHE_AUTOLOAD_SCT0_SIZE_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_DCACHE_AUTOLOAD_SECTION0_SIZE")
+            .field(
+                "pro_dcache_autoload_sct0_size",
+                &format_args!("{}", self.pro_dcache_autoload_sct0_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - The bits are used to configure the length of the first section for conditional pre-load operation. It should be combined with pro_dcache_autoload_sct0_ena."]
     #[inline(always)]

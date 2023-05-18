@@ -53,6 +53,18 @@ impl R {
         RD_CAL_RESERVED_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK3_RDATA4")
+            .field("blk3_dout4", &format_args!("{}", self.blk3_dout4().bits()))
+            .field(
+                "rd_cal_reserved",
+                &format_args!("{}", self.rd_cal_reserved().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Reserved for future calibration use. Indicated by EFUSE_RD_BLK3_PART_RESERVE"]
     #[inline(always)]

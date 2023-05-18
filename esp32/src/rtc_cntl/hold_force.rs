@@ -206,6 +206,85 @@ impl R {
         X32N_HOLD_FORCE_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::HOLD_FORCE")
+            .field(
+                "adc1_hold_force",
+                &format_args!("{}", self.adc1_hold_force().bit()),
+            )
+            .field(
+                "adc2_hold_force",
+                &format_args!("{}", self.adc2_hold_force().bit()),
+            )
+            .field(
+                "pdac1_hold_force",
+                &format_args!("{}", self.pdac1_hold_force().bit()),
+            )
+            .field(
+                "pdac2_hold_force",
+                &format_args!("{}", self.pdac2_hold_force().bit()),
+            )
+            .field(
+                "sense1_hold_force",
+                &format_args!("{}", self.sense1_hold_force().bit()),
+            )
+            .field(
+                "sense2_hold_force",
+                &format_args!("{}", self.sense2_hold_force().bit()),
+            )
+            .field(
+                "sense3_hold_force",
+                &format_args!("{}", self.sense3_hold_force().bit()),
+            )
+            .field(
+                "sense4_hold_force",
+                &format_args!("{}", self.sense4_hold_force().bit()),
+            )
+            .field(
+                "touch_pad0_hold_force",
+                &format_args!("{}", self.touch_pad0_hold_force().bit()),
+            )
+            .field(
+                "touch_pad1_hold_force",
+                &format_args!("{}", self.touch_pad1_hold_force().bit()),
+            )
+            .field(
+                "touch_pad2_hold_force",
+                &format_args!("{}", self.touch_pad2_hold_force().bit()),
+            )
+            .field(
+                "touch_pad3_hold_force",
+                &format_args!("{}", self.touch_pad3_hold_force().bit()),
+            )
+            .field(
+                "touch_pad4_hold_force",
+                &format_args!("{}", self.touch_pad4_hold_force().bit()),
+            )
+            .field(
+                "touch_pad5_hold_force",
+                &format_args!("{}", self.touch_pad5_hold_force().bit()),
+            )
+            .field(
+                "touch_pad6_hold_force",
+                &format_args!("{}", self.touch_pad6_hold_force().bit()),
+            )
+            .field(
+                "touch_pad7_hold_force",
+                &format_args!("{}", self.touch_pad7_hold_force().bit()),
+            )
+            .field(
+                "x32p_hold_force",
+                &format_args!("{}", self.x32p_hold_force().bit()),
+            )
+            .field(
+                "x32n_hold_force",
+                &format_args!("{}", self.x32n_hold_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

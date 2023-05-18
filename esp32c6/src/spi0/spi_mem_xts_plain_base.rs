@@ -46,6 +46,17 @@ impl R {
         SPI_XTS_PLAIN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_XTS_PLAIN_BASE")
+            .field(
+                "spi_xts_plain",
+                &format_args!("{}", self.spi_xts_plain().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This field is only used to generate include file in c case. This field is useless. Please do not use this field."]
     #[inline(always)]

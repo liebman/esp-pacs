@@ -56,6 +56,21 @@ impl R {
         DCACHE_PRELOCK_SCT0_SIZE_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_PRELOCK_SCT_SIZE")
+            .field(
+                "dcache_prelock_sct1_size",
+                &format_args!("{}", self.dcache_prelock_sct1_size().bits()),
+            )
+            .field(
+                "dcache_prelock_sct0_size",
+                &format_args!("{}", self.dcache_prelock_sct0_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The bits are used to configure the second length of data locking, which is combined with DCACHE_PRELOCK_SCT1_ADDR_REG"]
     #[inline(always)]

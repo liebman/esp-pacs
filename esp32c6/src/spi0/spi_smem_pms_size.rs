@@ -46,6 +46,17 @@ impl R {
         SPI_SMEM_PMS_SIZE_R::new((self.bits & 0x3fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_PMS_SIZE")
+            .field(
+                "spi_smem_pms_size",
+                &format_args!("{}", self.spi_smem_pms_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - SPI1 external RAM ACE section %s address region is (SPI_SMEM_PMS%s_ADDR_S, SPI_SMEM_PMS%s_ADDR_S + SPI_SMEM_PMS%s_SIZE)"]
     #[inline(always)]

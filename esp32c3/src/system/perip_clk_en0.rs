@@ -334,6 +334,93 @@ impl R {
         SPI4_CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::PERIP_CLK_EN0")
+            .field(
+                "timers_clk_en",
+                &format_args!("{}", self.timers_clk_en().bit()),
+            )
+            .field(
+                "spi01_clk_en",
+                &format_args!("{}", self.spi01_clk_en().bit()),
+            )
+            .field("uart_clk_en", &format_args!("{}", self.uart_clk_en().bit()))
+            .field("wdg_clk_en", &format_args!("{}", self.wdg_clk_en().bit()))
+            .field("i2s0_clk_en", &format_args!("{}", self.i2s0_clk_en().bit()))
+            .field(
+                "uart1_clk_en",
+                &format_args!("{}", self.uart1_clk_en().bit()),
+            )
+            .field("spi2_clk_en", &format_args!("{}", self.spi2_clk_en().bit()))
+            .field(
+                "i2c_ext0_clk_en",
+                &format_args!("{}", self.i2c_ext0_clk_en().bit()),
+            )
+            .field(
+                "uhci0_clk_en",
+                &format_args!("{}", self.uhci0_clk_en().bit()),
+            )
+            .field("rmt_clk_en", &format_args!("{}", self.rmt_clk_en().bit()))
+            .field("pcnt_clk_en", &format_args!("{}", self.pcnt_clk_en().bit()))
+            .field("ledc_clk_en", &format_args!("{}", self.ledc_clk_en().bit()))
+            .field(
+                "uhci1_clk_en",
+                &format_args!("{}", self.uhci1_clk_en().bit()),
+            )
+            .field(
+                "timergroup_clk_en",
+                &format_args!("{}", self.timergroup_clk_en().bit()),
+            )
+            .field(
+                "efuse_clk_en",
+                &format_args!("{}", self.efuse_clk_en().bit()),
+            )
+            .field(
+                "timergroup1_clk_en",
+                &format_args!("{}", self.timergroup1_clk_en().bit()),
+            )
+            .field("spi3_clk_en", &format_args!("{}", self.spi3_clk_en().bit()))
+            .field("pwm0_clk_en", &format_args!("{}", self.pwm0_clk_en().bit()))
+            .field("ext1_clk_en", &format_args!("{}", self.ext1_clk_en().bit()))
+            .field("twai_clk_en", &format_args!("{}", self.twai_clk_en().bit()))
+            .field("pwm1_clk_en", &format_args!("{}", self.pwm1_clk_en().bit()))
+            .field("i2s1_clk_en", &format_args!("{}", self.i2s1_clk_en().bit()))
+            .field(
+                "spi2_dma_clk_en",
+                &format_args!("{}", self.spi2_dma_clk_en().bit()),
+            )
+            .field(
+                "usb_device_clk_en",
+                &format_args!("{}", self.usb_device_clk_en().bit()),
+            )
+            .field(
+                "uart_mem_clk_en",
+                &format_args!("{}", self.uart_mem_clk_en().bit()),
+            )
+            .field("pwm2_clk_en", &format_args!("{}", self.pwm2_clk_en().bit()))
+            .field("pwm3_clk_en", &format_args!("{}", self.pwm3_clk_en().bit()))
+            .field(
+                "spi3_dma_clk_en",
+                &format_args!("{}", self.spi3_dma_clk_en().bit()),
+            )
+            .field(
+                "apb_saradc_clk_en",
+                &format_args!("{}", self.apb_saradc_clk_en().bit()),
+            )
+            .field(
+                "systimer_clk_en",
+                &format_args!("{}", self.systimer_clk_en().bit()),
+            )
+            .field(
+                "adc2_arb_clk_en",
+                &format_args!("{}", self.adc2_arb_clk_en().bit()),
+            )
+            .field("spi4_clk_en", &format_args!("{}", self.spi4_clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - reg_timers_clk_en"]
     #[inline(always)]

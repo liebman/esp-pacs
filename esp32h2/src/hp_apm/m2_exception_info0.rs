@@ -36,6 +36,25 @@ impl R {
         M2_EXCEPTION_ID_R::new(((self.bits >> 18) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_APM::M2_EXCEPTION_INFO0")
+            .field(
+                "m2_exception_region",
+                &format_args!("{}", self.m2_exception_region().bits()),
+            )
+            .field(
+                "m2_exception_mode",
+                &format_args!("{}", self.m2_exception_mode().bits()),
+            )
+            .field(
+                "m2_exception_id",
+                &format_args!("{}", self.m2_exception_id().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "M2 exception_info0 register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [m2_exception_info0](index.html) module"]
 pub struct M2_EXCEPTION_INFO0_SPEC;
 impl crate::RegisterSpec for M2_EXCEPTION_INFO0_SPEC {

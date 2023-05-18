@@ -120,6 +120,49 @@ impl R {
         LP_CPU_SLP_BYPASS_INTR_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::LP_CPU_PWR0")
+            .field(
+                "lp_cpu_waiti_rdy",
+                &format_args!("{}", self.lp_cpu_waiti_rdy().bit()),
+            )
+            .field(
+                "lp_cpu_stall_rdy",
+                &format_args!("{}", self.lp_cpu_stall_rdy().bit()),
+            )
+            .field(
+                "lp_cpu_force_stall",
+                &format_args!("{}", self.lp_cpu_force_stall().bit()),
+            )
+            .field(
+                "lp_cpu_slp_waiti_flag_en",
+                &format_args!("{}", self.lp_cpu_slp_waiti_flag_en().bit()),
+            )
+            .field(
+                "lp_cpu_slp_stall_flag_en",
+                &format_args!("{}", self.lp_cpu_slp_stall_flag_en().bit()),
+            )
+            .field(
+                "lp_cpu_slp_stall_wait",
+                &format_args!("{}", self.lp_cpu_slp_stall_wait().bits()),
+            )
+            .field(
+                "lp_cpu_slp_stall_en",
+                &format_args!("{}", self.lp_cpu_slp_stall_en().bit()),
+            )
+            .field(
+                "lp_cpu_slp_reset_en",
+                &format_args!("{}", self.lp_cpu_slp_reset_en().bit()),
+            )
+            .field(
+                "lp_cpu_slp_bypass_intr_en",
+                &format_args!("{}", self.lp_cpu_slp_bypass_intr_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 18 - need_des"]
     #[inline(always)]

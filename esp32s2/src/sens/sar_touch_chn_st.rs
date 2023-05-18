@@ -53,6 +53,21 @@ impl R {
         TOUCH_MEAS_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_CHN_ST")
+            .field(
+                "touch_pad_active",
+                &format_args!("{}", self.touch_pad_active().bits()),
+            )
+            .field(
+                "touch_meas_done",
+                &format_args!("{}", self.touch_meas_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 15:29 - Clear touch channel"]
     #[inline(always)]

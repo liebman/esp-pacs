@@ -46,6 +46,14 @@ impl R {
         TIME_R::new((self.bits & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_START_HOLD")
+            .field("time", &format_args!("{}", self.time().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - This register is used to configure interval between pulling SDA low and pulling SCL low when the master generates a START condition, in I2C module clock cycles."]
     #[inline(always)]

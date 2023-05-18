@@ -134,6 +134,81 @@ impl R {
         OUT_TOTAL_EOF_INT_ST_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::INT_ST")
+            .field(
+                "rx_take_data_int_st",
+                &format_args!("{}", self.rx_take_data_int_st().bit()),
+            )
+            .field(
+                "tx_put_data_int_st",
+                &format_args!("{}", self.tx_put_data_int_st().bit()),
+            )
+            .field(
+                "rx_wfull_int_st",
+                &format_args!("{}", self.rx_wfull_int_st().bit()),
+            )
+            .field(
+                "rx_rempty_int_st",
+                &format_args!("{}", self.rx_rempty_int_st().bit()),
+            )
+            .field(
+                "tx_wfull_int_st",
+                &format_args!("{}", self.tx_wfull_int_st().bit()),
+            )
+            .field(
+                "tx_rempty_int_st",
+                &format_args!("{}", self.tx_rempty_int_st().bit()),
+            )
+            .field(
+                "rx_hung_int_st",
+                &format_args!("{}", self.rx_hung_int_st().bit()),
+            )
+            .field(
+                "tx_hung_int_st",
+                &format_args!("{}", self.tx_hung_int_st().bit()),
+            )
+            .field(
+                "in_done_int_st",
+                &format_args!("{}", self.in_done_int_st().bit()),
+            )
+            .field(
+                "in_suc_eof_int_st",
+                &format_args!("{}", self.in_suc_eof_int_st().bit()),
+            )
+            .field(
+                "in_err_eof_int_st",
+                &format_args!("{}", self.in_err_eof_int_st().bit()),
+            )
+            .field(
+                "out_done_int_st",
+                &format_args!("{}", self.out_done_int_st().bit()),
+            )
+            .field(
+                "out_eof_int_st",
+                &format_args!("{}", self.out_eof_int_st().bit()),
+            )
+            .field(
+                "in_dscr_err_int_st",
+                &format_args!("{}", self.in_dscr_err_int_st().bit()),
+            )
+            .field(
+                "out_dscr_err_int_st",
+                &format_args!("{}", self.out_dscr_err_int_st().bit()),
+            )
+            .field(
+                "in_dscr_empty_int_st",
+                &format_args!("{}", self.in_dscr_empty_int_st().bit()),
+            )
+            .field(
+                "out_total_eof_int_st",
+                &format_args!("{}", self.out_total_eof_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

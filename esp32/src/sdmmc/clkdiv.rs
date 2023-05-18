@@ -72,6 +72,29 @@ impl R {
         CLK_DIVIDER3_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CLKDIV")
+            .field(
+                "clk_divider0",
+                &format_args!("{}", self.clk_divider0().bits()),
+            )
+            .field(
+                "clk_divider1",
+                &format_args!("{}", self.clk_divider1().bits()),
+            )
+            .field(
+                "clk_divider2",
+                &format_args!("{}", self.clk_divider2().bits()),
+            )
+            .field(
+                "clk_divider3",
+                &format_args!("{}", self.clk_divider3().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Clock divider0 value. Clock divisor is 2*n, where n = 0 bypasses the divider (divisor of 1). For example, a value of 1 means divided by 2*1 = 2, a value of 0xFF means divided by 2*255 = 510, and so on."]
     #[inline(always)]

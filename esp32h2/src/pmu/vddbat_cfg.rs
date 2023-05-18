@@ -45,6 +45,17 @@ impl R {
         VDDBAT_MODE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::VDDBAT_CFG")
+            .field(
+                "vddbat_mode",
+                &format_args!("{}", self.vddbat_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

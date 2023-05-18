@@ -79,6 +79,29 @@ impl R {
         CPU_CORE0_DRESET_MASK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::CPUCORE0_CFG")
+            .field(
+                "cpu_core0_sw_stall",
+                &format_args!("{}", self.cpu_core0_sw_stall().bits()),
+            )
+            .field(
+                "cpu_core0_ocd_halt_on_reset",
+                &format_args!("{}", self.cpu_core0_ocd_halt_on_reset().bit()),
+            )
+            .field(
+                "cpu_core0_stat_vector_sel",
+                &format_args!("{}", self.cpu_core0_stat_vector_sel().bit()),
+            )
+            .field(
+                "cpu_core0_dreset_mask",
+                &format_args!("{}", self.cpu_core0_dreset_mask().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - need_des"]
     #[inline(always)]

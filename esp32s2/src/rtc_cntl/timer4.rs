@@ -74,6 +74,26 @@ impl R {
         DG_WRAP_POWERUP_TIMER_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER4")
+            .field("wait_timer", &format_args!("{}", self.wait_timer().bits()))
+            .field(
+                "powerup_timer",
+                &format_args!("{}", self.powerup_timer().bits()),
+            )
+            .field(
+                "dg_wrap_wait_timer",
+                &format_args!("{}", self.dg_wrap_wait_timer().bits()),
+            )
+            .field(
+                "dg_wrap_powerup_timer",
+                &format_args!("{}", self.dg_wrap_powerup_timer().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8"]
     #[inline(always)]

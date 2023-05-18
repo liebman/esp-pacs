@@ -108,6 +108,36 @@ impl R {
         INTER_VALID_EN_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::CONF2")
+            .field("camera_en", &format_args!("{}", self.camera_en().bit()))
+            .field(
+                "lcd_tx_wrx2_en",
+                &format_args!("{}", self.lcd_tx_wrx2_en().bit()),
+            )
+            .field(
+                "lcd_tx_sdx2_en",
+                &format_args!("{}", self.lcd_tx_sdx2_en().bit()),
+            )
+            .field(
+                "data_enable_test_en",
+                &format_args!("{}", self.data_enable_test_en().bit()),
+            )
+            .field("data_enable", &format_args!("{}", self.data_enable().bit()))
+            .field("lcd_en", &format_args!("{}", self.lcd_en().bit()))
+            .field(
+                "ext_adc_start_en",
+                &format_args!("{}", self.ext_adc_start_en().bit()),
+            )
+            .field(
+                "inter_valid_en",
+                &format_args!("{}", self.inter_valid_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

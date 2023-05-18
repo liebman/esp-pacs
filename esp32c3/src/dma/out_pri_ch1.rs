@@ -45,6 +45,14 @@ impl R {
         TX_PRI_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_PRI_CH1")
+            .field("tx_pri", &format_args!("{}", self.tx_pri().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The priority of Tx channel 1. The larger of the value, the higher of the priority."]
     #[inline(always)]

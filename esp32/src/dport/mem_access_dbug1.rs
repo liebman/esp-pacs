@@ -57,6 +57,28 @@ impl R {
         AHBLITE_IA_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::MEM_ACCESS_DBUG1")
+            .field(
+                "internal_sram_mmu_miss",
+                &format_args!("{}", self.internal_sram_mmu_miss().bits()),
+            )
+            .field("arb_ia", &format_args!("{}", self.arb_ia().bits()))
+            .field("pidgen_ia", &format_args!("{}", self.pidgen_ia().bits()))
+            .field(
+                "ahb_access_deny",
+                &format_args!("{}", self.ahb_access_deny().bit()),
+            )
+            .field(
+                "ahblite_access_deny",
+                &format_args!("{}", self.ahblite_access_deny().bit()),
+            )
+            .field("ahblite_ia", &format_args!("{}", self.ahblite_ia().bit()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mem_access_dbug1](index.html) module"]
 pub struct MEM_ACCESS_DBUG1_SPEC;
 impl crate::RegisterSpec for MEM_ACCESS_DBUG1_SPEC {

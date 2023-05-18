@@ -65,6 +65,25 @@ impl R {
         SEG_MAGIC_ERR_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLV_RDBUF_DLEN")
+            .field(
+                "slv_dma_rd_bytelen",
+                &format_args!("{}", self.slv_dma_rd_bytelen().bits()),
+            )
+            .field(
+                "slv_rd_buf_done",
+                &format_args!("{}", self.slv_rd_buf_done().bit()),
+            )
+            .field(
+                "seg_magic_err",
+                &format_args!("{}", self.seg_magic_err().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - In the slave mode it is the length in bytes for read operations. The register value shall be byte_num."]
     #[inline(always)]

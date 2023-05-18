@@ -45,6 +45,17 @@ impl R {
         OCCUPY_CACHE_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::OCCUPY_1")
+            .field(
+                "occupy_cache",
+                &format_args!("{}", self.occupy_cache().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Configure whether SRAM Block 0-3 is used as cache memory."]
     #[inline(always)]

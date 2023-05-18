@@ -36,6 +36,22 @@ impl R {
         PTXQTOP_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HPTXSTS")
+            .field(
+                "ptxfspcavail",
+                &format_args!("{}", self.ptxfspcavail().bits()),
+            )
+            .field(
+                "ptxqspcavail",
+                &format_args!("{}", self.ptxqspcavail().bits()),
+            )
+            .field("ptxqtop", &format_args!("{}", self.ptxqtop().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hptxsts](index.html) module"]
 pub struct HPTXSTS_SPEC;
 impl crate::RegisterSpec for HPTXSTS_SPEC {

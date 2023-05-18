@@ -46,6 +46,14 @@ impl R {
         S_R::new(self.bits & 0x03ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_PMS_ADDR")
+            .field("s", &format_args!("{}", self.s().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:25 - SPI1 external RAM ACE section %s start address value"]
     #[inline(always)]

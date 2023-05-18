@@ -83,6 +83,33 @@ impl R {
         REJECT_CAUSE_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_REJECT_CONF")
+            .field(
+                "gpio_reject_en",
+                &format_args!("{}", self.gpio_reject_en().bit()),
+            )
+            .field(
+                "sdio_reject_en",
+                &format_args!("{}", self.sdio_reject_en().bit()),
+            )
+            .field(
+                "light_slp_reject_en",
+                &format_args!("{}", self.light_slp_reject_en().bit()),
+            )
+            .field(
+                "deep_slp_reject_en",
+                &format_args!("{}", self.deep_slp_reject_en().bit()),
+            )
+            .field(
+                "reject_cause",
+                &format_args!("{}", self.reject_cause().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - enable GPIO reject"]
     #[inline(always)]

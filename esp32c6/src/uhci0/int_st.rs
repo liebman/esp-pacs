@@ -78,6 +78,49 @@ impl R {
         APP_CTRL1_INT_ST_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::INT_ST")
+            .field(
+                "rx_start_int_st",
+                &format_args!("{}", self.rx_start_int_st().bit()),
+            )
+            .field(
+                "tx_start_int_st",
+                &format_args!("{}", self.tx_start_int_st().bit()),
+            )
+            .field(
+                "rx_hung_int_st",
+                &format_args!("{}", self.rx_hung_int_st().bit()),
+            )
+            .field(
+                "tx_hung_int_st",
+                &format_args!("{}", self.tx_hung_int_st().bit()),
+            )
+            .field(
+                "send_s_reg_q_int_st",
+                &format_args!("{}", self.send_s_reg_q_int_st().bit()),
+            )
+            .field(
+                "send_a_reg_q_int_st",
+                &format_args!("{}", self.send_a_reg_q_int_st().bit()),
+            )
+            .field(
+                "outlink_eof_err_int_st",
+                &format_args!("{}", self.outlink_eof_err_int_st().bit()),
+            )
+            .field(
+                "app_ctrl0_int_st",
+                &format_args!("{}", self.app_ctrl0_int_st().bit()),
+            )
+            .field(
+                "app_ctrl1_int_st",
+                &format_args!("{}", self.app_ctrl1_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "UHCI Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

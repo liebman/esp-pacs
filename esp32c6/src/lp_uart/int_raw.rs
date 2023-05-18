@@ -191,6 +191,81 @@ impl R {
         WAKEUP_INT_RAW_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::INT_RAW")
+            .field(
+                "rxfifo_full_int_raw",
+                &format_args!("{}", self.rxfifo_full_int_raw().bit()),
+            )
+            .field(
+                "txfifo_empty_int_raw",
+                &format_args!("{}", self.txfifo_empty_int_raw().bit()),
+            )
+            .field(
+                "parity_err_int_raw",
+                &format_args!("{}", self.parity_err_int_raw().bit()),
+            )
+            .field(
+                "frm_err_int_raw",
+                &format_args!("{}", self.frm_err_int_raw().bit()),
+            )
+            .field(
+                "rxfifo_ovf_int_raw",
+                &format_args!("{}", self.rxfifo_ovf_int_raw().bit()),
+            )
+            .field(
+                "dsr_chg_int_raw",
+                &format_args!("{}", self.dsr_chg_int_raw().bit()),
+            )
+            .field(
+                "cts_chg_int_raw",
+                &format_args!("{}", self.cts_chg_int_raw().bit()),
+            )
+            .field(
+                "brk_det_int_raw",
+                &format_args!("{}", self.brk_det_int_raw().bit()),
+            )
+            .field(
+                "rxfifo_tout_int_raw",
+                &format_args!("{}", self.rxfifo_tout_int_raw().bit()),
+            )
+            .field(
+                "sw_xon_int_raw",
+                &format_args!("{}", self.sw_xon_int_raw().bit()),
+            )
+            .field(
+                "sw_xoff_int_raw",
+                &format_args!("{}", self.sw_xoff_int_raw().bit()),
+            )
+            .field(
+                "glitch_det_int_raw",
+                &format_args!("{}", self.glitch_det_int_raw().bit()),
+            )
+            .field(
+                "tx_brk_done_int_raw",
+                &format_args!("{}", self.tx_brk_done_int_raw().bit()),
+            )
+            .field(
+                "tx_brk_idle_done_int_raw",
+                &format_args!("{}", self.tx_brk_idle_done_int_raw().bit()),
+            )
+            .field(
+                "tx_done_int_raw",
+                &format_args!("{}", self.tx_done_int_raw().bit()),
+            )
+            .field(
+                "at_cmd_char_det_int_raw",
+                &format_args!("{}", self.at_cmd_char_det_int_raw().bit()),
+            )
+            .field(
+                "wakeup_int_raw",
+                &format_args!("{}", self.wakeup_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This interrupt raw bit turns to high level when receiver receives more data than what rxfifo_full_thrhd specifies."]
     #[inline(always)]

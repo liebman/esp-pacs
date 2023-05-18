@@ -22,6 +22,17 @@ impl R {
         RXD_EDGE_CNT_R::new((self.bits & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::RXD_CNT")
+            .field(
+                "rxd_edge_cnt",
+                &format_args!("{}", self.rxd_edge_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxd_cnt](index.html) module"]
 pub struct RXD_CNT_SPEC;
 impl crate::RegisterSpec for RXD_CNT_SPEC {

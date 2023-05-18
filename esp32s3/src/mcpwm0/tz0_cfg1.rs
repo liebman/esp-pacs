@@ -72,6 +72,26 @@ impl R {
         TZ0_FORCE_OST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TZ0_CFG1")
+            .field("tz0_clr_ost", &format_args!("{}", self.tz0_clr_ost().bit()))
+            .field(
+                "tz0_cbcpulse",
+                &format_args!("{}", self.tz0_cbcpulse().bits()),
+            )
+            .field(
+                "tz0_force_cbc",
+                &format_args!("{}", self.tz0_force_cbc().bit()),
+            )
+            .field(
+                "tz0_force_ost",
+                &format_args!("{}", self.tz0_force_ost().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - a rising edge will clear on going one-shot mode action"]
     #[inline(always)]

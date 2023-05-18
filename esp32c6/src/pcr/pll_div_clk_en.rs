@@ -106,6 +106,41 @@ impl R {
         PLL_20M_CLK_EN_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::PLL_DIV_CLK_EN")
+            .field(
+                "pll_240m_clk_en",
+                &format_args!("{}", self.pll_240m_clk_en().bit()),
+            )
+            .field(
+                "pll_160m_clk_en",
+                &format_args!("{}", self.pll_160m_clk_en().bit()),
+            )
+            .field(
+                "pll_120m_clk_en",
+                &format_args!("{}", self.pll_120m_clk_en().bit()),
+            )
+            .field(
+                "pll_80m_clk_en",
+                &format_args!("{}", self.pll_80m_clk_en().bit()),
+            )
+            .field(
+                "pll_48m_clk_en",
+                &format_args!("{}", self.pll_48m_clk_en().bit()),
+            )
+            .field(
+                "pll_40m_clk_en",
+                &format_args!("{}", self.pll_40m_clk_en().bit()),
+            )
+            .field(
+                "pll_20m_clk_en",
+                &format_args!("{}", self.pll_20m_clk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This field is used to open 240 MHz clock (div2 of SPLL) drived from SPLL. 0: close, 1: open(default). Only avaliable when high-speed clock-source SPLL is active."]
     #[inline(always)]

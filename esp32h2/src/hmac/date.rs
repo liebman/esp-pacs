@@ -45,6 +45,14 @@ impl R {
         DATE_R::new(self.bits & 0x3fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HMAC::DATE")
+            .field("date", &format_args!("{}", self.date().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:29 - Hmac date information/ hmac version information."]
     #[inline(always)]

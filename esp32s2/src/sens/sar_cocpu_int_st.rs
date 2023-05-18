@@ -78,6 +78,49 @@ impl R {
         COCPU_SWD_INT_ST_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_COCPU_INT_ST")
+            .field(
+                "cocpu_touch_done_int_st",
+                &format_args!("{}", self.cocpu_touch_done_int_st().bit()),
+            )
+            .field(
+                "cocpu_touch_inactive_int_st",
+                &format_args!("{}", self.cocpu_touch_inactive_int_st().bit()),
+            )
+            .field(
+                "cocpu_touch_active_int_st",
+                &format_args!("{}", self.cocpu_touch_active_int_st().bit()),
+            )
+            .field(
+                "cocpu_saradc1_int_st",
+                &format_args!("{}", self.cocpu_saradc1_int_st().bit()),
+            )
+            .field(
+                "cocpu_saradc2_int_st",
+                &format_args!("{}", self.cocpu_saradc2_int_st().bit()),
+            )
+            .field(
+                "cocpu_tsens_int_st",
+                &format_args!("{}", self.cocpu_tsens_int_st().bit()),
+            )
+            .field(
+                "cocpu_start_int_st",
+                &format_args!("{}", self.cocpu_start_int_st().bit()),
+            )
+            .field(
+                "cocpu_sw_int_st",
+                &format_args!("{}", self.cocpu_sw_int_st().bit()),
+            )
+            .field(
+                "cocpu_swd_int_st",
+                &format_args!("{}", self.cocpu_swd_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Interrupt status bit of ULP-RISCV\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar_cocpu_int_st](index.html) module"]
 pub struct SAR_COCPU_INT_ST_SPEC;
 impl crate::RegisterSpec for SAR_COCPU_INT_ST_SPEC {

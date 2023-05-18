@@ -46,6 +46,17 @@ impl R {
         ANA_FIB_ENA_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::FIB_ENABLE")
+            .field(
+                "ana_fib_ena",
+                &format_args!("{}", self.ana_fib_ena().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - need_des"]
     #[inline(always)]

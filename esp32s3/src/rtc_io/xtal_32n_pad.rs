@@ -118,6 +118,31 @@ impl R {
         X32N_DRV_R::new(((self.bits >> 29) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::XTAL_32N_PAD")
+            .field("x32n_fun_ie", &format_args!("{}", self.x32n_fun_ie().bit()))
+            .field("x32n_slp_oe", &format_args!("{}", self.x32n_slp_oe().bit()))
+            .field("x32n_slp_ie", &format_args!("{}", self.x32n_slp_ie().bit()))
+            .field(
+                "x32n_slp_sel",
+                &format_args!("{}", self.x32n_slp_sel().bit()),
+            )
+            .field(
+                "x32n_fun_sel",
+                &format_args!("{}", self.x32n_fun_sel().bits()),
+            )
+            .field(
+                "x32n_mux_sel",
+                &format_args!("{}", self.x32n_mux_sel().bit()),
+            )
+            .field("x32n_rue", &format_args!("{}", self.x32n_rue().bit()))
+            .field("x32n_rde", &format_args!("{}", self.x32n_rde().bit()))
+            .field("x32n_drv", &format_args!("{}", self.x32n_drv().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 13 - input enable in work mode"]
     #[inline(always)]

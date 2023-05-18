@@ -46,6 +46,14 @@ impl R {
         SLV_WR_ST_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLV_WR_STATUS")
+            .field("slv_wr_st", &format_args!("{}", self.slv_wr_st().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - In the slave mode this register are the status register for the master to write into. In the master mode this register are the higher 32bits in the 64 bits address condition."]
     #[inline(always)]

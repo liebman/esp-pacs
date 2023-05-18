@@ -74,6 +74,29 @@ impl R {
         APP_CACHE_TAG_PD_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::TAG_FO_CTRL")
+            .field(
+                "pro_cache_tag_force_on",
+                &format_args!("{}", self.pro_cache_tag_force_on().bit()),
+            )
+            .field(
+                "pro_cache_tag_pd",
+                &format_args!("{}", self.pro_cache_tag_pd().bit()),
+            )
+            .field(
+                "app_cache_tag_force_on",
+                &format_args!("{}", self.app_cache_tag_force_on().bit()),
+            )
+            .field(
+                "app_cache_tag_pd",
+                &format_args!("{}", self.app_cache_tag_pd().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

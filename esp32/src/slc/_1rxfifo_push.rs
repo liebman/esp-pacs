@@ -56,6 +56,21 @@ impl R {
         SLC1_RXFIFO_PUSH_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_1RXFIFO_PUSH")
+            .field(
+                "slc1_rxfifo_wdata",
+                &format_args!("{}", self.slc1_rxfifo_wdata().bits()),
+            )
+            .field(
+                "slc1_rxfifo_push",
+                &format_args!("{}", self.slc1_rxfifo_push().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8"]
     #[inline(always)]

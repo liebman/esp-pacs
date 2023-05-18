@@ -22,6 +22,17 @@ impl R {
         CORE_0_NMI_MASK_PHASE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_NMI_MASK_PHASE")
+            .field(
+                "core_0_nmi_mask_phase",
+                &format_args!("{}", self.core_0_nmi_mask_phase().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Core_0 NMI mask phase register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_nmi_mask_phase](index.html) module"]
 pub struct CORE_0_NMI_MASK_PHASE_SPEC;
 impl crate::RegisterSpec for CORE_0_NMI_MASK_PHASE_SPEC {

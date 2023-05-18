@@ -101,6 +101,61 @@ impl R {
         SAR_COCPU_TOUCH_SCAN_DONE_INT_ST_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_COCPU_INT_ST")
+            .field(
+                "sar_cocpu_touch_done_int_st",
+                &format_args!("{}", self.sar_cocpu_touch_done_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_inactive_int_st",
+                &format_args!("{}", self.sar_cocpu_touch_inactive_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_active_int_st",
+                &format_args!("{}", self.sar_cocpu_touch_active_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_saradc1_int_st",
+                &format_args!("{}", self.sar_cocpu_saradc1_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_saradc2_int_st",
+                &format_args!("{}", self.sar_cocpu_saradc2_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_tsens_int_st",
+                &format_args!("{}", self.sar_cocpu_tsens_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_start_int_st",
+                &format_args!("{}", self.sar_cocpu_start_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_sw_int_st",
+                &format_args!("{}", self.sar_cocpu_sw_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_swd_int_st",
+                &format_args!("{}", self.sar_cocpu_swd_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_timeout_int_st",
+                &format_args!("{}", self.sar_cocpu_touch_timeout_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_approach_loop_done_int_st",
+                &format_args!("{}", self.sar_cocpu_touch_approach_loop_done_int_st().bit()),
+            )
+            .field(
+                "sar_cocpu_touch_scan_done_int_st",
+                &format_args!("{}", self.sar_cocpu_touch_scan_done_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "the interrupt state of ulp\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar_cocpu_int_st](index.html) module"]
 pub struct SAR_COCPU_INT_ST_SPEC;
 impl crate::RegisterSpec for SAR_COCPU_INT_ST_SPEC {

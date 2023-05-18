@@ -46,6 +46,17 @@ impl R {
         INTERNAL_SRAM_LOG_USAGE_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_4")
+            .field(
+                "internal_sram_log_usage",
+                &format_args!("{}", self.internal_sram_log_usage().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Set 1 to someone bit means corresponding internal SRAM level can be accessed by log bus."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         SPI_MEM_DATE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_DATE")
+            .field(
+                "spi_mem_date",
+                &format_args!("{}", self.spi_mem_date().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - SPI0 register version."]
     #[inline(always)]

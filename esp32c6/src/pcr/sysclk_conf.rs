@@ -67,6 +67,23 @@ impl R {
         CLK_XTAL_FREQ_R::new(((self.bits >> 24) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SYSCLK_CONF")
+            .field("ls_div_num", &format_args!("{}", self.ls_div_num().bits()))
+            .field("hs_div_num", &format_args!("{}", self.hs_div_num().bits()))
+            .field(
+                "soc_clk_sel",
+                &format_args!("{}", self.soc_clk_sel().bits()),
+            )
+            .field(
+                "clk_xtal_freq",
+                &format_args!("{}", self.clk_xtal_freq().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:17 - This field is used to select clock source. 0: XTAL, 1: SPLL, 2: FOSC, 3: reserved."]
     #[inline(always)]

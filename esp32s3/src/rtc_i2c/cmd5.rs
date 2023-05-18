@@ -52,6 +52,18 @@ impl R {
         COMMAND5_DONE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::CMD5")
+            .field("command5", &format_args!("{}", self.command5().bits()))
+            .field(
+                "command5_done",
+                &format_args!("{}", self.command5_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - command5"]
     #[inline(always)]

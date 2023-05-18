@@ -45,6 +45,14 @@ impl R {
         SDIO_SEL_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::SDIO_SELECT")
+            .field("sdio_sel", &format_args!("{}", self.sdio_sel().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - SDIO PADS on/off control from outside"]
     #[inline(always)]

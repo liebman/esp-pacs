@@ -22,6 +22,14 @@ impl R {
         FLASH_DONE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLASH_ENCRYPTION::DONE")
+            .field("flash_done", &format_args!("{}", self.flash_done().bit()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [done](index.html) module"]
 pub struct DONE_SPEC;
 impl crate::RegisterSpec for DONE_SPEC {

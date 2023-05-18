@@ -22,6 +22,14 @@ impl R {
         EPDIR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GHWCFG1")
+            .field("epdir", &format_args!("{}", self.epdir().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ghwcfg1](index.html) module"]
 pub struct GHWCFG1_SPEC;
 impl crate::RegisterSpec for GHWCFG1_SPEC {

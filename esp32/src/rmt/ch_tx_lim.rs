@@ -45,6 +45,14 @@ impl R {
         TX_LIM_R::new((self.bits & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CH_TX_LIM")
+            .field("tx_lim", &format_args!("{}", self.tx_lim().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - When channel0 sends more than reg_rmt_tx_lim_ch0 datas then channel0 produce the relative interrupt."]
     #[inline(always)]

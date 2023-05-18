@@ -46,6 +46,17 @@ impl R {
         PRO_GPIO_INTERRUPT_PRO_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_GPIO_INTERRUPT_MAP")
+            .field(
+                "pro_gpio_interrupt_pro_map",
+                &format_args!("{}", self.pro_gpio_interrupt_pro_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4"]
     #[inline(always)]

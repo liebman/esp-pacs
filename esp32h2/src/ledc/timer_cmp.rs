@@ -46,6 +46,14 @@ impl R {
         TIMER_CMP_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::TIMER_CMP")
+            .field("timer_cmp", &format_args!("{}", self.timer_cmp().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - This register stores ledc timer%s compare value."]
     #[inline(always)]

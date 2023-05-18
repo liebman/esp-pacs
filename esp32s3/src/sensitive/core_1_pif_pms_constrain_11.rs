@@ -62,6 +62,29 @@ impl R {
         )
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_CONSTRAIN_11")
+            .field(
+                "core_1_pif_pms_constrain_rtcslow_0_spltaddr_world_0",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_rtcslow_0_spltaddr_world_0()
+                        .bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_rtcslow_0_spltaddr_world_1",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_rtcslow_0_spltaddr_world_1()
+                        .bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - RTCSlow_0 memory split address in world 0 for core1."]
     #[inline(always)]

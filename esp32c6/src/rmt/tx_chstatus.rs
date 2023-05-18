@@ -64,6 +64,38 @@ impl R {
         APB_MEM_RADDR_CH0_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::TX_CHSTATUS")
+            .field(
+                "mem_raddr_ex_ch0",
+                &format_args!("{}", self.mem_raddr_ex_ch0().bits()),
+            )
+            .field("state_ch0", &format_args!("{}", self.state_ch0().bits()))
+            .field(
+                "apb_mem_waddr_ch0",
+                &format_args!("{}", self.apb_mem_waddr_ch0().bits()),
+            )
+            .field(
+                "apb_mem_rd_err_ch0",
+                &format_args!("{}", self.apb_mem_rd_err_ch0().bit()),
+            )
+            .field(
+                "mem_empty_ch0",
+                &format_args!("{}", self.mem_empty_ch0().bit()),
+            )
+            .field(
+                "apb_mem_wr_err_ch0",
+                &format_args!("{}", self.apb_mem_wr_err_ch0().bit()),
+            )
+            .field(
+                "apb_mem_raddr_ch0",
+                &format_args!("{}", self.apb_mem_raddr_ch0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Channel %s status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tx_chstatus](index.html) module"]
 pub struct TX_CHSTATUS_SPEC;
 impl crate::RegisterSpec for TX_CHSTATUS_SPEC {

@@ -63,6 +63,16 @@ impl R {
         BLK_NUM_R::new(((self.bits >> 2) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::CMD")
+            .field("read_cmd", &format_args!("{}", self.read_cmd().bit()))
+            .field("pgm_cmd", &format_args!("{}", self.pgm_cmd().bit()))
+            .field("blk_num", &format_args!("{}", self.blk_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to send read command."]
     #[inline(always)]

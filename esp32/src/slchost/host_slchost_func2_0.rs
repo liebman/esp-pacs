@@ -46,6 +46,17 @@ impl R {
         HOST_SLC_FUNC2_INT_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_FUNC2_0")
+            .field(
+                "host_slc_func2_int",
+                &format_args!("{}", self.host_slc_func2_int().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24"]
     #[inline(always)]

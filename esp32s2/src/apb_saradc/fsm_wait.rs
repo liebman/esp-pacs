@@ -63,6 +63,19 @@ impl R {
         STANDBY_WAIT_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::FSM_WAIT")
+            .field("xpd_wait", &format_args!("{}", self.xpd_wait().bits()))
+            .field("rstb_wait", &format_args!("{}", self.rstb_wait().bits()))
+            .field(
+                "standby_wait",
+                &format_args!("{}", self.standby_wait().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - xpd wait"]
     #[inline(always)]

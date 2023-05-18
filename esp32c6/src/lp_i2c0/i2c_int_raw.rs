@@ -127,6 +127,77 @@ impl R {
         I2C_DET_START_INT_RAW_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C0::I2C_INT_RAW")
+            .field(
+                "i2c_rxfifo_wm_int_raw",
+                &format_args!("{}", self.i2c_rxfifo_wm_int_raw().bit()),
+            )
+            .field(
+                "i2c_txfifo_wm_int_raw",
+                &format_args!("{}", self.i2c_txfifo_wm_int_raw().bit()),
+            )
+            .field(
+                "i2c_rxfifo_ovf_int_raw",
+                &format_args!("{}", self.i2c_rxfifo_ovf_int_raw().bit()),
+            )
+            .field(
+                "i2c_end_detect_int_raw",
+                &format_args!("{}", self.i2c_end_detect_int_raw().bit()),
+            )
+            .field(
+                "i2c_byte_trans_done_int_raw",
+                &format_args!("{}", self.i2c_byte_trans_done_int_raw().bit()),
+            )
+            .field(
+                "i2c_arbitration_lost_int_raw",
+                &format_args!("{}", self.i2c_arbitration_lost_int_raw().bit()),
+            )
+            .field(
+                "i2c_mst_txfifo_udf_int_raw",
+                &format_args!("{}", self.i2c_mst_txfifo_udf_int_raw().bit()),
+            )
+            .field(
+                "i2c_trans_complete_int_raw",
+                &format_args!("{}", self.i2c_trans_complete_int_raw().bit()),
+            )
+            .field(
+                "i2c_time_out_int_raw",
+                &format_args!("{}", self.i2c_time_out_int_raw().bit()),
+            )
+            .field(
+                "i2c_trans_start_int_raw",
+                &format_args!("{}", self.i2c_trans_start_int_raw().bit()),
+            )
+            .field(
+                "i2c_nack_int_raw",
+                &format_args!("{}", self.i2c_nack_int_raw().bit()),
+            )
+            .field(
+                "i2c_txfifo_ovf_int_raw",
+                &format_args!("{}", self.i2c_txfifo_ovf_int_raw().bit()),
+            )
+            .field(
+                "i2c_rxfifo_udf_int_raw",
+                &format_args!("{}", self.i2c_rxfifo_udf_int_raw().bit()),
+            )
+            .field(
+                "i2c_scl_st_to_int_raw",
+                &format_args!("{}", self.i2c_scl_st_to_int_raw().bit()),
+            )
+            .field(
+                "i2c_scl_main_st_to_int_raw",
+                &format_args!("{}", self.i2c_scl_main_st_to_int_raw().bit()),
+            )
+            .field(
+                "i2c_det_start_int_raw",
+                &format_args!("{}", self.i2c_det_start_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Raw interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [i2c_int_raw](index.html) module"]
 pub struct I2C_INT_RAW_SPEC;
 impl crate::RegisterSpec for I2C_INT_RAW_SPEC {

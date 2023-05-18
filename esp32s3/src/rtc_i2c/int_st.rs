@@ -78,6 +78,49 @@ impl R {
         DETECT_START_INT_ST_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::INT_ST")
+            .field(
+                "slave_tran_comp_int_st",
+                &format_args!("{}", self.slave_tran_comp_int_st().bit()),
+            )
+            .field(
+                "arbitration_lost_int_st",
+                &format_args!("{}", self.arbitration_lost_int_st().bit()),
+            )
+            .field(
+                "master_tran_comp_int_st",
+                &format_args!("{}", self.master_tran_comp_int_st().bit()),
+            )
+            .field(
+                "trans_complete_int_st",
+                &format_args!("{}", self.trans_complete_int_st().bit()),
+            )
+            .field(
+                "time_out_int_st",
+                &format_args!("{}", self.time_out_int_st().bit()),
+            )
+            .field(
+                "ack_err_int_st",
+                &format_args!("{}", self.ack_err_int_st().bit()),
+            )
+            .field(
+                "rx_data_int_st",
+                &format_args!("{}", self.rx_data_int_st().bit()),
+            )
+            .field(
+                "tx_data_int_st",
+                &format_args!("{}", self.tx_data_int_st().bit()),
+            )
+            .field(
+                "detect_start_int_st",
+                &format_args!("{}", self.detect_start_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "interrupt state register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

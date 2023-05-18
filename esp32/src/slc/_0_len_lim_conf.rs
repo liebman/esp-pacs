@@ -46,6 +46,17 @@ impl R {
         SLC0_LEN_LIM_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0_LEN_LIM_CONF")
+            .field(
+                "slc0_len_lim",
+                &format_args!("{}", self.slc0_len_lim().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19"]
     #[inline(always)]

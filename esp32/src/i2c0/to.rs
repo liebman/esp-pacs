@@ -45,6 +45,14 @@ impl R {
         TIME_OUT_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::TO")
+            .field("time_out", &format_args!("{}", self.time_out().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - This register is used to configure the max clock number of receiving a data."]
     #[inline(always)]

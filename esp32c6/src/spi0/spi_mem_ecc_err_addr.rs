@@ -29,6 +29,21 @@ impl R {
         SPI_MEM_ECC_ERR_CNT_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_ECC_ERR_ADDR")
+            .field(
+                "spi_mem_ecc_err_addr",
+                &format_args!("{}", self.spi_mem_ecc_err_addr().bits()),
+            )
+            .field(
+                "spi_mem_ecc_err_cnt",
+                &format_args!("{}", self.spi_mem_ecc_err_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "MSPI ECC error address register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_ecc_err_addr](index.html) module"]
 pub struct SPI_MEM_ECC_ERR_ADDR_SPEC;
 impl crate::RegisterSpec for SPI_MEM_ECC_ERR_ADDR_SPEC {

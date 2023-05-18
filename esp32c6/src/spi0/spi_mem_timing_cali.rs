@@ -75,6 +75,29 @@ impl R {
         SPI_MEM_DLL_TIMING_CALI_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_TIMING_CALI")
+            .field(
+                "spi_mem_timing_clk_ena",
+                &format_args!("{}", self.spi_mem_timing_clk_ena().bit()),
+            )
+            .field(
+                "spi_mem_timing_cali",
+                &format_args!("{}", self.spi_mem_timing_cali().bit()),
+            )
+            .field(
+                "spi_mem_extra_dummy_cyclelen",
+                &format_args!("{}", self.spi_mem_extra_dummy_cyclelen().bits()),
+            )
+            .field(
+                "spi_mem_dll_timing_cali",
+                &format_args!("{}", self.spi_mem_dll_timing_cali().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable timing adjust clock for all reading operations."]
     #[inline(always)]

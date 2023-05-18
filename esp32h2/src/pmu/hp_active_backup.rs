@@ -146,6 +146,57 @@ impl R {
         HP_MODEM2ACTIVE_BACKUP_EN_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_ACTIVE_BACKUP")
+            .field(
+                "hp_sleep2active_backup_modem_clk_code",
+                &format_args!("{}", self.hp_sleep2active_backup_modem_clk_code().bits()),
+            )
+            .field(
+                "hp_modem2active_backup_modem_clk_code",
+                &format_args!("{}", self.hp_modem2active_backup_modem_clk_code().bits()),
+            )
+            .field(
+                "hp_active_retention_mode",
+                &format_args!("{}", self.hp_active_retention_mode().bit()),
+            )
+            .field(
+                "hp_sleep2active_retention_en",
+                &format_args!("{}", self.hp_sleep2active_retention_en().bit()),
+            )
+            .field(
+                "hp_modem2active_retention_en",
+                &format_args!("{}", self.hp_modem2active_retention_en().bit()),
+            )
+            .field(
+                "hp_sleep2active_backup_clk_sel",
+                &format_args!("{}", self.hp_sleep2active_backup_clk_sel().bits()),
+            )
+            .field(
+                "hp_modem2active_backup_clk_sel",
+                &format_args!("{}", self.hp_modem2active_backup_clk_sel().bits()),
+            )
+            .field(
+                "hp_sleep2active_backup_mode",
+                &format_args!("{}", self.hp_sleep2active_backup_mode().bits()),
+            )
+            .field(
+                "hp_modem2active_backup_mode",
+                &format_args!("{}", self.hp_modem2active_backup_mode().bits()),
+            )
+            .field(
+                "hp_sleep2active_backup_en",
+                &format_args!("{}", self.hp_sleep2active_backup_en().bit()),
+            )
+            .field(
+                "hp_modem2active_backup_en",
+                &format_args!("{}", self.hp_modem2active_backup_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:5 - need_des"]
     #[inline(always)]

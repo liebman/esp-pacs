@@ -46,6 +46,17 @@ impl R {
         PRODPORT_APB_MASK0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_DPORT_APB_MASK0")
+            .field(
+                "prodport_apb_mask0",
+                &format_args!("{}", self.prodport_apb_mask0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

@@ -69,6 +69,25 @@ impl R {
         ULP_CP_SLP_TIMER_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::ULP_CP_TIMER")
+            .field(
+                "ulp_cp_pc_init",
+                &format_args!("{}", self.ulp_cp_pc_init().bits()),
+            )
+            .field(
+                "ulp_cp_gpio_wakeup_ena",
+                &format_args!("{}", self.ulp_cp_gpio_wakeup_ena().bit()),
+            )
+            .field(
+                "ulp_cp_slp_timer_en",
+                &format_args!("{}", self.ulp_cp_slp_timer_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - ULP coprocessor PC initial address"]
     #[inline(always)]

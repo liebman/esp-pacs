@@ -46,6 +46,17 @@ impl R {
         SAR_DEBUG_SEL_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::CNTL_DBG_SAR_SEL")
+            .field(
+                "sar_debug_sel",
+                &format_args!("{}", self.sar_debug_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 27:31 - Need add desc"]
     #[inline(always)]

@@ -55,6 +55,18 @@ impl R {
         RX_FLOW_EN_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::HWFC_CONF")
+            .field(
+                "rx_flow_thrhd",
+                &format_args!("{}", self.rx_flow_thrhd().bits()),
+            )
+            .field("rx_flow_en", &format_args!("{}", self.rx_flow_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 3:7 - This register is used to configure the maximum amount of data that can be received when hardware flow control works."]
     #[inline(always)]

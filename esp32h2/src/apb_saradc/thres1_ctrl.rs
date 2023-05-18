@@ -66,6 +66,25 @@ impl R {
         APB_SARADC_THRES1_LOW_R::new(((self.bits >> 18) & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::THRES1_CTRL")
+            .field(
+                "apb_saradc_thres1_channel",
+                &format_args!("{}", self.apb_saradc_thres1_channel().bits()),
+            )
+            .field(
+                "apb_saradc_thres1_high",
+                &format_args!("{}", self.apb_saradc_thres1_high().bits()),
+            )
+            .field(
+                "apb_saradc_thres1_low",
+                &format_args!("{}", self.apb_saradc_thres1_low().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - configure thres1 to adc channel"]
     #[inline(always)]

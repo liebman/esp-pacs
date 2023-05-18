@@ -46,6 +46,14 @@ impl R {
         SLP_VAL_LO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_TIMER0")
+            .field("slp_val_lo", &format_args!("{}", self.slp_val_lo().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - configure the sleep time"]
     #[inline(always)]

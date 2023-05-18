@@ -45,6 +45,14 @@ impl R {
         DUTY_R::new(self.bits & 0x01ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_DUTY")
+            .field("duty_ch", &format_args!("{}", self.duty_ch().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:24 - This register is used to change the output duty by controlling the Lpoint. The output value turns to low when the selected timers has reached the Lpoint."]
     #[inline(always)]

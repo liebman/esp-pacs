@@ -76,6 +76,29 @@ impl R {
         CACHE_MMU_PAGE_SIZE_R::new(((self.bits >> 3) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_CONF_MISC")
+            .field(
+                "cache_ignore_preload_mmu_entry_fault",
+                &format_args!("{}", self.cache_ignore_preload_mmu_entry_fault().bit()),
+            )
+            .field(
+                "cache_ignore_sync_mmu_entry_fault",
+                &format_args!("{}", self.cache_ignore_sync_mmu_entry_fault().bit()),
+            )
+            .field(
+                "cache_trace_ena",
+                &format_args!("{}", self.cache_trace_ena().bit()),
+            )
+            .field(
+                "cache_mmu_page_size",
+                &format_args!("{}", self.cache_mmu_page_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable checking mmu entry fault by preload operation."]
     #[inline(always)]

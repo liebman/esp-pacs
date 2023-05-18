@@ -63,6 +63,22 @@ impl R {
         GPIO_WAKEUP_FILTER_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::WAKEUP_STATE")
+            .field(
+                "wakeup_cause",
+                &format_args!("{}", self.wakeup_cause().bits()),
+            )
+            .field("wakeup_ena", &format_args!("{}", self.wakeup_ena().bits()))
+            .field(
+                "gpio_wakeup_filter",
+                &format_args!("{}", self.gpio_wakeup_filter().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 11:21 - wakeup enable bitmap"]
     #[inline(always)]

@@ -170,6 +170,70 @@ impl R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR_R::new(((self.bits >> 28) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_0_PIF_PMS_CONSTRAIN_7")
+            .field(
+                "core_0_pif_pms_constrain_world_1_spi_2",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_spi_2().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_spi_3",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_spi_3().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_apb_ctrl",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_apb_ctrl().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_i2c_ext1",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_i2c_ext1().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_sdio_host",
+                &format_args!(
+                    "{}",
+                    self.core_0_pif_pms_constrain_world_1_sdio_host().bits()
+                ),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_can",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_can().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_pwm1",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_pwm1().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_i2s1",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_i2s1().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_uart2",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_uart2().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_rwbt",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_rwbt().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_wifimac",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_wifimac().bits()),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_pwr",
+                &format_args!("{}", self.core_0_pif_pms_constrain_world_1_pwr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Core0 access spi_2 permission in world1."]
     #[inline(always)]

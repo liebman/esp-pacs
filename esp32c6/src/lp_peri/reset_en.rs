@@ -94,6 +94,37 @@ impl R {
         EFUSE_RESET_EN_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::RESET_EN")
+            .field(
+                "otp_dbg_reset_en",
+                &format_args!("{}", self.otp_dbg_reset_en().bit()),
+            )
+            .field(
+                "lp_uart_reset_en",
+                &format_args!("{}", self.lp_uart_reset_en().bit()),
+            )
+            .field(
+                "lp_io_reset_en",
+                &format_args!("{}", self.lp_io_reset_en().bit()),
+            )
+            .field(
+                "lp_ext_i2c_reset_en",
+                &format_args!("{}", self.lp_ext_i2c_reset_en().bit()),
+            )
+            .field(
+                "lp_ana_i2c_reset_en",
+                &format_args!("{}", self.lp_ana_i2c_reset_en().bit()),
+            )
+            .field(
+                "efuse_reset_en",
+                &format_args!("{}", self.efuse_reset_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 23 - need_des"]
     #[inline(always)]

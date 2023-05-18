@@ -72,6 +72,20 @@ impl R {
         CLK_EQU_SYSCLK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::CLOCK")
+            .field("clkcnt_l", &format_args!("{}", self.clkcnt_l().bits()))
+            .field("clkcnt_h", &format_args!("{}", self.clkcnt_h().bits()))
+            .field("clkcnt_n", &format_args!("{}", self.clkcnt_n().bits()))
+            .field(
+                "clk_equ_sysclk",
+                &format_args!("{}", self.clk_equ_sysclk().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - It must equal to the value of SPI_MEM_CLKCNT_N."]
     #[inline(always)]

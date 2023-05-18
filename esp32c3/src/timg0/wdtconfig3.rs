@@ -46,6 +46,17 @@ impl R {
         WDT_STG1_HOLD_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::WDTCONFIG3")
+            .field(
+                "wdt_stg1_hold",
+                &format_args!("{}", self.wdt_stg1_hold().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - reg_wdt_stg1_hold."]
     #[inline(always)]

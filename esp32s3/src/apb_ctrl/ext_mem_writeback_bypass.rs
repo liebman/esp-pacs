@@ -46,6 +46,17 @@ impl R {
         WRITEBACK_BYPASS_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::EXT_MEM_WRITEBACK_BYPASS")
+            .field(
+                "writeback_bypass",
+                &format_args!("{}", self.writeback_bypass().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to bypass cache writeback request to external memory so that spi will not check its attribute."]
     #[inline(always)]

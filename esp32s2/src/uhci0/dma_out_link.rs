@@ -80,6 +80,33 @@ impl R {
         OUTLINK_PARK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::DMA_OUT_LINK")
+            .field(
+                "outlink_addr",
+                &format_args!("{}", self.outlink_addr().bits()),
+            )
+            .field(
+                "outlink_stop",
+                &format_args!("{}", self.outlink_stop().bit()),
+            )
+            .field(
+                "outlink_start",
+                &format_args!("{}", self.outlink_start().bit()),
+            )
+            .field(
+                "outlink_restart",
+                &format_args!("{}", self.outlink_restart().bit()),
+            )
+            .field(
+                "outlink_park",
+                &format_args!("{}", self.outlink_park().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - This register is used to specify the least significant 20 bits of the first transmit descriptor's address."]
     #[inline(always)]

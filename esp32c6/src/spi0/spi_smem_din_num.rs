@@ -78,6 +78,49 @@ impl R {
         SPI_SMEM_DINS_NUM_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_DIN_NUM")
+            .field(
+                "spi_smem_din0_num",
+                &format_args!("{}", self.spi_smem_din0_num().bits()),
+            )
+            .field(
+                "spi_smem_din1_num",
+                &format_args!("{}", self.spi_smem_din1_num().bits()),
+            )
+            .field(
+                "spi_smem_din2_num",
+                &format_args!("{}", self.spi_smem_din2_num().bits()),
+            )
+            .field(
+                "spi_smem_din3_num",
+                &format_args!("{}", self.spi_smem_din3_num().bits()),
+            )
+            .field(
+                "spi_smem_din4_num",
+                &format_args!("{}", self.spi_smem_din4_num().bits()),
+            )
+            .field(
+                "spi_smem_din5_num",
+                &format_args!("{}", self.spi_smem_din5_num().bits()),
+            )
+            .field(
+                "spi_smem_din6_num",
+                &format_args!("{}", self.spi_smem_din6_num().bits()),
+            )
+            .field(
+                "spi_smem_din7_num",
+                &format_args!("{}", self.spi_smem_din7_num().bits()),
+            )
+            .field(
+                "spi_smem_dins_num",
+                &format_args!("{}", self.spi_smem_dins_num().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "MSPI external RAM input timing delay number control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_smem_din_num](index.html) module"]
 pub struct SPI_SMEM_DIN_NUM_SPEC;
 impl crate::RegisterSpec for SPI_SMEM_DIN_NUM_SPEC {

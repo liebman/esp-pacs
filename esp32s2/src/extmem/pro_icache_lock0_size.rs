@@ -46,6 +46,17 @@ impl R {
         PRO_ICACHE_LOCK0_SIZE_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_ICACHE_LOCK0_SIZE")
+            .field(
+                "pro_icache_lock0_size",
+                &format_args!("{}", self.pro_icache_lock0_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The bits are used to configure the first length of data locking, which is combined with PRO_ICACHE_LOCK0_ADDR_REG"]
     #[inline(always)]

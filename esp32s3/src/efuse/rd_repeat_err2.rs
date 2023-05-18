@@ -106,6 +106,65 @@ impl R {
         FLASH_TPUW_ERR_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_ERR2")
+            .field(
+                "key_purpose_2_err",
+                &format_args!("{}", self.key_purpose_2_err().bits()),
+            )
+            .field(
+                "key_purpose_3_err",
+                &format_args!("{}", self.key_purpose_3_err().bits()),
+            )
+            .field(
+                "key_purpose_4_err",
+                &format_args!("{}", self.key_purpose_4_err().bits()),
+            )
+            .field(
+                "key_purpose_5_err",
+                &format_args!("{}", self.key_purpose_5_err().bits()),
+            )
+            .field(
+                "rpt4_reserved0_err",
+                &format_args!("{}", self.rpt4_reserved0_err().bits()),
+            )
+            .field(
+                "secure_boot_en_err",
+                &format_args!("{}", self.secure_boot_en_err().bit()),
+            )
+            .field(
+                "secure_boot_aggressive_revoke_err",
+                &format_args!("{}", self.secure_boot_aggressive_revoke_err().bit()),
+            )
+            .field(
+                "dis_usb_jtag_err",
+                &format_args!("{}", self.dis_usb_jtag_err().bit()),
+            )
+            .field(
+                "dis_usb_device_err",
+                &format_args!("{}", self.dis_usb_device_err().bit()),
+            )
+            .field(
+                "strap_jtag_sel_err",
+                &format_args!("{}", self.strap_jtag_sel_err().bit()),
+            )
+            .field(
+                "usb_phy_sel_err",
+                &format_args!("{}", self.usb_phy_sel_err().bit()),
+            )
+            .field(
+                "power_glitch_dsense_err",
+                &format_args!("{}", self.power_glitch_dsense_err().bits()),
+            )
+            .field(
+                "flash_tpuw_err",
+                &format_args!("{}", self.flash_tpuw_err().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Programming error record register 2 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_err2](index.html) module"]
 pub struct RD_REPEAT_ERR2_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_ERR2_SPEC {

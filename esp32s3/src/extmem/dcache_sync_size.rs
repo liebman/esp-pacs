@@ -46,6 +46,17 @@ impl R {
         DCACHE_SYNC_SIZE_R::new(self.bits & 0x007f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_SYNC_SIZE")
+            .field(
+                "dcache_sync_size",
+                &format_args!("{}", self.dcache_sync_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:22 - The bits are used to configure the length for sync operations. The bits are the counts of cache block. It should be combined with DCACHE_SYNC_ADDR_REG."]
     #[inline(always)]

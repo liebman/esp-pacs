@@ -148,6 +148,61 @@ impl R {
         PRO_DRESET_MASK_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::RESET_STATE")
+            .field(
+                "reset_cause_procpu",
+                &format_args!("{}", self.reset_cause_procpu().bits()),
+            )
+            .field(
+                "reset_cause_appcpu",
+                &format_args!("{}", self.reset_cause_appcpu().bits()),
+            )
+            .field(
+                "appcpu_stat_vector_sel",
+                &format_args!("{}", self.appcpu_stat_vector_sel().bit()),
+            )
+            .field(
+                "procpu_stat_vector_sel",
+                &format_args!("{}", self.procpu_stat_vector_sel().bit()),
+            )
+            .field(
+                "reset_flag_procpu",
+                &format_args!("{}", self.reset_flag_procpu().bit()),
+            )
+            .field(
+                "reset_flag_appcpu",
+                &format_args!("{}", self.reset_flag_appcpu().bit()),
+            )
+            .field(
+                "appcpu_ocd_halt_on_reset",
+                &format_args!("{}", self.appcpu_ocd_halt_on_reset().bit()),
+            )
+            .field(
+                "procpu_ocd_halt_on_reset",
+                &format_args!("{}", self.procpu_ocd_halt_on_reset().bit()),
+            )
+            .field(
+                "reset_flag_jtag_procpu",
+                &format_args!("{}", self.reset_flag_jtag_procpu().bit()),
+            )
+            .field(
+                "reset_flag_jtag_appcpu",
+                &format_args!("{}", self.reset_flag_jtag_appcpu().bit()),
+            )
+            .field(
+                "app_dreset_mask",
+                &format_args!("{}", self.app_dreset_mask().bit()),
+            )
+            .field(
+                "pro_dreset_mask",
+                &format_args!("{}", self.pro_dreset_mask().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - APP CPU state vector sel"]
     #[inline(always)]

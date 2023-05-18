@@ -22,6 +22,17 @@ impl R {
         SLC1_RXLINK_DSCR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_1_RXLINK_DSCR")
+            .field(
+                "slc1_rxlink_dscr",
+                &format_args!("{}", self.slc1_rxlink_dscr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [_1_rxlink_dscr](index.html) module"]
 pub struct _1_RXLINK_DSCR_SPEC;
 impl crate::RegisterSpec for _1_RXLINK_DSCR_SPEC {

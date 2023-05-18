@@ -46,6 +46,17 @@ impl R {
         CPU_INTR_FROM_CPU_1_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CPU_INTR_FROM_CPU_1")
+            .field(
+                "cpu_intr_from_cpu_1",
+                &format_args!("{}", self.cpu_intr_from_cpu_1().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - reg_cpu_intr_from_cpu_1"]
     #[inline(always)]

@@ -117,6 +117,25 @@ impl R {
         TIMING_HCLK_ACTIVE_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::DIN_MODE")
+            .field("din0_mode", &format_args!("{}", self.din0_mode().bits()))
+            .field("din1_mode", &format_args!("{}", self.din1_mode().bits()))
+            .field("din2_mode", &format_args!("{}", self.din2_mode().bits()))
+            .field("din3_mode", &format_args!("{}", self.din3_mode().bits()))
+            .field("din4_mode", &format_args!("{}", self.din4_mode().bits()))
+            .field("din5_mode", &format_args!("{}", self.din5_mode().bits()))
+            .field("din6_mode", &format_args!("{}", self.din6_mode().bits()))
+            .field("din7_mode", &format_args!("{}", self.din7_mode().bits()))
+            .field(
+                "timing_hclk_active",
+                &format_args!("{}", self.timing_hclk_active().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - the input signals are delayed by SPI module clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb, 3: input with the spi_clk. Can be configured in CONF state."]
     #[inline(always)]

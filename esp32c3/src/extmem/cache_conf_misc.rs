@@ -66,6 +66,25 @@ impl R {
         CACHE_TRACE_ENA_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_CONF_MISC")
+            .field(
+                "cache_ignore_preload_mmu_entry_fault",
+                &format_args!("{}", self.cache_ignore_preload_mmu_entry_fault().bit()),
+            )
+            .field(
+                "cache_ignore_sync_mmu_entry_fault",
+                &format_args!("{}", self.cache_ignore_sync_mmu_entry_fault().bit()),
+            )
+            .field(
+                "cache_trace_ena",
+                &format_args!("{}", self.cache_trace_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable checking mmu entry fault by preload operation."]
     #[inline(always)]

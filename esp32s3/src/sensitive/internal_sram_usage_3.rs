@@ -46,6 +46,17 @@ impl R {
         INTERNAL_SRAM_MAC_DUMP_USAGE_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_3")
+            .field(
+                "internal_sram_mac_dump_usage",
+                &format_args!("{}", self.internal_sram_mac_dump_usage().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Set 1 to someone bit means corresponding internal SRAM level can be accessed by mac dump."]
     #[inline(always)]

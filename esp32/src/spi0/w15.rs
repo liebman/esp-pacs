@@ -45,6 +45,14 @@ impl R {
         BUF15_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::W15")
+            .field("buf15", &format_args!("{}", self.buf15().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - data buffer"]
     #[inline(always)]

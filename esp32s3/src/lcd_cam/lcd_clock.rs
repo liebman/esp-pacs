@@ -121,6 +121,46 @@ impl R {
         CLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LCD_CLOCK")
+            .field(
+                "lcd_clkcnt_n",
+                &format_args!("{}", self.lcd_clkcnt_n().bits()),
+            )
+            .field(
+                "lcd_clk_equ_sysclk",
+                &format_args!("{}", self.lcd_clk_equ_sysclk().bit()),
+            )
+            .field(
+                "lcd_ck_idle_edge",
+                &format_args!("{}", self.lcd_ck_idle_edge().bit()),
+            )
+            .field(
+                "lcd_ck_out_edge",
+                &format_args!("{}", self.lcd_ck_out_edge().bit()),
+            )
+            .field(
+                "lcd_clkm_div_num",
+                &format_args!("{}", self.lcd_clkm_div_num().bits()),
+            )
+            .field(
+                "lcd_clkm_div_b",
+                &format_args!("{}", self.lcd_clkm_div_b().bits()),
+            )
+            .field(
+                "lcd_clkm_div_a",
+                &format_args!("{}", self.lcd_clkm_div_a().bits()),
+            )
+            .field(
+                "lcd_clk_sel",
+                &format_args!("{}", self.lcd_clk_sel().bits()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - f_LCD_PCLK = f_LCD_CLK / (reg_clkcnt_N + 1) when reg_clk_equ_sysclk is 0."]
     #[inline(always)]

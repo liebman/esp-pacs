@@ -46,6 +46,17 @@ impl R {
         CORE_0_MESSAGE_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_MESSAGE_ADDR")
+            .field(
+                "core_0_message_addr",
+                &format_args!("{}", self.core_0_message_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This field is used to set address that need to write when enter WORLD0"]
     #[inline(always)]

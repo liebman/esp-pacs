@@ -56,6 +56,21 @@ impl R {
         SPI_MEM_EXTRA_DUMMY_CYCLELEN_R::new(((self.bits >> 2) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_TIMING_CALI")
+            .field(
+                "spi_mem_timing_cali",
+                &format_args!("{}", self.spi_mem_timing_cali().bit()),
+            )
+            .field(
+                "spi_mem_extra_dummy_cyclelen",
+                &format_args!("{}", self.spi_mem_extra_dummy_cyclelen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - The bit is used to enable timing auto-calibration for all reading operations."]
     #[inline(always)]

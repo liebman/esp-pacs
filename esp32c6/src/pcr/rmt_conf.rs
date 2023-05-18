@@ -54,6 +54,15 @@ impl R {
         RMT_RST_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::RMT_CONF")
+            .field("rmt_clk_en", &format_args!("{}", self.rmt_clk_en().bit()))
+            .field("rmt_rst_en", &format_args!("{}", self.rmt_rst_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable rmt apb clock"]
     #[inline(always)]

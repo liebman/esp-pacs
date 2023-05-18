@@ -84,6 +84,30 @@ impl R {
         RMT_SCLK_EN_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::RMT_SCLK_CONF")
+            .field(
+                "rmt_sclk_div_a",
+                &format_args!("{}", self.rmt_sclk_div_a().bits()),
+            )
+            .field(
+                "rmt_sclk_div_b",
+                &format_args!("{}", self.rmt_sclk_div_b().bits()),
+            )
+            .field(
+                "rmt_sclk_div_num",
+                &format_args!("{}", self.rmt_sclk_div_num().bits()),
+            )
+            .field(
+                "rmt_sclk_sel",
+                &format_args!("{}", self.rmt_sclk_sel().bit()),
+            )
+            .field("rmt_sclk_en", &format_args!("{}", self.rmt_sclk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - The denominator of the frequency divider factor of the rmt function clock."]
     #[inline(always)]

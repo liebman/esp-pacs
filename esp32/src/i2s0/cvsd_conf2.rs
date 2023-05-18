@@ -73,6 +73,17 @@ impl R {
         CVSD_H_R::new(((self.bits >> 16) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::CVSD_CONF2")
+            .field("cvsd_k", &format_args!("{}", self.cvsd_k().bits()))
+            .field("cvsd_j", &format_args!("{}", self.cvsd_j().bits()))
+            .field("cvsd_beta", &format_args!("{}", self.cvsd_beta().bits()))
+            .field("cvsd_h", &format_args!("{}", self.cvsd_h().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]

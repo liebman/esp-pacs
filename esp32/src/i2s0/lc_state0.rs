@@ -22,6 +22,14 @@ impl R {
         LC_STATE0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::LC_STATE0")
+            .field("lc_state0", &format_args!("{}", self.lc_state0().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lc_state0](index.html) module"]
 pub struct LC_STATE0_SPEC;
 impl crate::RegisterSpec for LC_STATE0_SPEC {

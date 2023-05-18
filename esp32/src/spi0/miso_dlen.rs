@@ -46,6 +46,17 @@ impl R {
         USR_MISO_DBITLEN_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::MISO_DLEN")
+            .field(
+                "usr_miso_dbitlen",
+                &format_args!("{}", self.usr_miso_dbitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - The length in bits of read-data. The register value shall be (bit_num-1)."]
     #[inline(always)]

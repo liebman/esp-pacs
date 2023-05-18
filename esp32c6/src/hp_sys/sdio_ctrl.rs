@@ -54,6 +54,21 @@ impl R {
         SDIO_WIN_ACCESS_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::SDIO_CTRL")
+            .field(
+                "dis_sdio_prob",
+                &format_args!("{}", self.dis_sdio_prob().bit()),
+            )
+            .field(
+                "sdio_win_access_en",
+                &format_args!("{}", self.sdio_win_access_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit as 1 to disable SDIO_PROB function. disable by default."]
     #[inline(always)]

@@ -296,6 +296,117 @@ impl R {
         SLC1_BT_RX_NEW_PACKET_INT_RAW_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::SLC1HOST_INT_RAW")
+            .field(
+                "slc1_tohost_bit0_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit0_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit1_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit1_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit2_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit2_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit3_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit3_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit4_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit4_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit5_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit5_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit6_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit6_int_raw().bit()),
+            )
+            .field(
+                "slc1_tohost_bit7_int_raw",
+                &format_args!("{}", self.slc1_tohost_bit7_int_raw().bit()),
+            )
+            .field(
+                "slc1_token0_1to0_int_raw",
+                &format_args!("{}", self.slc1_token0_1to0_int_raw().bit()),
+            )
+            .field(
+                "slc1_token1_1to0_int_raw",
+                &format_args!("{}", self.slc1_token1_1to0_int_raw().bit()),
+            )
+            .field(
+                "slc1_token0_0to1_int_raw",
+                &format_args!("{}", self.slc1_token0_0to1_int_raw().bit()),
+            )
+            .field(
+                "slc1_token1_0to1_int_raw",
+                &format_args!("{}", self.slc1_token1_0to1_int_raw().bit()),
+            )
+            .field(
+                "slc1host_rx_sof_int_raw",
+                &format_args!("{}", self.slc1host_rx_sof_int_raw().bit()),
+            )
+            .field(
+                "slc1host_rx_eof_int_raw",
+                &format_args!("{}", self.slc1host_rx_eof_int_raw().bit()),
+            )
+            .field(
+                "slc1host_rx_start_int_raw",
+                &format_args!("{}", self.slc1host_rx_start_int_raw().bit()),
+            )
+            .field(
+                "slc1host_tx_start_int_raw",
+                &format_args!("{}", self.slc1host_tx_start_int_raw().bit()),
+            )
+            .field(
+                "slc1_rx_udf_int_raw",
+                &format_args!("{}", self.slc1_rx_udf_int_raw().bit()),
+            )
+            .field(
+                "slc1_tx_ovf_int_raw",
+                &format_args!("{}", self.slc1_tx_ovf_int_raw().bit()),
+            )
+            .field(
+                "slc1_rx_pf_valid_int_raw",
+                &format_args!("{}", self.slc1_rx_pf_valid_int_raw().bit()),
+            )
+            .field(
+                "slc1_ext_bit0_int_raw",
+                &format_args!("{}", self.slc1_ext_bit0_int_raw().bit()),
+            )
+            .field(
+                "slc1_ext_bit1_int_raw",
+                &format_args!("{}", self.slc1_ext_bit1_int_raw().bit()),
+            )
+            .field(
+                "slc1_ext_bit2_int_raw",
+                &format_args!("{}", self.slc1_ext_bit2_int_raw().bit()),
+            )
+            .field(
+                "slc1_ext_bit3_int_raw",
+                &format_args!("{}", self.slc1_ext_bit3_int_raw().bit()),
+            )
+            .field(
+                "slc1_wifi_rx_new_packet_int_raw",
+                &format_args!("{}", self.slc1_wifi_rx_new_packet_int_raw().bit()),
+            )
+            .field(
+                "slc1_host_rd_retry_int_raw",
+                &format_args!("{}", self.slc1_host_rd_retry_int_raw().bit()),
+            )
+            .field(
+                "slc1_bt_rx_new_packet_int_raw",
+                &format_args!("{}", self.slc1_bt_rx_new_packet_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - *******Description***********"]
     #[inline(always)]

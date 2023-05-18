@@ -56,6 +56,21 @@ impl R {
         IMMU_PAGE_MODE_R::new(((self.bits >> 1) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::IMMU_PAGE_MODE")
+            .field(
+                "internal_sram_immu_ena",
+                &format_args!("{}", self.internal_sram_immu_ena().bit()),
+            )
+            .field(
+                "immu_page_mode",
+                &format_args!("{}", self.immu_page_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

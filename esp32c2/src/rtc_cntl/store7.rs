@@ -45,6 +45,14 @@ impl R {
         SCRATCH7_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::STORE7")
+            .field("scratch7", &format_args!("{}", self.scratch7().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Need add desc"]
     #[inline(always)]

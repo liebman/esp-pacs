@@ -54,6 +54,15 @@ impl R {
         ATTR2_R::new(((self.bits >> 2) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::EDMA_PMS_I2S1")
+            .field("attr1", &format_args!("{}", self.attr1().bits()))
+            .field("attr2", &format_args!("{}", self.attr2().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field is used to configure the permission of I2S1 accessing address, which is larger than boundary 0 and less than boundary 1, through EDMA. Bit 0: set this bit to enable read permission. Bit 1: set this bit to enable write permission."]
     #[inline(always)]

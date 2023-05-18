@@ -131,6 +131,44 @@ impl R {
         KEY_STATUS_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_WDATA6")
+            .field(
+                "coding_scheme",
+                &format_args!("{}", self.coding_scheme().bits()),
+            )
+            .field(
+                "console_debug_disable",
+                &format_args!("{}", self.console_debug_disable().bit()),
+            )
+            .field(
+                "disable_sdio_host",
+                &format_args!("{}", self.disable_sdio_host().bit()),
+            )
+            .field("abs_done_0", &format_args!("{}", self.abs_done_0().bit()))
+            .field("abs_done_1", &format_args!("{}", self.abs_done_1().bit()))
+            .field(
+                "disable_jtag",
+                &format_args!("{}", self.disable_jtag().bit()),
+            )
+            .field(
+                "disable_dl_encrypt",
+                &format_args!("{}", self.disable_dl_encrypt().bit()),
+            )
+            .field(
+                "disable_dl_decrypt",
+                &format_args!("{}", self.disable_dl_decrypt().bit()),
+            )
+            .field(
+                "disable_dl_cache",
+                &format_args!("{}", self.disable_dl_cache().bit()),
+            )
+            .field("key_status", &format_args!("{}", self.key_status().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - program for coding_scheme"]
     #[inline(always)]

@@ -56,6 +56,21 @@ impl R {
         CARRIER_HIGH_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CH3CARRIER_DUTY")
+            .field(
+                "carrier_low",
+                &format_args!("{}", self.carrier_low().bits()),
+            )
+            .field(
+                "carrier_high",
+                &format_args!("{}", self.carrier_high().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - This register is used to configure carrier wave's low level value for channel3."]
     #[inline(always)]

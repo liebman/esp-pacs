@@ -72,6 +72,26 @@ impl R {
         RX_FILTER_MODE_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::MODE")
+            .field("reset_mode", &format_args!("{}", self.reset_mode().bit()))
+            .field(
+                "listen_only_mode",
+                &format_args!("{}", self.listen_only_mode().bit()),
+            )
+            .field(
+                "self_test_mode",
+                &format_args!("{}", self.self_test_mode().bit()),
+            )
+            .field(
+                "rx_filter_mode",
+                &format_args!("{}", self.rx_filter_mode().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This bit is used to configure the operating mode of the TWAI Controller. 1: Reset mode; 0: Operating mode."]
     #[inline(always)]

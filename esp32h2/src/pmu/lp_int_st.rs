@@ -99,6 +99,61 @@ impl R {
         HP_SW_TRIGGER_INT_ST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::LP_INT_ST")
+            .field(
+                "lp_cpu_wakeup_int_st",
+                &format_args!("{}", self.lp_cpu_wakeup_int_st().bit()),
+            )
+            .field(
+                "modem_switch_active_end_int_st",
+                &format_args!("{}", self.modem_switch_active_end_int_st().bit()),
+            )
+            .field(
+                "sleep_switch_active_end_int_st",
+                &format_args!("{}", self.sleep_switch_active_end_int_st().bit()),
+            )
+            .field(
+                "sleep_switch_modem_end_int_st",
+                &format_args!("{}", self.sleep_switch_modem_end_int_st().bit()),
+            )
+            .field(
+                "modem_switch_sleep_end_int_st",
+                &format_args!("{}", self.modem_switch_sleep_end_int_st().bit()),
+            )
+            .field(
+                "active_switch_sleep_end_int_st",
+                &format_args!("{}", self.active_switch_sleep_end_int_st().bit()),
+            )
+            .field(
+                "modem_switch_active_start_int_st",
+                &format_args!("{}", self.modem_switch_active_start_int_st().bit()),
+            )
+            .field(
+                "sleep_switch_active_start_int_st",
+                &format_args!("{}", self.sleep_switch_active_start_int_st().bit()),
+            )
+            .field(
+                "sleep_switch_modem_start_int_st",
+                &format_args!("{}", self.sleep_switch_modem_start_int_st().bit()),
+            )
+            .field(
+                "modem_switch_sleep_start_int_st",
+                &format_args!("{}", self.modem_switch_sleep_start_int_st().bit()),
+            )
+            .field(
+                "active_switch_sleep_start_int_st",
+                &format_args!("{}", self.active_switch_sleep_start_int_st().bit()),
+            )
+            .field(
+                "hp_sw_trigger_int_st",
+                &format_args!("{}", self.hp_sw_trigger_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lp_int_st](index.html) module"]
 pub struct LP_INT_ST_SPEC;
 impl crate::RegisterSpec for LP_INT_ST_SPEC {

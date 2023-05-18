@@ -54,6 +54,21 @@ impl R {
         LP_I2C_SCL_IE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_IO::LPI2C")
+            .field(
+                "lp_i2c_sda_ie",
+                &format_args!("{}", self.lp_i2c_sda_ie().bit()),
+            )
+            .field(
+                "lp_i2c_scl_ie",
+                &format_args!("{}", self.lp_i2c_scl_ie().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need des"]
     #[inline(always)]

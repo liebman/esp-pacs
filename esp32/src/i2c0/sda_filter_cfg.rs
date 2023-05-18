@@ -55,6 +55,21 @@ impl R {
         SDA_FILTER_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SDA_FILTER_CFG")
+            .field(
+                "sda_filter_thres",
+                &format_args!("{}", self.sda_filter_thres().bits()),
+            )
+            .field(
+                "sda_filter_en",
+                &format_args!("{}", self.sda_filter_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - When input SCL's pulse width is smaller than this register value I2C ignores this pulse."]
     #[inline(always)]

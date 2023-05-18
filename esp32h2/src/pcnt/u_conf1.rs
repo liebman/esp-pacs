@@ -54,6 +54,15 @@ impl R {
         CNT_THRES1_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::U_CONF1")
+            .field("cnt_thres0", &format_args!("{}", self.cnt_thres0().bits()))
+            .field("cnt_thres1", &format_args!("{}", self.cnt_thres1().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - This register is used to configure the thres0 value for unit %s."]
     #[inline(always)]

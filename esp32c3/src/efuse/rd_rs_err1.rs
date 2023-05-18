@@ -43,6 +43,26 @@ impl R {
         SYS_PART2_FAIL_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_RS_ERR1")
+            .field(
+                "key5_err_num",
+                &format_args!("{}", self.key5_err_num().bits()),
+            )
+            .field("key5_fail", &format_args!("{}", self.key5_fail().bit()))
+            .field(
+                "sys_part2_err_num",
+                &format_args!("{}", self.sys_part2_err_num().bits()),
+            )
+            .field(
+                "sys_part2_fail",
+                &format_args!("{}", self.sys_part2_fail().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Programming error record register 1 of BLOCK1-10.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_rs_err1](index.html) module"]
 pub struct RD_RS_ERR1_SPEC;
 impl crate::RegisterSpec for RD_RS_ERR1_SPEC {

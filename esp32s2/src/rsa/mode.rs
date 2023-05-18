@@ -45,6 +45,14 @@ impl R {
         MODE_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA::MODE")
+            .field("mode", &format_args!("{}", self.mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Stores the mode of modular exponentiation."]
     #[inline(always)]

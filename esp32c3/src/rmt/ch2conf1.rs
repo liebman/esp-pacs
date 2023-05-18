@@ -90,6 +90,27 @@ impl R {
         MEM_RX_WRAP_EN_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CH2CONF1")
+            .field("rx_en", &format_args!("{}", self.rx_en().bit()))
+            .field("mem_owner", &format_args!("{}", self.mem_owner().bit()))
+            .field(
+                "rx_filter_en",
+                &format_args!("{}", self.rx_filter_en().bit()),
+            )
+            .field(
+                "rx_filter_thres",
+                &format_args!("{}", self.rx_filter_thres().bits()),
+            )
+            .field(
+                "mem_rx_wrap_en",
+                &format_args!("{}", self.mem_rx_wrap_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - reg_rx_en_ch2."]
     #[inline(always)]

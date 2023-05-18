@@ -65,6 +65,25 @@ impl R {
         USR_COMMAND_BITLEN_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::USER2")
+            .field(
+                "usr_command_value",
+                &format_args!("{}", self.usr_command_value().bits()),
+            )
+            .field(
+                "mst_rempty_err_end_en",
+                &format_args!("{}", self.mst_rempty_err_end_en().bit()),
+            )
+            .field(
+                "usr_command_bitlen",
+                &format_args!("{}", self.usr_command_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The value of command. Can be configured in CONF state."]
     #[inline(always)]

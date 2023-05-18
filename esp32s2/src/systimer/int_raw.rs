@@ -36,6 +36,16 @@ impl R {
         INT2_RAW_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::INT_RAW")
+            .field("int0_raw", &format_args!("{}", self.int0_raw().bit()))
+            .field("int1_raw", &format_args!("{}", self.int1_raw().bit()))
+            .field("int2_raw", &format_args!("{}", self.int2_raw().bit()))
+            .finish()
+    }
+}
 #[doc = "System timer interrupt raw\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

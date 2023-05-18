@@ -22,6 +22,17 @@ impl R {
         D_DMABUFFERADDR4_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DIEPDMAB4")
+            .field(
+                "d_dmabufferaddr4",
+                &format_args!("{}", self.d_dmabufferaddr4().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [diepdmab4](index.html) module"]
 pub struct DIEPDMAB4_SPEC;
 impl crate::RegisterSpec for DIEPDMAB4_SPEC {

@@ -46,6 +46,17 @@ impl R {
         APB_SARADC_CALI_CFG_R::new(self.bits & 0x0001_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::CALI")
+            .field(
+                "apb_saradc_cali_cfg",
+                &format_args!("{}", self.apb_saradc_cali_cfg().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:16 - saradc cali factor"]
     #[inline(always)]

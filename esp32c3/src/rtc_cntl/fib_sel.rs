@@ -45,6 +45,14 @@ impl R {
         FIB_SEL_R::new((self.bits & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::FIB_SEL")
+            .field("fib_sel", &format_args!("{}", self.fib_sel().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - select use analog fib signal"]
     #[inline(always)]

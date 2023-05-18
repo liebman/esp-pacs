@@ -216,6 +216,85 @@ impl R {
         TASK_GAMMA_RESUME_CH5_EN_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::EVT_TASK_EN2")
+            .field(
+                "task_gamma_restart_ch0_en",
+                &format_args!("{}", self.task_gamma_restart_ch0_en().bit()),
+            )
+            .field(
+                "task_gamma_restart_ch1_en",
+                &format_args!("{}", self.task_gamma_restart_ch1_en().bit()),
+            )
+            .field(
+                "task_gamma_restart_ch2_en",
+                &format_args!("{}", self.task_gamma_restart_ch2_en().bit()),
+            )
+            .field(
+                "task_gamma_restart_ch3_en",
+                &format_args!("{}", self.task_gamma_restart_ch3_en().bit()),
+            )
+            .field(
+                "task_gamma_restart_ch4_en",
+                &format_args!("{}", self.task_gamma_restart_ch4_en().bit()),
+            )
+            .field(
+                "task_gamma_restart_ch5_en",
+                &format_args!("{}", self.task_gamma_restart_ch5_en().bit()),
+            )
+            .field(
+                "task_gamma_pause_ch0_en",
+                &format_args!("{}", self.task_gamma_pause_ch0_en().bit()),
+            )
+            .field(
+                "task_gamma_pause_ch1_en",
+                &format_args!("{}", self.task_gamma_pause_ch1_en().bit()),
+            )
+            .field(
+                "task_gamma_pause_ch2_en",
+                &format_args!("{}", self.task_gamma_pause_ch2_en().bit()),
+            )
+            .field(
+                "task_gamma_pause_ch3_en",
+                &format_args!("{}", self.task_gamma_pause_ch3_en().bit()),
+            )
+            .field(
+                "task_gamma_pause_ch4_en",
+                &format_args!("{}", self.task_gamma_pause_ch4_en().bit()),
+            )
+            .field(
+                "task_gamma_pause_ch5_en",
+                &format_args!("{}", self.task_gamma_pause_ch5_en().bit()),
+            )
+            .field(
+                "task_gamma_resume_ch0_en",
+                &format_args!("{}", self.task_gamma_resume_ch0_en().bit()),
+            )
+            .field(
+                "task_gamma_resume_ch1_en",
+                &format_args!("{}", self.task_gamma_resume_ch1_en().bit()),
+            )
+            .field(
+                "task_gamma_resume_ch2_en",
+                &format_args!("{}", self.task_gamma_resume_ch2_en().bit()),
+            )
+            .field(
+                "task_gamma_resume_ch3_en",
+                &format_args!("{}", self.task_gamma_resume_ch3_en().bit()),
+            )
+            .field(
+                "task_gamma_resume_ch4_en",
+                &format_args!("{}", self.task_gamma_resume_ch4_en().bit()),
+            )
+            .field(
+                "task_gamma_resume_ch5_en",
+                &format_args!("{}", self.task_gamma_resume_ch5_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Ledc ch0 gamma restart task enable register, write 1 to enable this task."]
     #[inline(always)]

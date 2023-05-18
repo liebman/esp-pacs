@@ -84,6 +84,33 @@ impl R {
         I2C0_SCLK_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::I2C0_SCLK_CONF")
+            .field(
+                "i2c0_sclk_div_a",
+                &format_args!("{}", self.i2c0_sclk_div_a().bits()),
+            )
+            .field(
+                "i2c0_sclk_div_b",
+                &format_args!("{}", self.i2c0_sclk_div_b().bits()),
+            )
+            .field(
+                "i2c0_sclk_div_num",
+                &format_args!("{}", self.i2c0_sclk_div_num().bits()),
+            )
+            .field(
+                "i2c0_sclk_sel",
+                &format_args!("{}", self.i2c0_sclk_sel().bit()),
+            )
+            .field(
+                "i2c0_sclk_en",
+                &format_args!("{}", self.i2c0_sclk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - The denominator of the frequency divider factor of the i2c function clock."]
     #[inline(always)]

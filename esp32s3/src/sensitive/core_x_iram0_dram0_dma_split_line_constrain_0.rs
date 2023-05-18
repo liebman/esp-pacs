@@ -48,6 +48,21 @@ impl R {
         CORE_X_IRAM0_DRAM0_DMA_SPLIT_LINE_CONSTRAIN_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_X_IRAM0_DRAM0_DMA_SPLIT_LINE_CONSTRAIN_0")
+            .field(
+                "core_x_iram0_dram0_dma_split_line_constrain_lock",
+                &format_args!(
+                    "{}",
+                    self.core_x_iram0_dram0_dma_split_line_constrain_lock()
+                        .bit()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to lock sram split configuration register"]
     #[inline(always)]

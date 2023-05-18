@@ -59,6 +59,21 @@ impl R {
         MEM_WR_ADDR_SIZE_R::new(((self.bits >> 11) & 0x07ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEM_WR_CTRL")
+            .field(
+                "mem_wr_addr_init",
+                &format_args!("{}", self.mem_wr_addr_init().bits()),
+            )
+            .field(
+                "mem_wr_addr_size",
+                &format_args!("{}", self.mem_wr_addr_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10"]
     #[inline(always)]

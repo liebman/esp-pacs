@@ -84,6 +84,30 @@ impl R {
         TIMER0_PHASE_DIRECTION_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TIMER0_SYNC")
+            .field(
+                "timer0_synci_en",
+                &format_args!("{}", self.timer0_synci_en().bit()),
+            )
+            .field("sw", &format_args!("{}", self.sw().bit()))
+            .field(
+                "timer0_synco_sel",
+                &format_args!("{}", self.timer0_synco_sel().bits()),
+            )
+            .field(
+                "timer0_phase",
+                &format_args!("{}", self.timer0_phase().bits()),
+            )
+            .field(
+                "timer0_phase_direction",
+                &format_args!("{}", self.timer0_phase_direction().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - When set, timer reloading with phase on sync input event is enabled."]
     #[inline(always)]

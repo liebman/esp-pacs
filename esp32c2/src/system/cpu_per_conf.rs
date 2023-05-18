@@ -75,6 +75,29 @@ impl R {
         CPU_WAITI_DELAY_NUM_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CPU_PER_CONF")
+            .field(
+                "cpuperiod_sel",
+                &format_args!("{}", self.cpuperiod_sel().bits()),
+            )
+            .field(
+                "pll_freq_sel",
+                &format_args!("{}", self.pll_freq_sel().bit()),
+            )
+            .field(
+                "cpu_wait_mode_force_on",
+                &format_args!("{}", self.cpu_wait_mode_force_on().bit()),
+            )
+            .field(
+                "cpu_waiti_delay_num",
+                &format_args!("{}", self.cpu_waiti_delay_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field used to sel cpu clock frequent."]
     #[inline(always)]

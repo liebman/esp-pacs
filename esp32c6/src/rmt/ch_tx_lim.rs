@@ -75,6 +75,26 @@ impl R {
         LOOP_STOP_EN_R::new(((self.bits >> 21) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CH_TX_LIM")
+            .field("tx_lim", &format_args!("{}", self.tx_lim().bits()))
+            .field(
+                "tx_loop_num",
+                &format_args!("{}", self.tx_loop_num().bits()),
+            )
+            .field(
+                "tx_loop_cnt_en",
+                &format_args!("{}", self.tx_loop_cnt_en().bit()),
+            )
+            .field(
+                "loop_stop_en",
+                &format_args!("{}", self.loop_stop_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - This register is used to configure the maximum entries that CHANNEL%s can send out."]
     #[inline(always)]

@@ -54,6 +54,15 @@ impl R {
         DS_RST_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::DS_CONF")
+            .field("ds_clk_en", &format_args!("{}", self.ds_clk_en().bit()))
+            .field("ds_rst_en", &format_args!("{}", self.ds_rst_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to enable ds clock"]
     #[inline(always)]

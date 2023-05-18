@@ -46,6 +46,17 @@ impl R {
         GET_DW_DTE_RATE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::GET_LINE_CODE_W0")
+            .field(
+                "get_dw_dte_rate",
+                &format_args!("{}", self.get_dw_dte_rate().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The value of dwDTERate set by software which is requested by GET_LINE_CODING command."]
     #[inline(always)]

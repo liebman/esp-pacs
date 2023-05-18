@@ -171,6 +171,49 @@ impl R {
         USB_JTAG_BRIDGE_EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::CONF0")
+            .field("phy_sel", &format_args!("{}", self.phy_sel().bit()))
+            .field(
+                "exchg_pins_override",
+                &format_args!("{}", self.exchg_pins_override().bit()),
+            )
+            .field("exchg_pins", &format_args!("{}", self.exchg_pins().bit()))
+            .field("vrefh", &format_args!("{}", self.vrefh().bits()))
+            .field("vrefl", &format_args!("{}", self.vrefl().bits()))
+            .field(
+                "vref_override",
+                &format_args!("{}", self.vref_override().bit()),
+            )
+            .field(
+                "pad_pull_override",
+                &format_args!("{}", self.pad_pull_override().bit()),
+            )
+            .field("dp_pullup", &format_args!("{}", self.dp_pullup().bit()))
+            .field("dp_pulldown", &format_args!("{}", self.dp_pulldown().bit()))
+            .field("dm_pullup", &format_args!("{}", self.dm_pullup().bit()))
+            .field("dm_pulldown", &format_args!("{}", self.dm_pulldown().bit()))
+            .field(
+                "pullup_value",
+                &format_args!("{}", self.pullup_value().bit()),
+            )
+            .field(
+                "usb_pad_enable",
+                &format_args!("{}", self.usb_pad_enable().bit()),
+            )
+            .field(
+                "phy_tx_edge_sel",
+                &format_args!("{}", self.phy_tx_edge_sel().bit()),
+            )
+            .field(
+                "usb_jtag_bridge_en",
+                &format_args!("{}", self.usb_jtag_bridge_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Select internal/external PHY"]
     #[inline(always)]

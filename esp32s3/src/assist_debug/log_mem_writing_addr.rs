@@ -22,6 +22,17 @@ impl R {
         LOG_MEM_WRITING_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::LOG_MEM_WRITING_ADDR")
+            .field(
+                "log_mem_writing_addr",
+                &format_args!("{}", self.log_mem_writing_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "log mem addr status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [log_mem_writing_addr](index.html) module"]
 pub struct LOG_MEM_WRITING_ADDR_SPEC;
 impl crate::RegisterSpec for LOG_MEM_WRITING_ADDR_SPEC {

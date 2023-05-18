@@ -46,6 +46,17 @@ impl R {
         BUS_CLOCK_UPDATE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::BUS_CLK_UPDATE")
+            .field(
+                "bus_clock_update",
+                &format_args!("{}", self.bus_clock_update().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - xxxx"]
     #[inline(always)]

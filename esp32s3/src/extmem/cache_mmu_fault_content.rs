@@ -29,6 +29,21 @@ impl R {
         CACHE_MMU_FAULT_CODE_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_MMU_FAULT_CONTENT")
+            .field(
+                "cache_mmu_fault_content",
+                &format_args!("{}", self.cache_mmu_fault_content().bits()),
+            )
+            .field(
+                "cache_mmu_fault_code",
+                &format_args!("{}", self.cache_mmu_fault_code().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "******* Description ***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cache_mmu_fault_content](index.html) module"]
 pub struct CACHE_MMU_FAULT_CONTENT_SPEC;
 impl crate::RegisterSpec for CACHE_MMU_FAULT_CONTENT_SPEC {

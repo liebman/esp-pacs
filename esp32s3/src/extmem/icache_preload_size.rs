@@ -46,6 +46,17 @@ impl R {
         ICACHE_PRELOAD_SIZE_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_PRELOAD_SIZE")
+            .field(
+                "icache_preload_size",
+                &format_args!("{}", self.icache_preload_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The bits are used to configure the length for preload operation. The bits are the counts of cache block. It should be combined with ICACHE_PRELOAD_ADDR_REG.."]
     #[inline(always)]

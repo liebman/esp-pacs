@@ -81,6 +81,24 @@ impl R {
         DMA_SEG_TRANS_DONE_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::HOLD")
+            .field(
+                "int_hold_ena",
+                &format_args!("{}", self.int_hold_ena().bits()),
+            )
+            .field("val", &format_args!("{}", self.val().bit()))
+            .field("out_en", &format_args!("{}", self.out_en().bit()))
+            .field("out_time", &format_args!("{}", self.out_time().bits()))
+            .field(
+                "dma_seg_trans_done",
+                &format_args!("{}", self.dma_seg_trans_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This register is for two SPI masters to share the same cs clock and data signals. The bits of one SPI are set, if the other SPI is busy, the SPI will be hold. 1(3): hold at idle phase 2: hold at prepare phase. Can be configured in CONF state."]
     #[inline(always)]

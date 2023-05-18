@@ -43,6 +43,29 @@ impl R {
         CORE_1_MESSAGE_ADDRESSPHASE_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_1_MESSAGE_PHASE")
+            .field(
+                "core_1_message_match",
+                &format_args!("{}", self.core_1_message_match().bit()),
+            )
+            .field(
+                "core_1_message_expect",
+                &format_args!("{}", self.core_1_message_expect().bits()),
+            )
+            .field(
+                "core_1_message_dataphase",
+                &format_args!("{}", self.core_1_message_dataphase().bit()),
+            )
+            .field(
+                "core_1_message_addressphase",
+                &format_args!("{}", self.core_1_message_addressphase().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Clear writer_buffer status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_1_message_phase](index.html) module"]
 pub struct CORE_1_MESSAGE_PHASE_SPEC;
 impl crate::RegisterSpec for CORE_1_MESSAGE_PHASE_SPEC {

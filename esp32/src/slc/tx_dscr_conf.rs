@@ -46,6 +46,17 @@ impl R {
         WR_RETRY_THRESHOLD_R::new((self.bits & 0x07ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::TX_DSCR_CONF")
+            .field(
+                "wr_retry_threshold",
+                &format_args!("{}", self.wr_retry_threshold().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10"]
     #[inline(always)]

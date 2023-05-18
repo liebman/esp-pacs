@@ -200,6 +200,85 @@ impl R {
         TX_TDM_SKIP_MSK_EN_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::TX_TDM_CTRL")
+            .field(
+                "tx_tdm_chan0_en",
+                &format_args!("{}", self.tx_tdm_chan0_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan1_en",
+                &format_args!("{}", self.tx_tdm_chan1_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan2_en",
+                &format_args!("{}", self.tx_tdm_chan2_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan3_en",
+                &format_args!("{}", self.tx_tdm_chan3_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan4_en",
+                &format_args!("{}", self.tx_tdm_chan4_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan5_en",
+                &format_args!("{}", self.tx_tdm_chan5_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan6_en",
+                &format_args!("{}", self.tx_tdm_chan6_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan7_en",
+                &format_args!("{}", self.tx_tdm_chan7_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan8_en",
+                &format_args!("{}", self.tx_tdm_chan8_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan9_en",
+                &format_args!("{}", self.tx_tdm_chan9_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan10_en",
+                &format_args!("{}", self.tx_tdm_chan10_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan11_en",
+                &format_args!("{}", self.tx_tdm_chan11_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan12_en",
+                &format_args!("{}", self.tx_tdm_chan12_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan13_en",
+                &format_args!("{}", self.tx_tdm_chan13_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan14_en",
+                &format_args!("{}", self.tx_tdm_chan14_en().bit()),
+            )
+            .field(
+                "tx_tdm_chan15_en",
+                &format_args!("{}", self.tx_tdm_chan15_en().bit()),
+            )
+            .field(
+                "tx_tdm_tot_chan_num",
+                &format_args!("{}", self.tx_tdm_tot_chan_num().bits()),
+            )
+            .field(
+                "tx_tdm_skip_msk_en",
+                &format_args!("{}", self.tx_tdm_skip_msk_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: Enable the valid data output of I2S TX TDM channel 0. 0: Disable, just output 0 in this channel."]
     #[inline(always)]

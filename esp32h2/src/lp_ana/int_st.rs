@@ -50,6 +50,33 @@ impl R {
         BOD_MODE0_INT_ST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::INT_ST")
+            .field(
+                "vddbat_charge_upvoltage_int_st",
+                &format_args!("{}", self.vddbat_charge_upvoltage_int_st().bit()),
+            )
+            .field(
+                "vddbat_charge_undervoltage_int_st",
+                &format_args!("{}", self.vddbat_charge_undervoltage_int_st().bit()),
+            )
+            .field(
+                "vddbat_upvoltage_int_st",
+                &format_args!("{}", self.vddbat_upvoltage_int_st().bit()),
+            )
+            .field(
+                "vddbat_undervoltage_int_st",
+                &format_args!("{}", self.vddbat_undervoltage_int_st().bit()),
+            )
+            .field(
+                "bod_mode0_int_st",
+                &format_args!("{}", self.bod_mode0_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

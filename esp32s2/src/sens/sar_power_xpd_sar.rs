@@ -55,6 +55,18 @@ impl R {
         SARCLK_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_POWER_XPD_SAR")
+            .field(
+                "force_xpd_sar",
+                &format_args!("{}", self.force_xpd_sar().bits()),
+            )
+            .field("sarclk_en", &format_args!("{}", self.sarclk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 29:30"]
     #[inline(always)]

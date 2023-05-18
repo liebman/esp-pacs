@@ -84,6 +84,41 @@ impl R {
         CORE_1_PIF_PMS_CONSTRAIN_RTCSLOW_0_WORLD_1_H_R::new(((self.bits >> 9) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_CONSTRAIN_12")
+            .field(
+                "core_1_pif_pms_constrain_rtcslow_0_world_0_l",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_rtcslow_0_world_0_l().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_rtcslow_0_world_0_h",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_rtcslow_0_world_0_h().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_rtcslow_0_world_1_l",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_rtcslow_0_world_1_l().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_rtcslow_0_world_1_h",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_rtcslow_0_world_1_h().bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - RTCSlow_0 memory low region permission in world 0 for core1."]
     #[inline(always)]

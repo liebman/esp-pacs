@@ -74,6 +74,33 @@ impl R {
         L1_CACHE_UNALLOC_CLR_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_UNALLOCATE_BUFFER_CLEAR")
+            .field(
+                "l1_icache0_unalloc_clr",
+                &format_args!("{}", self.l1_icache0_unalloc_clr().bit()),
+            )
+            .field(
+                "l1_icache1_unalloc_clr",
+                &format_args!("{}", self.l1_icache1_unalloc_clr().bit()),
+            )
+            .field(
+                "l1_icache2_unalloc_clr",
+                &format_args!("{}", self.l1_icache2_unalloc_clr().bit()),
+            )
+            .field(
+                "l1_icache3_unalloc_clr",
+                &format_args!("{}", self.l1_icache3_unalloc_clr().bit()),
+            )
+            .field(
+                "l1_cache_unalloc_clr",
+                &format_args!("{}", self.l1_cache_unalloc_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - The bit is used to clear the unallocate request buffer of l1 cache where the unallocate request is responsed but not completed."]
     #[inline(always)]

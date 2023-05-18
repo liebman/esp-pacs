@@ -111,6 +111,21 @@ impl R {
         SDIO_FORCE_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_WDATA4")
+            .field("ck8m_freq", &format_args!("{}", self.ck8m_freq().bits()))
+            .field("adc_vref", &format_args!("{}", self.adc_vref().bits()))
+            .field("sdio_drefh", &format_args!("{}", self.sdio_drefh().bits()))
+            .field("sdio_drefm", &format_args!("{}", self.sdio_drefm().bits()))
+            .field("sdio_drefl", &format_args!("{}", self.sdio_drefl().bits()))
+            .field("xpd_sdio", &format_args!("{}", self.xpd_sdio().bit()))
+            .field("sdio_tieh", &format_args!("{}", self.sdio_tieh().bit()))
+            .field("sdio_force", &format_args!("{}", self.sdio_force().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

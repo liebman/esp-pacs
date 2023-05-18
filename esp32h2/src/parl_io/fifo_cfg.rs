@@ -54,6 +54,21 @@ impl R {
         RX_FIFO_SRST_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::FIFO_CFG")
+            .field(
+                "tx_fifo_srst",
+                &format_args!("{}", self.tx_fifo_srst().bit()),
+            )
+            .field(
+                "rx_fifo_srst",
+                &format_args!("{}", self.rx_fifo_srst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - Set this bit to reset async fifo in tx module."]
     #[inline(always)]

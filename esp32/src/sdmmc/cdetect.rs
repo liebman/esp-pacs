@@ -22,6 +22,17 @@ impl R {
         CARD_DETECT_N_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CDETECT")
+            .field(
+                "card_detect_n",
+                &format_args!("{}", self.card_detect_n().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Card detect register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cdetect](index.html) module"]
 pub struct CDETECT_SPEC;
 impl crate::RegisterSpec for CDETECT_SPEC {

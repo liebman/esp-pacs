@@ -95,6 +95,34 @@ impl R {
         CHOPPER2_IN_INVERT_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CHOPPER2_CFG")
+            .field("chopper2_en", &format_args!("{}", self.chopper2_en().bit()))
+            .field(
+                "chopper2_prescale",
+                &format_args!("{}", self.chopper2_prescale().bits()),
+            )
+            .field(
+                "chopper2_duty",
+                &format_args!("{}", self.chopper2_duty().bits()),
+            )
+            .field(
+                "chopper2_oshtwth",
+                &format_args!("{}", self.chopper2_oshtwth().bits()),
+            )
+            .field(
+                "chopper2_out_invert",
+                &format_args!("{}", self.chopper2_out_invert().bit()),
+            )
+            .field(
+                "chopper2_in_invert",
+                &format_args!("{}", self.chopper2_in_invert().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - When set, carrier0 function is enabled. When cleared, carrier0 is bypassed"]
     #[inline(always)]

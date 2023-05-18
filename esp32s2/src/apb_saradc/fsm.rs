@@ -54,6 +54,18 @@ impl R {
         SAMPLE_CYCLE_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::FSM")
+            .field("sample_num", &format_args!("{}", self.sample_num().bits()))
+            .field(
+                "sample_cycle",
+                &format_args!("{}", self.sample_cycle().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:23 - sample number"]
     #[inline(always)]

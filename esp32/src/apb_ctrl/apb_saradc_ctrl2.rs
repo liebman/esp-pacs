@@ -76,6 +76,29 @@ impl R {
         SARADC_SAR2_INV_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::APB_SARADC_CTRL2")
+            .field(
+                "saradc_meas_num_limit",
+                &format_args!("{}", self.saradc_meas_num_limit().bit()),
+            )
+            .field(
+                "saradc_max_meas_num",
+                &format_args!("{}", self.saradc_max_meas_num().bits()),
+            )
+            .field(
+                "saradc_sar1_inv",
+                &format_args!("{}", self.saradc_sar1_inv().bit()),
+            )
+            .field(
+                "saradc_sar2_inv",
+                &format_args!("{}", self.saradc_sar2_inv().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

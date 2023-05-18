@@ -22,6 +22,14 @@ impl R {
         BLK3_DOUT0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK3_RDATA0")
+            .field("blk3_dout0", &format_args!("{}", self.blk3_dout0().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [blk3_rdata0](index.html) module"]
 pub struct BLK3_RDATA0_SPEC;
 impl crate::RegisterSpec for BLK3_RDATA0_SPEC {

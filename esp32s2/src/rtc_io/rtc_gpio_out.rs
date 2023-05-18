@@ -46,6 +46,17 @@ impl R {
         GPIO_OUT_DATA_R::new((self.bits >> 10) & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::RTC_GPIO_OUT")
+            .field(
+                "gpio_out_data",
+                &format_args!("{}", self.gpio_out_data().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 10:31 - GPIO0 ~ 21 output register. Bit10 corresponds to GPIO0, bit11 corresponds to GPIO1, etc."]
     #[inline(always)]

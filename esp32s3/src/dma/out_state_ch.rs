@@ -36,6 +36,22 @@ impl R {
         OUT_STATE_R::new(((self.bits >> 20) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_STATE_CH")
+            .field(
+                "outlink_dscr_addr",
+                &format_args!("{}", self.outlink_dscr_addr().bits()),
+            )
+            .field(
+                "out_dscr_state",
+                &format_args!("{}", self.out_dscr_state().bits()),
+            )
+            .field("out_state", &format_args!("{}", self.out_state().bits()))
+            .finish()
+    }
+}
 #[doc = "Transmit status of Tx channel 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [out_state_ch](index.html) module"]
 pub struct OUT_STATE_CH_SPEC;
 impl crate::RegisterSpec for OUT_STATE_CH_SPEC {

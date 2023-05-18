@@ -106,6 +106,21 @@ impl R {
         EPENA1_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DOEPCTL1")
+            .field("mps1", &format_args!("{}", self.mps1().bits()))
+            .field("usbactep1", &format_args!("{}", self.usbactep1().bit()))
+            .field("naksts1", &format_args!("{}", self.naksts1().bit()))
+            .field("eptype1", &format_args!("{}", self.eptype1().bits()))
+            .field("snp1", &format_args!("{}", self.snp1().bit()))
+            .field("stall1", &format_args!("{}", self.stall1().bit()))
+            .field("epdis1", &format_args!("{}", self.epdis1().bit()))
+            .field("epena1", &format_args!("{}", self.epena1().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 20"]
     #[inline(always)]

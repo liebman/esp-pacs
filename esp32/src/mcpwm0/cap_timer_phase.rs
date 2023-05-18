@@ -46,6 +46,17 @@ impl R {
         CAP_TIMER_PHASE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CAP_TIMER_PHASE")
+            .field(
+                "cap_timer_phase",
+                &format_args!("{}", self.cap_timer_phase().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

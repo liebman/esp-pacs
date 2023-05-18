@@ -64,6 +64,35 @@ impl R {
         BUS_ERR_INT_ST_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::INT_RAW")
+            .field("rx_int_st", &format_args!("{}", self.rx_int_st().bit()))
+            .field("tx_int_st", &format_args!("{}", self.tx_int_st().bit()))
+            .field(
+                "err_warn_int_st",
+                &format_args!("{}", self.err_warn_int_st().bit()),
+            )
+            .field(
+                "overrun_int_st",
+                &format_args!("{}", self.overrun_int_st().bit()),
+            )
+            .field(
+                "err_passive_int_st",
+                &format_args!("{}", self.err_passive_int_st().bit()),
+            )
+            .field(
+                "arb_lost_int_st",
+                &format_args!("{}", self.arb_lost_int_st().bit()),
+            )
+            .field(
+                "bus_err_int_st",
+                &format_args!("{}", self.bus_err_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Interrupt Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

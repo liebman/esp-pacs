@@ -220,6 +220,93 @@ impl R {
         WAKEUP_INT_ENA_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::INT_ENA")
+            .field(
+                "rxfifo_full_int_ena",
+                &format_args!("{}", self.rxfifo_full_int_ena().bit()),
+            )
+            .field(
+                "txfifo_empty_int_ena",
+                &format_args!("{}", self.txfifo_empty_int_ena().bit()),
+            )
+            .field(
+                "parity_err_int_ena",
+                &format_args!("{}", self.parity_err_int_ena().bit()),
+            )
+            .field(
+                "frm_err_int_ena",
+                &format_args!("{}", self.frm_err_int_ena().bit()),
+            )
+            .field(
+                "rxfifo_ovf_int_ena",
+                &format_args!("{}", self.rxfifo_ovf_int_ena().bit()),
+            )
+            .field(
+                "dsr_chg_int_ena",
+                &format_args!("{}", self.dsr_chg_int_ena().bit()),
+            )
+            .field(
+                "cts_chg_int_ena",
+                &format_args!("{}", self.cts_chg_int_ena().bit()),
+            )
+            .field(
+                "brk_det_int_ena",
+                &format_args!("{}", self.brk_det_int_ena().bit()),
+            )
+            .field(
+                "rxfifo_tout_int_ena",
+                &format_args!("{}", self.rxfifo_tout_int_ena().bit()),
+            )
+            .field(
+                "sw_xon_int_ena",
+                &format_args!("{}", self.sw_xon_int_ena().bit()),
+            )
+            .field(
+                "sw_xoff_int_ena",
+                &format_args!("{}", self.sw_xoff_int_ena().bit()),
+            )
+            .field(
+                "glitch_det_int_ena",
+                &format_args!("{}", self.glitch_det_int_ena().bit()),
+            )
+            .field(
+                "tx_brk_done_int_ena",
+                &format_args!("{}", self.tx_brk_done_int_ena().bit()),
+            )
+            .field(
+                "tx_brk_idle_done_int_ena",
+                &format_args!("{}", self.tx_brk_idle_done_int_ena().bit()),
+            )
+            .field(
+                "tx_done_int_ena",
+                &format_args!("{}", self.tx_done_int_ena().bit()),
+            )
+            .field(
+                "rs485_parity_err_int_ena",
+                &format_args!("{}", self.rs485_parity_err_int_ena().bit()),
+            )
+            .field(
+                "rs485_frm_err_int_ena",
+                &format_args!("{}", self.rs485_frm_err_int_ena().bit()),
+            )
+            .field(
+                "rs485_clash_int_ena",
+                &format_args!("{}", self.rs485_clash_int_ena().bit()),
+            )
+            .field(
+                "at_cmd_char_det_int_ena",
+                &format_args!("{}", self.at_cmd_char_det_int_ena().bit()),
+            )
+            .field(
+                "wakeup_int_ena",
+                &format_args!("{}", self.wakeup_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This is the enable bit for UART_RXFIFO_FULL_INT."]
     #[inline(always)]

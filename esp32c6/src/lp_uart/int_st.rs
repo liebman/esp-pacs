@@ -134,6 +134,81 @@ impl R {
         WAKEUP_INT_ST_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::INT_ST")
+            .field(
+                "rxfifo_full_int_st",
+                &format_args!("{}", self.rxfifo_full_int_st().bit()),
+            )
+            .field(
+                "txfifo_empty_int_st",
+                &format_args!("{}", self.txfifo_empty_int_st().bit()),
+            )
+            .field(
+                "parity_err_int_st",
+                &format_args!("{}", self.parity_err_int_st().bit()),
+            )
+            .field(
+                "frm_err_int_st",
+                &format_args!("{}", self.frm_err_int_st().bit()),
+            )
+            .field(
+                "rxfifo_ovf_int_st",
+                &format_args!("{}", self.rxfifo_ovf_int_st().bit()),
+            )
+            .field(
+                "dsr_chg_int_st",
+                &format_args!("{}", self.dsr_chg_int_st().bit()),
+            )
+            .field(
+                "cts_chg_int_st",
+                &format_args!("{}", self.cts_chg_int_st().bit()),
+            )
+            .field(
+                "brk_det_int_st",
+                &format_args!("{}", self.brk_det_int_st().bit()),
+            )
+            .field(
+                "rxfifo_tout_int_st",
+                &format_args!("{}", self.rxfifo_tout_int_st().bit()),
+            )
+            .field(
+                "sw_xon_int_st",
+                &format_args!("{}", self.sw_xon_int_st().bit()),
+            )
+            .field(
+                "sw_xoff_int_st",
+                &format_args!("{}", self.sw_xoff_int_st().bit()),
+            )
+            .field(
+                "glitch_det_int_st",
+                &format_args!("{}", self.glitch_det_int_st().bit()),
+            )
+            .field(
+                "tx_brk_done_int_st",
+                &format_args!("{}", self.tx_brk_done_int_st().bit()),
+            )
+            .field(
+                "tx_brk_idle_done_int_st",
+                &format_args!("{}", self.tx_brk_idle_done_int_st().bit()),
+            )
+            .field(
+                "tx_done_int_st",
+                &format_args!("{}", self.tx_done_int_st().bit()),
+            )
+            .field(
+                "at_cmd_char_det_int_st",
+                &format_args!("{}", self.at_cmd_char_det_int_st().bit()),
+            )
+            .field(
+                "wakeup_int_st",
+                &format_args!("{}", self.wakeup_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Masked interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

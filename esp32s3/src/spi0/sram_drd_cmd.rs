@@ -56,6 +56,21 @@ impl R {
         CACHE_SRAM_USR_RD_CMD_BITLEN_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SRAM_DRD_CMD")
+            .field(
+                "cache_sram_usr_rd_cmd_value",
+                &format_args!("{}", self.cache_sram_usr_rd_cmd_value().bits()),
+            )
+            .field(
+                "cache_sram_usr_rd_cmd_bitlen",
+                &format_args!("{}", self.cache_sram_usr_rd_cmd_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - When SPI0 reads Ext_RAM, it is the command value of CMD phase."]
     #[inline(always)]

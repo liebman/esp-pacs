@@ -66,6 +66,25 @@ impl R {
         CORE_0_CURRENT_3_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WCL::Core_0_STATUSTABLE3")
+            .field(
+                "core_0_from_world_3",
+                &format_args!("{}", self.core_0_from_world_3().bit()),
+            )
+            .field(
+                "core_0_from_entry_3",
+                &format_args!("{}", self.core_0_from_entry_3().bits()),
+            )
+            .field(
+                "core_0_current_3",
+                &format_args!("{}", self.core_0_current_3().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This bit is used to confirm world before enter entry 3"]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         SPI_XTS_DATE_R::new(self.bits & 0x3fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_XTS_DATE")
+            .field(
+                "spi_xts_date",
+                &format_args!("{}", self.spi_xts_date().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:29 - This bits stores the last modified-time of manual encryption feature."]
     #[inline(always)]

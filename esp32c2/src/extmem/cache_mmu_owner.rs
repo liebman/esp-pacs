@@ -46,6 +46,17 @@ impl R {
         CACHE_MMU_OWNER_R::new((self.bits & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_MMU_OWNER")
+            .field(
+                "cache_mmu_owner",
+                &format_args!("{}", self.cache_mmu_owner().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The bits are used to specify the owner of MMU.bit0/bit2: ibus, bit1/bit3: dbus"]
     #[inline(always)]

@@ -110,6 +110,42 @@ impl R {
         LP_UART_CLK_SEL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::LPPERI")
+            .field(
+                "lp_bletimer_div_num",
+                &format_args!("{}", self.lp_bletimer_div_num().bits()),
+            )
+            .field(
+                "lp_bletimer_32k_sel",
+                &format_args!("{}", self.lp_bletimer_32k_sel().bits()),
+            )
+            .field(
+                "lp_sel_osc_slow",
+                &format_args!("{}", self.lp_sel_osc_slow().bit()),
+            )
+            .field(
+                "lp_sel_osc_fast",
+                &format_args!("{}", self.lp_sel_osc_fast().bit()),
+            )
+            .field("lp_sel_xtal", &format_args!("{}", self.lp_sel_xtal().bit()))
+            .field(
+                "lp_sel_xtal32k",
+                &format_args!("{}", self.lp_sel_xtal32k().bit()),
+            )
+            .field(
+                "lp_i2c_clk_sel",
+                &format_args!("{}", self.lp_i2c_clk_sel().bit()),
+            )
+            .field(
+                "lp_uart_clk_sel",
+                &format_args!("{}", self.lp_uart_clk_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 12:23 - need_des"]
     #[inline(always)]

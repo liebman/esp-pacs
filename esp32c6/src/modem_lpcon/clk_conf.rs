@@ -72,6 +72,26 @@ impl R {
         CLK_LP_TIMER_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_LPCON::CLK_CONF")
+            .field(
+                "clk_wifipwr_en",
+                &format_args!("{}", self.clk_wifipwr_en().bit()),
+            )
+            .field("clk_coex_en", &format_args!("{}", self.clk_coex_en().bit()))
+            .field(
+                "clk_i2c_mst_en",
+                &format_args!("{}", self.clk_i2c_mst_en().bit()),
+            )
+            .field(
+                "clk_lp_timer_en",
+                &format_args!("{}", self.clk_lp_timer_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

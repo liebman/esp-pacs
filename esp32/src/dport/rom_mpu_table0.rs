@@ -46,6 +46,17 @@ impl R {
         ROM_MPU_TABLE0_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::ROM_MPU_TABLE0")
+            .field(
+                "rom_mpu_table0",
+                &format_args!("{}", self.rom_mpu_table0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

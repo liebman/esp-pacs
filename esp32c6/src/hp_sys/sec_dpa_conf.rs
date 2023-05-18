@@ -55,6 +55,21 @@ impl R {
         SEC_DPA_CFG_SEL_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::SEC_DPA_CONF")
+            .field(
+                "sec_dpa_level",
+                &format_args!("{}", self.sec_dpa_level().bits()),
+            )
+            .field(
+                "sec_dpa_cfg_sel",
+                &format_args!("{}", self.sec_dpa_cfg_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - 0: anti-DPA disable. 1~3: anti-DPA enable with different security level. The larger the number, the stronger the ability to resist DPA attacks and the higher the security level, but it will increase the computational overhead of the hardware crypto-accelerators. Only avaliable if HP_SYS_SEC_DPA_CFG_SEL is 0."]
     #[inline(always)]

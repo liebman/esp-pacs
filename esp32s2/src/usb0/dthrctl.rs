@@ -99,6 +99,23 @@ impl R {
         ARBPRKEN_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DTHRCTL")
+            .field("nonisothren", &format_args!("{}", self.nonisothren().bit()))
+            .field("isothren", &format_args!("{}", self.isothren().bit()))
+            .field("txthrlen", &format_args!("{}", self.txthrlen().bits()))
+            .field(
+                "ahbthrratio",
+                &format_args!("{}", self.ahbthrratio().bits()),
+            )
+            .field("rxthren", &format_args!("{}", self.rxthren().bit()))
+            .field("rxthrlen", &format_args!("{}", self.rxthrlen().bits()))
+            .field("arbprken", &format_args!("{}", self.arbprken().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         LCD_HT_WIDTH_R::new(((self.bits >> 20) & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LCD_CTRL1")
+            .field(
+                "lcd_vb_front",
+                &format_args!("{}", self.lcd_vb_front().bits()),
+            )
+            .field(
+                "lcd_ha_width",
+                &format_args!("{}", self.lcd_ha_width().bits()),
+            )
+            .field(
+                "lcd_ht_width",
+                &format_args!("{}", self.lcd_ht_width().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - It is the vertical blank front porch of a frame."]
     #[inline(always)]

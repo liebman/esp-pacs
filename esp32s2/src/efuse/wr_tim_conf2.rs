@@ -46,6 +46,17 @@ impl R {
         PWR_OFF_NUM_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::WR_TIM_CONF2")
+            .field(
+                "pwr_off_num",
+                &format_args!("{}", self.pwr_off_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Configures the power outage time for VDDQ."]
     #[inline(always)]

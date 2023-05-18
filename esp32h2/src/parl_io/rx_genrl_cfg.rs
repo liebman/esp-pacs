@@ -73,6 +73,29 @@ impl R {
         RX_EOF_GEN_SEL_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::RX_GENRL_CFG")
+            .field(
+                "rx_gating_en",
+                &format_args!("{}", self.rx_gating_en().bit()),
+            )
+            .field(
+                "rx_timeout_thres",
+                &format_args!("{}", self.rx_timeout_thres().bits()),
+            )
+            .field(
+                "rx_timeout_en",
+                &format_args!("{}", self.rx_timeout_en().bit()),
+            )
+            .field(
+                "rx_eof_gen_sel",
+                &format_args!("{}", self.rx_eof_gen_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - Set this bit to enable the clock gating of output rx clock."]
     #[inline(always)]

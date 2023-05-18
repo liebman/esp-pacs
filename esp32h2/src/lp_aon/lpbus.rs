@@ -100,6 +100,45 @@ impl R {
         FAST_MEM_MUX_SEL_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::LPBUS")
+            .field(
+                "fast_mem_wpulse",
+                &format_args!("{}", self.fast_mem_wpulse().bits()),
+            )
+            .field(
+                "fast_mem_wa",
+                &format_args!("{}", self.fast_mem_wa().bits()),
+            )
+            .field(
+                "fast_mem_ra",
+                &format_args!("{}", self.fast_mem_ra().bits()),
+            )
+            .field(
+                "fast_mem_rm",
+                &format_args!("{}", self.fast_mem_rm().bits()),
+            )
+            .field(
+                "fast_mem_mux_fsm_idle",
+                &format_args!("{}", self.fast_mem_mux_fsm_idle().bit()),
+            )
+            .field(
+                "fast_mem_mux_sel_status",
+                &format_args!("{}", self.fast_mem_mux_sel_status().bit()),
+            )
+            .field(
+                "fast_mem_mux_sel_update",
+                &format_args!("{}", self.fast_mem_mux_sel_update().bit()),
+            )
+            .field(
+                "fast_mem_mux_sel",
+                &format_args!("{}", self.fast_mem_mux_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:18 - This field controls fast memory WPULSE parameter. 0b000 for 1.1V/1.0V/0.9V operating Voltage."]
     #[inline(always)]

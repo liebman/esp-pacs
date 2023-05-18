@@ -46,6 +46,14 @@ impl R {
         CMPR1_B_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::GEN1_TSTMP_B")
+            .field("cmpr1_b", &format_args!("{}", self.cmpr1_b().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - PWM generator 1 time stamp B's shadow register"]
     #[inline(always)]

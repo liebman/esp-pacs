@@ -144,6 +144,43 @@ impl R {
         ADC1_HOLD_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::ADC_PAD")
+            .field("adc2_fun_ie", &format_args!("{}", self.adc2_fun_ie().bit()))
+            .field("adc2_slp_ie", &format_args!("{}", self.adc2_slp_ie().bit()))
+            .field(
+                "adc2_slp_sel",
+                &format_args!("{}", self.adc2_slp_sel().bit()),
+            )
+            .field(
+                "adc2_fun_sel",
+                &format_args!("{}", self.adc2_fun_sel().bits()),
+            )
+            .field("adc1_fun_ie", &format_args!("{}", self.adc1_fun_ie().bit()))
+            .field("adc1_slp_ie", &format_args!("{}", self.adc1_slp_ie().bit()))
+            .field(
+                "adc1_slp_sel",
+                &format_args!("{}", self.adc1_slp_sel().bit()),
+            )
+            .field(
+                "adc1_fun_sel",
+                &format_args!("{}", self.adc1_fun_sel().bits()),
+            )
+            .field(
+                "adc2_mux_sel",
+                &format_args!("{}", self.adc2_mux_sel().bit()),
+            )
+            .field(
+                "adc1_mux_sel",
+                &format_args!("{}", self.adc1_mux_sel().bit()),
+            )
+            .field("adc2_hold", &format_args!("{}", self.adc2_hold().bit()))
+            .field("adc1_hold", &format_args!("{}", self.adc1_hold().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 18 - the input enable of the pad"]
     #[inline(always)]

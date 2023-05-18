@@ -74,6 +74,29 @@ impl R {
         SARADC_REG_RST_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SARADC_CONF")
+            .field(
+                "saradc_clk_en",
+                &format_args!("{}", self.saradc_clk_en().bit()),
+            )
+            .field(
+                "saradc_rst_en",
+                &format_args!("{}", self.saradc_rst_en().bit()),
+            )
+            .field(
+                "saradc_reg_clk_en",
+                &format_args!("{}", self.saradc_reg_clk_en().bit()),
+            )
+            .field(
+                "saradc_reg_rst_en",
+                &format_args!("{}", self.saradc_reg_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no use"]
     #[inline(always)]

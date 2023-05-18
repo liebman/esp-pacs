@@ -106,6 +106,41 @@ impl R {
         SAR_RSTB_FSM_R::new(((self.bits >> 24) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_AMP_CTRL3")
+            .field(
+                "sar1_dac_xpd_fsm",
+                &format_args!("{}", self.sar1_dac_xpd_fsm().bits()),
+            )
+            .field(
+                "xpd_sar_amp_fsm",
+                &format_args!("{}", self.xpd_sar_amp_fsm().bits()),
+            )
+            .field(
+                "amp_rst_fb_fsm",
+                &format_args!("{}", self.amp_rst_fb_fsm().bits()),
+            )
+            .field(
+                "amp_short_ref_fsm",
+                &format_args!("{}", self.amp_short_ref_fsm().bits()),
+            )
+            .field(
+                "amp_short_ref_gnd_fsm",
+                &format_args!("{}", self.amp_short_ref_gnd_fsm().bits()),
+            )
+            .field(
+                "xpd_sar_fsm",
+                &format_args!("{}", self.xpd_sar_fsm().bits()),
+            )
+            .field(
+                "sar_rstb_fsm",
+                &format_args!("{}", self.sar_rstb_fsm().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Control of DAC. 4’b0010: disable DAC. 4’b0000: power up DAC by FSM. 4’b0011: power up DAC by software."]
     #[inline(always)]

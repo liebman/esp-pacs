@@ -193,6 +193,81 @@ impl R {
         DMA_INFIFO_FULL_WM_INT_ENA_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::INT_ENA")
+            .field(
+                "rx_start_int_ena",
+                &format_args!("{}", self.rx_start_int_ena().bit()),
+            )
+            .field(
+                "tx_start_int_ena",
+                &format_args!("{}", self.tx_start_int_ena().bit()),
+            )
+            .field(
+                "rx_hung_int_ena",
+                &format_args!("{}", self.rx_hung_int_ena().bit()),
+            )
+            .field(
+                "tx_hung_int_ena",
+                &format_args!("{}", self.tx_hung_int_ena().bit()),
+            )
+            .field(
+                "in_done_int_ena",
+                &format_args!("{}", self.in_done_int_ena().bit()),
+            )
+            .field(
+                "in_suc_eof_int_ena",
+                &format_args!("{}", self.in_suc_eof_int_ena().bit()),
+            )
+            .field(
+                "in_err_eof_int_ena",
+                &format_args!("{}", self.in_err_eof_int_ena().bit()),
+            )
+            .field(
+                "out_done_int_ena",
+                &format_args!("{}", self.out_done_int_ena().bit()),
+            )
+            .field(
+                "out_eof_int_ena",
+                &format_args!("{}", self.out_eof_int_ena().bit()),
+            )
+            .field(
+                "in_dscr_err_int_ena",
+                &format_args!("{}", self.in_dscr_err_int_ena().bit()),
+            )
+            .field(
+                "out_dscr_err_int_ena",
+                &format_args!("{}", self.out_dscr_err_int_ena().bit()),
+            )
+            .field(
+                "in_dscr_empty_int_ena",
+                &format_args!("{}", self.in_dscr_empty_int_ena().bit()),
+            )
+            .field(
+                "outlink_eof_err_int_ena",
+                &format_args!("{}", self.outlink_eof_err_int_ena().bit()),
+            )
+            .field(
+                "out_total_eof_int_ena",
+                &format_args!("{}", self.out_total_eof_int_ena().bit()),
+            )
+            .field(
+                "send_s_q_int_ena",
+                &format_args!("{}", self.send_s_q_int_ena().bit()),
+            )
+            .field(
+                "send_a_q_int_ena",
+                &format_args!("{}", self.send_a_q_int_ena().bit()),
+            )
+            .field(
+                "dma_infifo_full_wm_int_ena",
+                &format_args!("{}", self.dma_infifo_full_wm_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

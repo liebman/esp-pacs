@@ -193,6 +193,78 @@ impl R {
         SPI_MEM_FLASH_READ_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_CMD")
+            .field(
+                "spi_mem_mst_st",
+                &format_args!("{}", self.spi_mem_mst_st().bits()),
+            )
+            .field(
+                "spi_mem_slv_st",
+                &format_args!("{}", self.spi_mem_slv_st().bits()),
+            )
+            .field(
+                "spi_mem_flash_pe",
+                &format_args!("{}", self.spi_mem_flash_pe().bit()),
+            )
+            .field("spi_mem_usr", &format_args!("{}", self.spi_mem_usr().bit()))
+            .field(
+                "spi_mem_flash_hpm",
+                &format_args!("{}", self.spi_mem_flash_hpm().bit()),
+            )
+            .field(
+                "spi_mem_flash_res",
+                &format_args!("{}", self.spi_mem_flash_res().bit()),
+            )
+            .field(
+                "spi_mem_flash_dp",
+                &format_args!("{}", self.spi_mem_flash_dp().bit()),
+            )
+            .field(
+                "spi_mem_flash_ce",
+                &format_args!("{}", self.spi_mem_flash_ce().bit()),
+            )
+            .field(
+                "spi_mem_flash_be",
+                &format_args!("{}", self.spi_mem_flash_be().bit()),
+            )
+            .field(
+                "spi_mem_flash_se",
+                &format_args!("{}", self.spi_mem_flash_se().bit()),
+            )
+            .field(
+                "spi_mem_flash_pp",
+                &format_args!("{}", self.spi_mem_flash_pp().bit()),
+            )
+            .field(
+                "spi_mem_flash_wrsr",
+                &format_args!("{}", self.spi_mem_flash_wrsr().bit()),
+            )
+            .field(
+                "spi_mem_flash_rdsr",
+                &format_args!("{}", self.spi_mem_flash_rdsr().bit()),
+            )
+            .field(
+                "spi_mem_flash_rdid",
+                &format_args!("{}", self.spi_mem_flash_rdid().bit()),
+            )
+            .field(
+                "spi_mem_flash_wrdi",
+                &format_args!("{}", self.spi_mem_flash_wrdi().bit()),
+            )
+            .field(
+                "spi_mem_flash_wren",
+                &format_args!("{}", self.spi_mem_flash_wren().bit()),
+            )
+            .field(
+                "spi_mem_flash_read",
+                &format_args!("{}", self.spi_mem_flash_read().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 17 - In user mode, it is set to indicate that program/erase operation will be triggered. The bit is combined with spi_mem_usr bit. The bit will be cleared once the operation done.1: enable 0: disable."]
     #[inline(always)]

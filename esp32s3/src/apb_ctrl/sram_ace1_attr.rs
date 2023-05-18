@@ -46,6 +46,17 @@ impl R {
         SRAM_ACE1_ATTR_R::new((self.bits & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::SRAM_ACE1_ATTR")
+            .field(
+                "sram_ace1_attr",
+                &format_args!("{}", self.sram_ace1_attr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - ******* Description ***********"]
     #[inline(always)]

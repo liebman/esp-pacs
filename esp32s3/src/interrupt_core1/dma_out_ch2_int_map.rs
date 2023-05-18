@@ -46,6 +46,17 @@ impl R {
         DMA_OUT_CH2_INT_MAP_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTERRUPT_CORE1::DMA_OUT_CH2_INT_MAP")
+            .field(
+                "dma_out_ch2_int_map",
+                &format_args!("{}", self.dma_out_ch2_int_map().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - this register used to map dma_out_ch2 interrupt to one of core1's external interrupt"]
     #[inline(always)]

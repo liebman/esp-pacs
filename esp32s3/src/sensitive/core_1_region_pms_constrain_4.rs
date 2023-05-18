@@ -46,6 +46,17 @@ impl R {
         CORE_1_REGION_PMS_CONSTRAIN_ADDR_1_R::new(self.bits & 0x3fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_REGION_PMS_CONSTRAIN_4")
+            .field(
+                "core_1_region_pms_constrain_addr_1",
+                &format_args!("{}", self.core_1_region_pms_constrain_addr_1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:29 - Region 0 end address and Region 1 start address for core1."]
     #[inline(always)]

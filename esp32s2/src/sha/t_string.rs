@@ -45,6 +45,14 @@ impl R {
         T_STRING_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHA::T_STRING")
+            .field("t_string", &format_args!("{}", self.t_string().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Defines t_string for calculating the initial Hash value for SHA-512/t."]
     #[inline(always)]

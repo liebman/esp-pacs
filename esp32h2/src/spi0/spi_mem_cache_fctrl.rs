@@ -143,6 +143,57 @@ impl R {
         SPI_CLOSE_AXI_INF_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_CACHE_FCTRL")
+            .field(
+                "spi_mem_axi_req_en",
+                &format_args!("{}", self.spi_mem_axi_req_en().bit()),
+            )
+            .field(
+                "spi_mem_cache_usr_addr_4byte",
+                &format_args!("{}", self.spi_mem_cache_usr_addr_4byte().bit()),
+            )
+            .field(
+                "spi_mem_cache_flash_usr_cmd",
+                &format_args!("{}", self.spi_mem_cache_flash_usr_cmd().bit()),
+            )
+            .field(
+                "spi_mem_fdin_dual",
+                &format_args!("{}", self.spi_mem_fdin_dual().bit()),
+            )
+            .field(
+                "spi_mem_fdout_dual",
+                &format_args!("{}", self.spi_mem_fdout_dual().bit()),
+            )
+            .field(
+                "spi_mem_faddr_dual",
+                &format_args!("{}", self.spi_mem_faddr_dual().bit()),
+            )
+            .field(
+                "spi_mem_fdin_quad",
+                &format_args!("{}", self.spi_mem_fdin_quad().bit()),
+            )
+            .field(
+                "spi_mem_fdout_quad",
+                &format_args!("{}", self.spi_mem_fdout_quad().bit()),
+            )
+            .field(
+                "spi_mem_faddr_quad",
+                &format_args!("{}", self.spi_mem_faddr_quad().bit()),
+            )
+            .field(
+                "spi_same_aw_ar_addr_chk_en",
+                &format_args!("{}", self.spi_same_aw_ar_addr_chk_en().bit()),
+            )
+            .field(
+                "spi_close_axi_inf_en",
+                &format_args!("{}", self.spi_close_axi_inf_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - For SPI0, AXI master access enable, 1: enable, 0:disable."]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         I2S_TX_CLKM_EN_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::I2S_TX_CLKM_CONF")
+            .field(
+                "i2s_tx_clkm_div_num",
+                &format_args!("{}", self.i2s_tx_clkm_div_num().bits()),
+            )
+            .field(
+                "i2s_tx_clkm_sel",
+                &format_args!("{}", self.i2s_tx_clkm_sel().bits()),
+            )
+            .field(
+                "i2s_tx_clkm_en",
+                &format_args!("{}", self.i2s_tx_clkm_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 12:19 - Integral I2S TX clock divider value. f_I2S_CLK = f_I2S_CLK_S/(N+b/a). There will be (a-b) * n-div and b * (n+1)-div. So the average combination will be: for b &lt;= a/2, z * \\[x * n-div + (n+1)-div\\] + y * n-div. For b > a/2, z * \\[n-div + x * (n+1)-div\\] + y * (n+1)-div."]
     #[inline(always)]

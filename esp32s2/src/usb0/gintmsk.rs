@@ -279,6 +279,61 @@ impl R {
         WKUPINTMSK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GINTMSK")
+            .field("modemismsk", &format_args!("{}", self.modemismsk().bit()))
+            .field("otgintmsk", &format_args!("{}", self.otgintmsk().bit()))
+            .field("sofmsk", &format_args!("{}", self.sofmsk().bit()))
+            .field("rxflvimsk", &format_args!("{}", self.rxflvimsk().bit()))
+            .field("nptxfempmsk", &format_args!("{}", self.nptxfempmsk().bit()))
+            .field(
+                "ginnakeffmsk",
+                &format_args!("{}", self.ginnakeffmsk().bit()),
+            )
+            .field(
+                "goutnackeffmsk",
+                &format_args!("{}", self.goutnackeffmsk().bit()),
+            )
+            .field("erlysuspmsk", &format_args!("{}", self.erlysuspmsk().bit()))
+            .field("usbsuspmsk", &format_args!("{}", self.usbsuspmsk().bit()))
+            .field("usbrstmsk", &format_args!("{}", self.usbrstmsk().bit()))
+            .field("enumdonemsk", &format_args!("{}", self.enumdonemsk().bit()))
+            .field(
+                "isooutdropmsk",
+                &format_args!("{}", self.isooutdropmsk().bit()),
+            )
+            .field("eopfmsk", &format_args!("{}", self.eopfmsk().bit()))
+            .field("epmismsk", &format_args!("{}", self.epmismsk().bit()))
+            .field("iepintmsk", &format_args!("{}", self.iepintmsk().bit()))
+            .field("oepintmsk", &format_args!("{}", self.oepintmsk().bit()))
+            .field(
+                "incompisoinmsk",
+                &format_args!("{}", self.incompisoinmsk().bit()),
+            )
+            .field("incompipmsk", &format_args!("{}", self.incompipmsk().bit()))
+            .field("fetsuspmsk", &format_args!("{}", self.fetsuspmsk().bit()))
+            .field("resetdetmsk", &format_args!("{}", self.resetdetmsk().bit()))
+            .field("prtlntmsk", &format_args!("{}", self.prtlntmsk().bit()))
+            .field("hchintmsk", &format_args!("{}", self.hchintmsk().bit()))
+            .field("ptxfempmsk", &format_args!("{}", self.ptxfempmsk().bit()))
+            .field(
+                "conidstschngmsk",
+                &format_args!("{}", self.conidstschngmsk().bit()),
+            )
+            .field(
+                "disconnintmsk",
+                &format_args!("{}", self.disconnintmsk().bit()),
+            )
+            .field(
+                "sessreqintmsk",
+                &format_args!("{}", self.sessreqintmsk().bit()),
+            )
+            .field("wkupintmsk", &format_args!("{}", self.wkupintmsk().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1"]
     #[inline(always)]

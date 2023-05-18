@@ -46,6 +46,17 @@ impl R {
         CORE_DEBUG_RUNSTALL_ENABLE_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::CORE_DEBUG_RUNSTALL_CONF")
+            .field(
+                "core_debug_runstall_enable",
+                &format_args!("{}", self.core_debug_runstall_enable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this field to 1 to enable debug runstall feature between HP-core and LP-core."]
     #[inline(always)]

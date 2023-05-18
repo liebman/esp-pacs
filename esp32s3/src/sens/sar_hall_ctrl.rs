@@ -73,6 +73,23 @@ impl R {
         HALL_PHASE_FORCE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_HALL_CTRL")
+            .field("xpd_hall", &format_args!("{}", self.xpd_hall().bit()))
+            .field(
+                "xpd_hall_force",
+                &format_args!("{}", self.xpd_hall_force().bit()),
+            )
+            .field("hall_phase", &format_args!("{}", self.hall_phase().bit()))
+            .field(
+                "hall_phase_force",
+                &format_args!("{}", self.hall_phase_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 28 - Power on hall sensor and connect to VP and VN"]
     #[inline(always)]

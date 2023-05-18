@@ -22,6 +22,17 @@ impl R {
         LP_PERI_TIMEOUT_UID_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::BUS_TIMEOUT_UID")
+            .field(
+                "lp_peri_timeout_uid",
+                &format_args!("{}", self.lp_peri_timeout_uid().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bus_timeout_uid](index.html) module"]
 pub struct BUS_TIMEOUT_UID_SPEC;
 impl crate::RegisterSpec for BUS_TIMEOUT_UID_SPEC {

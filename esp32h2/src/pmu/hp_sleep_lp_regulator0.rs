@@ -76,6 +76,29 @@ impl R {
         HP_SLEEP_LP_REGULATOR_DBIAS_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_SLEEP_LP_REGULATOR0")
+            .field(
+                "hp_sleep_lp_regulator_slp_xpd",
+                &format_args!("{}", self.hp_sleep_lp_regulator_slp_xpd().bit()),
+            )
+            .field(
+                "hp_sleep_lp_regulator_xpd",
+                &format_args!("{}", self.hp_sleep_lp_regulator_xpd().bit()),
+            )
+            .field(
+                "hp_sleep_lp_regulator_slp_dbias",
+                &format_args!("{}", self.hp_sleep_lp_regulator_slp_dbias().bits()),
+            )
+            .field(
+                "hp_sleep_lp_regulator_dbias",
+                &format_args!("{}", self.hp_sleep_lp_regulator_dbias().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 21 - need_des"]
     #[inline(always)]

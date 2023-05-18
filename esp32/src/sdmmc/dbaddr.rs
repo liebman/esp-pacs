@@ -45,6 +45,14 @@ impl R {
         DBADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::DBADDR")
+            .field("dbaddr", &format_args!("{}", self.dbaddr().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Start of Descriptor List. Contains the base address of the First Descriptor. The LSB bits \\[1:0\\] are ignored and taken as all-zero by the IDMAC internally. Hence these LSB bits may be treated as read-only."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         SPI_MEM_USR_ADDR_VALUE_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_ADDR")
+            .field(
+                "spi_mem_usr_addr_value",
+                &format_args!("{}", self.spi_mem_usr_addr_value().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - In user mode, it is the memory address. other then the bit0-bit23 is the memory address, the bit24-bit31 are the byte length of a transfer."]
     #[inline(always)]

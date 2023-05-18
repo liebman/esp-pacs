@@ -46,6 +46,17 @@ impl R {
         PRO_OUT_VECBASE_SEL_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_VECBASE_CTRL")
+            .field(
+                "pro_out_vecbase_sel",
+                &format_args!("{}", self.pro_out_vecbase_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

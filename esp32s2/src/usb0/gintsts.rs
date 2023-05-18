@@ -266,6 +266,44 @@ impl R {
         WKUPINT_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GINTSTS")
+            .field("curmod_int", &format_args!("{}", self.curmod_int().bit()))
+            .field("modemis", &format_args!("{}", self.modemis().bit()))
+            .field("otgint", &format_args!("{}", self.otgint().bit()))
+            .field("sof", &format_args!("{}", self.sof().bit()))
+            .field("rxflvi", &format_args!("{}", self.rxflvi().bit()))
+            .field("nptxfemp", &format_args!("{}", self.nptxfemp().bit()))
+            .field("ginnakeff", &format_args!("{}", self.ginnakeff().bit()))
+            .field("goutnakeff", &format_args!("{}", self.goutnakeff().bit()))
+            .field("erlysusp", &format_args!("{}", self.erlysusp().bit()))
+            .field("usbsusp", &format_args!("{}", self.usbsusp().bit()))
+            .field("usbrst", &format_args!("{}", self.usbrst().bit()))
+            .field("enumdone", &format_args!("{}", self.enumdone().bit()))
+            .field("isooutdrop", &format_args!("{}", self.isooutdrop().bit()))
+            .field("eopf", &format_args!("{}", self.eopf().bit()))
+            .field("epmis", &format_args!("{}", self.epmis().bit()))
+            .field("iepint", &format_args!("{}", self.iepint().bit()))
+            .field("oepint", &format_args!("{}", self.oepint().bit()))
+            .field("incompisoin", &format_args!("{}", self.incompisoin().bit()))
+            .field("incompip", &format_args!("{}", self.incompip().bit()))
+            .field("fetsusp", &format_args!("{}", self.fetsusp().bit()))
+            .field("resetdet", &format_args!("{}", self.resetdet().bit()))
+            .field("prtlnt", &format_args!("{}", self.prtlnt().bit()))
+            .field("hchlnt", &format_args!("{}", self.hchlnt().bit()))
+            .field("ptxfemp", &format_args!("{}", self.ptxfemp().bit()))
+            .field(
+                "conidstschng",
+                &format_args!("{}", self.conidstschng().bit()),
+            )
+            .field("disconnint", &format_args!("{}", self.disconnint().bit()))
+            .field("sessreqint", &format_args!("{}", self.sessreqint().bit()))
+            .field("wkupint", &format_args!("{}", self.wkupint().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1"]
     #[inline(always)]

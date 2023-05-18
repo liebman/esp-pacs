@@ -66,6 +66,25 @@ impl R {
         LC_FIFO_TIMEOUT_ENA_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::LC_HUNG_CONF")
+            .field(
+                "lc_fifo_timeout",
+                &format_args!("{}", self.lc_fifo_timeout().bits()),
+            )
+            .field(
+                "lc_fifo_timeout_shift",
+                &format_args!("{}", self.lc_fifo_timeout_shift().bits()),
+            )
+            .field(
+                "lc_fifo_timeout_ena",
+                &format_args!("{}", self.lc_fifo_timeout_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - the i2s_tx_hung_int interrupt or the i2s_rx_hung_int interrupt will be triggered when fifo hung counter is equal to this value"]
     #[inline(always)]

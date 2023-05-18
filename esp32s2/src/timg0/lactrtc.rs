@@ -46,6 +46,17 @@ impl R {
         LACT_RTC_STEP_LEN_R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::LACTRTC")
+            .field(
+                "lact_rtc_step_len",
+                &format_args!("{}", self.lact_rtc_step_len().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 6:31 - Reserved."]
     #[inline(always)]

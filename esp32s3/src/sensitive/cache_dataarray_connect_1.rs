@@ -46,6 +46,17 @@ impl R {
         CACHE_DATAARRAY_CONNECT_FLATTEN_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CACHE_DATAARRAY_CONNECT_1")
+            .field(
+                "cache_dataarray_connect_flatten",
+                &format_args!("{}", self.cache_dataarray_connect_flatten().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Cache data array connection configuration."]
     #[inline(always)]

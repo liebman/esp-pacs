@@ -65,6 +65,25 @@ impl R {
         SLV_LAST_ADDR_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::SLAVE1")
+            .field(
+                "slv_data_bitlen",
+                &format_args!("{}", self.slv_data_bitlen().bits()),
+            )
+            .field(
+                "slv_last_command",
+                &format_args!("{}", self.slv_last_command().bits()),
+            )
+            .field(
+                "slv_last_addr",
+                &format_args!("{}", self.slv_last_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - The transferred data bit length in SPI slave FD and HD mode."]
     #[inline(always)]

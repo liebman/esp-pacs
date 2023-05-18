@@ -84,6 +84,27 @@ impl R {
         CLK_DATA_DUMP_FO_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_SYSCON::CLK_CONF_FORCE_ON")
+            .field("clk_etm_fo", &format_args!("{}", self.clk_etm_fo().bit()))
+            .field("clk_zb_fo", &format_args!("{}", self.clk_zb_fo().bit()))
+            .field(
+                "clk_modem_sec_fo",
+                &format_args!("{}", self.clk_modem_sec_fo().bit()),
+            )
+            .field(
+                "clk_ble_timer_fo",
+                &format_args!("{}", self.clk_ble_timer_fo().bit()),
+            )
+            .field(
+                "clk_data_dump_fo",
+                &format_args!("{}", self.clk_data_dump_fo().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 22 - ."]
     #[inline(always)]

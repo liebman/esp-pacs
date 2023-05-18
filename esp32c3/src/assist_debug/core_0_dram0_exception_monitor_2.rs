@@ -36,6 +36,25 @@ impl R {
         CORE_0_DRAM0_RECORDING_BYTEEN_1_R::new(((self.bits >> 25) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_DRAM0_EXCEPTION_MONITOR_2")
+            .field(
+                "core_0_dram0_recording_addr_1",
+                &format_args!("{}", self.core_0_dram0_recording_addr_1().bits()),
+            )
+            .field(
+                "core_0_dram0_recording_wr_1",
+                &format_args!("{}", self.core_0_dram0_recording_wr_1().bit()),
+            )
+            .field(
+                "core_0_dram0_recording_byteen_1",
+                &format_args!("{}", self.core_0_dram0_recording_byteen_1().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "ASSIST_DEBUG_CORE_0_DRAM0_EXCEPTION_MONITOR_1_REG\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_dram0_exception_monitor_2](index.html) module"]
 pub struct CORE_0_DRAM0_EXCEPTION_MONITOR_2_SPEC;
 impl crate::RegisterSpec for CORE_0_DRAM0_EXCEPTION_MONITOR_2_SPEC {

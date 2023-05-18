@@ -162,6 +162,54 @@ impl R {
         WAIT_ARB_CYCLE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::CTRL")
+            .field("start_force", &format_args!("{}", self.start_force().bit()))
+            .field("start", &format_args!("{}", self.start().bit()))
+            .field("work_mode", &format_args!("{}", self.work_mode().bits()))
+            .field("sar_sel", &format_args!("{}", self.sar_sel().bit()))
+            .field(
+                "sar_clk_gated",
+                &format_args!("{}", self.sar_clk_gated().bit()),
+            )
+            .field(
+                "sar_clk_div",
+                &format_args!("{}", self.sar_clk_div().bits()),
+            )
+            .field(
+                "sar1_patt_len",
+                &format_args!("{}", self.sar1_patt_len().bits()),
+            )
+            .field(
+                "sar2_patt_len",
+                &format_args!("{}", self.sar2_patt_len().bits()),
+            )
+            .field(
+                "sar1_patt_p_clear",
+                &format_args!("{}", self.sar1_patt_p_clear().bit()),
+            )
+            .field(
+                "sar2_patt_p_clear",
+                &format_args!("{}", self.sar2_patt_p_clear().bit()),
+            )
+            .field(
+                "data_sar_sel",
+                &format_args!("{}", self.data_sar_sel().bit()),
+            )
+            .field("data_to_i2s", &format_args!("{}", self.data_to_i2s().bit()))
+            .field(
+                "xpd_sar_force",
+                &format_args!("{}", self.xpd_sar_force().bits()),
+            )
+            .field(
+                "wait_arb_cycle",
+                &format_args!("{}", self.wait_arb_cycle().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 0: select FSM to start SAR ADC. 1: select software to start SAR ADC."]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         EXT_WAKEUP1_LV_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::EXT_WAKEUP_CONF")
+            .field(
+                "gpio_wakeup_filter",
+                &format_args!("{}", self.gpio_wakeup_filter().bit()),
+            )
+            .field(
+                "ext_wakeup0_lv",
+                &format_args!("{}", self.ext_wakeup0_lv().bit()),
+            )
+            .field(
+                "ext_wakeup1_lv",
+                &format_args!("{}", self.ext_wakeup1_lv().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 29 - Set this bit to enable the GPIO wakeup event filter."]
     #[inline(always)]

@@ -116,6 +116,45 @@ impl R {
         PD_TOP_PD_MASK_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_PD_TOP_CNTL")
+            .field(
+                "force_top_reset",
+                &format_args!("{}", self.force_top_reset().bit()),
+            )
+            .field(
+                "force_top_iso",
+                &format_args!("{}", self.force_top_iso().bit()),
+            )
+            .field(
+                "force_top_pu",
+                &format_args!("{}", self.force_top_pu().bit()),
+            )
+            .field(
+                "force_top_no_reset",
+                &format_args!("{}", self.force_top_no_reset().bit()),
+            )
+            .field(
+                "force_top_no_iso",
+                &format_args!("{}", self.force_top_no_iso().bit()),
+            )
+            .field(
+                "force_top_pd",
+                &format_args!("{}", self.force_top_pd().bit()),
+            )
+            .field(
+                "pd_top_mask",
+                &format_args!("{}", self.pd_top_mask().bits()),
+            )
+            .field(
+                "pd_top_pd_mask",
+                &format_args!("{}", self.pd_top_pd_mask().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

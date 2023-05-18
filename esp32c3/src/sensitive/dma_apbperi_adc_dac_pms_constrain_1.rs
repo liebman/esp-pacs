@@ -132,6 +132,77 @@ impl R {
         DMA_APBPERI_ADC_DAC_PMS_CONSTRAIN_SRAM_WORLD_1_PMS_3_R::new(((self.bits >> 18) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::DMA_APBPERI_ADC_DAC_PMS_CONSTRAIN_1")
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_0",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_0()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_1",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_1()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_2",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_2()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_3",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_3()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_0",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_0()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_1",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_1()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_2",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_2()
+                        .bits()
+                ),
+            )
+            .field(
+                "dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_3",
+                &format_args!(
+                    "{}",
+                    self.dma_apbperi_adc_dac_pms_constrain_sram_world_1_pms_3()
+                        .bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - dma_apbperi_adc_dac_pms_constrain_sram_world_0_pms_0"]
     #[inline(always)]

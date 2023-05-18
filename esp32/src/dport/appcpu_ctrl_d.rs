@@ -46,6 +46,17 @@ impl R {
         APPCPU_BOOT_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::APPCPU_CTRL_D")
+            .field(
+                "appcpu_boot_addr",
+                &format_args!("{}", self.appcpu_boot_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

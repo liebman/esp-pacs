@@ -75,6 +75,29 @@ impl R {
         CACHE_FLASH_PES_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CACHE_FCTRL")
+            .field(
+                "cache_req_en",
+                &format_args!("{}", self.cache_req_en().bit()),
+            )
+            .field(
+                "cache_usr_cmd_4byte",
+                &format_args!("{}", self.cache_usr_cmd_4byte().bit()),
+            )
+            .field(
+                "cache_flash_usr_cmd",
+                &format_args!("{}", self.cache_flash_usr_cmd().bit()),
+            )
+            .field(
+                "cache_flash_pes_en",
+                &format_args!("{}", self.cache_flash_pes_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - For SPI0 Cache access enable 1: enable 0:disable."]
     #[inline(always)]

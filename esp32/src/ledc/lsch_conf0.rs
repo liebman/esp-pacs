@@ -72,6 +72,17 @@ impl R {
         PARA_UP_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::LSCH_CONF0")
+            .field("timer_sel", &format_args!("{}", self.timer_sel().bits()))
+            .field("sig_out_en", &format_args!("{}", self.sig_out_en().bit()))
+            .field("idle_lv", &format_args!("{}", self.idle_lv().bit()))
+            .field("para_up", &format_args!("{}", self.para_up().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - There are four low speed timers the two bits are used to select one of them for low speed channel0. 2'b00: seletc lstimer0. 2'b01: select lstimer1. 2'b10: select lstimer2. 2'b11: select lstimer3."]
     #[inline(always)]

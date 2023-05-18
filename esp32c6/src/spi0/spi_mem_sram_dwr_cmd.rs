@@ -29,6 +29,21 @@ impl R {
         SPI_MEM_CACHE_SRAM_USR_WR_CMD_BITLEN_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_SRAM_DWR_CMD")
+            .field(
+                "spi_mem_cache_sram_usr_wr_cmd_value",
+                &format_args!("{}", self.spi_mem_cache_sram_usr_wr_cmd_value().bits()),
+            )
+            .field(
+                "spi_mem_cache_sram_usr_wr_cmd_bitlen",
+                &format_args!("{}", self.spi_mem_cache_sram_usr_wr_cmd_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI0 external RAM DDR write command control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_sram_dwr_cmd](index.html) module"]
 pub struct SPI_MEM_SRAM_DWR_CMD_SPEC;
 impl crate::RegisterSpec for SPI_MEM_SRAM_DWR_CMD_SPEC {

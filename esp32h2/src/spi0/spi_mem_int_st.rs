@@ -64,6 +64,41 @@ impl R {
         SPI_MEM_AXI_WADDR_ERR_INT_ST_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_INT_ST")
+            .field(
+                "spi_mem_slv_st_end_int_st",
+                &format_args!("{}", self.spi_mem_slv_st_end_int_st().bit()),
+            )
+            .field(
+                "spi_mem_mst_st_end_int_st",
+                &format_args!("{}", self.spi_mem_mst_st_end_int_st().bit()),
+            )
+            .field(
+                "spi_mem_ecc_err_int_st",
+                &format_args!("{}", self.spi_mem_ecc_err_int_st().bit()),
+            )
+            .field(
+                "spi_mem_pms_reject_int_st",
+                &format_args!("{}", self.spi_mem_pms_reject_int_st().bit()),
+            )
+            .field(
+                "spi_mem_axi_raddr_err_int_st",
+                &format_args!("{}", self.spi_mem_axi_raddr_err_int_st().bit()),
+            )
+            .field(
+                "spi_mem_axi_wr_flash_err_int_st",
+                &format_args!("{}", self.spi_mem_axi_wr_flash_err_int_st().bit()),
+            )
+            .field(
+                "spi_mem_axi_waddr_err_int_st",
+                &format_args!("{}", self.spi_mem_axi_waddr_err_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI0 interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_int_st](index.html) module"]
 pub struct SPI_MEM_INT_ST_SPEC;
 impl crate::RegisterSpec for SPI_MEM_INT_ST_SPEC {

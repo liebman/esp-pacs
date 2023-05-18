@@ -96,6 +96,37 @@ impl R {
         PRO_CACHE_D_SOURCE_PRO_DROM0_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::CACHE_SOURCE_1")
+            .field(
+                "pro_cache_i_source_pro_iram1",
+                &format_args!("{}", self.pro_cache_i_source_pro_iram1().bit()),
+            )
+            .field(
+                "pro_cache_i_source_pro_irom0",
+                &format_args!("{}", self.pro_cache_i_source_pro_irom0().bit()),
+            )
+            .field(
+                "pro_cache_i_source_pro_drom0",
+                &format_args!("{}", self.pro_cache_i_source_pro_drom0().bit()),
+            )
+            .field(
+                "pro_cache_d_source_pro_dram0",
+                &format_args!("{}", self.pro_cache_d_source_pro_dram0().bit()),
+            )
+            .field(
+                "pro_cache_d_source_pro_dport",
+                &format_args!("{}", self.pro_cache_d_source_pro_dport().bit()),
+            )
+            .field(
+                "pro_cache_d_source_pro_drom0",
+                &format_args!("{}", self.pro_cache_d_source_pro_drom0().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - xx"]
     #[inline(always)]

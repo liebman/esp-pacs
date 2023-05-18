@@ -138,6 +138,57 @@ impl R {
         LP_GPIO1_MCU_SEL_R::new(((self.bits >> 12) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_IO::GPIO1")
+            .field(
+                "lp_gpio1_mcu_oe",
+                &format_args!("{}", self.lp_gpio1_mcu_oe().bit()),
+            )
+            .field(
+                "lp_gpio1_slp_sel",
+                &format_args!("{}", self.lp_gpio1_slp_sel().bit()),
+            )
+            .field(
+                "lp_gpio1_mcu_wpd",
+                &format_args!("{}", self.lp_gpio1_mcu_wpd().bit()),
+            )
+            .field(
+                "lp_gpio1_mcu_wpu",
+                &format_args!("{}", self.lp_gpio1_mcu_wpu().bit()),
+            )
+            .field(
+                "lp_gpio1_mcu_ie",
+                &format_args!("{}", self.lp_gpio1_mcu_ie().bit()),
+            )
+            .field(
+                "lp_gpio1_mcu_drv",
+                &format_args!("{}", self.lp_gpio1_mcu_drv().bits()),
+            )
+            .field(
+                "lp_gpio1_fun_wpd",
+                &format_args!("{}", self.lp_gpio1_fun_wpd().bit()),
+            )
+            .field(
+                "lp_gpio1_fun_wpu",
+                &format_args!("{}", self.lp_gpio1_fun_wpu().bit()),
+            )
+            .field(
+                "lp_gpio1_fun_ie",
+                &format_args!("{}", self.lp_gpio1_fun_ie().bit()),
+            )
+            .field(
+                "lp_gpio1_fun_drv",
+                &format_args!("{}", self.lp_gpio1_fun_drv().bits()),
+            )
+            .field(
+                "lp_gpio1_mcu_sel",
+                &format_args!("{}", self.lp_gpio1_mcu_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need des"]
     #[inline(always)]

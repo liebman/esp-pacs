@@ -56,6 +56,21 @@ impl R {
         SAR_AMP_WAIT2_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEAS_WAIT1")
+            .field(
+                "sar_amp_wait1",
+                &format_args!("{}", self.sar_amp_wait1().bits()),
+            )
+            .field(
+                "sar_amp_wait2",
+                &format_args!("{}", self.sar_amp_wait2().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]

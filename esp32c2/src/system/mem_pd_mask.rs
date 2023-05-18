@@ -45,6 +45,17 @@ impl R {
         LSLP_MEM_PD_MASK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::MEM_PD_MASK")
+            .field(
+                "lslp_mem_pd_mask",
+                &format_args!("{}", self.lslp_mem_pd_mask().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to mask memory power down."]
     #[inline(always)]

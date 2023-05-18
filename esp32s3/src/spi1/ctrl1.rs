@@ -55,6 +55,18 @@ impl R {
         CS_HOLD_DLY_RES_R::new(((self.bits >> 2) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::CTRL1")
+            .field("clk_mode", &format_args!("{}", self.clk_mode().bits()))
+            .field(
+                "cs_hold_dly_res",
+                &format_args!("{}", self.cs_hold_dly_res().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI Bus clock (SPI_CLK) mode bits. 0: SPI Bus clock (SPI_CLK) is off when CS inactive 1: SPI_CLK is delayed one cycle after SPI_CS inactive 2: SPI_CLK is delayed two cycles after SPI_CS inactive 3: SPI_CLK is always on."]
     #[inline(always)]

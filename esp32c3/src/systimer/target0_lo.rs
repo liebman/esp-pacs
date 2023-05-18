@@ -46,6 +46,17 @@ impl R {
         TIMER_TARGET0_LO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::TARGET0_LO")
+            .field(
+                "timer_target0_lo",
+                &format_args!("{}", self.timer_target0_lo().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - timer taget0 low 32 bit"]
     #[inline(always)]

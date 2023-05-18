@@ -126,6 +126,49 @@ impl R {
         REGION0_R2_PMS_R_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_APM::REGION0_PMS_ATTR")
+            .field(
+                "region0_r0_pms_x",
+                &format_args!("{}", self.region0_r0_pms_x().bit()),
+            )
+            .field(
+                "region0_r0_pms_w",
+                &format_args!("{}", self.region0_r0_pms_w().bit()),
+            )
+            .field(
+                "region0_r0_pms_r",
+                &format_args!("{}", self.region0_r0_pms_r().bit()),
+            )
+            .field(
+                "region0_r1_pms_x",
+                &format_args!("{}", self.region0_r1_pms_x().bit()),
+            )
+            .field(
+                "region0_r1_pms_w",
+                &format_args!("{}", self.region0_r1_pms_w().bit()),
+            )
+            .field(
+                "region0_r1_pms_r",
+                &format_args!("{}", self.region0_r1_pms_r().bit()),
+            )
+            .field(
+                "region0_r2_pms_x",
+                &format_args!("{}", self.region0_r2_pms_x().bit()),
+            )
+            .field(
+                "region0_r2_pms_w",
+                &format_args!("{}", self.region0_r2_pms_w().bit()),
+            )
+            .field(
+                "region0_r2_pms_r",
+                &format_args!("{}", self.region0_r2_pms_r().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Region execute authority in REE_MODE0"]
     #[inline(always)]

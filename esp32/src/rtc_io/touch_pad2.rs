@@ -171,6 +171,28 @@ impl R {
         HOLD_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::TOUCH_PAD2")
+            .field("to_gpio", &format_args!("{}", self.to_gpio().bit()))
+            .field("fun_ie", &format_args!("{}", self.fun_ie().bit()))
+            .field("slp_oe", &format_args!("{}", self.slp_oe().bit()))
+            .field("slp_ie", &format_args!("{}", self.slp_ie().bit()))
+            .field("slp_sel", &format_args!("{}", self.slp_sel().bit()))
+            .field("fun_sel", &format_args!("{}", self.fun_sel().bits()))
+            .field("mux_sel", &format_args!("{}", self.mux_sel().bit()))
+            .field("xpd", &format_args!("{}", self.xpd().bit()))
+            .field("tie_opt", &format_args!("{}", self.tie_opt().bit()))
+            .field("start", &format_args!("{}", self.start().bit()))
+            .field("dac", &format_args!("{}", self.dac().bits()))
+            .field("rue", &format_args!("{}", self.rue().bit()))
+            .field("rde", &format_args!("{}", self.rde().bit()))
+            .field("drv", &format_args!("{}", self.drv().bits()))
+            .field("hold", &format_args!("{}", self.hold().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - connect the rtc pad input to digital pad input Ó0Ó is availbale.GPIO2"]
     #[inline(always)]

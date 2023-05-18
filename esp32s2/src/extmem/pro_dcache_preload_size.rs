@@ -56,6 +56,21 @@ impl R {
         PRO_DCACHE_PRELOAD_ORDER_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_DCACHE_PRELOAD_SIZE")
+            .field(
+                "pro_dcache_preload_size",
+                &format_args!("{}", self.pro_dcache_preload_size().bits()),
+            )
+            .field(
+                "pro_dcache_preload_order",
+                &format_args!("{}", self.pro_dcache_preload_order().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - The bits are used to configure the length for manual pre-load operation. It should be combined with PRO_DCACHE_PRELOAD_ADDR_REG.."]
     #[inline(always)]

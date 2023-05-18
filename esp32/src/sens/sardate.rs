@@ -45,6 +45,14 @@ impl R {
         SAR_DATE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SARDATE")
+            .field("sar_date", &format_args!("{}", self.sar_date().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27"]
     #[inline(always)]

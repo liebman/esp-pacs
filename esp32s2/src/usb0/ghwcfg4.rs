@@ -141,6 +141,70 @@ impl R {
         G_DESCDMA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GHWCFG4")
+            .field(
+                "g_numdevperioeps",
+                &format_args!("{}", self.g_numdevperioeps().bits()),
+            )
+            .field(
+                "g_partialpwrdn",
+                &format_args!("{}", self.g_partialpwrdn().bit()),
+            )
+            .field("g_ahbfreq", &format_args!("{}", self.g_ahbfreq().bit()))
+            .field(
+                "g_hibernation",
+                &format_args!("{}", self.g_hibernation().bit()),
+            )
+            .field(
+                "g_extendedhibernation",
+                &format_args!("{}", self.g_extendedhibernation().bit()),
+            )
+            .field("g_acgsupt", &format_args!("{}", self.g_acgsupt().bit()))
+            .field(
+                "g_enhancedlpmsupt",
+                &format_args!("{}", self.g_enhancedlpmsupt().bit()),
+            )
+            .field(
+                "g_phydatawidth",
+                &format_args!("{}", self.g_phydatawidth().bits()),
+            )
+            .field(
+                "g_numctleps",
+                &format_args!("{}", self.g_numctleps().bits()),
+            )
+            .field("g_iddqfltr", &format_args!("{}", self.g_iddqfltr().bit()))
+            .field(
+                "g_vbusvalidfltr",
+                &format_args!("{}", self.g_vbusvalidfltr().bit()),
+            )
+            .field(
+                "g_avalidfltr",
+                &format_args!("{}", self.g_avalidfltr().bit()),
+            )
+            .field(
+                "g_bvalidfltr",
+                &format_args!("{}", self.g_bvalidfltr().bit()),
+            )
+            .field(
+                "g_sessendfltr",
+                &format_args!("{}", self.g_sessendfltr().bit()),
+            )
+            .field(
+                "g_dedfifomode",
+                &format_args!("{}", self.g_dedfifomode().bit()),
+            )
+            .field("g_ineps", &format_args!("{}", self.g_ineps().bits()))
+            .field(
+                "g_descdmaenabled",
+                &format_args!("{}", self.g_descdmaenabled().bit()),
+            )
+            .field("g_descdma", &format_args!("{}", self.g_descdma().bit()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ghwcfg4](index.html) module"]
 pub struct GHWCFG4_SPEC;
 impl crate::RegisterSpec for GHWCFG4_SPEC {

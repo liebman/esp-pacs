@@ -132,6 +132,61 @@ impl R {
         CACHE_SYNC_ERR_INT_ENA_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_SYNC_PRELOAD_INT_ENA")
+            .field(
+                "l1_icache0_pld_done_int_ena",
+                &format_args!("{}", self.l1_icache0_pld_done_int_ena().bit()),
+            )
+            .field(
+                "l1_icache1_pld_done_int_ena",
+                &format_args!("{}", self.l1_icache1_pld_done_int_ena().bit()),
+            )
+            .field(
+                "l1_icache2_pld_done_int_ena",
+                &format_args!("{}", self.l1_icache2_pld_done_int_ena().bit()),
+            )
+            .field(
+                "l1_icache3_pld_done_int_ena",
+                &format_args!("{}", self.l1_icache3_pld_done_int_ena().bit()),
+            )
+            .field(
+                "l1_cache_pld_done_int_ena",
+                &format_args!("{}", self.l1_cache_pld_done_int_ena().bit()),
+            )
+            .field(
+                "cache_sync_done_int_ena",
+                &format_args!("{}", self.cache_sync_done_int_ena().bit()),
+            )
+            .field(
+                "l1_icache0_pld_err_int_ena",
+                &format_args!("{}", self.l1_icache0_pld_err_int_ena().bit()),
+            )
+            .field(
+                "l1_icache1_pld_err_int_ena",
+                &format_args!("{}", self.l1_icache1_pld_err_int_ena().bit()),
+            )
+            .field(
+                "l1_icache2_pld_err_int_ena",
+                &format_args!("{}", self.l1_icache2_pld_err_int_ena().bit()),
+            )
+            .field(
+                "l1_icache3_pld_err_int_ena",
+                &format_args!("{}", self.l1_icache3_pld_err_int_ena().bit()),
+            )
+            .field(
+                "l1_cache_pld_err_int_ena",
+                &format_args!("{}", self.l1_cache_pld_err_int_ena().bit()),
+            )
+            .field(
+                "cache_sync_err_int_ena",
+                &format_args!("{}", self.cache_sync_err_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - The bit is used to enable interrupt of L1-Cache preload-operation. If preload operation is done, interrupt occurs."]
     #[inline(always)]

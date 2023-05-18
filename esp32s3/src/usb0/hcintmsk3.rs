@@ -154,6 +154,53 @@ impl R {
         H_DESC_LST_ROLLINTRMSK3_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCINTMSK3")
+            .field(
+                "h_xfercomplmsk3",
+                &format_args!("{}", self.h_xfercomplmsk3().bit()),
+            )
+            .field(
+                "h_chhltdmsk3",
+                &format_args!("{}", self.h_chhltdmsk3().bit()),
+            )
+            .field(
+                "h_ahberrmsk3",
+                &format_args!("{}", self.h_ahberrmsk3().bit()),
+            )
+            .field("h_stallmsk3", &format_args!("{}", self.h_stallmsk3().bit()))
+            .field("h_nakmsk3", &format_args!("{}", self.h_nakmsk3().bit()))
+            .field("h_ackmsk3", &format_args!("{}", self.h_ackmsk3().bit()))
+            .field("h_nyetmsk3", &format_args!("{}", self.h_nyetmsk3().bit()))
+            .field(
+                "h_xacterrmsk3",
+                &format_args!("{}", self.h_xacterrmsk3().bit()),
+            )
+            .field(
+                "h_bblerrmsk3",
+                &format_args!("{}", self.h_bblerrmsk3().bit()),
+            )
+            .field(
+                "h_frmovrunmsk3",
+                &format_args!("{}", self.h_frmovrunmsk3().bit()),
+            )
+            .field(
+                "h_datatglerrmsk3",
+                &format_args!("{}", self.h_datatglerrmsk3().bit()),
+            )
+            .field(
+                "h_bnaintrmsk3",
+                &format_args!("{}", self.h_bnaintrmsk3().bit()),
+            )
+            .field(
+                "h_desc_lst_rollintrmsk3",
+                &format_args!("{}", self.h_desc_lst_rollintrmsk3().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

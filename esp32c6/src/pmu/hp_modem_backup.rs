@@ -96,6 +96,37 @@ impl R {
         HP_SLEEP2MODEM_BACKUP_EN_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_MODEM_BACKUP")
+            .field(
+                "hp_sleep2modem_backup_modem_clk_code",
+                &format_args!("{}", self.hp_sleep2modem_backup_modem_clk_code().bits()),
+            )
+            .field(
+                "hp_modem_retention_mode",
+                &format_args!("{}", self.hp_modem_retention_mode().bit()),
+            )
+            .field(
+                "hp_sleep2modem_retention_en",
+                &format_args!("{}", self.hp_sleep2modem_retention_en().bit()),
+            )
+            .field(
+                "hp_sleep2modem_backup_clk_sel",
+                &format_args!("{}", self.hp_sleep2modem_backup_clk_sel().bits()),
+            )
+            .field(
+                "hp_sleep2modem_backup_mode",
+                &format_args!("{}", self.hp_sleep2modem_backup_mode().bits()),
+            )
+            .field(
+                "hp_sleep2modem_backup_en",
+                &format_args!("{}", self.hp_sleep2modem_backup_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:5 - need_des"]
     #[inline(always)]

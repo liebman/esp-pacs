@@ -56,6 +56,21 @@ impl R {
         DBUS_PMS_SCT2_ATTR_R::new(((self.bits >> 2) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DBUS_PMS_TBL_ATTR")
+            .field(
+                "dbus_pms_sct1_attr",
+                &format_args!("{}", self.dbus_pms_sct1_attr().bits()),
+            )
+            .field(
+                "dbus_pms_sct2_attr",
+                &format_args!("{}", self.dbus_pms_sct2_attr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - The bit is used to configure attribute of the dbus permission control section1, bit0: load in world0, bit2: load in world1"]
     #[inline(always)]

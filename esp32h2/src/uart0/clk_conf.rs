@@ -72,6 +72,17 @@ impl R {
         RST_CORE_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::CLK_CONF")
+            .field("tx_sclk_en", &format_args!("{}", self.tx_sclk_en().bit()))
+            .field("sclk_en", &format_args!("{}", self.sclk_en().bit()))
+            .field("tx_rst_core", &format_args!("{}", self.tx_rst_core().bit()))
+            .field("rst_core", &format_args!("{}", self.rst_core().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - Set this bit to enable UART Tx clock."]
     #[inline(always)]

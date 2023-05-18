@@ -45,6 +45,14 @@ impl R {
         TX_START_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::TX_START_CFG")
+            .field("tx_start", &format_args!("{}", self.tx_start().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - Set this bit to start tx data transmit."]
     #[inline(always)]

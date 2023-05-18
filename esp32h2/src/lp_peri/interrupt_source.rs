@@ -22,6 +22,17 @@ impl R {
         LP_INTERRUPT_SOURCE_R::new((self.bits & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::INTERRUPT_SOURCE")
+            .field(
+                "lp_interrupt_source",
+                &format_args!("{}", self.lp_interrupt_source().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interrupt_source](index.html) module"]
 pub struct INTERRUPT_SOURCE_SPEC;
 impl crate::RegisterSpec for INTERRUPT_SOURCE_SPEC {

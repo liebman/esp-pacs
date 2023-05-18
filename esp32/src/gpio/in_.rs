@@ -45,6 +45,14 @@ impl R {
         DATA_NEXT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::IN")
+            .field("data_next", &format_args!("{}", self.data_next().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - GPIO0~31 input value"]
     #[inline(always)]

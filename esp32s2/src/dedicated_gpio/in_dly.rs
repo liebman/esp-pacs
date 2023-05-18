@@ -108,6 +108,21 @@ impl R {
         CH7_R::new(((self.bits >> 14) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEDICATED_GPIO::IN_DLY")
+            .field("ch0", &format_args!("{}", self.ch0().bits()))
+            .field("ch1", &format_args!("{}", self.ch1().bits()))
+            .field("ch2", &format_args!("{}", self.ch2().bits()))
+            .field("ch3", &format_args!("{}", self.ch3().bits()))
+            .field("ch4", &format_args!("{}", self.ch4().bits()))
+            .field("ch5", &format_args!("{}", self.ch5().bits()))
+            .field("ch6", &format_args!("{}", self.ch6().bits()))
+            .field("ch7", &format_args!("{}", self.ch7().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Configure GPIO0 input delay. 0: no delay. 1: one clock delay. 2: two clock delay. 3: three clock delay."]
     #[inline(always)]

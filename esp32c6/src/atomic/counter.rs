@@ -46,6 +46,17 @@ impl R {
         WAIT_COUNTER_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ATOMIC::COUNTER")
+            .field(
+                "wait_counter",
+                &format_args!("{}", self.wait_counter().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - delay counter"]
     #[inline(always)]

@@ -99,6 +99,23 @@ impl R {
         INFIFO_UDF_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::IN_INT_ENA_CH")
+            .field("in_done", &format_args!("{}", self.in_done().bit()))
+            .field("in_suc_eof", &format_args!("{}", self.in_suc_eof().bit()))
+            .field("in_err_eof", &format_args!("{}", self.in_err_eof().bit()))
+            .field("in_dscr_err", &format_args!("{}", self.in_dscr_err().bit()))
+            .field(
+                "in_dscr_empty",
+                &format_args!("{}", self.in_dscr_empty().bit()),
+            )
+            .field("infifo_ovf", &format_args!("{}", self.infifo_ovf().bit()))
+            .field("infifo_udf", &format_args!("{}", self.infifo_udf().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The interrupt enable bit for the IN_DONE_CH_INT interrupt."]
     #[inline(always)]

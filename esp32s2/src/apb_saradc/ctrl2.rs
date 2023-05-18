@@ -99,6 +99,29 @@ impl R {
         TIMER_EN_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::CTRL2")
+            .field(
+                "meas_num_limit",
+                &format_args!("{}", self.meas_num_limit().bit()),
+            )
+            .field(
+                "max_meas_num",
+                &format_args!("{}", self.max_meas_num().bits()),
+            )
+            .field("sar1_inv", &format_args!("{}", self.sar1_inv().bit()))
+            .field("sar2_inv", &format_args!("{}", self.sar2_inv().bit()))
+            .field("timer_sel", &format_args!("{}", self.timer_sel().bit()))
+            .field(
+                "timer_target",
+                &format_args!("{}", self.timer_target().bits()),
+            )
+            .field("timer_en", &format_args!("{}", self.timer_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable limit times of SAR ADC sample."]
     #[inline(always)]

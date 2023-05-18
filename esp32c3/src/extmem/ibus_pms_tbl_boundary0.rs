@@ -46,6 +46,17 @@ impl R {
         IBUS_PMS_BOUNDARY0_R::new((self.bits & 0x0fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::IBUS_PMS_TBL_BOUNDARY0")
+            .field(
+                "ibus_pms_boundary0",
+                &format_args!("{}", self.ibus_pms_boundary0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - The bit is used to configure the ibus permission control section boundary0"]
     #[inline(always)]

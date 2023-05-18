@@ -171,6 +171,73 @@ impl R {
         PRO_ICACHE_LOCK_DONE_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_ICACHE_CTRL")
+            .field(
+                "pro_icache_enable",
+                &format_args!("{}", self.pro_icache_enable().bit()),
+            )
+            .field(
+                "pro_icache_setsize_mode",
+                &format_args!("{}", self.pro_icache_setsize_mode().bit()),
+            )
+            .field(
+                "pro_icache_blocksize_mode",
+                &format_args!("{}", self.pro_icache_blocksize_mode().bit()),
+            )
+            .field(
+                "pro_icache_invalidate_ena",
+                &format_args!("{}", self.pro_icache_invalidate_ena().bit()),
+            )
+            .field(
+                "pro_icache_invalidate_done",
+                &format_args!("{}", self.pro_icache_invalidate_done().bit()),
+            )
+            .field(
+                "pro_icache_lock0_en",
+                &format_args!("{}", self.pro_icache_lock0_en().bit()),
+            )
+            .field(
+                "pro_icache_lock1_en",
+                &format_args!("{}", self.pro_icache_lock1_en().bit()),
+            )
+            .field(
+                "pro_icache_autoload_ena",
+                &format_args!("{}", self.pro_icache_autoload_ena().bit()),
+            )
+            .field(
+                "pro_icache_autoload_done",
+                &format_args!("{}", self.pro_icache_autoload_done().bit()),
+            )
+            .field(
+                "pro_icache_preload_ena",
+                &format_args!("{}", self.pro_icache_preload_ena().bit()),
+            )
+            .field(
+                "pro_icache_preload_done",
+                &format_args!("{}", self.pro_icache_preload_done().bit()),
+            )
+            .field(
+                "pro_icache_unlock_ena",
+                &format_args!("{}", self.pro_icache_unlock_ena().bit()),
+            )
+            .field(
+                "pro_icache_unlock_done",
+                &format_args!("{}", self.pro_icache_unlock_done().bit()),
+            )
+            .field(
+                "pro_icache_lock_ena",
+                &format_args!("{}", self.pro_icache_lock_ena().bit()),
+            )
+            .field(
+                "pro_icache_lock_done",
+                &format_args!("{}", self.pro_icache_lock_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable, 1: enable"]
     #[inline(always)]

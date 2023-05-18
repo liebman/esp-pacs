@@ -126,6 +126,26 @@ impl R {
         RX_RST_CORE_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_UART::CLK_CONF")
+            .field("sclk_div_b", &format_args!("{}", self.sclk_div_b().bits()))
+            .field("sclk_div_a", &format_args!("{}", self.sclk_div_a().bits()))
+            .field(
+                "sclk_div_num",
+                &format_args!("{}", self.sclk_div_num().bits()),
+            )
+            .field("sclk_sel", &format_args!("{}", self.sclk_sel().bits()))
+            .field("sclk_en", &format_args!("{}", self.sclk_en().bit()))
+            .field("rst_core", &format_args!("{}", self.rst_core().bit()))
+            .field("tx_sclk_en", &format_args!("{}", self.tx_sclk_en().bit()))
+            .field("rx_sclk_en", &format_args!("{}", self.rx_sclk_en().bit()))
+            .field("tx_rst_core", &format_args!("{}", self.tx_rst_core().bit()))
+            .field("rx_rst_core", &format_args!("{}", self.rx_rst_core().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - The denominator of the frequency divider factor."]
     #[inline(always)]

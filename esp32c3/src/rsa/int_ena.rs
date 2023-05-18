@@ -45,6 +45,14 @@ impl R {
         INT_ENA_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA::INT_ENA")
+            .field("int_ena", &format_args!("{}", self.int_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable interrupt that occurs when rsa calculation is done. 1'b0: disable, 1'b1: enable(default)."]
     #[inline(always)]

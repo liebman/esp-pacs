@@ -67,6 +67,29 @@ impl R {
         L2_CACHE_PRELOAD_RGID_R::new(((self.bits >> 3) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_PRELOAD_CTRL")
+            .field(
+                "l2_cache_preload_ena",
+                &format_args!("{}", self.l2_cache_preload_ena().bit()),
+            )
+            .field(
+                "l2_cache_preload_done",
+                &format_args!("{}", self.l2_cache_preload_done().bit()),
+            )
+            .field(
+                "l2_cache_preload_order",
+                &format_args!("{}", self.l2_cache_preload_order().bit()),
+            )
+            .field(
+                "l2_cache_preload_rgid",
+                &format_args!("{}", self.l2_cache_preload_rgid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable preload operation on L2-Cache. It will be cleared by hardware automatically after preload operation is done."]
     #[inline(always)]

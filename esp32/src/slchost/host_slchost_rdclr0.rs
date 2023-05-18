@@ -56,6 +56,21 @@ impl R {
         HOST_SLCHOST_SLC0_BIT6_CLRADDR_R::new(((self.bits >> 9) & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::HOST_SLCHOST_RDCLR0")
+            .field(
+                "host_slchost_slc0_bit7_clraddr",
+                &format_args!("{}", self.host_slchost_slc0_bit7_clraddr().bits()),
+            )
+            .field(
+                "host_slchost_slc0_bit6_clraddr",
+                &format_args!("{}", self.host_slchost_slc0_bit6_clraddr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8"]
     #[inline(always)]

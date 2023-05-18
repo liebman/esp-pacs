@@ -46,6 +46,14 @@ impl R {
         DB0_RED_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::DT0_RED_CFG")
+            .field("db0_red", &format_args!("{}", self.db0_red().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Shadow register for RED"]
     #[inline(always)]

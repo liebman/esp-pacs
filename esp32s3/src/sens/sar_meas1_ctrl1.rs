@@ -76,6 +76,29 @@ impl R {
         AMP_SHORT_REF_GND_FORCE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_MEAS1_CTRL1")
+            .field(
+                "force_xpd_amp",
+                &format_args!("{}", self.force_xpd_amp().bits()),
+            )
+            .field(
+                "amp_rst_fb_force",
+                &format_args!("{}", self.amp_rst_fb_force().bits()),
+            )
+            .field(
+                "amp_short_ref_force",
+                &format_args!("{}", self.amp_short_ref_force().bits()),
+            )
+            .field(
+                "amp_short_ref_gnd_force",
+                &format_args!("{}", self.amp_short_ref_gnd_force().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 24:25 - no public"]
     #[inline(always)]

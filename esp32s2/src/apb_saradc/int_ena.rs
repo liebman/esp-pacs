@@ -72,6 +72,29 @@ impl R {
         ADC1_DONE_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::INT_ENA")
+            .field(
+                "adc2_thres_int_ena",
+                &format_args!("{}", self.adc2_thres_int_ena().bit()),
+            )
+            .field(
+                "adc1_thres_int_ena",
+                &format_args!("{}", self.adc1_thres_int_ena().bit()),
+            )
+            .field(
+                "adc2_done_int_ena",
+                &format_args!("{}", self.adc2_done_int_ena().bit()),
+            )
+            .field(
+                "adc1_done_int_ena",
+                &format_args!("{}", self.adc1_done_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 28 - Enable bit of APB_SARADC_ADC2_THRES_INT interrupt."]
     #[inline(always)]

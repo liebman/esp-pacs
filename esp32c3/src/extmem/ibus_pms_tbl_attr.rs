@@ -56,6 +56,21 @@ impl R {
         IBUS_PMS_SCT2_ATTR_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::IBUS_PMS_TBL_ATTR")
+            .field(
+                "ibus_pms_sct1_attr",
+                &format_args!("{}", self.ibus_pms_sct1_attr().bits()),
+            )
+            .field(
+                "ibus_pms_sct2_attr",
+                &format_args!("{}", self.ibus_pms_sct2_attr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The bit is used to configure attribute of the ibus permission control section1, bit0: fetch in world0, bit1: load in world0, bit2: fetch in world1, bit3: load in world1"]
     #[inline(always)]

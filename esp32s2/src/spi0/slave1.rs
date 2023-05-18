@@ -105,6 +105,42 @@ impl R {
         SLV_LAST_ADDR_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLAVE1")
+            .field(
+                "slv_addr_err_clr",
+                &format_args!("{}", self.slv_addr_err_clr().bit()),
+            )
+            .field(
+                "slv_cmd_err_clr",
+                &format_args!("{}", self.slv_cmd_err_clr().bit()),
+            )
+            .field(
+                "slv_no_qpi_en",
+                &format_args!("{}", self.slv_no_qpi_en().bit()),
+            )
+            .field(
+                "slv_addr_err",
+                &format_args!("{}", self.slv_addr_err().bit()),
+            )
+            .field("slv_cmd_err", &format_args!("{}", self.slv_cmd_err().bit()))
+            .field(
+                "slv_wr_dma_done",
+                &format_args!("{}", self.slv_wr_dma_done().bit()),
+            )
+            .field(
+                "slv_last_command",
+                &format_args!("{}", self.slv_last_command().bits()),
+            )
+            .field(
+                "slv_last_addr",
+                &format_args!("{}", self.slv_last_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 10 - 1: Clear SPI_SLV_ADDR_ERR. 0: not valid. Can be changed by CONF_buf."]
     #[inline(always)]

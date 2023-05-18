@@ -90,6 +90,34 @@ impl R {
         REGULATOR_FORCE_PU_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::RTC_CNTL")
+            .field(
+                "dig_reg_cal_en",
+                &format_args!("{}", self.dig_reg_cal_en().bit()),
+            )
+            .field("sck_dcap", &format_args!("{}", self.sck_dcap().bits()))
+            .field(
+                "dboost_force_pd",
+                &format_args!("{}", self.dboost_force_pd().bit()),
+            )
+            .field(
+                "dboost_force_pu",
+                &format_args!("{}", self.dboost_force_pu().bit()),
+            )
+            .field(
+                "regulator_force_pd",
+                &format_args!("{}", self.regulator_force_pd().bit()),
+            )
+            .field(
+                "regulator_force_pu",
+                &format_args!("{}", self.regulator_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 7 - software enable digital regulator cali"]
     #[inline(always)]

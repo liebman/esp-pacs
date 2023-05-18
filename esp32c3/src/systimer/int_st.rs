@@ -36,6 +36,25 @@ impl R {
         TARGET2_INT_ST_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::INT_ST")
+            .field(
+                "target0_int_st",
+                &format_args!("{}", self.target0_int_st().bit()),
+            )
+            .field(
+                "target1_int_st",
+                &format_args!("{}", self.target1_int_st().bit()),
+            )
+            .field(
+                "target2_int_st",
+                &format_args!("{}", self.target2_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "SYSTIMER_INT_ST.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

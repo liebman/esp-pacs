@@ -56,6 +56,21 @@ impl R {
         SRAM_POWER_UP_R::new(((self.bits >> 3) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::MEM_POWER_UP")
+            .field(
+                "rom_power_up",
+                &format_args!("{}", self.rom_power_up().bits()),
+            )
+            .field(
+                "sram_power_up",
+                &format_args!("{}", self.sram_power_up().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Set 1 to let rom power up"]
     #[inline(always)]

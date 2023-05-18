@@ -87,6 +87,37 @@ impl R {
         L1_CACHE_UNDEF_OP_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_CTRL")
+            .field(
+                "l1_cache_shut_bus0",
+                &format_args!("{}", self.l1_cache_shut_bus0().bit()),
+            )
+            .field(
+                "l1_cache_shut_bus1",
+                &format_args!("{}", self.l1_cache_shut_bus1().bit()),
+            )
+            .field(
+                "l1_cache_shut_dbus2",
+                &format_args!("{}", self.l1_cache_shut_dbus2().bit()),
+            )
+            .field(
+                "l1_cache_shut_dbus3",
+                &format_args!("{}", self.l1_cache_shut_dbus3().bit()),
+            )
+            .field(
+                "l1_cache_shut_dma",
+                &format_args!("{}", self.l1_cache_shut_dma().bit()),
+            )
+            .field(
+                "l1_cache_undef_op",
+                &format_args!("{}", self.l1_cache_undef_op().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to disable core0 dbus access L1-Cache, 0: enable, 1: disable"]
     #[inline(always)]

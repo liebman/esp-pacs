@@ -159,6 +159,65 @@ impl R {
         DBG_ATTEN_ACTIVE_R::new(((self.bits >> 26) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::BIAS_CONF")
+            .field(
+                "dg_vdd_drv_b_slp",
+                &format_args!("{}", self.dg_vdd_drv_b_slp().bits()),
+            )
+            .field(
+                "dg_vdd_drv_b_slp_en",
+                &format_args!("{}", self.dg_vdd_drv_b_slp_en().bit()),
+            )
+            .field(
+                "bias_buf_idle",
+                &format_args!("{}", self.bias_buf_idle().bit()),
+            )
+            .field(
+                "bias_buf_wake",
+                &format_args!("{}", self.bias_buf_wake().bit()),
+            )
+            .field(
+                "bias_buf_deep_slp",
+                &format_args!("{}", self.bias_buf_deep_slp().bit()),
+            )
+            .field(
+                "bias_buf_monitor",
+                &format_args!("{}", self.bias_buf_monitor().bit()),
+            )
+            .field(
+                "pd_cur_deep_slp",
+                &format_args!("{}", self.pd_cur_deep_slp().bit()),
+            )
+            .field(
+                "pd_cur_monitor",
+                &format_args!("{}", self.pd_cur_monitor().bit()),
+            )
+            .field(
+                "bias_sleep_deep_slp",
+                &format_args!("{}", self.bias_sleep_deep_slp().bit()),
+            )
+            .field(
+                "bias_sleep_monitor",
+                &format_args!("{}", self.bias_sleep_monitor().bit()),
+            )
+            .field(
+                "dbg_atten_deep_slp",
+                &format_args!("{}", self.dbg_atten_deep_slp().bits()),
+            )
+            .field(
+                "dbg_atten_monitor",
+                &format_args!("{}", self.dbg_atten_monitor().bits()),
+            )
+            .field(
+                "dbg_atten_active",
+                &format_args!("{}", self.dbg_atten_active().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Need add desc"]
     #[inline(always)]

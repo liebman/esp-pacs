@@ -76,6 +76,29 @@ impl R {
         INTERNAL_SRAM_CORE1_TRACE_ALLOC_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_2")
+            .field(
+                "internal_sram_core0_trace_usage",
+                &format_args!("{}", self.internal_sram_core0_trace_usage().bits()),
+            )
+            .field(
+                "internal_sram_core1_trace_usage",
+                &format_args!("{}", self.internal_sram_core1_trace_usage().bits()),
+            )
+            .field(
+                "internal_sram_core0_trace_alloc",
+                &format_args!("{}", self.internal_sram_core0_trace_alloc().bits()),
+            )
+            .field(
+                "internal_sram_core1_trace_alloc",
+                &format_args!("{}", self.internal_sram_core1_trace_alloc().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Set 1 to someone bit means corresponding internal SRAM level can be accessed by core0 trace bus."]
     #[inline(always)]

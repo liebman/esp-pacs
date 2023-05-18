@@ -29,6 +29,15 @@ impl R {
         WDT_INT_RAW_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::INT_RAW_TIMERS")
+            .field("t0_int_raw", &format_args!("{}", self.t0_int_raw().bit()))
+            .field("wdt_int_raw", &format_args!("{}", self.wdt_int_raw().bit()))
+            .finish()
+    }
+}
 #[doc = "Raw interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw_timers](index.html) module"]
 pub struct INT_RAW_TIMERS_SPEC;
 impl crate::RegisterSpec for INT_RAW_TIMERS_SPEC {

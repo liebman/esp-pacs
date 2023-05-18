@@ -45,6 +45,17 @@ impl R {
         DMA_APB_I_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::DMA_APB_I_0")
+            .field(
+                "dma_apb_i_lock",
+                &format_args!("{}", self.dma_apb_i_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Lock register. Setting to 1 locks internal DMA permission control registers."]
     #[inline(always)]

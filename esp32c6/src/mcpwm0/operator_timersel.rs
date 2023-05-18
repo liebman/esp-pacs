@@ -66,6 +66,25 @@ impl R {
         OPERATOR2_TIMERSEL_R::new(((self.bits >> 4) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::OPERATOR_TIMERSEL")
+            .field(
+                "operator0_timersel",
+                &format_args!("{}", self.operator0_timersel().bits()),
+            )
+            .field(
+                "operator1_timersel",
+                &format_args!("{}", self.operator1_timersel().bits()),
+            )
+            .field(
+                "operator2_timersel",
+                &format_args!("{}", self.operator2_timersel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Select which PWM timer's is the timing reference for PWM operator0, 0: timer0, 1: timer1, 2: timer2"]
     #[inline(always)]

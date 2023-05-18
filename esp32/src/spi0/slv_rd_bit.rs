@@ -46,6 +46,17 @@ impl R {
         SLV_RDATA_BIT_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLV_RD_BIT")
+            .field(
+                "slv_rdata_bit",
+                &format_args!("{}", self.slv_rdata_bit().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - In the slave mode it is the bit length of read data. The value is the length - 1."]
     #[inline(always)]

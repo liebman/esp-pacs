@@ -36,6 +36,25 @@ impl R {
         TX_EOF_INT_ST_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::INT_ST")
+            .field(
+                "tx_fifo_rempty_int_st",
+                &format_args!("{}", self.tx_fifo_rempty_int_st().bit()),
+            )
+            .field(
+                "rx_fifo_wfull_int_st",
+                &format_args!("{}", self.rx_fifo_wfull_int_st().bit()),
+            )
+            .field(
+                "tx_eof_int_st",
+                &format_args!("{}", self.tx_eof_int_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Parallel IO interrupt singal status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st](index.html) module"]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {

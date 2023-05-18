@@ -116,6 +116,42 @@ impl R {
         FLASH_CRYPT_CONFIG_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_WDATA5")
+            .field(
+                "spi_pad_config_clk",
+                &format_args!("{}", self.spi_pad_config_clk().bits()),
+            )
+            .field(
+                "spi_pad_config_q",
+                &format_args!("{}", self.spi_pad_config_q().bits()),
+            )
+            .field(
+                "spi_pad_config_d",
+                &format_args!("{}", self.spi_pad_config_d().bits()),
+            )
+            .field(
+                "spi_pad_config_cs0",
+                &format_args!("{}", self.spi_pad_config_cs0().bits()),
+            )
+            .field(
+                "inst_config",
+                &format_args!("{}", self.inst_config().bits()),
+            )
+            .field(
+                "vol_level_hp_inv",
+                &format_args!("{}", self.vol_level_hp_inv().bits()),
+            )
+            .field("dig_vol_l6", &format_args!("{}", self.dig_vol_l6().bits()))
+            .field(
+                "flash_crypt_config",
+                &format_args!("{}", self.flash_crypt_config().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - program for SPI_pad_config_clk"]
     #[inline(always)]

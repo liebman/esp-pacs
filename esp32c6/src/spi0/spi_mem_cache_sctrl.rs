@@ -92,6 +92,57 @@ impl R {
         SPI_MEM_SRAM_WDUMMY_CYCLELEN_R::new(((self.bits >> 22) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_CACHE_SCTRL")
+            .field(
+                "spi_mem_cache_usr_saddr_4byte",
+                &format_args!("{}", self.spi_mem_cache_usr_saddr_4byte().bit()),
+            )
+            .field(
+                "spi_mem_usr_sram_dio",
+                &format_args!("{}", self.spi_mem_usr_sram_dio().bit()),
+            )
+            .field(
+                "spi_mem_usr_sram_qio",
+                &format_args!("{}", self.spi_mem_usr_sram_qio().bit()),
+            )
+            .field(
+                "spi_mem_usr_wr_sram_dummy",
+                &format_args!("{}", self.spi_mem_usr_wr_sram_dummy().bit()),
+            )
+            .field(
+                "spi_mem_usr_rd_sram_dummy",
+                &format_args!("{}", self.spi_mem_usr_rd_sram_dummy().bit()),
+            )
+            .field(
+                "spi_mem_cache_sram_usr_rcmd",
+                &format_args!("{}", self.spi_mem_cache_sram_usr_rcmd().bit()),
+            )
+            .field(
+                "spi_mem_sram_rdummy_cyclelen",
+                &format_args!("{}", self.spi_mem_sram_rdummy_cyclelen().bits()),
+            )
+            .field(
+                "spi_mem_sram_addr_bitlen",
+                &format_args!("{}", self.spi_mem_sram_addr_bitlen().bits()),
+            )
+            .field(
+                "spi_mem_cache_sram_usr_wcmd",
+                &format_args!("{}", self.spi_mem_cache_sram_usr_wcmd().bit()),
+            )
+            .field(
+                "spi_mem_sram_oct",
+                &format_args!("{}", self.spi_mem_sram_oct().bit()),
+            )
+            .field(
+                "spi_mem_sram_wdummy_cyclelen",
+                &format_args!("{}", self.spi_mem_sram_wdummy_cyclelen().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "SPI0 external RAM control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_cache_sctrl](index.html) module"]
 pub struct SPI_MEM_CACHE_SCTRL_SPEC;
 impl crate::RegisterSpec for SPI_MEM_CACHE_SCTRL_SPEC {

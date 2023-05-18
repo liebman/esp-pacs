@@ -56,6 +56,21 @@ impl R {
         FILTER_FACTOR0_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::FILTER_CTRL1")
+            .field(
+                "filter_factor1",
+                &format_args!("{}", self.filter_factor1().bits()),
+            )
+            .field(
+                "filter_factor0",
+                &format_args!("{}", self.filter_factor0().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 26:28 - Need add description"]
     #[inline(always)]

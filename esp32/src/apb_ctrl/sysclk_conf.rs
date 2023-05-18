@@ -82,6 +82,27 @@ impl R {
         QUICK_CLK_CHNG_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::SYSCLK_CONF")
+            .field(
+                "pre_div_cnt",
+                &format_args!("{}", self.pre_div_cnt().bits()),
+            )
+            .field("clk_320m_en", &format_args!("{}", self.clk_320m_en().bit()))
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "rst_tick_cnt",
+                &format_args!("{}", self.rst_tick_cnt().bit()),
+            )
+            .field(
+                "quick_clk_chng",
+                &format_args!("{}", self.quick_clk_chng().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9"]
     #[inline(always)]

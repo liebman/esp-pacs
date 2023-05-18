@@ -171,6 +171,28 @@ impl R {
         SDUMMY_OUT_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SRAM_CMD")
+            .field("sclk_mode", &format_args!("{}", self.sclk_mode().bits()))
+            .field("swb_mode", &format_args!("{}", self.swb_mode().bits()))
+            .field("sdin_dual", &format_args!("{}", self.sdin_dual().bit()))
+            .field("sdout_dual", &format_args!("{}", self.sdout_dual().bit()))
+            .field("saddr_dual", &format_args!("{}", self.saddr_dual().bit()))
+            .field("scmd_dual", &format_args!("{}", self.scmd_dual().bit()))
+            .field("sdin_quad", &format_args!("{}", self.sdin_quad().bit()))
+            .field("sdout_quad", &format_args!("{}", self.sdout_quad().bit()))
+            .field("saddr_quad", &format_args!("{}", self.saddr_quad().bit()))
+            .field("scmd_quad", &format_args!("{}", self.scmd_quad().bit()))
+            .field("sdin_oct", &format_args!("{}", self.sdin_oct().bit()))
+            .field("sdout_oct", &format_args!("{}", self.sdout_oct().bit()))
+            .field("saddr_oct", &format_args!("{}", self.saddr_oct().bit()))
+            .field("scmd_oct", &format_args!("{}", self.scmd_oct().bit()))
+            .field("sdummy_out", &format_args!("{}", self.sdummy_out().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI_CLK mode bits when SPI0 accesses to Ext_RAM. 0: SPI_CLK is off when CS inactive 1: SPI_CLK is delayed one cycle after CS inactive 2: SPI_CLK is delayed two cycles after CS inactive 3: SPI_CLK is always on."]
     #[inline(always)]

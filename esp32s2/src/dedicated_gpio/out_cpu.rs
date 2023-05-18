@@ -108,6 +108,21 @@ impl R {
         SEL7_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEDICATED_GPIO::OUT_CPU")
+            .field("sel0", &format_args!("{}", self.sel0().bit()))
+            .field("sel1", &format_args!("{}", self.sel1().bit()))
+            .field("sel2", &format_args!("{}", self.sel2().bit()))
+            .field("sel3", &format_args!("{}", self.sel3().bit()))
+            .field("sel4", &format_args!("{}", self.sel4().bit()))
+            .field("sel5", &format_args!("{}", self.sel5().bit()))
+            .field("sel6", &format_args!("{}", self.sel6().bit()))
+            .field("sel7", &format_args!("{}", self.sel7().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Select GPIO out value configured by registers or CPU instructions for channel 0. 0: Configured by registers. 1: configured by CPU instructions."]
     #[inline(always)]

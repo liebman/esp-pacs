@@ -46,6 +46,14 @@ impl R {
         REDCY_HIGH_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::RND_ECO_HIGH")
+            .field("redcy_high", &format_args!("{}", self.redcy_high().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Only reserved for ECO."]
     #[inline(always)]

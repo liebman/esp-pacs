@@ -45,6 +45,17 @@ impl R {
         TIMER_UNIT1_VALUE_VALID_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTIMER::UNIT1_OP")
+            .field(
+                "timer_unit1_value_valid",
+                &format_args!("{}", self.timer_unit1_value_valid().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - update timer unit1"]
     #[inline(always)]

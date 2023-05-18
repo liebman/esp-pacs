@@ -46,6 +46,14 @@ impl R {
         BLK3_DIN2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK3_WDATA2")
+            .field("blk3_din2", &format_args!("{}", self.blk3_din2().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - program for BLOCK3"]
     #[inline(always)]

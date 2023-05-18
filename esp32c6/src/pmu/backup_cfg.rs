@@ -46,6 +46,17 @@ impl R {
         BACKUP_SYS_CLK_NO_DIV_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::BACKUP_CFG")
+            .field(
+                "backup_sys_clk_no_div",
+                &format_args!("{}", self.backup_sys_clk_no_div().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

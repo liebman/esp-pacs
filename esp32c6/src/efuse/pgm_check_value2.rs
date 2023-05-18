@@ -46,6 +46,17 @@ impl R {
         PGM_RS_DATA_2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::PGM_CHECK_VALUE2")
+            .field(
+                "pgm_rs_data_2",
+                &format_args!("{}", self.pgm_rs_data_2().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Configures the 2nd 32-bit RS code to be programmed."]
     #[inline(always)]

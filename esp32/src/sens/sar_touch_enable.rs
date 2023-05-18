@@ -66,6 +66,25 @@ impl R {
         TOUCH_PAD_OUTEN1_R::new(((self.bits >> 20) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_TOUCH_ENABLE")
+            .field(
+                "touch_pad_worken",
+                &format_args!("{}", self.touch_pad_worken().bits()),
+            )
+            .field(
+                "touch_pad_outen2",
+                &format_args!("{}", self.touch_pad_outen2().bits()),
+            )
+            .field(
+                "touch_pad_outen1",
+                &format_args!("{}", self.touch_pad_outen1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - Bitmap defining the working set during the measurement."]
     #[inline(always)]

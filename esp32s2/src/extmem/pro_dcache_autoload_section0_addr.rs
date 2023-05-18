@@ -46,6 +46,17 @@ impl R {
         PRO_DCACHE_AUTOLOAD_SCT0_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::PRO_DCACHE_AUTOLOAD_SECTION0_ADDR")
+            .field(
+                "pro_dcache_autoload_sct0_addr",
+                &format_args!("{}", self.pro_dcache_autoload_sct0_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the start virtual address of the first section for conditional pre-load operation. It should be combined with pro_dcache_autoload_sct0_ena."]
     #[inline(always)]

@@ -116,6 +116,45 @@ impl R {
         L2_DBUS3_OVF_INT_RAW_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_ACS_CNT_INT_RAW")
+            .field(
+                "l2_ibus0_ovf_int_raw",
+                &format_args!("{}", self.l2_ibus0_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_ibus1_ovf_int_raw",
+                &format_args!("{}", self.l2_ibus1_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_ibus2_ovf_int_raw",
+                &format_args!("{}", self.l2_ibus2_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_ibus3_ovf_int_raw",
+                &format_args!("{}", self.l2_ibus3_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_dbus0_ovf_int_raw",
+                &format_args!("{}", self.l2_dbus0_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_dbus1_ovf_int_raw",
+                &format_args!("{}", self.l2_dbus1_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_dbus2_ovf_int_raw",
+                &format_args!("{}", self.l2_dbus2_ovf_int_raw().bit()),
+            )
+            .field(
+                "l2_dbus3_ovf_int_raw",
+                &format_args!("{}", self.l2_dbus3_ovf_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 8 - The raw bit of the interrupt of one of counters overflow that occurs in L2-Cache due to bus0 accesses L2-ICache0."]
     #[inline(always)]

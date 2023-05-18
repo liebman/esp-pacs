@@ -126,6 +126,44 @@ impl R {
         DI_NAKMSK_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DIEPMSK")
+            .field(
+                "di_xfercomplmsk",
+                &format_args!("{}", self.di_xfercomplmsk().bit()),
+            )
+            .field(
+                "di_epdisbldmsk",
+                &format_args!("{}", self.di_epdisbldmsk().bit()),
+            )
+            .field("di_ahbermsk", &format_args!("{}", self.di_ahbermsk().bit()))
+            .field("timeoutmsk", &format_args!("{}", self.timeoutmsk().bit()))
+            .field(
+                "intkntxfempmsk",
+                &format_args!("{}", self.intkntxfempmsk().bit()),
+            )
+            .field(
+                "intknepmismsk",
+                &format_args!("{}", self.intknepmismsk().bit()),
+            )
+            .field(
+                "inepnakeffmsk",
+                &format_args!("{}", self.inepnakeffmsk().bit()),
+            )
+            .field(
+                "txfifoundrnmsk",
+                &format_args!("{}", self.txfifoundrnmsk().bit()),
+            )
+            .field(
+                "bnainintrmsk",
+                &format_args!("{}", self.bnainintrmsk().bit()),
+            )
+            .field("di_nakmsk", &format_args!("{}", self.di_nakmsk().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

@@ -58,6 +58,15 @@ impl R {
         RESTART_ENA_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TRACE::TRIGGER")
+            .field("mem_loop", &format_args!("{}", self.mem_loop().bit()))
+            .field("restart_ena", &format_args!("{}", self.restart_ena().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 0\\] set 1 start trace."]
     #[inline(always)]

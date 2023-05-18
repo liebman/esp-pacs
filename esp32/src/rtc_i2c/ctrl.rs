@@ -90,6 +90,31 @@ impl R {
         RX_LSB_FIRST_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::CTRL")
+            .field(
+                "sda_force_out",
+                &format_args!("{}", self.sda_force_out().bit()),
+            )
+            .field(
+                "scl_force_out",
+                &format_args!("{}", self.scl_force_out().bit()),
+            )
+            .field("ms_mode", &format_args!("{}", self.ms_mode().bit()))
+            .field("trans_start", &format_args!("{}", self.trans_start().bit()))
+            .field(
+                "tx_lsb_first",
+                &format_args!("{}", self.tx_lsb_first().bit()),
+            )
+            .field(
+                "rx_lsb_first",
+                &format_args!("{}", self.rx_lsb_first().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SDA is push-pull (1) or open-drain (0)"]
     #[inline(always)]

@@ -72,6 +72,29 @@ impl R {
         CVSD_ENC_RESET_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::SCO_CONF0")
+            .field(
+                "sco_with_i2s_en",
+                &format_args!("{}", self.sco_with_i2s_en().bit()),
+            )
+            .field(
+                "sco_no_i2s_en",
+                &format_args!("{}", self.sco_no_i2s_en().bit()),
+            )
+            .field(
+                "cvsd_enc_start",
+                &format_args!("{}", self.cvsd_enc_start().bit()),
+            )
+            .field(
+                "cvsd_enc_reset",
+                &format_args!("{}", self.cvsd_enc_reset().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

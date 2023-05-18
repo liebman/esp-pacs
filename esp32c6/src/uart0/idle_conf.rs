@@ -56,6 +56,21 @@ impl R {
         TX_IDLE_NUM_R::new(((self.bits >> 10) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::IDLE_CONF")
+            .field(
+                "rx_idle_thrhd",
+                &format_args!("{}", self.rx_idle_thrhd().bits()),
+            )
+            .field(
+                "tx_idle_num",
+                &format_args!("{}", self.tx_idle_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - It will produce frame end signal when receiver takes more time to receive one byte data than this register value."]
     #[inline(always)]

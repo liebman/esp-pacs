@@ -76,6 +76,29 @@ impl R {
         RET_DCACHE_ENABLE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::RETENTION_CTRL3")
+            .field(
+                "ret_dcache_size",
+                &format_args!("{}", self.ret_dcache_size().bits()),
+            )
+            .field(
+                "ret_dcache_vld_size",
+                &format_args!("{}", self.ret_dcache_vld_size().bits()),
+            )
+            .field(
+                "ret_dcache_start_point",
+                &format_args!("{}", self.ret_dcache_start_point().bits()),
+            )
+            .field(
+                "ret_dcache_enable",
+                &format_args!("{}", self.ret_dcache_enable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:12 - ******* Description ***********"]
     #[inline(always)]

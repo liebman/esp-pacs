@@ -72,6 +72,17 @@ impl R {
         DOUT3_MODE_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DOUT_MODE")
+            .field("dout0_mode", &format_args!("{}", self.dout0_mode().bit()))
+            .field("dout1_mode", &format_args!("{}", self.dout1_mode().bit()))
+            .field("dout2_mode", &format_args!("{}", self.dout2_mode().bit()))
+            .field("dout3_mode", &format_args!("{}", self.dout3_mode().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge"]
     #[inline(always)]

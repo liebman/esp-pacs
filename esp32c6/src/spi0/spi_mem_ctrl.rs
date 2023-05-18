@@ -205,6 +205,86 @@ impl R {
         SPI_MEM_DATA_IE_ALWAYS_ON_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_CTRL")
+            .field(
+                "spi_mem_wdummy_dqs_always_out",
+                &format_args!("{}", self.spi_mem_wdummy_dqs_always_out().bit()),
+            )
+            .field(
+                "spi_mem_wdummy_always_out",
+                &format_args!("{}", self.spi_mem_wdummy_always_out().bit()),
+            )
+            .field(
+                "spi_mem_fdummy_rin",
+                &format_args!("{}", self.spi_mem_fdummy_rin().bit()),
+            )
+            .field(
+                "spi_mem_fdummy_wout",
+                &format_args!("{}", self.spi_mem_fdummy_wout().bit()),
+            )
+            .field(
+                "spi_mem_fdout_oct",
+                &format_args!("{}", self.spi_mem_fdout_oct().bit()),
+            )
+            .field(
+                "spi_mem_fdin_oct",
+                &format_args!("{}", self.spi_mem_fdin_oct().bit()),
+            )
+            .field(
+                "spi_mem_faddr_oct",
+                &format_args!("{}", self.spi_mem_faddr_oct().bit()),
+            )
+            .field(
+                "spi_mem_fcmd_quad",
+                &format_args!("{}", self.spi_mem_fcmd_quad().bit()),
+            )
+            .field(
+                "spi_mem_fcmd_oct",
+                &format_args!("{}", self.spi_mem_fcmd_oct().bit()),
+            )
+            .field(
+                "spi_mem_fastrd_mode",
+                &format_args!("{}", self.spi_mem_fastrd_mode().bit()),
+            )
+            .field(
+                "spi_mem_fread_dual",
+                &format_args!("{}", self.spi_mem_fread_dual().bit()),
+            )
+            .field(
+                "spi_mem_q_pol",
+                &format_args!("{}", self.spi_mem_q_pol().bit()),
+            )
+            .field(
+                "spi_mem_d_pol",
+                &format_args!("{}", self.spi_mem_d_pol().bit()),
+            )
+            .field(
+                "spi_mem_fread_quad",
+                &format_args!("{}", self.spi_mem_fread_quad().bit()),
+            )
+            .field("spi_mem_wp", &format_args!("{}", self.spi_mem_wp().bit()))
+            .field(
+                "spi_mem_fread_dio",
+                &format_args!("{}", self.spi_mem_fread_dio().bit()),
+            )
+            .field(
+                "spi_mem_fread_qio",
+                &format_args!("{}", self.spi_mem_fread_qio().bit()),
+            )
+            .field(
+                "spi_mem_dqs_ie_always_on",
+                &format_args!("{}", self.spi_mem_dqs_ie_always_on().bit()),
+            )
+            .field(
+                "spi_mem_data_ie_always_on",
+                &format_args!("{}", self.spi_mem_data_ie_always_on().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 1 - In the dummy phase of an MSPI write data transfer when accesses to flash, the level of SPI_IO\\[7:0\\] is output by the MSPI controller."]
     #[inline(always)]

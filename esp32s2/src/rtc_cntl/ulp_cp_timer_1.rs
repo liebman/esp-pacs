@@ -46,6 +46,17 @@ impl R {
         ULP_CP_TIMER_SLP_CYCLE_R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::ULP_CP_TIMER_1")
+            .field(
+                "ulp_cp_timer_slp_cycle",
+                &format_args!("{}", self.ulp_cp_timer_slp_cycle().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:31 - Set sleep cycles for ULP coprocessor timer"]
     #[inline(always)]

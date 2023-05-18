@@ -125,6 +125,49 @@ impl R {
         HP_ACTIVE_HP_REGULATOR_DBIAS_R::new(((self.bits >> 27) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_ACTIVE_HP_REGULATOR0")
+            .field(
+                "lp_dbias_vol",
+                &format_args!("{}", self.lp_dbias_vol().bits()),
+            )
+            .field(
+                "hp_dbias_vol",
+                &format_args!("{}", self.hp_dbias_vol().bits()),
+            )
+            .field(
+                "dig_regulator0_dbias_sel",
+                &format_args!("{}", self.dig_regulator0_dbias_sel().bit()),
+            )
+            .field(
+                "hp_active_hp_regulator_slp_mem_xpd",
+                &format_args!("{}", self.hp_active_hp_regulator_slp_mem_xpd().bit()),
+            )
+            .field(
+                "hp_active_hp_regulator_slp_logic_xpd",
+                &format_args!("{}", self.hp_active_hp_regulator_slp_logic_xpd().bit()),
+            )
+            .field(
+                "hp_active_hp_regulator_xpd",
+                &format_args!("{}", self.hp_active_hp_regulator_xpd().bit()),
+            )
+            .field(
+                "hp_active_hp_regulator_slp_mem_dbias",
+                &format_args!("{}", self.hp_active_hp_regulator_slp_mem_dbias().bits()),
+            )
+            .field(
+                "hp_active_hp_regulator_slp_logic_dbias",
+                &format_args!("{}", self.hp_active_hp_regulator_slp_logic_dbias().bits()),
+            )
+            .field(
+                "hp_active_hp_regulator_dbias",
+                &format_args!("{}", self.hp_active_hp_regulator_dbias().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 14 - need_des"]
     #[inline(always)]

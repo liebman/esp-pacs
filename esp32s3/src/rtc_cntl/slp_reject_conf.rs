@@ -66,6 +66,25 @@ impl R {
         DEEP_SLP_REJECT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SLP_REJECT_CONF")
+            .field(
+                "sleep_reject_ena",
+                &format_args!("{}", self.sleep_reject_ena().bits()),
+            )
+            .field(
+                "light_slp_reject_en",
+                &format_args!("{}", self.light_slp_reject_en().bit()),
+            )
+            .field(
+                "deep_slp_reject_en",
+                &format_args!("{}", self.deep_slp_reject_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 12:29 - sleep reject enable"]
     #[inline(always)]

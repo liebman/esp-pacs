@@ -78,6 +78,49 @@ impl R {
         DETECT_START_INT_RAW_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::INT_RAW")
+            .field(
+                "slave_tran_comp_int_raw",
+                &format_args!("{}", self.slave_tran_comp_int_raw().bit()),
+            )
+            .field(
+                "arbitration_lost_int_raw",
+                &format_args!("{}", self.arbitration_lost_int_raw().bit()),
+            )
+            .field(
+                "master_tran_comp_int_raw",
+                &format_args!("{}", self.master_tran_comp_int_raw().bit()),
+            )
+            .field(
+                "trans_complete_int_raw",
+                &format_args!("{}", self.trans_complete_int_raw().bit()),
+            )
+            .field(
+                "time_out_int_raw",
+                &format_args!("{}", self.time_out_int_raw().bit()),
+            )
+            .field(
+                "ack_err_int_raw",
+                &format_args!("{}", self.ack_err_int_raw().bit()),
+            )
+            .field(
+                "rx_data_int_raw",
+                &format_args!("{}", self.rx_data_int_raw().bit()),
+            )
+            .field(
+                "tx_data_int_raw",
+                &format_args!("{}", self.tx_data_int_raw().bit()),
+            )
+            .field(
+                "detect_start_int_raw",
+                &format_args!("{}", self.detect_start_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "interrupt raw register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

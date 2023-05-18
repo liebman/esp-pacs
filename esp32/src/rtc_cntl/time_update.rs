@@ -45,6 +45,14 @@ impl R {
         TIME_VALID_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME_UPDATE")
+            .field("time_valid", &format_args!("{}", self.time_valid().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - Set 1: to update register with RTC timer"]
     #[inline(always)]

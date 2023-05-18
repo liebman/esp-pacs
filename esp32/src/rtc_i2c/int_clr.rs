@@ -78,6 +78,29 @@ impl R {
         TRANS_COMPLETE_INT_CLR_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::INT_CLR")
+            .field(
+                "slave_trans_complete_int_clr",
+                &format_args!("{}", self.slave_trans_complete_int_clr().bit()),
+            )
+            .field(
+                "arbitration_lost_int_clr",
+                &format_args!("{}", self.arbitration_lost_int_clr().bit()),
+            )
+            .field(
+                "master_trans_complete_int_clr",
+                &format_args!("{}", self.master_trans_complete_int_clr().bit()),
+            )
+            .field(
+                "trans_complete_int_clr",
+                &format_args!("{}", self.trans_complete_int_clr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4"]
     #[inline(always)]

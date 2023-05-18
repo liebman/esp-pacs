@@ -22,6 +22,17 @@ impl R {
         IBUS2_ACS_CNT_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::IBUS2_ACS_CNT")
+            .field(
+                "ibus2_acs_cnt",
+                &format_args!("{}", self.ibus2_acs_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ibus2_acs_cnt](index.html) module"]
 pub struct IBUS2_ACS_CNT_SPEC;
 impl crate::RegisterSpec for IBUS2_ACS_CNT_SPEC {

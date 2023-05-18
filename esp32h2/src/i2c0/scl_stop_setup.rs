@@ -45,6 +45,14 @@ impl R {
         TIME_R::new((self.bits & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_STOP_SETUP")
+            .field("time", &format_args!("{}", self.time().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:8 - This register is used to configure the time between the positive edge of SCL and the positive edge of SDA, in I2C module clock cycles."]
     #[inline(always)]

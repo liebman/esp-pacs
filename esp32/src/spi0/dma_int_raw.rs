@@ -78,6 +78,49 @@ impl R {
         OUT_TOTAL_EOF_INT_RAW_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DMA_INT_RAW")
+            .field(
+                "inlink_dscr_empty_int_raw",
+                &format_args!("{}", self.inlink_dscr_empty_int_raw().bit()),
+            )
+            .field(
+                "outlink_dscr_error_int_raw",
+                &format_args!("{}", self.outlink_dscr_error_int_raw().bit()),
+            )
+            .field(
+                "inlink_dscr_error_int_raw",
+                &format_args!("{}", self.inlink_dscr_error_int_raw().bit()),
+            )
+            .field(
+                "in_done_int_raw",
+                &format_args!("{}", self.in_done_int_raw().bit()),
+            )
+            .field(
+                "in_err_eof_int_raw",
+                &format_args!("{}", self.in_err_eof_int_raw().bit()),
+            )
+            .field(
+                "in_suc_eof_int_raw",
+                &format_args!("{}", self.in_suc_eof_int_raw().bit()),
+            )
+            .field(
+                "out_done_int_raw",
+                &format_args!("{}", self.out_done_int_raw().bit()),
+            )
+            .field(
+                "out_eof_int_raw",
+                &format_args!("{}", self.out_eof_int_raw().bit()),
+            )
+            .field(
+                "out_total_eof_int_raw",
+                &format_args!("{}", self.out_total_eof_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_int_raw](index.html) module"]
 pub struct DMA_INT_RAW_SPEC;
 impl crate::RegisterSpec for DMA_INT_RAW_SPEC {

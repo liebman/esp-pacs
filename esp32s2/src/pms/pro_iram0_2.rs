@@ -106,6 +106,41 @@ impl R {
         PRO_IRAM0_SRAM_4_H_W_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_IRAM0_2")
+            .field(
+                "pro_iram0_sram_4_spltaddr",
+                &format_args!("{}", self.pro_iram0_sram_4_spltaddr().bits()),
+            )
+            .field(
+                "pro_iram0_sram_4_l_f",
+                &format_args!("{}", self.pro_iram0_sram_4_l_f().bit()),
+            )
+            .field(
+                "pro_iram0_sram_4_l_r",
+                &format_args!("{}", self.pro_iram0_sram_4_l_r().bit()),
+            )
+            .field(
+                "pro_iram0_sram_4_l_w",
+                &format_args!("{}", self.pro_iram0_sram_4_l_w().bit()),
+            )
+            .field(
+                "pro_iram0_sram_4_h_f",
+                &format_args!("{}", self.pro_iram0_sram_4_h_f().bit()),
+            )
+            .field(
+                "pro_iram0_sram_4_h_r",
+                &format_args!("{}", self.pro_iram0_sram_4_h_r().bit()),
+            )
+            .field(
+                "pro_iram0_sram_4_h_w",
+                &format_args!("{}", self.pro_iram0_sram_4_h_w().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:16 - Configure the split address of SRAM Block 4-21 for IBUS access."]
     #[inline(always)]

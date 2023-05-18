@@ -74,6 +74,29 @@ impl R {
         CMPR0_B_SHDW_FULL_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CMPR0_CFG")
+            .field(
+                "cmpr0_a_upmethod",
+                &format_args!("{}", self.cmpr0_a_upmethod().bits()),
+            )
+            .field(
+                "cmpr0_b_upmethod",
+                &format_args!("{}", self.cmpr0_b_upmethod().bits()),
+            )
+            .field(
+                "cmpr0_a_shdw_full",
+                &format_args!("{}", self.cmpr0_a_shdw_full().bit()),
+            )
+            .field(
+                "cmpr0_b_shdw_full",
+                &format_args!("{}", self.cmpr0_b_shdw_full().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Update method for PWM generator 0 time stamp A's active register. When all bits are set to 0: immediately, when bit0 is set to 1: TEZ, when bit1 is set to 1: TEP,when bit2 is set to 1: sync, when bit3 is set to 1: disable the update."]
     #[inline(always)]

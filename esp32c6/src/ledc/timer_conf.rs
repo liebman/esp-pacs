@@ -83,6 +83,18 @@ impl R {
         TICK_SEL_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::TIMER_CONF")
+            .field("duty_res", &format_args!("{}", self.duty_res().bits()))
+            .field("clk_div", &format_args!("{}", self.clk_div().bits()))
+            .field("pause", &format_args!("{}", self.pause().bit()))
+            .field("rst", &format_args!("{}", self.rst().bit()))
+            .field("tick_sel", &format_args!("{}", self.tick_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - This register is used to control the range of the counter in timer %s."]
     #[inline(always)]

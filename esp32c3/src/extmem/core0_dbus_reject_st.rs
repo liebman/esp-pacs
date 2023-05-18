@@ -29,6 +29,21 @@ impl R {
         CORE0_DBUS_WORLD_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CORE0_DBUS_REJECT_ST")
+            .field(
+                "core0_dbus_attr",
+                &format_args!("{}", self.core0_dbus_attr().bits()),
+            )
+            .field(
+                "core0_dbus_world",
+                &format_args!("{}", self.core0_dbus_world().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "This description will be updated in the near future.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core0_dbus_reject_st](index.html) module"]
 pub struct CORE0_DBUS_REJECT_ST_SPEC;
 impl crate::RegisterSpec for CORE0_DBUS_REJECT_ST_SPEC {

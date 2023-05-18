@@ -92,6 +92,34 @@ impl R {
         APB_DAC_RST_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::APB_DAC_CTRL")
+            .field(
+                "dac_timer_target",
+                &format_args!("{}", self.dac_timer_target().bits()),
+            )
+            .field(
+                "dac_timer_en",
+                &format_args!("{}", self.dac_timer_en().bit()),
+            )
+            .field(
+                "apb_dac_alter_mode",
+                &format_args!("{}", self.apb_dac_alter_mode().bit()),
+            )
+            .field(
+                "apb_dac_trans",
+                &format_args!("{}", self.apb_dac_trans().bit()),
+            )
+            .field(
+                "dac_reset_fifo",
+                &format_args!("{}", self.dac_reset_fifo().bit()),
+            )
+            .field("apb_dac_rst", &format_args!("{}", self.apb_dac_rst().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - Set DAC timer target."]
     #[inline(always)]

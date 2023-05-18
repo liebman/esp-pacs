@@ -46,6 +46,17 @@ impl R {
         CLK_I2C_MST_SEL_160M_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODEM_LPCON::I2C_MST_CLK_CONF")
+            .field(
+                "clk_i2c_mst_sel_160m",
+                &format_args!("{}", self.clk_i2c_mst_sel_160m().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

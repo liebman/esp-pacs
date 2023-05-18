@@ -90,6 +90,25 @@ impl R {
         OUTFIFO_UDF_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::OUT_INT_ENA_CH")
+            .field("out_done", &format_args!("{}", self.out_done().bit()))
+            .field("out_eof", &format_args!("{}", self.out_eof().bit()))
+            .field(
+                "out_dscr_err",
+                &format_args!("{}", self.out_dscr_err().bit()),
+            )
+            .field(
+                "out_total_eof",
+                &format_args!("{}", self.out_total_eof().bit()),
+            )
+            .field("outfifo_ovf", &format_args!("{}", self.outfifo_ovf().bit()))
+            .field("outfifo_udf", &format_args!("{}", self.outfifo_udf().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The interrupt enable bit for the OUT_DONE_CH_INT interrupt."]
     #[inline(always)]

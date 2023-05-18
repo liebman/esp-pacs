@@ -72,6 +72,26 @@ impl R {
         FH1_FORCE_OST_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::FH1_CFG1")
+            .field("fh1_clr_ost", &format_args!("{}", self.fh1_clr_ost().bit()))
+            .field(
+                "fh1_cbcpulse",
+                &format_args!("{}", self.fh1_cbcpulse().bits()),
+            )
+            .field(
+                "fh1_force_cbc",
+                &format_args!("{}", self.fh1_force_cbc().bit()),
+            )
+            .field(
+                "fh1_force_ost",
+                &format_args!("{}", self.fh1_force_ost().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

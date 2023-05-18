@@ -46,6 +46,17 @@ impl R {
         DCACHE_PRELOCK_SCT0_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_PRELOCK_SCT0_ADDR")
+            .field(
+                "dcache_prelock_sct0_addr",
+                &format_args!("{}", self.dcache_prelock_sct0_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the first start virtual address of data prelock, which is combined with DCACHE_PRELOCK_SCT0_SIZE_REG"]
     #[inline(always)]

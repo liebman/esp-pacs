@@ -85,6 +85,30 @@ impl R {
         REG_CLK_SEL_R::new(((self.bits >> 21) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::APB_ADC_CLKM_CONF")
+            .field(
+                "reg_clkm_div_num",
+                &format_args!("{}", self.reg_clkm_div_num().bits()),
+            )
+            .field(
+                "reg_clkm_div_b",
+                &format_args!("{}", self.reg_clkm_div_b().bits()),
+            )
+            .field(
+                "reg_clkm_div_a",
+                &format_args!("{}", self.reg_clkm_div_a().bits()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .field(
+                "reg_clk_sel",
+                &format_args!("{}", self.reg_clk_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Integral I2S clock divider value"]
     #[inline(always)]

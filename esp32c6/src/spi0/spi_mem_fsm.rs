@@ -46,6 +46,17 @@ impl R {
         SPI_MEM_LOCK_DELAY_TIME_R::new(((self.bits >> 7) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_FSM")
+            .field(
+                "spi_mem_lock_delay_time",
+                &format_args!("{}", self.spi_mem_lock_delay_time().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 7:11 - The lock delay time of SPI0/1 arbiter by spi0_slv_st, after PER is sent by SPI1."]
     #[inline(always)]

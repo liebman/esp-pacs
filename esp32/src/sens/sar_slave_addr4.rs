@@ -70,6 +70,23 @@ impl R {
         I2C_DONE_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_SLAVE_ADDR4")
+            .field(
+                "i2c_slave_addr7",
+                &format_args!("{}", self.i2c_slave_addr7().bits()),
+            )
+            .field(
+                "i2c_slave_addr6",
+                &format_args!("{}", self.i2c_slave_addr6().bits()),
+            )
+            .field("i2c_rdata", &format_args!("{}", self.i2c_rdata().bits()))
+            .field("i2c_done", &format_args!("{}", self.i2c_done().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10"]
     #[inline(always)]

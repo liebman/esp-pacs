@@ -92,6 +92,31 @@ impl R {
         MEM_FORCE_PU_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::MEM_CONF")
+            .field("rx_size", &format_args!("{}", self.rx_size().bits()))
+            .field("tx_size", &format_args!("{}", self.tx_size().bits()))
+            .field(
+                "rx_flow_thrhd",
+                &format_args!("{}", self.rx_flow_thrhd().bits()),
+            )
+            .field(
+                "rx_tout_thrhd",
+                &format_args!("{}", self.rx_tout_thrhd().bits()),
+            )
+            .field(
+                "mem_force_pd",
+                &format_args!("{}", self.mem_force_pd().bit()),
+            )
+            .field(
+                "mem_force_pu",
+                &format_args!("{}", self.mem_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 1:3 - This register is used to configure the amount of mem allocated for receive-FIFO. The default number is 128 bytes."]
     #[inline(always)]

@@ -29,6 +29,21 @@ impl R {
         TIMER2_DIRECTION_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TIMER2_STATUS")
+            .field(
+                "timer2_value",
+                &format_args!("{}", self.timer2_value().bits()),
+            )
+            .field(
+                "timer2_direction",
+                &format_args!("{}", self.timer2_direction().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "PWM timer2 status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [timer2_status](index.html) module"]
 pub struct TIMER2_STATUS_SPEC;
 impl crate::RegisterSpec for TIMER2_STATUS_SPEC {

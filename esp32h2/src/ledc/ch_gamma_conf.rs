@@ -51,6 +51,17 @@ impl R {
         CH_GAMMA_ENTRY_NUM_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_GAMMA_CONF")
+            .field(
+                "ch_gamma_entry_num",
+                &format_args!("{}", self.ch_gamma_entry_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - Ledc ch%s gamma entry num."]
     #[inline(always)]

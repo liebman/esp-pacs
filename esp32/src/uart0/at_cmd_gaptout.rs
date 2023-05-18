@@ -46,6 +46,17 @@ impl R {
         RX_GAP_TOUT_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::AT_CMD_GAPTOUT")
+            .field(
+                "rx_gap_tout",
+                &format_args!("{}", self.rx_gap_tout().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - This register is used to configure the duration time between the at_cmd chars. when the duration time is less than this register value it will not take the datas as continous at_cmd chars."]
     #[inline(always)]

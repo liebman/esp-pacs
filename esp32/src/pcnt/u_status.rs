@@ -97,6 +97,23 @@ impl R {
         ZERO_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::U_STATUS")
+            .field(
+                "core_status_u0",
+                &format_args!("{}", self.core_status_u0().bits()),
+            )
+            .field("zero_mode", &format_args!("{}", self.zero_mode().bits()))
+            .field("thres1", &format_args!("{}", self.thres1().bit()))
+            .field("thres0", &format_args!("{}", self.thres0().bit()))
+            .field("l_lim", &format_args!("{}", self.l_lim().bit()))
+            .field("h_lim", &format_args!("{}", self.h_lim().bit()))
+            .field("zero", &format_args!("{}", self.zero().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

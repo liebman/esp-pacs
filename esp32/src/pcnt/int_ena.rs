@@ -108,6 +108,45 @@ impl R {
         CNT_THR_EVENT_U7_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::INT_ENA")
+            .field(
+                "cnt_thr_event_u0",
+                &format_args!("{}", self.cnt_thr_event_u0().bit()),
+            )
+            .field(
+                "cnt_thr_event_u1",
+                &format_args!("{}", self.cnt_thr_event_u1().bit()),
+            )
+            .field(
+                "cnt_thr_event_u2",
+                &format_args!("{}", self.cnt_thr_event_u2().bit()),
+            )
+            .field(
+                "cnt_thr_event_u3",
+                &format_args!("{}", self.cnt_thr_event_u3().bit()),
+            )
+            .field(
+                "cnt_thr_event_u4",
+                &format_args!("{}", self.cnt_thr_event_u4().bit()),
+            )
+            .field(
+                "cnt_thr_event_u5",
+                &format_args!("{}", self.cnt_thr_event_u5().bit()),
+            )
+            .field(
+                "cnt_thr_event_u6",
+                &format_args!("{}", self.cnt_thr_event_u6().bit()),
+            )
+            .field(
+                "cnt_thr_event_u7",
+                &format_args!("{}", self.cnt_thr_event_u7().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - This is the interrupt enable bit for channel0 event."]
     #[inline(always)]

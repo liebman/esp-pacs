@@ -46,6 +46,17 @@ impl R {
         EXTMEM_REJECT_INT_RAW_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::EXTMEM_REJECT_INT_RAW")
+            .field(
+                "extmem_reject_int_raw",
+                &format_args!("{}", self.extmem_reject_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The raw interrupt bit turns to high level when accessing external RAM is rejected by permission control."]
     #[inline(always)]

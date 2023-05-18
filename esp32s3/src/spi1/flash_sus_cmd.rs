@@ -92,6 +92,28 @@ impl R {
         PESR_IDLE_EN_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::FLASH_SUS_CMD")
+            .field("flash_per", &format_args!("{}", self.flash_per().bit()))
+            .field("flash_pes", &format_args!("{}", self.flash_pes().bit()))
+            .field(
+                "flash_per_wait_en",
+                &format_args!("{}", self.flash_per_wait_en().bit()),
+            )
+            .field(
+                "flash_pes_wait_en",
+                &format_args!("{}", self.flash_pes_wait_en().bit()),
+            )
+            .field("pes_per_en", &format_args!("{}", self.pes_per_en().bit()))
+            .field(
+                "pesr_idle_en",
+                &format_args!("{}", self.pesr_idle_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - program erase resume bit, program erase suspend operation will be triggered when the bit is set. The bit will be cleared once the operation done.1: enable 0: disable."]
     #[inline(always)]

@@ -56,6 +56,21 @@ impl R {
         SPI_FMEM_ECC_ERR_INT_EN_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::ECC_CTRL")
+            .field(
+                "ecc_err_int_num",
+                &format_args!("{}", self.ecc_err_int_num().bits()),
+            )
+            .field(
+                "spi_fmem_ecc_err_int_en",
+                &format_args!("{}", self.spi_fmem_ecc_err_int_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Set the error times of MSPI ECC read to generate MSPI SPI_MEM_ECC_ERR_INT interrupt."]
     #[inline(always)]

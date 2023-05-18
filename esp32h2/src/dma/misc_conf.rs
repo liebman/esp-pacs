@@ -63,6 +63,19 @@ impl R {
         CLK_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA::MISC_CONF")
+            .field(
+                "ahbm_rst_inter",
+                &format_args!("{}", self.ahbm_rst_inter().bit()),
+            )
+            .field("arb_pri_dis", &format_args!("{}", self.arb_pri_dis().bit()))
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit then clear this bit to reset the internal ahb FSM."]
     #[inline(always)]

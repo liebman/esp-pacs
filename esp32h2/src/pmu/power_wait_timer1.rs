@@ -66,6 +66,25 @@ impl R {
         DG_LP_WAIT_TIMER_R::new(((self.bits >> 23) & 0x01ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_WAIT_TIMER1")
+            .field(
+                "dg_lp_powerdown_timer",
+                &format_args!("{}", self.dg_lp_powerdown_timer().bits()),
+            )
+            .field(
+                "dg_lp_powerup_timer",
+                &format_args!("{}", self.dg_lp_powerup_timer().bits()),
+            )
+            .field(
+                "dg_lp_wait_timer",
+                &format_args!("{}", self.dg_lp_wait_timer().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 9:15 - need_des"]
     #[inline(always)]

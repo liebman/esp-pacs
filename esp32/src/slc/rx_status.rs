@@ -43,6 +43,29 @@ impl R {
         SLC1_RX_EMPTY_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::RX_STATUS")
+            .field(
+                "slc0_rx_full",
+                &format_args!("{}", self.slc0_rx_full().bit()),
+            )
+            .field(
+                "slc0_rx_empty",
+                &format_args!("{}", self.slc0_rx_empty().bit()),
+            )
+            .field(
+                "slc1_rx_full",
+                &format_args!("{}", self.slc1_rx_full().bit()),
+            )
+            .field(
+                "slc1_rx_empty",
+                &format_args!("{}", self.slc1_rx_empty().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rx_status](index.html) module"]
 pub struct RX_STATUS_SPEC;
 impl crate::RegisterSpec for RX_STATUS_SPEC {

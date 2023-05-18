@@ -22,6 +22,17 @@ impl R {
         SLCHOST_CHECK_SUM0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLCHOST::CHECK_SUM0")
+            .field(
+                "slchost_check_sum0",
+                &format_args!("{}", self.slchost_check_sum0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "*******Description***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [check_sum0](index.html) module"]
 pub struct CHECK_SUM0_SPEC;
 impl crate::RegisterSpec for CHECK_SUM0_SPEC {

@@ -91,6 +91,30 @@ impl R {
         MEM_RX_WRAP_EN_CH2_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::RX_CHCONF1")
+            .field("rx_en_ch2", &format_args!("{}", self.rx_en_ch2().bit()))
+            .field(
+                "mem_owner_ch2",
+                &format_args!("{}", self.mem_owner_ch2().bit()),
+            )
+            .field(
+                "rx_filter_en_ch2",
+                &format_args!("{}", self.rx_filter_en_ch2().bit()),
+            )
+            .field(
+                "rx_filter_thres_ch2",
+                &format_args!("{}", self.rx_filter_thres_ch2().bits()),
+            )
+            .field(
+                "mem_rx_wrap_en_ch2",
+                &format_args!("{}", self.mem_rx_wrap_en_ch2().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable receiver to receive data on CHANNEL%s."]
     #[inline(always)]

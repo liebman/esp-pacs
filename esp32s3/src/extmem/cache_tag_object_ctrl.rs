@@ -56,6 +56,21 @@ impl R {
         DCACHE_TAG_OBJECT_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_TAG_OBJECT_CTRL")
+            .field(
+                "icache_tag_object",
+                &format_args!("{}", self.icache_tag_object().bit()),
+            )
+            .field(
+                "dcache_tag_object",
+                &format_args!("{}", self.dcache_tag_object().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to set icache tag memory as object. This bit should be onehot with the others fields inside this register."]
     #[inline(always)]

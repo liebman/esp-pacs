@@ -162,6 +162,69 @@ impl R {
         CH_TX_LOOP_INT_RAW_R::new(((self.bits >> 13) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::INT_RAW")
+            .field(
+                "ch0_tx_end_int_raw",
+                &format_args!("{}", self.ch0_tx_end_int_raw().bit()),
+            )
+            .field(
+                "ch1_tx_end_int_raw",
+                &format_args!("{}", self.ch1_tx_end_int_raw().bit()),
+            )
+            .field(
+                "ch2_rx_end_int_raw",
+                &format_args!("{}", self.ch2_rx_end_int_raw().bit()),
+            )
+            .field(
+                "ch3_rx_end_int_raw",
+                &format_args!("{}", self.ch3_rx_end_int_raw().bit()),
+            )
+            .field(
+                "ch0_tx_err_int_raw",
+                &format_args!("{}", self.ch0_tx_err_int_raw().bit()),
+            )
+            .field(
+                "ch1_tx_err_int_raw",
+                &format_args!("{}", self.ch1_tx_err_int_raw().bit()),
+            )
+            .field(
+                "ch2_tx_err_int_raw",
+                &format_args!("{}", self.ch2_tx_err_int_raw().bit()),
+            )
+            .field(
+                "ch3_tx_err_int_raw",
+                &format_args!("{}", self.ch3_tx_err_int_raw().bit()),
+            )
+            .field(
+                "ch0_tx_thr_event_int_raw",
+                &format_args!("{}", self.ch0_tx_thr_event_int_raw().bit()),
+            )
+            .field(
+                "ch1_tx_thr_event_int_raw",
+                &format_args!("{}", self.ch1_tx_thr_event_int_raw().bit()),
+            )
+            .field(
+                "ch2_rx_thr_event_int_raw",
+                &format_args!("{}", self.ch2_rx_thr_event_int_raw().bit()),
+            )
+            .field(
+                "ch3_rx_thr_event_int_raw",
+                &format_args!("{}", self.ch3_rx_thr_event_int_raw().bit()),
+            )
+            .field(
+                "ch0_tx_loop_int_raw",
+                &format_args!("{}", self.ch0_tx_loop_int_raw().bit()),
+            )
+            .field(
+                "ch1_tx_loop_int_raw",
+                &format_args!("{}", self.ch1_tx_loop_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "The interrupt raw bit for CHANNEL[0-1]. Triggered when transmission done."]
     #[inline(always)]

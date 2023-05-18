@@ -63,6 +63,25 @@ impl R {
         LP_I2C_ANA_MAST_I2C_MST_SEL_R::new(((self.bits >> 11) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_I2C_ANA_MST::I2C0_DATA")
+            .field(
+                "lp_i2c_ana_mast_i2c0_rdata",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c0_rdata().bits()),
+            )
+            .field(
+                "lp_i2c_ana_mast_i2c0_clk_sel",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c0_clk_sel().bits()),
+            )
+            .field(
+                "lp_i2c_ana_mast_i2c_mst_sel",
+                &format_args!("{}", self.lp_i2c_ana_mast_i2c_mst_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:10 - need_des"]
     #[inline(always)]

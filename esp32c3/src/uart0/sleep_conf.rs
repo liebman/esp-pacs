@@ -46,6 +46,17 @@ impl R {
         ACTIVE_THRESHOLD_R::new((self.bits & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::SLEEP_CONF")
+            .field(
+                "active_threshold",
+                &format_args!("{}", self.active_threshold().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - The uart is activated from light sleeping mode when the input rxd edge changes more times than this register value."]
     #[inline(always)]

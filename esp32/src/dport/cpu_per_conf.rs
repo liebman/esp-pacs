@@ -66,6 +66,25 @@ impl R {
         FAST_CLK_RTC_SEL_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::CPU_PER_CONF")
+            .field(
+                "cpuperiod_sel",
+                &format_args!("{}", self.cpuperiod_sel().bits()),
+            )
+            .field(
+                "lowspeed_clk_sel",
+                &format_args!("{}", self.lowspeed_clk_sel().bit()),
+            )
+            .field(
+                "fast_clk_rtc_sel",
+                &format_args!("{}", self.fast_clk_rtc_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

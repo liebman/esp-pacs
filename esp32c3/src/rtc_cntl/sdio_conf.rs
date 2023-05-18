@@ -180,6 +180,50 @@ impl R {
         XPD_SDIO_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::SDIO_CONF")
+            .field(
+                "sdio_timer_target",
+                &format_args!("{}", self.sdio_timer_target().bits()),
+            )
+            .field(
+                "sdio_dthdrv",
+                &format_args!("{}", self.sdio_dthdrv().bits()),
+            )
+            .field("sdio_dcap", &format_args!("{}", self.sdio_dcap().bits()))
+            .field("sdio_initi", &format_args!("{}", self.sdio_initi().bits()))
+            .field(
+                "sdio_en_initi",
+                &format_args!("{}", self.sdio_en_initi().bit()),
+            )
+            .field(
+                "sdio_dcurlim",
+                &format_args!("{}", self.sdio_dcurlim().bits()),
+            )
+            .field(
+                "sdio_modecurlim",
+                &format_args!("{}", self.sdio_modecurlim().bit()),
+            )
+            .field(
+                "sdio_encurlim",
+                &format_args!("{}", self.sdio_encurlim().bit()),
+            )
+            .field(
+                "sdio_reg_pd_en",
+                &format_args!("{}", self.sdio_reg_pd_en().bit()),
+            )
+            .field("sdio_force", &format_args!("{}", self.sdio_force().bit()))
+            .field("sdio_tieh", &format_args!("{}", self.sdio_tieh().bit()))
+            .field("_1p8_ready", &format_args!("{}", self._1p8_ready().bit()))
+            .field("drefl_sdio", &format_args!("{}", self.drefl_sdio().bits()))
+            .field("drefm_sdio", &format_args!("{}", self.drefm_sdio().bits()))
+            .field("drefh_sdio", &format_args!("{}", self.drefh_sdio().bits()))
+            .field("xpd_sdio", &format_args!("{}", self.xpd_sdio().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - timer count to apply reg_sdio_dcap after sdio power on"]
     #[inline(always)]

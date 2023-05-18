@@ -45,6 +45,14 @@ impl R {
         SCRATCH5_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::STORE5")
+            .field("scratch5", &format_args!("{}", self.scratch5().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Reservation register 5."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         CIS_CONF_W4_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CIS_CONF4")
+            .field(
+                "cis_conf_w4",
+                &format_args!("{}", self.cis_conf_w4().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31"]
     #[inline(always)]

@@ -85,6 +85,27 @@ impl R {
         OVF_CNT_EN_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_CONF0")
+            .field(
+                "timer_sel_ch",
+                &format_args!("{}", self.timer_sel_ch().bits()),
+            )
+            .field(
+                "sig_out_en_ch",
+                &format_args!("{}", self.sig_out_en_ch().bit()),
+            )
+            .field("idle_lv_ch", &format_args!("{}", self.idle_lv_ch().bit()))
+            .field("ovf_num_ch", &format_args!("{}", self.ovf_num_ch().bits()))
+            .field(
+                "ovf_cnt_en_ch",
+                &format_args!("{}", self.ovf_cnt_en_ch().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field is used to select one of timers for channel %s. 0: select timer0, 1: select timer1, 2: select timer2, 3: select timer3"]
     #[inline(always)]

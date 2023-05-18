@@ -126,6 +126,32 @@ impl R {
         RESVALID_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DCFG")
+            .field(
+                "nzstsouthshk",
+                &format_args!("{}", self.nzstsouthshk().bit()),
+            )
+            .field("devaddr", &format_args!("{}", self.devaddr().bits()))
+            .field("perfrlint", &format_args!("{}", self.perfrlint().bits()))
+            .field("endevoutnak", &format_args!("{}", self.endevoutnak().bit()))
+            .field("xcvrdly", &format_args!("{}", self.xcvrdly().bit()))
+            .field(
+                "erraticintmsk",
+                &format_args!("{}", self.erraticintmsk().bit()),
+            )
+            .field("epmiscnt", &format_args!("{}", self.epmiscnt().bits()))
+            .field("descdma", &format_args!("{}", self.descdma().bit()))
+            .field(
+                "perschintvl",
+                &format_args!("{}", self.perschintvl().bits()),
+            )
+            .field("resvalid", &format_args!("{}", self.resvalid().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2"]
     #[inline(always)]

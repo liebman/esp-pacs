@@ -94,6 +94,37 @@ impl R {
         RX_MSB_SHIFT_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S1::RX_CONF1")
+            .field(
+                "rx_tdm_ws_width",
+                &format_args!("{}", self.rx_tdm_ws_width().bits()),
+            )
+            .field(
+                "rx_bck_div_num",
+                &format_args!("{}", self.rx_bck_div_num().bits()),
+            )
+            .field(
+                "rx_bits_mod",
+                &format_args!("{}", self.rx_bits_mod().bits()),
+            )
+            .field(
+                "rx_half_sample_bits",
+                &format_args!("{}", self.rx_half_sample_bits().bits()),
+            )
+            .field(
+                "rx_tdm_chan_bits",
+                &format_args!("{}", self.rx_tdm_chan_bits().bits()),
+            )
+            .field(
+                "rx_msb_shift",
+                &format_args!("{}", self.rx_msb_shift().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - The width of rx_ws_out in TDM mode is (I2S_RX_TDM_WS_WIDTH\\[6:0\\] +1) * T_bck"]
     #[inline(always)]

@@ -78,6 +78,43 @@ impl R {
         BBPLL_CAL_INT_RAW_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::INT_RAW_RTC")
+            .field(
+                "slp_wakeup_int_raw",
+                &format_args!("{}", self.slp_wakeup_int_raw().bit()),
+            )
+            .field(
+                "slp_reject_int_raw",
+                &format_args!("{}", self.slp_reject_int_raw().bit()),
+            )
+            .field("wdt_int_raw", &format_args!("{}", self.wdt_int_raw().bit()))
+            .field(
+                "brown_out_int_raw",
+                &format_args!("{}", self.brown_out_int_raw().bit()),
+            )
+            .field(
+                "main_timer_int_raw",
+                &format_args!("{}", self.main_timer_int_raw().bit()),
+            )
+            .field("swd_int_raw", &format_args!("{}", self.swd_int_raw().bit()))
+            .field(
+                "xtal32k_dead_int_raw",
+                &format_args!("{}", self.xtal32k_dead_int_raw().bit()),
+            )
+            .field(
+                "glitch_det_int_raw",
+                &format_args!("{}", self.glitch_det_int_raw().bit()),
+            )
+            .field(
+                "bbpll_cal_int_raw",
+                &format_args!("{}", self.bbpll_cal_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "rtc configure register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw_rtc](index.html) module"]
 pub struct INT_RAW_RTC_SPEC;
 impl crate::RegisterSpec for INT_RAW_RTC_SPEC {

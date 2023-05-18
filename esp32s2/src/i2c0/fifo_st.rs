@@ -75,6 +75,33 @@ impl R {
         SLAVE_RW_POINT_R::new(((self.bits >> 22) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::FIFO_ST")
+            .field(
+                "rxfifo_start_addr",
+                &format_args!("{}", self.rxfifo_start_addr().bits()),
+            )
+            .field(
+                "rxfifo_end_addr",
+                &format_args!("{}", self.rxfifo_end_addr().bits()),
+            )
+            .field(
+                "txfifo_start_addr",
+                &format_args!("{}", self.txfifo_start_addr().bits()),
+            )
+            .field(
+                "txfifo_end_addr",
+                &format_args!("{}", self.txfifo_end_addr().bits()),
+            )
+            .field(
+                "slave_rw_point",
+                &format_args!("{}", self.slave_rw_point().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 20 - Write 0 or 1 to I2C_RX_UPDATE to update the value of I2C_RXFIFO_END_ADDR and I2C_RXFIFO_START_ADDR."]
     #[inline(always)]

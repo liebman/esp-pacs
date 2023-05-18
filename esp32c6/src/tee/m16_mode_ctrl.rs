@@ -46,6 +46,14 @@ impl R {
         M16_MODE_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TEE::M16_MODE_CTRL")
+            .field("m16_mode", &format_args!("{}", self.m16_mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - M16 security level mode: 2'd3: ree_mode2. 2'd2: ree_mode1. 2'd1: ree_mode0. 2'd0: tee_mode"]
     #[inline(always)]

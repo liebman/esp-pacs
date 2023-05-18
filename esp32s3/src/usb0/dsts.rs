@@ -50,6 +50,18 @@ impl R {
         DEVLNSTS_R::new(((self.bits >> 22) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DSTS")
+            .field("suspsts", &format_args!("{}", self.suspsts().bit()))
+            .field("enumspd", &format_args!("{}", self.enumspd().bits()))
+            .field("errticerr", &format_args!("{}", self.errticerr().bit()))
+            .field("soffn", &format_args!("{}", self.soffn().bits()))
+            .field("devlnsts", &format_args!("{}", self.devlnsts().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dsts](index.html) module"]
 pub struct DSTS_SPEC;
 impl crate::RegisterSpec for DSTS_SPEC {

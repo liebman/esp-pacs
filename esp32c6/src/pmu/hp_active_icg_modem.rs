@@ -46,6 +46,17 @@ impl R {
         HP_ACTIVE_DIG_ICG_MODEM_CODE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::HP_ACTIVE_ICG_MODEM")
+            .field(
+                "hp_active_dig_icg_modem_code",
+                &format_args!("{}", self.hp_active_dig_icg_modem_code().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 30:31 - need_des"]
     #[inline(always)]

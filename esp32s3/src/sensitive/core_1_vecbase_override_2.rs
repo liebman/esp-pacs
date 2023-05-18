@@ -46,6 +46,17 @@ impl R {
         CORE_1_VECBASE_OVERRIDE_WORLD1_VALUE_R::new(self.bits & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_VECBASE_OVERRIDE_2")
+            .field(
+                "core_1_vecbase_override_world1_value",
+                &format_args!("{}", self.core_1_vecbase_override_world1_value().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - world1 vecbase_override register, when core1 in world1 use this register to override vecbase register."]
     #[inline(always)]

@@ -43,6 +43,29 @@ impl R {
         TX_HUNG_INT_RAW_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::INT_RAW")
+            .field(
+                "rx_done_int_raw",
+                &format_args!("{}", self.rx_done_int_raw().bit()),
+            )
+            .field(
+                "tx_done_int_raw",
+                &format_args!("{}", self.tx_done_int_raw().bit()),
+            )
+            .field(
+                "rx_hung_int_raw",
+                &format_args!("{}", self.rx_hung_int_raw().bit()),
+            )
+            .field(
+                "tx_hung_int_raw",
+                &format_args!("{}", self.tx_hung_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "I2S interrupt raw register, valid in level.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

@@ -96,6 +96,37 @@ impl R {
         FORCE_LP_PERI_PD_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_PD_LPPERI_CNTL")
+            .field(
+                "force_lp_peri_reset",
+                &format_args!("{}", self.force_lp_peri_reset().bit()),
+            )
+            .field(
+                "force_lp_peri_iso",
+                &format_args!("{}", self.force_lp_peri_iso().bit()),
+            )
+            .field(
+                "force_lp_peri_pu",
+                &format_args!("{}", self.force_lp_peri_pu().bit()),
+            )
+            .field(
+                "force_lp_peri_no_reset",
+                &format_args!("{}", self.force_lp_peri_no_reset().bit()),
+            )
+            .field(
+                "force_lp_peri_no_iso",
+                &format_args!("{}", self.force_lp_peri_no_iso().bit()),
+            )
+            .field(
+                "force_lp_peri_pd",
+                &format_args!("{}", self.force_lp_peri_pd().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

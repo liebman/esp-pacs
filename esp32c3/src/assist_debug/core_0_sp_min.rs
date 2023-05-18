@@ -46,6 +46,17 @@ impl R {
         CORE_0_SP_MIN_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_SP_MIN")
+            .field(
+                "core_0_sp_min",
+                &format_args!("{}", self.core_0_sp_min().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - reg_core_0_sp_min"]
     #[inline(always)]

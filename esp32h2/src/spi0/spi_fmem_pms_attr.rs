@@ -66,6 +66,25 @@ impl R {
         SPI_FMEM_PMS_ECC_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_FMEM_PMS_ATTR")
+            .field(
+                "spi_fmem_pms_rd_attr",
+                &format_args!("{}", self.spi_fmem_pms_rd_attr().bit()),
+            )
+            .field(
+                "spi_fmem_pms_wr_attr",
+                &format_args!("{}", self.spi_fmem_pms_wr_attr().bit()),
+            )
+            .field(
+                "spi_fmem_pms_ecc",
+                &format_args!("{}", self.spi_fmem_pms_ecc().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: SPI1 flash ACE section %s read accessible. 0: Not allowed."]
     #[inline(always)]

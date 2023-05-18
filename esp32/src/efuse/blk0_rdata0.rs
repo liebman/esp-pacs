@@ -36,6 +36,25 @@ impl R {
         RD_FLASH_CRYPT_CNT_R::new(((self.bits >> 20) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_RDATA0")
+            .field(
+                "rd_efuse_wr_dis",
+                &format_args!("{}", self.rd_efuse_wr_dis().bits()),
+            )
+            .field(
+                "rd_efuse_rd_dis",
+                &format_args!("{}", self.rd_efuse_rd_dis().bits()),
+            )
+            .field(
+                "rd_flash_crypt_cnt",
+                &format_args!("{}", self.rd_flash_crypt_cnt().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [blk0_rdata0](index.html) module"]
 pub struct BLK0_RDATA0_SPEC;
 impl crate::RegisterSpec for BLK0_RDATA0_SPEC {

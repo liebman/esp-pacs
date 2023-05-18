@@ -53,6 +53,21 @@ impl R {
         DCACHE_OCCUPY_DONE_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_OCCUPY_CTRL")
+            .field(
+                "dcache_occupy_ena",
+                &format_args!("{}", self.dcache_occupy_ena().bit()),
+            )
+            .field(
+                "dcache_occupy_done",
+                &format_args!("{}", self.dcache_occupy_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable occupy operation. It will be cleared by hardware after issuing Auot-Invalidate Operation."]
     #[inline(always)]

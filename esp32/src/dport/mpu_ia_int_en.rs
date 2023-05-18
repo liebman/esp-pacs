@@ -46,6 +46,17 @@ impl R {
         MPU_IA_INT_EN_R::new(self.bits & 0x0001_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::MPU_IA_INT_EN")
+            .field(
+                "mpu_ia_int_en",
+                &format_args!("{}", self.mpu_ia_int_en().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:16"]
     #[inline(always)]

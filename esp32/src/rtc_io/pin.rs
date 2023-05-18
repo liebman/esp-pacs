@@ -63,6 +63,19 @@ impl R {
         WAKEUP_ENABLE_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::PIN")
+            .field("pad_driver", &format_args!("{}", self.pad_driver().bit()))
+            .field("int_type", &format_args!("{}", self.int_type().bits()))
+            .field(
+                "wakeup_enable",
+                &format_args!("{}", self.wakeup_enable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 2 - if set to 0: normal output if set to 1: open drain"]
     #[inline(always)]

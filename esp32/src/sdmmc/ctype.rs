@@ -54,6 +54,21 @@ impl R {
         CARD_WIDTH8_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CTYPE")
+            .field(
+                "card_width4",
+                &format_args!("{}", self.card_width4().bits()),
+            )
+            .field(
+                "card_width8",
+                &format_args!("{}", self.card_width8().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - One bit per card indicates if card is 1-bit or 4-bit mode. 0: 1-bit mode; 1: 4-bit mode. Bit\\[1:0\\] correspond to card\\[1:0\\] respectively."]
     #[inline(always)]

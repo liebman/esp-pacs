@@ -46,6 +46,17 @@ impl R {
         BOD_MODE0_LP_INT_RAW_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_ANA::LP_INT_RAW")
+            .field(
+                "bod_mode0_lp_int_raw",
+                &format_args!("{}", self.bod_mode0_lp_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 31 - need_des"]
     #[inline(always)]

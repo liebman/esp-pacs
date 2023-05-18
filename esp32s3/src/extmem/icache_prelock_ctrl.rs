@@ -56,6 +56,21 @@ impl R {
         ICACHE_PRELOCK_SCT1_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_PRELOCK_CTRL")
+            .field(
+                "icache_prelock_sct0_en",
+                &format_args!("{}", self.icache_prelock_sct0_en().bit()),
+            )
+            .field(
+                "icache_prelock_sct1_en",
+                &format_args!("{}", self.icache_prelock_sct1_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable the first section of prelock function."]
     #[inline(always)]

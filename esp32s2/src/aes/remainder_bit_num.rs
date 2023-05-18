@@ -46,6 +46,17 @@ impl R {
         REMAINDER_BIT_NUM_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AES::REMAINDER_BIT_NUM")
+            .field(
+                "remainder_bit_num",
+                &format_args!("{}", self.remainder_bit_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Stores the Remainder Bit Number for the GCM operation."]
     #[inline(always)]

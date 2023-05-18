@@ -90,6 +90,37 @@ impl R {
         SLC1_RXLINK_PARK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_1RX_LINK")
+            .field(
+                "slc1_rxlink_addr",
+                &format_args!("{}", self.slc1_rxlink_addr().bits()),
+            )
+            .field(
+                "slc1_bt_packet",
+                &format_args!("{}", self.slc1_bt_packet().bit()),
+            )
+            .field(
+                "slc1_rxlink_stop",
+                &format_args!("{}", self.slc1_rxlink_stop().bit()),
+            )
+            .field(
+                "slc1_rxlink_start",
+                &format_args!("{}", self.slc1_rxlink_start().bit()),
+            )
+            .field(
+                "slc1_rxlink_restart",
+                &format_args!("{}", self.slc1_rxlink_restart().bit()),
+            )
+            .field(
+                "slc1_rxlink_park",
+                &format_args!("{}", self.slc1_rxlink_park().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19"]
     #[inline(always)]

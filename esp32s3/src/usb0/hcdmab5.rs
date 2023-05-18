@@ -22,6 +22,14 @@ impl R {
         H_HCDMAB5_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCDMAB5")
+            .field("h_hcdmab5", &format_args!("{}", self.h_hcdmab5().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hcdmab5](index.html) module"]
 pub struct HCDMAB5_SPEC;
 impl crate::RegisterSpec for HCDMAB5_SPEC {

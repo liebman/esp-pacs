@@ -109,6 +109,39 @@ impl R {
         TX_FIFO_SRST_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::TX_CFG0")
+            .field("tx_bytelen", &format_args!("{}", self.tx_bytelen().bits()))
+            .field(
+                "tx_gating_en",
+                &format_args!("{}", self.tx_gating_en().bit()),
+            )
+            .field("tx_start", &format_args!("{}", self.tx_start().bit()))
+            .field(
+                "tx_hw_valid_en",
+                &format_args!("{}", self.tx_hw_valid_en().bit()),
+            )
+            .field(
+                "tx_smp_edge_sel",
+                &format_args!("{}", self.tx_smp_edge_sel().bit()),
+            )
+            .field(
+                "tx_bit_unpack_order",
+                &format_args!("{}", self.tx_bit_unpack_order().bit()),
+            )
+            .field(
+                "tx_bus_wid_sel",
+                &format_args!("{}", self.tx_bus_wid_sel().bits()),
+            )
+            .field(
+                "tx_fifo_srst",
+                &format_args!("{}", self.tx_fifo_srst().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:17 - Configures tx sending data byte length."]
     #[inline(always)]

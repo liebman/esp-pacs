@@ -22,6 +22,14 @@ impl R {
         RESPONSE0_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::RESP0")
+            .field("response0", &format_args!("{}", self.response0().bits()))
+            .finish()
+    }
+}
 #[doc = "Response data register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [resp0](index.html) module"]
 pub struct RESP0_SPEC;
 impl crate::RegisterSpec for RESP0_SPEC {

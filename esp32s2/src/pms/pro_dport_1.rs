@@ -106,6 +106,41 @@ impl R {
         PRO_DPORT_RESERVE_FIFO_VALID_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_DPORT_1")
+            .field(
+                "pro_dport_apb_peripheral_forbid",
+                &format_args!("{}", self.pro_dport_apb_peripheral_forbid().bit()),
+            )
+            .field(
+                "pro_dport_rtcslow_spltaddr",
+                &format_args!("{}", self.pro_dport_rtcslow_spltaddr().bits()),
+            )
+            .field(
+                "pro_dport_rtcslow_l_r",
+                &format_args!("{}", self.pro_dport_rtcslow_l_r().bit()),
+            )
+            .field(
+                "pro_dport_rtcslow_l_w",
+                &format_args!("{}", self.pro_dport_rtcslow_l_w().bit()),
+            )
+            .field(
+                "pro_dport_rtcslow_h_r",
+                &format_args!("{}", self.pro_dport_rtcslow_h_r().bit()),
+            )
+            .field(
+                "pro_dport_rtcslow_h_w",
+                &format_args!("{}", self.pro_dport_rtcslow_h_w().bit()),
+            )
+            .field(
+                "pro_dport_reserve_fifo_valid",
+                &format_args!("{}", self.pro_dport_reserve_fifo_valid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Setting to 1 denies PeriBus1 bus???s access to APB peripheral."]
     #[inline(always)]

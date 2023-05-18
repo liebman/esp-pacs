@@ -64,6 +64,19 @@ impl R {
         DMA_MULTIPLE_TRANSACTION_SIZE_R::new(((self.bits >> 28) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::FIFOTH")
+            .field("tx_wmark", &format_args!("{}", self.tx_wmark().bits()))
+            .field("rx_wmark", &format_args!("{}", self.rx_wmark().bits()))
+            .field(
+                "dma_multiple_transaction_size",
+                &format_args!("{}", self.dma_multiple_transaction_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - FIFO threshold watermark level when transmitting data to card. When FIFO data count is less than or equal to this number, DMA/FIFO request is raised. If Interrupt is enabled, then interrupt occurs. During end of packet, request or interrupt is generated, regardless of threshold programming.In non-DMA mode, when transmit FIFO threshold (TXDR) interrupt is enabled, then interrupt is generated instead of DMA request. During end of packet, on last interrupt, host is responsible for filling FIFO with only required remaining bytes (not before FIFO is full or after CIU completes data transfers, because FIFO may not be empty). In DMA mode, at end of packet, if last transfer is less than burst size, DMA controller does single cycles until required bytes are transferred."]
     #[inline(always)]

@@ -174,6 +174,65 @@ impl R {
         CORE_1_PIF_PMS_CONSTRAIN_WORLD_1_UART1_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_CONSTRAIN_5")
+            .field(
+                "core_1_pif_pms_constrain_world_1_uart",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_uart().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_g0spi_1",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_g0spi_1().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_g0spi_0",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_g0spi_0().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_gpio",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_gpio().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_fe2",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_fe2().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_fe",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_fe().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_rtc",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_rtc().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_io_mux",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_io_mux().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_hinf",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_hinf().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_misc",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_misc().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_i2c",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_i2c().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_i2s0",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_i2s0().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_uart1",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_uart1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Core1 access uart permission in world1."]
     #[inline(always)]

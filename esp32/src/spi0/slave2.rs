@@ -76,6 +76,29 @@ impl R {
         SLV_WRBUF_DUMMY_CYCLELEN_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLAVE2")
+            .field(
+                "slv_rdsta_dummy_cyclelen",
+                &format_args!("{}", self.slv_rdsta_dummy_cyclelen().bits()),
+            )
+            .field(
+                "slv_wrsta_dummy_cyclelen",
+                &format_args!("{}", self.slv_wrsta_dummy_cyclelen().bits()),
+            )
+            .field(
+                "slv_rdbuf_dummy_cyclelen",
+                &format_args!("{}", self.slv_rdbuf_dummy_cyclelen().bits()),
+            )
+            .field(
+                "slv_wrbuf_dummy_cyclelen",
+                &format_args!("{}", self.slv_wrbuf_dummy_cyclelen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - In the slave mode it is the length in spi_clk cycles of dummy phase for read-status operations. The register value shall be (cycle_num-1)."]
     #[inline(always)]

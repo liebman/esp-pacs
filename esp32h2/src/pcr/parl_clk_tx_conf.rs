@@ -76,6 +76,29 @@ impl R {
         PARL_TX_RST_EN_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::PARL_CLK_TX_CONF")
+            .field(
+                "parl_clk_tx_div_num",
+                &format_args!("{}", self.parl_clk_tx_div_num().bits()),
+            )
+            .field(
+                "parl_clk_tx_sel",
+                &format_args!("{}", self.parl_clk_tx_sel().bits()),
+            )
+            .field(
+                "parl_clk_tx_en",
+                &format_args!("{}", self.parl_clk_tx_en().bit()),
+            )
+            .field(
+                "parl_tx_rst_en",
+                &format_args!("{}", self.parl_tx_rst_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The integral part of the frequency divider factor of the parl tx clock."]
     #[inline(always)]

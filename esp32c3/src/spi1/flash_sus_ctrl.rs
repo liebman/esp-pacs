@@ -139,6 +139,39 @@ impl R {
         SUS_TIMEOUT_CNT_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::FLASH_SUS_CTRL")
+            .field("flash_per", &format_args!("{}", self.flash_per().bit()))
+            .field("flash_pes", &format_args!("{}", self.flash_pes().bit()))
+            .field(
+                "flash_per_wait_en",
+                &format_args!("{}", self.flash_per_wait_en().bit()),
+            )
+            .field(
+                "flash_pes_wait_en",
+                &format_args!("{}", self.flash_pes_wait_en().bit()),
+            )
+            .field("pes_per_en", &format_args!("{}", self.pes_per_en().bit()))
+            .field(
+                "flash_pes_en",
+                &format_args!("{}", self.flash_pes_en().bit()),
+            )
+            .field(
+                "pesr_end_msk",
+                &format_args!("{}", self.pesr_end_msk().bits()),
+            )
+            .field("rd_sus_2b", &format_args!("{}", self.rd_sus_2b().bit()))
+            .field("per_end_en", &format_args!("{}", self.per_end_en().bit()))
+            .field("pes_end_en", &format_args!("{}", self.pes_end_en().bit()))
+            .field(
+                "sus_timeout_cnt",
+                &format_args!("{}", self.sus_timeout_cnt().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - program erase resume bit, program erase suspend operation will be triggered when the bit is set. The bit will be cleared once the operation done.1: enable 0: disable."]
     #[inline(always)]

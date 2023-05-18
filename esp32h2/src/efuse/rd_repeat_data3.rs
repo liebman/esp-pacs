@@ -92,6 +92,57 @@ impl R {
         HYS_EN_PAD0_R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA3")
+            .field(
+                "dis_download_mode",
+                &format_args!("{}", self.dis_download_mode().bit()),
+            )
+            .field(
+                "dis_direct_boot",
+                &format_args!("{}", self.dis_direct_boot().bit()),
+            )
+            .field(
+                "dis_usb_print",
+                &format_args!("{}", self.dis_usb_print().bit()),
+            )
+            .field(
+                "rpt4_reserved3_5",
+                &format_args!("{}", self.rpt4_reserved3_5().bit()),
+            )
+            .field(
+                "dis_usb_serial_jtag_download_mode",
+                &format_args!("{}", self.dis_usb_serial_jtag_download_mode().bit()),
+            )
+            .field(
+                "enable_security_download",
+                &format_args!("{}", self.enable_security_download().bit()),
+            )
+            .field(
+                "uart_print_control",
+                &format_args!("{}", self.uart_print_control().bits()),
+            )
+            .field(
+                "force_send_resume",
+                &format_args!("{}", self.force_send_resume().bit()),
+            )
+            .field(
+                "secure_version",
+                &format_args!("{}", self.secure_version().bits()),
+            )
+            .field(
+                "secure_boot_disable_fast_wake",
+                &format_args!("{}", self.secure_boot_disable_fast_wake().bit()),
+            )
+            .field(
+                "hys_en_pad0",
+                &format_args!("{}", self.hys_en_pad0().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "BLOCK0 data register 4.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data3](index.html) module"]
 pub struct RD_REPEAT_DATA3_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA3_SPEC {

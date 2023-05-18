@@ -45,6 +45,14 @@ impl R {
         CMDARG_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::CMDARG")
+            .field("cmdarg", &format_args!("{}", self.cmdarg().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Value indicates command argument to be passed to the card."]
     #[inline(always)]

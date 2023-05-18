@@ -67,6 +67,29 @@ impl R {
         L1_ICACHE1_PRELOAD_RGID_R::new(((self.bits >> 3) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_ICACHE1_PRELOAD_CTRL")
+            .field(
+                "l1_icache1_preload_ena",
+                &format_args!("{}", self.l1_icache1_preload_ena().bit()),
+            )
+            .field(
+                "l1_icache1_preload_done",
+                &format_args!("{}", self.l1_icache1_preload_done().bit()),
+            )
+            .field(
+                "l1_icache1_preload_order",
+                &format_args!("{}", self.l1_icache1_preload_order().bit()),
+            )
+            .field(
+                "l1_icache1_preload_rgid",
+                &format_args!("{}", self.l1_icache1_preload_rgid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable preload operation on L1-ICache1. It will be cleared by hardware automatically after preload operation is done."]
     #[inline(always)]

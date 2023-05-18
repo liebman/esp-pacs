@@ -36,6 +36,25 @@ impl R {
         ERR_CAPTURE_CODE_TYPE_R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::ERR_CODE_CAP")
+            .field(
+                "err_capture_code_segment",
+                &format_args!("{}", self.err_capture_code_segment().bits()),
+            )
+            .field(
+                "err_capture_code_direction",
+                &format_args!("{}", self.err_capture_code_direction().bit()),
+            )
+            .field(
+                "err_capture_code_type",
+                &format_args!("{}", self.err_capture_code_type().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "TWAI error info capture register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [err_code_cap](index.html) module"]
 pub struct ERR_CODE_CAP_SPEC;
 impl crate::RegisterSpec for ERR_CODE_CAP_SPEC {

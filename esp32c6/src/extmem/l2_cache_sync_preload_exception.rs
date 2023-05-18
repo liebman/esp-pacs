@@ -22,6 +22,17 @@ impl R {
         L2_CACHE_PLD_ERR_CODE_R::new(((self.bits >> 10) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_SYNC_PRELOAD_EXCEPTION")
+            .field(
+                "l2_cache_pld_err_code",
+                &format_args!("{}", self.l2_cache_pld_err_code().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache Sync/Preload Operation exception register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l2_cache_sync_preload_exception](index.html) module"]
 pub struct L2_CACHE_SYNC_PRELOAD_EXCEPTION_SPEC;
 impl crate::RegisterSpec for L2_CACHE_SYNC_PRELOAD_EXCEPTION_SPEC {

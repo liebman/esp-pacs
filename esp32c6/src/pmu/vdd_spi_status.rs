@@ -22,6 +22,17 @@ impl R {
         STABLE_VDD_SPI_PWR_DRV_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::VDD_SPI_STATUS")
+            .field(
+                "stable_vdd_spi_pwr_drv",
+                &format_args!("{}", self.stable_vdd_spi_pwr_drv().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "need_des\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [vdd_spi_status](index.html) module"]
 pub struct VDD_SPI_STATUS_SPEC;
 impl crate::RegisterSpec for VDD_SPI_STATUS_SPEC {

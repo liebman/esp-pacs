@@ -56,6 +56,21 @@ impl R {
         SPI_MEM_WAIT_PESR_COMMAND_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::SPI_MEM_FLASH_SUS_CMD")
+            .field(
+                "spi_mem_flash_pes_command",
+                &format_args!("{}", self.spi_mem_flash_pes_command().bits()),
+            )
+            .field(
+                "spi_mem_wait_pesr_command",
+                &format_args!("{}", self.spi_mem_wait_pesr_command().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Program/Erase suspend command."]
     #[inline(always)]

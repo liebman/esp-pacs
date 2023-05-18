@@ -46,6 +46,17 @@ impl R {
         LP_AON_STORE2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::STORE2")
+            .field(
+                "lp_aon_store2",
+                &format_args!("{}", self.lp_aon_store2().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - need_des"]
     #[inline(always)]

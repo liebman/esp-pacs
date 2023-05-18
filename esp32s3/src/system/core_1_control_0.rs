@@ -66,6 +66,25 @@ impl R {
         CONTROL_CORE_1_RESETING_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CORE_1_CONTROL_0")
+            .field(
+                "control_core_1_runstall",
+                &format_args!("{}", self.control_core_1_runstall().bit()),
+            )
+            .field(
+                "control_core_1_clkgate_en",
+                &format_args!("{}", self.control_core_1_clkgate_en().bit()),
+            )
+            .field(
+                "control_core_1_reseting",
+                &format_args!("{}", self.control_core_1_reseting().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 to stall core1"]
     #[inline(always)]

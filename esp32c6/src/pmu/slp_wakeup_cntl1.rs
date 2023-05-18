@@ -56,6 +56,21 @@ impl R {
         SLP_REJECT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::SLP_WAKEUP_CNTL1")
+            .field(
+                "sleep_reject_ena",
+                &format_args!("{}", self.sleep_reject_ena().bits()),
+            )
+            .field(
+                "slp_reject_en",
+                &format_args!("{}", self.slp_reject_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:30 - need_des"]
     #[inline(always)]

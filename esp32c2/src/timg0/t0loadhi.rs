@@ -45,6 +45,14 @@ impl R {
         LOAD_HI_R::new(self.bits & 0x003f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::T0LOADHI")
+            .field("load_hi", &format_args!("{}", self.load_hi().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - High 22 bits of the value that a reload will load onto timer 0 time-base counter."]
     #[inline(always)]

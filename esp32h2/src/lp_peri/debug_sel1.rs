@@ -45,6 +45,14 @@ impl R {
         DEBUG_SEL4_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_PERI::DEBUG_SEL1")
+            .field("debug_sel4", &format_args!("{}", self.debug_sel4().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - need des"]
     #[inline(always)]

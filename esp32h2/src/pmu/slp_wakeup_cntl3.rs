@@ -66,6 +66,25 @@ impl R {
         SLEEP_PRT_SEL_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::SLP_WAKEUP_CNTL3")
+            .field(
+                "lp_min_slp_val",
+                &format_args!("{}", self.lp_min_slp_val().bits()),
+            )
+            .field(
+                "hp_min_slp_val",
+                &format_args!("{}", self.hp_min_slp_val().bits()),
+            )
+            .field(
+                "sleep_prt_sel",
+                &format_args!("{}", self.sleep_prt_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - need_des"]
     #[inline(always)]

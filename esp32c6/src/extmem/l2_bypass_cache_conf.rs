@@ -22,6 +22,17 @@ impl R {
         BYPASS_L2_CACHE_EN_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_BYPASS_CACHE_CONF")
+            .field(
+                "bypass_l2_cache_en",
+                &format_args!("{}", self.bypass_l2_cache_en().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Bypass Cache configure register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l2_bypass_cache_conf](index.html) module"]
 pub struct L2_BYPASS_CACHE_CONF_SPEC;
 impl crate::RegisterSpec for L2_BYPASS_CACHE_CONF_SPEC {

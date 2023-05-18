@@ -66,6 +66,25 @@ impl R {
         SPI_CRYPT_DPA_SELECT_REGISTER_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_DPA_CTRL")
+            .field(
+                "spi_crypt_security_level",
+                &format_args!("{}", self.spi_crypt_security_level().bits()),
+            )
+            .field(
+                "spi_crypt_calc_d_dpa_en",
+                &format_args!("{}", self.spi_crypt_calc_d_dpa_en().bit()),
+            )
+            .field(
+                "spi_crypt_dpa_select_register",
+                &format_args!("{}", self.spi_crypt_dpa_select_register().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Set the security level of spi mem cryption. 0: Shut off cryption DPA funtion. 1-7: The bigger the number is, the more secure the cryption is. (Note that the performance of cryption will decrease together with this number increasing)"]
     #[inline(always)]

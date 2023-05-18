@@ -106,6 +106,41 @@ impl R {
         BACKUP_BUS_PMS_CONSTRAIN_PWR_R::new(((self.bits >> 28) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_CONSTRAIN_3")
+            .field(
+                "backup_bus_pms_constrain_spi_2",
+                &format_args!("{}", self.backup_bus_pms_constrain_spi_2().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_apb_ctrl",
+                &format_args!("{}", self.backup_bus_pms_constrain_apb_ctrl().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_can",
+                &format_args!("{}", self.backup_bus_pms_constrain_can().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_i2s1",
+                &format_args!("{}", self.backup_bus_pms_constrain_i2s1().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_rwbt",
+                &format_args!("{}", self.backup_bus_pms_constrain_rwbt().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_wifimac",
+                &format_args!("{}", self.backup_bus_pms_constrain_wifimac().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_pwr",
+                &format_args!("{}", self.backup_bus_pms_constrain_pwr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - backup_bus_pms_constrain_spi_2"]
     #[inline(always)]

@@ -65,6 +65,16 @@ impl R {
         TIME_SAMP_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::BUS_TIMING_1")
+            .field("time_seg1", &format_args!("{}", self.time_seg1().bits()))
+            .field("time_seg2", &format_args!("{}", self.time_seg2().bits()))
+            .field("time_samp", &format_args!("{}", self.time_samp().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - The width of PBS1."]
     #[inline(always)]

@@ -36,6 +36,19 @@ impl R {
         RX_ERR_CAUSE_R::new(((self.bits >> 4) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::DMA_IN_STATUS")
+            .field("in_full", &format_args!("{}", self.in_full().bit()))
+            .field("in_empty", &format_args!("{}", self.in_empty().bit()))
+            .field(
+                "rx_err_cause",
+                &format_args!("{}", self.rx_err_cause().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_in_status](index.html) module"]
 pub struct DMA_IN_STATUS_SPEC;
 impl crate::RegisterSpec for DMA_IN_STATUS_SPEC {

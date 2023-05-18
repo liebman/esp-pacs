@@ -72,6 +72,29 @@ impl R {
         DCACHE_RESET_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SYSTEM::CACHE_CONTROL")
+            .field(
+                "icache_clk_on",
+                &format_args!("{}", self.icache_clk_on().bit()),
+            )
+            .field(
+                "icache_reset",
+                &format_args!("{}", self.icache_reset().bit()),
+            )
+            .field(
+                "dcache_clk_on",
+                &format_args!("{}", self.dcache_clk_on().bit()),
+            )
+            .field(
+                "dcache_reset",
+                &format_args!("{}", self.dcache_reset().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - reg_icache_clk_on"]
     #[inline(always)]

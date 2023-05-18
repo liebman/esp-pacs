@@ -46,6 +46,17 @@ impl R {
         REGION_PMS_CONSTRAIN_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::REGION_PMS_CONSTRAIN_0")
+            .field(
+                "region_pms_constrain_lock",
+                &format_args!("{}", self.region_pms_constrain_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - region_pms_constrain_lock"]
     #[inline(always)]

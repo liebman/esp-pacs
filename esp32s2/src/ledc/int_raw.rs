@@ -155,6 +155,93 @@ impl R {
         OVF_CNT_CH7_INT_RAW_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::INT_RAW")
+            .field(
+                "timer0_ovf_int_raw",
+                &format_args!("{}", self.timer0_ovf_int_raw().bit()),
+            )
+            .field(
+                "timer1_ovf_int_raw",
+                &format_args!("{}", self.timer1_ovf_int_raw().bit()),
+            )
+            .field(
+                "timer2_ovf_int_raw",
+                &format_args!("{}", self.timer2_ovf_int_raw().bit()),
+            )
+            .field(
+                "timer3_ovf_int_raw",
+                &format_args!("{}", self.timer3_ovf_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch0_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch0_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch1_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch1_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch2_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch2_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch3_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch3_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch4_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch4_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch5_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch5_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch6_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch6_int_raw().bit()),
+            )
+            .field(
+                "duty_chng_end_ch7_int_raw",
+                &format_args!("{}", self.duty_chng_end_ch7_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch0_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch0_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch1_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch1_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch2_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch2_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch3_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch3_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch4_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch4_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch5_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch5_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch6_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch6_int_raw().bit()),
+            )
+            .field(
+                "ovf_cnt_ch7_int_raw",
+                &format_args!("{}", self.ovf_cnt_ch7_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Raw interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {

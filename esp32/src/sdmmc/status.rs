@@ -85,6 +85,41 @@ impl R {
         FIFO_COUNT_R::new(((self.bits >> 17) & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::STATUS")
+            .field(
+                "fifo_rx_watermark",
+                &format_args!("{}", self.fifo_rx_watermark().bit()),
+            )
+            .field(
+                "fifo_tx_watermark",
+                &format_args!("{}", self.fifo_tx_watermark().bit()),
+            )
+            .field("fifo_empty", &format_args!("{}", self.fifo_empty().bit()))
+            .field("fifo_full", &format_args!("{}", self.fifo_full().bit()))
+            .field(
+                "command_fsm_states",
+                &format_args!("{}", self.command_fsm_states().bits()),
+            )
+            .field(
+                "data_3_status",
+                &format_args!("{}", self.data_3_status().bit()),
+            )
+            .field("data_busy", &format_args!("{}", self.data_busy().bit()))
+            .field(
+                "data_state_mc_busy",
+                &format_args!("{}", self.data_state_mc_busy().bit()),
+            )
+            .field(
+                "response_index",
+                &format_args!("{}", self.response_index().bits()),
+            )
+            .field("fifo_count", &format_args!("{}", self.fifo_count().bits()))
+            .finish()
+    }
+}
 #[doc = "SD/MMC status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {

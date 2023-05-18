@@ -52,6 +52,18 @@ impl R {
         INFIFO_POP_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::DMA_IN_POP")
+            .field(
+                "infifo_rdata",
+                &format_args!("{}", self.infifo_rdata().bits()),
+            )
+            .field("infifo_pop", &format_args!("{}", self.infifo_pop().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - Set this bit to pop data in in link descriptor's fifo."]
     #[inline(always)]

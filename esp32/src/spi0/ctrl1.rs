@@ -55,6 +55,21 @@ impl R {
         CS_HOLD_DELAY_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::CTRL1")
+            .field(
+                "cs_hold_delay_res",
+                &format_args!("{}", self.cs_hold_delay_res().bits()),
+            )
+            .field(
+                "cs_hold_delay",
+                &format_args!("{}", self.cs_hold_delay().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:27 - Delay cycles of resume Flash when resume Flash is enable by spi clock."]
     #[inline(always)]

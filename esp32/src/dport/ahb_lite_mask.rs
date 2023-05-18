@@ -91,6 +91,22 @@ impl R {
         AHB_LITE_SDHOST_PID_R::new(((self.bits >> 11) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::AHB_LITE_MASK")
+            .field("pro", &format_args!("{}", self.pro().bit()))
+            .field("app", &format_args!("{}", self.app().bit()))
+            .field("sdio", &format_args!("{}", self.sdio().bit()))
+            .field("prodport", &format_args!("{}", self.prodport().bit()))
+            .field("appdport", &format_args!("{}", self.appdport().bit()))
+            .field(
+                "ahb_lite_sdhost_pid",
+                &format_args!("{}", self.ahb_lite_sdhost_pid().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

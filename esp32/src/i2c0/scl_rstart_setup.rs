@@ -46,6 +46,14 @@ impl R {
         TIME_R::new((self.bits & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_RSTART_SETUP")
+            .field("time", &format_args!("{}", self.time().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - This register is used to configure the clock num between the posedge of SCL and the negedge of SDA for restart mark."]
     #[inline(always)]

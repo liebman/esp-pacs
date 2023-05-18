@@ -56,6 +56,21 @@ impl R {
         FORCE_HP_PAD_ISO_ALL_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::POWER_HP_PAD")
+            .field(
+                "force_hp_pad_no_iso_all",
+                &format_args!("{}", self.force_hp_pad_no_iso_all().bit()),
+            )
+            .field(
+                "force_hp_pad_iso_all",
+                &format_args!("{}", self.force_hp_pad_iso_all().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

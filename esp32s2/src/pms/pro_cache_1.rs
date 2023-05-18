@@ -46,6 +46,17 @@ impl R {
         PRO_CACHE_CONNECT_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_CACHE_1")
+            .field(
+                "pro_cache_connect",
+                &format_args!("{}", self.pro_cache_connect().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Configure which SRAM Block will be occupied by Icache or Dcache."]
     #[inline(always)]

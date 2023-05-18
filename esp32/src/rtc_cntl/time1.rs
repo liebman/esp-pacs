@@ -22,6 +22,14 @@ impl R {
         TIME_HI_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIME1")
+            .field("time_hi", &format_args!("{}", self.time_hi().bits()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [time1](index.html) module"]
 pub struct TIME1_SPEC;
 impl crate::RegisterSpec for TIME1_SPEC {

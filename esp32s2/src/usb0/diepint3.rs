@@ -160,6 +160,51 @@ impl R {
         D_NYETINTRPT3_R::new(((self.bits >> 14) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DIEPINT3")
+            .field(
+                "d_xfercompl3",
+                &format_args!("{}", self.d_xfercompl3().bit()),
+            )
+            .field("d_epdisbld3", &format_args!("{}", self.d_epdisbld3().bit()))
+            .field("d_ahberr3", &format_args!("{}", self.d_ahberr3().bit()))
+            .field("d_timeout3", &format_args!("{}", self.d_timeout3().bit()))
+            .field(
+                "d_intkntxfemp3",
+                &format_args!("{}", self.d_intkntxfemp3().bit()),
+            )
+            .field(
+                "d_intknepmis3",
+                &format_args!("{}", self.d_intknepmis3().bit()),
+            )
+            .field(
+                "d_inepnakeff3",
+                &format_args!("{}", self.d_inepnakeff3().bit()),
+            )
+            .field("d_txfemp3", &format_args!("{}", self.d_txfemp3().bit()))
+            .field(
+                "d_txfifoundrn3",
+                &format_args!("{}", self.d_txfifoundrn3().bit()),
+            )
+            .field("d_bnaintr3", &format_args!("{}", self.d_bnaintr3().bit()))
+            .field(
+                "d_pktdrpsts3",
+                &format_args!("{}", self.d_pktdrpsts3().bit()),
+            )
+            .field("d_bbleerr3", &format_args!("{}", self.d_bbleerr3().bit()))
+            .field(
+                "d_nakintrpt3",
+                &format_args!("{}", self.d_nakintrpt3().bit()),
+            )
+            .field(
+                "d_nyetintrpt3",
+                &format_args!("{}", self.d_nyetintrpt3().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

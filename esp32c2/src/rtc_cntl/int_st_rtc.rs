@@ -99,6 +99,35 @@ impl R {
         BBPLL_CAL_INT_ST_R::new(((self.bits >> 20) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::INT_ST_RTC")
+            .field(
+                "slp_wakeup_int_st",
+                &format_args!("{}", self.slp_wakeup_int_st().bit()),
+            )
+            .field(
+                "slp_reject_int_st",
+                &format_args!("{}", self.slp_reject_int_st().bit()),
+            )
+            .field("wdt_int_st", &format_args!("{}", self.wdt_int_st().bit()))
+            .field(
+                "brown_out_int_st",
+                &format_args!("{}", self.brown_out_int_st().bit()),
+            )
+            .field(
+                "main_timer_int_st",
+                &format_args!("{}", self.main_timer_int_st().bit()),
+            )
+            .field("swd_int_st", &format_args!("{}", self.swd_int_st().bit()))
+            .field(
+                "bbpll_cal_int_st",
+                &format_args!("{}", self.bbpll_cal_int_st().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - sleep wakeup interrupt state"]
     #[inline(always)]

@@ -108,6 +108,45 @@ impl R {
         CHAN_EST_FORCE_PU_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("NRX::NRXPD_CTRL")
+            .field(
+                "demap_force_pd",
+                &format_args!("{}", self.demap_force_pd().bit()),
+            )
+            .field(
+                "demap_force_pu",
+                &format_args!("{}", self.demap_force_pu().bit()),
+            )
+            .field(
+                "vit_force_pd",
+                &format_args!("{}", self.vit_force_pd().bit()),
+            )
+            .field(
+                "vit_force_pu",
+                &format_args!("{}", self.vit_force_pu().bit()),
+            )
+            .field(
+                "rx_rot_force_pd",
+                &format_args!("{}", self.rx_rot_force_pd().bit()),
+            )
+            .field(
+                "rx_rot_force_pu",
+                &format_args!("{}", self.rx_rot_force_pu().bit()),
+            )
+            .field(
+                "chan_est_force_pd",
+                &format_args!("{}", self.chan_est_force_pd().bit()),
+            )
+            .field(
+                "chan_est_force_pu",
+                &format_args!("{}", self.chan_est_force_pu().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

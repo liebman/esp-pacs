@@ -146,6 +146,58 @@ impl R {
         DB1_CLK_SEL_R::new(((self.bits >> 17) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::DB1_CFG")
+            .field(
+                "db1_fed_upmethod",
+                &format_args!("{}", self.db1_fed_upmethod().bits()),
+            )
+            .field(
+                "db1_red_upmethod",
+                &format_args!("{}", self.db1_red_upmethod().bits()),
+            )
+            .field(
+                "db1_deb_mode",
+                &format_args!("{}", self.db1_deb_mode().bit()),
+            )
+            .field(
+                "db1_a_outswap",
+                &format_args!("{}", self.db1_a_outswap().bit()),
+            )
+            .field(
+                "db1_b_outswap",
+                &format_args!("{}", self.db1_b_outswap().bit()),
+            )
+            .field(
+                "db1_red_insel",
+                &format_args!("{}", self.db1_red_insel().bit()),
+            )
+            .field(
+                "db1_fed_insel",
+                &format_args!("{}", self.db1_fed_insel().bit()),
+            )
+            .field(
+                "db1_red_outinvert",
+                &format_args!("{}", self.db1_red_outinvert().bit()),
+            )
+            .field(
+                "db1_fed_outinvert",
+                &format_args!("{}", self.db1_fed_outinvert().bit()),
+            )
+            .field(
+                "db1_a_outbypass",
+                &format_args!("{}", self.db1_a_outbypass().bit()),
+            )
+            .field(
+                "db1_b_outbypass",
+                &format_args!("{}", self.db1_b_outbypass().bit()),
+            )
+            .field("db1_clk_sel", &format_args!("{}", self.db1_clk_sel().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Update method for FED (falling edge delay) active register. 0: immediate, bit0: tez, bit1: tep, bit2: sync, bit3: freeze"]
     #[inline(always)]

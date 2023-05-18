@@ -46,6 +46,14 @@ impl R {
         BLK1_DIN7_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK1_WDATA7")
+            .field("blk1_din7", &format_args!("{}", self.blk1_din7().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - program for BLOCK1"]
     #[inline(always)]

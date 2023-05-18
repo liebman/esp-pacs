@@ -46,6 +46,17 @@ impl R {
         FLASH_ACE2_ATTR_R::new((self.bits & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::FLASH_ACE2_ATTR")
+            .field(
+                "flash_ace2_attr",
+                &format_args!("{}", self.flash_ace2_attr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - reg_flash_ace2_attr"]
     #[inline(always)]

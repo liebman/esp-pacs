@@ -54,6 +54,21 @@ impl R {
         SOC_WAKEUP_INT_ENA_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_TIMER::INT_ENA")
+            .field(
+                "overflow_ena",
+                &format_args!("{}", self.overflow_ena().bit()),
+            )
+            .field(
+                "soc_wakeup_int_ena",
+                &format_args!("{}", self.soc_wakeup_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

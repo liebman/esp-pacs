@@ -49,6 +49,38 @@ impl R {
         BACKUP_BUS_PMS_MONITOR_VIOLATE_STATUS_HWRITE_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_MONITOR_2")
+            .field(
+                "backup_bus_pms_monitor_violate_intr",
+                &format_args!("{}", self.backup_bus_pms_monitor_violate_intr().bit()),
+            )
+            .field(
+                "backup_bus_pms_monitor_violate_status_htrans",
+                &format_args!(
+                    "{}",
+                    self.backup_bus_pms_monitor_violate_status_htrans().bits()
+                ),
+            )
+            .field(
+                "backup_bus_pms_monitor_violate_status_hsize",
+                &format_args!(
+                    "{}",
+                    self.backup_bus_pms_monitor_violate_status_hsize().bits()
+                ),
+            )
+            .field(
+                "backup_bus_pms_monitor_violate_status_hwrite",
+                &format_args!(
+                    "{}",
+                    self.backup_bus_pms_monitor_violate_status_hwrite().bit()
+                ),
+            )
+            .finish()
+    }
+}
 #[doc = "SENSITIVE_BACKUP_BUS_PMS_MONITOR_2_REG\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [backup_bus_pms_monitor_2](index.html) module"]
 pub struct BACKUP_BUS_PMS_MONITOR_2_SPEC;
 impl crate::RegisterSpec for BACKUP_BUS_PMS_MONITOR_2_SPEC {

@@ -56,6 +56,21 @@ impl R {
         PWDET_SAR_READER_EN_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::PWDET_SAR_CLK_CONF")
+            .field(
+                "pwdet_sar_clk_div_num",
+                &format_args!("{}", self.pwdet_sar_clk_div_num().bits()),
+            )
+            .field(
+                "pwdet_sar_reader_en",
+                &format_args!("{}", self.pwdet_sar_reader_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - xxxx"]
     #[inline(always)]

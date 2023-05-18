@@ -66,6 +66,25 @@ impl R {
         CPU_HS_120M_FORCE_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::CPU_FREQ_CONF")
+            .field(
+                "cpu_ls_div_num",
+                &format_args!("{}", self.cpu_ls_div_num().bits()),
+            )
+            .field(
+                "cpu_hs_div_num",
+                &format_args!("{}", self.cpu_hs_div_num().bits()),
+            )
+            .field(
+                "cpu_hs_120m_force",
+                &format_args!("{}", self.cpu_hs_120m_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Set as one within (0,1,3) to generate clk_cpu drived by clk_hproot. The clk_cpu is div1(default)/div2/div4 of clk_hproot. This field is only avaliable for low-speed clock-source such as XTAL/FOSC, and should be used together with PCR_AHB_LS_DIV_NUM."]
     #[inline(always)]

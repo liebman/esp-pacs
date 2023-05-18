@@ -46,6 +46,17 @@ impl R {
         REGION12_ADDR_END_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_APM::REGION12_ADDR_END")
+            .field(
+                "region12_addr_end",
+                &format_args!("{}", self.region12_addr_end().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - End address of region12"]
     #[inline(always)]

@@ -22,6 +22,14 @@ impl R {
         LACT_LO_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::LACTLO")
+            .field("lact_lo", &format_args!("{}", self.lact_lo().bits()))
+            .finish()
+    }
+}
 #[doc = "LACT low register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lactlo](index.html) module"]
 pub struct LACTLO_SPEC;
 impl crate::RegisterSpec for LACTLO_SPEC {

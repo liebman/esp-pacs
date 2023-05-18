@@ -65,6 +65,25 @@ impl R {
         TX_VALID_OUTPUT_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PARL_IO::TX_GENRL_CFG")
+            .field(
+                "tx_idle_value",
+                &format_args!("{}", self.tx_idle_value().bits()),
+            )
+            .field(
+                "tx_gating_en",
+                &format_args!("{}", self.tx_gating_en().bit()),
+            )
+            .field(
+                "tx_valid_output_en",
+                &format_args!("{}", self.tx_valid_output_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 14:29 - Configures bus value of transmitter in IDLE state."]
     #[inline(always)]

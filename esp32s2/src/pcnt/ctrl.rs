@@ -117,6 +117,34 @@ impl R {
         CLK_EN_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCNT::CTRL")
+            .field("cnt_rst_u0", &format_args!("{}", self.cnt_rst_u0().bit()))
+            .field(
+                "cnt_pause_u0",
+                &format_args!("{}", self.cnt_pause_u0().bit()),
+            )
+            .field("cnt_rst_u1", &format_args!("{}", self.cnt_rst_u1().bit()))
+            .field(
+                "cnt_pause_u1",
+                &format_args!("{}", self.cnt_pause_u1().bit()),
+            )
+            .field("cnt_rst_u2", &format_args!("{}", self.cnt_rst_u2().bit()))
+            .field(
+                "cnt_pause_u2",
+                &format_args!("{}", self.cnt_pause_u2().bit()),
+            )
+            .field("cnt_rst_u3", &format_args!("{}", self.cnt_rst_u3().bit()))
+            .field(
+                "cnt_pause_u3",
+                &format_args!("{}", self.cnt_pause_u3().bit()),
+            )
+            .field("clk_en", &format_args!("{}", self.clk_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to clear unit 0's counter."]
     #[inline(always)]

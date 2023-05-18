@@ -46,6 +46,17 @@ impl R {
         LOG_DATA_SIZE_R::new((self.bits & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::LOG_DATA_MASK")
+            .field(
+                "log_data_size",
+                &format_args!("{}", self.log_data_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - data mask"]
     #[inline(always)]

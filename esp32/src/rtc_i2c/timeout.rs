@@ -45,6 +45,14 @@ impl R {
         TIMEOUT_R::new(self.bits & 0x000f_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::TIMEOUT")
+            .field("timeout", &format_args!("{}", self.timeout().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - Maximum number of FAST_CLK cycles that the transmission can take"]
     #[inline(always)]

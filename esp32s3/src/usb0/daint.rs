@@ -113,6 +113,27 @@ impl R {
         OUTEPINT6_R::new(((self.bits >> 22) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DAINT")
+            .field("inepint0", &format_args!("{}", self.inepint0().bit()))
+            .field("inepint1", &format_args!("{}", self.inepint1().bit()))
+            .field("inepint2", &format_args!("{}", self.inepint2().bit()))
+            .field("inepint3", &format_args!("{}", self.inepint3().bit()))
+            .field("inepint4", &format_args!("{}", self.inepint4().bit()))
+            .field("inepint5", &format_args!("{}", self.inepint5().bit()))
+            .field("inepint6", &format_args!("{}", self.inepint6().bit()))
+            .field("outepint0", &format_args!("{}", self.outepint0().bit()))
+            .field("outepint1", &format_args!("{}", self.outepint1().bit()))
+            .field("outepint2", &format_args!("{}", self.outepint2().bit()))
+            .field("outepint3", &format_args!("{}", self.outepint3().bit()))
+            .field("outepint4", &format_args!("{}", self.outepint4().bit()))
+            .field("outepint5", &format_args!("{}", self.outepint5().bit()))
+            .field("outepint6", &format_args!("{}", self.outepint6().bit()))
+            .finish()
+    }
+}
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [daint](index.html) module"]
 pub struct DAINT_SPEC;
 impl crate::RegisterSpec for DAINT_SPEC {

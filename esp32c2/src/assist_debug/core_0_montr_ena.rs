@@ -56,6 +56,21 @@ impl R {
         CORE_0_SP_SPILL_MAX_ENA_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ASSIST_DEBUG::CORE_0_MONTR_ENA")
+            .field(
+                "core_0_sp_spill_min_ena",
+                &format_args!("{}", self.core_0_sp_spill_min_ena().bit()),
+            )
+            .field(
+                "core_0_sp_spill_max_ena",
+                &format_args!("{}", self.core_0_sp_spill_max_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - enbale sp underlow monitor"]
     #[inline(always)]

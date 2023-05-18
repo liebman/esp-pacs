@@ -55,6 +55,21 @@ impl R {
         DATA_TIMEOUT_R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDMMC::TMOUT")
+            .field(
+                "response_timeout",
+                &format_args!("{}", self.response_timeout().bits()),
+            )
+            .field(
+                "data_timeout",
+                &format_args!("{}", self.data_timeout().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Response timeout value. Value is specified in terms of number of card output clocks, i.e., sdhost_cclk_out."]
     #[inline(always)]

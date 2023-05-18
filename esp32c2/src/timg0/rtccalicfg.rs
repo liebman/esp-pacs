@@ -82,6 +82,33 @@ impl R {
         RTC_CALI_START_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMG0::RTCCALICFG")
+            .field(
+                "rtc_cali_start_cycling",
+                &format_args!("{}", self.rtc_cali_start_cycling().bit()),
+            )
+            .field(
+                "rtc_cali_clk_sel",
+                &format_args!("{}", self.rtc_cali_clk_sel().bits()),
+            )
+            .field(
+                "rtc_cali_rdy",
+                &format_args!("{}", self.rtc_cali_rdy().bit()),
+            )
+            .field(
+                "rtc_cali_max",
+                &format_args!("{}", self.rtc_cali_max().bits()),
+            )
+            .field(
+                "rtc_cali_start",
+                &format_args!("{}", self.rtc_cali_start().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 12 - Reserved"]
     #[inline(always)]

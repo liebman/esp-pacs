@@ -22,6 +22,14 @@ impl R {
         IN_STATUS_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEDICATED_GPIO::IN_SCAN")
+            .field("in_status", &format_args!("{}", self.in_status().bits()))
+            .finish()
+    }
+}
 #[doc = "Dedicated GPIO input status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_scan](index.html) module"]
 pub struct IN_SCAN_SPEC;
 impl crate::RegisterSpec for IN_SCAN_SPEC {

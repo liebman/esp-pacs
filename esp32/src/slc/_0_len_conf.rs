@@ -86,6 +86,29 @@ impl R {
         SLC0_TX_NEW_PKT_IND_R::new(((self.bits >> 28) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLC::_0_LEN_CONF")
+            .field(
+                "slc0_rx_packet_load_en",
+                &format_args!("{}", self.slc0_rx_packet_load_en().bit()),
+            )
+            .field(
+                "slc0_tx_packet_load_en",
+                &format_args!("{}", self.slc0_tx_packet_load_en().bit()),
+            )
+            .field(
+                "slc0_rx_new_pkt_ind",
+                &format_args!("{}", self.slc0_rx_new_pkt_ind().bit()),
+            )
+            .field(
+                "slc0_tx_new_pkt_ind",
+                &format_args!("{}", self.slc0_tx_new_pkt_ind().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19"]
     #[inline(always)]

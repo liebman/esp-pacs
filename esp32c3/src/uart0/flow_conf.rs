@@ -90,6 +90,22 @@ impl R {
         SEND_XOFF_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::FLOW_CONF")
+            .field(
+                "sw_flow_con_en",
+                &format_args!("{}", self.sw_flow_con_en().bit()),
+            )
+            .field("xonoff_del", &format_args!("{}", self.xonoff_del().bit()))
+            .field("force_xon", &format_args!("{}", self.force_xon().bit()))
+            .field("force_xoff", &format_args!("{}", self.force_xoff().bit()))
+            .field("send_xon", &format_args!("{}", self.send_xon().bit()))
+            .field("send_xoff", &format_args!("{}", self.send_xoff().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to enable software flow control. It is used with register sw_xon or sw_xoff."]
     #[inline(always)]

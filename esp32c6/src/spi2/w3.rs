@@ -45,6 +45,14 @@ impl R {
         BUF3_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::W3")
+            .field("buf3", &format_args!("{}", self.buf3().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - data buffer"]
     #[inline(always)]

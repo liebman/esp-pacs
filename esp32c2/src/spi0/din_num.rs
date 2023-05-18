@@ -43,6 +43,17 @@ impl R {
         DIN3_NUM_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DIN_NUM")
+            .field("din0_num", &format_args!("{}", self.din0_num().bit()))
+            .field("din1_num", &format_args!("{}", self.din1_num().bit()))
+            .field("din2_num", &format_args!("{}", self.din2_num().bit()))
+            .field("din3_num", &format_args!("{}", self.din3_num().bit()))
+            .finish()
+    }
+}
 #[doc = "SPI0 input delay number control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [din_num](index.html) module"]
 pub struct DIN_NUM_SPEC;
 impl crate::RegisterSpec for DIN_NUM_SPEC {

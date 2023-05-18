@@ -84,6 +84,33 @@ impl R {
         LCD_HSYNC_POSITION_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::LCD_CTRL2")
+            .field(
+                "lcd_vsync_width",
+                &format_args!("{}", self.lcd_vsync_width().bits()),
+            )
+            .field(
+                "vsync_idle_pol",
+                &format_args!("{}", self.vsync_idle_pol().bit()),
+            )
+            .field(
+                "lcd_hsync_width",
+                &format_args!("{}", self.lcd_hsync_width().bits()),
+            )
+            .field(
+                "hsync_idle_pol",
+                &format_args!("{}", self.hsync_idle_pol().bit()),
+            )
+            .field(
+                "lcd_hsync_position",
+                &format_args!("{}", self.lcd_hsync_position().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - It is the position of spi_vsync active pulse in a line. Can be configured in CONF state."]
     #[inline(always)]

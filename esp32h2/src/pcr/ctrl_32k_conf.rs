@@ -56,6 +56,21 @@ impl R {
         _32K_MODEM_SEL_R::new(((self.bits >> 2) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::CTRL_32K_CONF")
+            .field(
+                "clk_32k_sel",
+                &format_args!("{}", self.clk_32k_sel().bits()),
+            )
+            .field(
+                "_32k_modem_sel",
+                &format_args!("{}", self._32k_modem_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - This field indicates which one 32KHz clock will be used by timergroup. 0: OSC32K(default), 1: XTAL32K, 2/3: 32KHz from pad GPIO0."]
     #[inline(always)]

@@ -65,6 +65,22 @@ impl R {
         TX_BRK_NUM_R::new(((self.bits >> 20) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UART0::IDLE_CONF")
+            .field(
+                "rx_idle_thrhd",
+                &format_args!("{}", self.rx_idle_thrhd().bits()),
+            )
+            .field(
+                "tx_idle_num",
+                &format_args!("{}", self.tx_idle_num().bits()),
+            )
+            .field("tx_brk_num", &format_args!("{}", self.tx_brk_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - A frame end signal is generated when the receiver takes more time to receive one byte data than this register's value, in the unit of bit time (the time it takes to transfer one bit)."]
     #[inline(always)]

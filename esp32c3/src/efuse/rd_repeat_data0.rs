@@ -155,6 +155,78 @@ impl R {
         POWER_GLITCH_DSENSE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_REPEAT_DATA0")
+            .field("rd_dis", &format_args!("{}", self.rd_dis().bits()))
+            .field(
+                "dis_rtc_ram_boot",
+                &format_args!("{}", self.dis_rtc_ram_boot().bit()),
+            )
+            .field("dis_icache", &format_args!("{}", self.dis_icache().bit()))
+            .field(
+                "dis_usb_jtag",
+                &format_args!("{}", self.dis_usb_jtag().bit()),
+            )
+            .field(
+                "dis_download_icache",
+                &format_args!("{}", self.dis_download_icache().bit()),
+            )
+            .field(
+                "dis_usb_device",
+                &format_args!("{}", self.dis_usb_device().bit()),
+            )
+            .field(
+                "dis_force_download",
+                &format_args!("{}", self.dis_force_download().bit()),
+            )
+            .field(
+                "rpt4_reserved6",
+                &format_args!("{}", self.rpt4_reserved6().bit()),
+            )
+            .field("dis_can", &format_args!("{}", self.dis_can().bit()))
+            .field(
+                "jtag_sel_enable",
+                &format_args!("{}", self.jtag_sel_enable().bit()),
+            )
+            .field(
+                "soft_dis_jtag",
+                &format_args!("{}", self.soft_dis_jtag().bits()),
+            )
+            .field(
+                "dis_pad_jtag",
+                &format_args!("{}", self.dis_pad_jtag().bit()),
+            )
+            .field(
+                "dis_download_manual_encrypt",
+                &format_args!("{}", self.dis_download_manual_encrypt().bit()),
+            )
+            .field("usb_drefh", &format_args!("{}", self.usb_drefh().bits()))
+            .field("usb_drefl", &format_args!("{}", self.usb_drefl().bits()))
+            .field(
+                "usb_exchg_pins",
+                &format_args!("{}", self.usb_exchg_pins().bit()),
+            )
+            .field(
+                "vdd_spi_as_gpio",
+                &format_args!("{}", self.vdd_spi_as_gpio().bit()),
+            )
+            .field(
+                "btlc_gpio_enable",
+                &format_args!("{}", self.btlc_gpio_enable().bits()),
+            )
+            .field(
+                "powerglitch_en",
+                &format_args!("{}", self.powerglitch_en().bit()),
+            )
+            .field(
+                "power_glitch_dsense",
+                &format_args!("{}", self.power_glitch_dsense().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "BLOCK0 data register 1.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data0](index.html) module"]
 pub struct RD_REPEAT_DATA0_SPEC;
 impl crate::RegisterSpec for RD_REPEAT_DATA0_SPEC {

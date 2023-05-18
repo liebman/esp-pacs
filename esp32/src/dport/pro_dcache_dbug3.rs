@@ -117,6 +117,49 @@ impl R {
         PRO_CACHE_IRAM0_PID_ERROR_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::PRO_DCACHE_DBUG3")
+            .field(
+                "pro_mmu_rdata",
+                &format_args!("{}", self.pro_mmu_rdata().bits()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia().bits()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia_opposite",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia_opposite().bit()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia_dram1",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia_dram1().bit()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia_irom0",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia_irom0().bit()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia_iram1",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia_iram1().bit()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia_iram0",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia_iram0().bit()),
+            )
+            .field(
+                "pro_cpu_disabled_cache_ia_drom0",
+                &format_args!("{}", self.pro_cpu_disabled_cache_ia_drom0().bit()),
+            )
+            .field(
+                "pro_cache_iram0_pid_error",
+                &format_args!("{}", self.pro_cache_iram0_pid_error().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 9"]
     #[inline(always)]

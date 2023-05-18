@@ -55,6 +55,18 @@ impl R {
         CPUPERIOD_SEL_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::CPU_PERIOD_CONF")
+            .field("cpusel_conf", &format_args!("{}", self.cpusel_conf().bit()))
+            .field(
+                "cpuperiod_sel",
+                &format_args!("{}", self.cpuperiod_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 29 - CPU sel option"]
     #[inline(always)]

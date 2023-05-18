@@ -71,6 +71,21 @@ impl R {
         DIN7_NUM_R::new(((self.bits >> 14) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI2::DIN_NUM")
+            .field("din0_num", &format_args!("{}", self.din0_num().bits()))
+            .field("din1_num", &format_args!("{}", self.din1_num().bits()))
+            .field("din2_num", &format_args!("{}", self.din2_num().bits()))
+            .field("din3_num", &format_args!("{}", self.din3_num().bits()))
+            .field("din4_num", &format_args!("{}", self.din4_num().bits()))
+            .field("din5_num", &format_args!("{}", self.din5_num().bits()))
+            .field("din6_num", &format_args!("{}", self.din6_num().bits()))
+            .field("din7_num", &format_args!("{}", self.din7_num().bits()))
+            .finish()
+    }
+}
 #[doc = "SPI input delay number configuration\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [din_num](index.html) module"]
 pub struct DIN_NUM_SPEC;
 impl crate::RegisterSpec for DIN_NUM_SPEC {

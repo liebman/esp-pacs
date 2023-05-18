@@ -46,6 +46,17 @@ impl R {
         SEND_Q3_WORD1_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UHCI0::Q3_WORD1")
+            .field(
+                "send_q3_word1",
+                &format_args!("{}", self.send_q3_word1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - This register stores the content of short packet's second dword"]
     #[inline(always)]

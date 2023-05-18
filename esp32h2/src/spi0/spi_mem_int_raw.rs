@@ -97,6 +97,41 @@ impl R {
         SPI_MEM_AXI_WADDR_ERR_INT_RAW_R::new(((self.bits >> 9) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_MEM_INT_RAW")
+            .field(
+                "spi_mem_slv_st_end_int_raw",
+                &format_args!("{}", self.spi_mem_slv_st_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_mst_st_end_int_raw",
+                &format_args!("{}", self.spi_mem_mst_st_end_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_ecc_err_int_raw",
+                &format_args!("{}", self.spi_mem_ecc_err_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_pms_reject_int_raw",
+                &format_args!("{}", self.spi_mem_pms_reject_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_axi_raddr_err_int_raw",
+                &format_args!("{}", self.spi_mem_axi_raddr_err_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_axi_wr_flash_err_int_raw",
+                &format_args!("{}", self.spi_mem_axi_wr_flash_err_int_raw().bit()),
+            )
+            .field(
+                "spi_mem_axi_waddr_err_int_raw",
+                &format_args!("{}", self.spi_mem_axi_waddr_err_int_raw().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 3 - The raw bit for SPI_MEM_SLV_ST_END_INT interrupt. 1: Triggered when spi0_slv_st is changed from non idle state to idle state. It means that SPI_CS raises high. 0: Others"]
     #[inline(always)]

@@ -222,6 +222,105 @@ impl R {
         CORE_1_PIF_PMS_CONSTRAIN_WORLD_1_WORLD_CONTROLLER_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_CONSTRAIN_8")
+            .field(
+                "core_1_pif_pms_constrain_world_1_usb_device",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_usb_device().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_usb_wrap",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_usb_wrap().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_crypto_peri",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_crypto_peri().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_crypto_dma",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_crypto_dma().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_apb_adc",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_apb_adc().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_lcd_cam",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_lcd_cam().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_bt_pwr",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_bt_pwr().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_usb",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_usb().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_system",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_system().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_sensitive",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_sensitive().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_interrupt",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_interrupt().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_dma_copy",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_dma_copy().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_cache_config",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_cache_config().bits()
+                ),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_ad",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_ad().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_dio",
+                &format_args!("{}", self.core_1_pif_pms_constrain_world_1_dio().bits()),
+            )
+            .field(
+                "core_1_pif_pms_constrain_world_1_world_controller",
+                &format_args!(
+                    "{}",
+                    self.core_1_pif_pms_constrain_world_1_world_controller()
+                        .bits()
+                ),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Core1 access usb_device permission in world1."]
     #[inline(always)]

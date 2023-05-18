@@ -45,6 +45,14 @@ impl R {
         M_PRIME_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RSA::M_PRIME")
+            .field("m_prime", &format_args!("{}", self.m_prime().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register contains M’."]
     #[inline(always)]

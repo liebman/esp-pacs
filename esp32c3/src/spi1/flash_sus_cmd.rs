@@ -66,6 +66,25 @@ impl R {
         WAIT_PESR_COMMAND_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::FLASH_SUS_CMD")
+            .field(
+                "flash_per_command",
+                &format_args!("{}", self.flash_per_command().bits()),
+            )
+            .field(
+                "flash_pes_command",
+                &format_args!("{}", self.flash_pes_command().bits()),
+            )
+            .field(
+                "wait_pesr_command",
+                &format_args!("{}", self.wait_pesr_command().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Program/Erase resume command."]
     #[inline(always)]

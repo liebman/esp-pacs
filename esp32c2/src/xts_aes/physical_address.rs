@@ -46,6 +46,17 @@ impl R {
         PHYSICAL_ADDRESS_R::new(self.bits & 0x3fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTS_AES::PHYSICAL_ADDRESS")
+            .field(
+                "physical_address",
+                &format_args!("{}", self.physical_address().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:29 - Those bits stores the physical address. If linesize is 16-byte, the physical address should be aligned of 16 bytes. If linesize is 32-byte, the physical address should be aligned of 32 bytes."]
     #[inline(always)]

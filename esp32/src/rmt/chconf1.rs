@@ -154,6 +154,38 @@ impl R {
         IDLE_OUT_EN_R::new(((self.bits >> 19) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::CHCONF1")
+            .field("tx_start", &format_args!("{}", self.tx_start().bit()))
+            .field("rx_en", &format_args!("{}", self.rx_en().bit()))
+            .field("mem_wr_rst", &format_args!("{}", self.mem_wr_rst().bit()))
+            .field("mem_rd_rst", &format_args!("{}", self.mem_rd_rst().bit()))
+            .field("apb_mem_rst", &format_args!("{}", self.apb_mem_rst().bit()))
+            .field("mem_owner", &format_args!("{}", self.mem_owner().bit()))
+            .field(
+                "tx_conti_mode",
+                &format_args!("{}", self.tx_conti_mode().bit()),
+            )
+            .field(
+                "rx_filter_en",
+                &format_args!("{}", self.rx_filter_en().bit()),
+            )
+            .field(
+                "rx_filter_thres",
+                &format_args!("{}", self.rx_filter_thres().bits()),
+            )
+            .field("ref_cnt_rst", &format_args!("{}", self.ref_cnt_rst().bit()))
+            .field(
+                "ref_always_on",
+                &format_args!("{}", self.ref_always_on().bit()),
+            )
+            .field("idle_out_lv", &format_args!("{}", self.idle_out_lv().bit()))
+            .field("idle_out_en", &format_args!("{}", self.idle_out_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to start sending data for channel0."]
     #[inline(always)]

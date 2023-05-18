@@ -22,6 +22,17 @@ impl R {
         MODEM_PERI_TIMEOUT_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::MODEM_PERI_TIMEOUT_ADDR")
+            .field(
+                "modem_peri_timeout_addr",
+                &format_args!("{}", self.modem_peri_timeout_addr().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "MODEM_PERI_TIMEOUT_ADDR register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [modem_peri_timeout_addr](index.html) module"]
 pub struct MODEM_PERI_TIMEOUT_ADDR_SPEC;
 impl crate::RegisterSpec for MODEM_PERI_TIMEOUT_ADDR_SPEC {

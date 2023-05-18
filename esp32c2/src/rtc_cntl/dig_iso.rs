@@ -135,6 +135,51 @@ impl R {
         DG_WRAP_FORCE_NOISO_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::DIG_ISO")
+            .field("force_off", &format_args!("{}", self.force_off().bit()))
+            .field("force_on", &format_args!("{}", self.force_on().bit()))
+            .field(
+                "dg_pad_autohold",
+                &format_args!("{}", self.dg_pad_autohold().bit()),
+            )
+            .field(
+                "clr_dg_pad_autohold",
+                &format_args!("{}", self.clr_dg_pad_autohold().bit()),
+            )
+            .field(
+                "dg_pad_autohold_en",
+                &format_args!("{}", self.dg_pad_autohold_en().bit()),
+            )
+            .field(
+                "dg_pad_force_noiso",
+                &format_args!("{}", self.dg_pad_force_noiso().bit()),
+            )
+            .field(
+                "dg_pad_force_iso",
+                &format_args!("{}", self.dg_pad_force_iso().bit()),
+            )
+            .field(
+                "dg_pad_force_unhold",
+                &format_args!("{}", self.dg_pad_force_unhold().bit()),
+            )
+            .field(
+                "dg_pad_force_hold",
+                &format_args!("{}", self.dg_pad_force_hold().bit()),
+            )
+            .field(
+                "dg_wrap_force_iso",
+                &format_args!("{}", self.dg_wrap_force_iso().bit()),
+            )
+            .field(
+                "dg_wrap_force_noiso",
+                &format_args!("{}", self.dg_wrap_force_noiso().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 7 - Need add desc"]
     #[inline(always)]

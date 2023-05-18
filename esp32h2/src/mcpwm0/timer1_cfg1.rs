@@ -56,6 +56,18 @@ impl R {
         TIMER1_MOD_R::new(((self.bits >> 3) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::TIMER1_CFG1")
+            .field(
+                "timer1_start",
+                &format_args!("{}", self.timer1_start().bits()),
+            )
+            .field("timer1_mod", &format_args!("{}", self.timer1_mod().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - PWM timer1 start and stop control. 0: if PWM timer1 starts, then stops at TEZ, 1: if timer1 starts, then stops at TEP, 2: PWM timer1 starts and runs on, 3: timer1 starts and stops at the next TEZ, 4: timer1 starts and stops at the next TEP. TEP here and below means the event that happens when the timer equals to period"]
     #[inline(always)]

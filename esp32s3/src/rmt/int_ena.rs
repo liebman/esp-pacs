@@ -271,6 +271,133 @@ impl R {
         RX_CH7_DMA_ACCESS_FAIL_INT_ENA_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::INT_ENA")
+            .field(
+                "ch0_tx_end_int_ena",
+                &format_args!("{}", self.ch0_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_end_int_ena",
+                &format_args!("{}", self.ch1_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch2_tx_end_int_ena",
+                &format_args!("{}", self.ch2_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch3_tx_end_int_ena",
+                &format_args!("{}", self.ch3_tx_end_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_err_int_ena",
+                &format_args!("{}", self.ch0_tx_err_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_err_int_ena",
+                &format_args!("{}", self.ch1_tx_err_int_ena().bit()),
+            )
+            .field(
+                "ch2_tx_err_int_ena",
+                &format_args!("{}", self.ch2_tx_err_int_ena().bit()),
+            )
+            .field(
+                "ch3_tx_err_int_ena",
+                &format_args!("{}", self.ch3_tx_err_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch0_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch1_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch2_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch2_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch3_tx_thr_event_int_ena",
+                &format_args!("{}", self.ch3_tx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch0_tx_loop_int_ena",
+                &format_args!("{}", self.ch0_tx_loop_int_ena().bit()),
+            )
+            .field(
+                "ch1_tx_loop_int_ena",
+                &format_args!("{}", self.ch1_tx_loop_int_ena().bit()),
+            )
+            .field(
+                "ch2_tx_loop_int_ena",
+                &format_args!("{}", self.ch2_tx_loop_int_ena().bit()),
+            )
+            .field(
+                "ch3_tx_loop_int_ena",
+                &format_args!("{}", self.ch3_tx_loop_int_ena().bit()),
+            )
+            .field(
+                "ch4_rx_end_int_ena",
+                &format_args!("{}", self.ch4_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch5_rx_end_int_ena",
+                &format_args!("{}", self.ch5_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch6_rx_end_int_ena",
+                &format_args!("{}", self.ch6_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch7_rx_end_int_ena",
+                &format_args!("{}", self.ch7_rx_end_int_ena().bit()),
+            )
+            .field(
+                "ch4_rx_err_int_ena",
+                &format_args!("{}", self.ch4_rx_err_int_ena().bit()),
+            )
+            .field(
+                "ch5_rx_err_int_ena",
+                &format_args!("{}", self.ch5_rx_err_int_ena().bit()),
+            )
+            .field(
+                "ch6_rx_err_int_ena",
+                &format_args!("{}", self.ch6_rx_err_int_ena().bit()),
+            )
+            .field(
+                "ch7_rx_err_int_ena",
+                &format_args!("{}", self.ch7_rx_err_int_ena().bit()),
+            )
+            .field(
+                "ch4_rx_thr_event_int_ena",
+                &format_args!("{}", self.ch4_rx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch5_rx_thr_event_int_ena",
+                &format_args!("{}", self.ch5_rx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch6_rx_thr_event_int_ena",
+                &format_args!("{}", self.ch6_rx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "ch7_rx_thr_event_int_ena",
+                &format_args!("{}", self.ch7_rx_thr_event_int_ena().bit()),
+            )
+            .field(
+                "tx_ch3_dma_access_fail_int_ena",
+                &format_args!("{}", self.tx_ch3_dma_access_fail_int_ena().bit()),
+            )
+            .field(
+                "rx_ch7_dma_access_fail_int_ena",
+                &format_args!("{}", self.rx_ch7_dma_access_fail_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "The interrupt enable bit for CH[0-3]_TX_END_INT."]
     #[inline(always)]

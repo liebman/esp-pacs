@@ -45,6 +45,14 @@ impl R {
         DUTY_R::new(self.bits & 0x0007_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LEDC::CH_DUTY")
+            .field("duty", &format_args!("{}", self.duty().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:18 - reg_duty_lsch0."]
     #[inline(always)]

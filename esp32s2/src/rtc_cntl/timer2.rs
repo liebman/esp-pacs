@@ -56,6 +56,21 @@ impl R {
         MIN_TIME_CK8M_OFF_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TIMER2")
+            .field(
+                "ulpcp_touch_start_wait",
+                &format_args!("{}", self.ulpcp_touch_start_wait().bits()),
+            )
+            .field(
+                "min_time_ck8m_off",
+                &format_args!("{}", self.min_time_ck8m_off().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 15:23 - Sets the waiting cycle (using the RTC slow clock) before the ULP co-processor / touch controller start to work."]
     #[inline(always)]

@@ -62,6 +62,25 @@ impl R {
         PRO_DRAM0_ILG_INTR_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_DRAM0_3")
+            .field(
+                "pro_dram0_ilg_clr",
+                &format_args!("{}", self.pro_dram0_ilg_clr().bit()),
+            )
+            .field(
+                "pro_dram0_ilg_en",
+                &format_args!("{}", self.pro_dram0_ilg_en().bit()),
+            )
+            .field(
+                "pro_dram0_ilg_intr",
+                &format_args!("{}", self.pro_dram0_ilg_intr().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear signal for DBUS0 access interrupt."]
     #[inline(always)]

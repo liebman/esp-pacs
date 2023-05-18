@@ -56,6 +56,21 @@ impl R {
         INTERNAL_SRAM_USAGE_CPU_SRAM_R::new(((self.bits >> 1) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_1")
+            .field(
+                "internal_sram_usage_cpu_cache",
+                &format_args!("{}", self.internal_sram_usage_cpu_cache().bit()),
+            )
+            .field(
+                "internal_sram_usage_cpu_sram",
+                &format_args!("{}", self.internal_sram_usage_cpu_sram().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Need add description"]
     #[inline(always)]

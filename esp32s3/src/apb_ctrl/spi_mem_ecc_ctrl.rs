@@ -56,6 +56,21 @@ impl R {
         SRAM_PAGE_SIZE_R::new(((self.bits >> 20) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::SPI_MEM_ECC_CTRL")
+            .field(
+                "flash_page_size",
+                &format_args!("{}", self.flash_page_size().bits()),
+            )
+            .field(
+                "sram_page_size",
+                &format_args!("{}", self.sram_page_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 18:19 - Set the page size of the used MSPI flash. 0: 256 bytes. 1: 512 bytes. 2: 1024 bytes. 3: 2048 bytes."]
     #[inline(always)]

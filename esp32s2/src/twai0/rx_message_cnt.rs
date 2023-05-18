@@ -22,6 +22,17 @@ impl R {
         RX_MESSAGE_COUNTER_R::new((self.bits & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::RX_MESSAGE_CNT")
+            .field(
+                "rx_message_counter",
+                &format_args!("{}", self.rx_message_counter().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Receive Message Counter Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rx_message_cnt](index.html) module"]
 pub struct RX_MESSAGE_CNT_SPEC;
 impl crate::RegisterSpec for RX_MESSAGE_CNT_SPEC {

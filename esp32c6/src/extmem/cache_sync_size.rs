@@ -46,6 +46,17 @@ impl R {
         CACHE_SYNC_SIZE_R::new(self.bits & 0x00ff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_SYNC_SIZE")
+            .field(
+                "cache_sync_size",
+                &format_args!("{}", self.cache_sync_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - Those bits are used to configure the size of the sync operation, which should be used together with CACHE_SYNC_ADDR_REG"]
     #[inline(always)]

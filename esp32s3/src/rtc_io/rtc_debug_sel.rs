@@ -96,6 +96,37 @@ impl R {
         RTC_DEBUG_12M_NO_GATING_R::new(((self.bits >> 25) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_IO::RTC_DEBUG_SEL")
+            .field(
+                "rtc_debug_sel0",
+                &format_args!("{}", self.rtc_debug_sel0().bits()),
+            )
+            .field(
+                "rtc_debug_sel1",
+                &format_args!("{}", self.rtc_debug_sel1().bits()),
+            )
+            .field(
+                "rtc_debug_sel2",
+                &format_args!("{}", self.rtc_debug_sel2().bits()),
+            )
+            .field(
+                "rtc_debug_sel3",
+                &format_args!("{}", self.rtc_debug_sel3().bits()),
+            )
+            .field(
+                "rtc_debug_sel4",
+                &format_args!("{}", self.rtc_debug_sel4().bits()),
+            )
+            .field(
+                "rtc_debug_12m_no_gating",
+                &format_args!("{}", self.rtc_debug_12m_no_gating().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - configure rtc debug"]
     #[inline(always)]

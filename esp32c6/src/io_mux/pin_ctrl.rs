@@ -63,6 +63,16 @@ impl R {
         CLK_OUT3_R::new(((self.bits >> 10) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IO_MUX::PIN_CTRL")
+            .field("clk_out1", &format_args!("{}", self.clk_out1().bits()))
+            .field("clk_out2", &format_args!("{}", self.clk_out2().bits()))
+            .field("clk_out3", &format_args!("{}", self.clk_out3().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - If you want to output clock for I2S to CLK_OUT_out1, set this register to 0x0. CLK_OUT_out1 can be found in peripheral output signals."]
     #[inline(always)]

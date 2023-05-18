@@ -85,6 +85,33 @@ impl R {
         CARRIER_OUT_LV_CH2_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RMT::RX_CHCONF0")
+            .field(
+                "div_cnt_ch2",
+                &format_args!("{}", self.div_cnt_ch2().bits()),
+            )
+            .field(
+                "idle_thres_ch2",
+                &format_args!("{}", self.idle_thres_ch2().bits()),
+            )
+            .field(
+                "mem_size_ch2",
+                &format_args!("{}", self.mem_size_ch2().bits()),
+            )
+            .field(
+                "carrier_en_ch2",
+                &format_args!("{}", self.carrier_en_ch2().bit()),
+            )
+            .field(
+                "carrier_out_lv_ch2",
+                &format_args!("{}", self.carrier_out_lv_ch2().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register is used to configure the divider for clock of CHANNEL%s."]
     #[inline(always)]

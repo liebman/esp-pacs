@@ -22,6 +22,17 @@ impl R {
         L2_CACHE_ALD_BUF_CLR_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L2_CACHE_AUTOLOAD_BUF_CLR_CTRL")
+            .field(
+                "l2_cache_ald_buf_clr",
+                &format_args!("{}", self.l2_cache_ald_buf_clr().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "Cache Autoload buffer clear control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [l2_cache_autoload_buf_clr_ctrl](index.html) module"]
 pub struct L2_CACHE_AUTOLOAD_BUF_CLR_CTRL_SPEC;
 impl crate::RegisterSpec for L2_CACHE_AUTOLOAD_BUF_CLR_CTRL_SPEC {

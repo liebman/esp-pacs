@@ -52,6 +52,21 @@ impl R {
         SERIAL_OUT_EP_DATA_AVAIL_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_DEVICE::EP1_CONF")
+            .field(
+                "serial_in_ep_data_free",
+                &format_args!("{}", self.serial_in_ep_data_free().bit()),
+            )
+            .field(
+                "serial_out_ep_data_avail",
+                &format_args!("{}", self.serial_out_ep_data_avail().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to indicate writing byte data to UART Tx FIFO is done."]
     #[inline(always)]

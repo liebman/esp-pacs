@@ -22,6 +22,17 @@ impl R {
         ADC_CALIBRATION_2_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::RD_BLK2_DATA5")
+            .field(
+                "adc_calibration_2",
+                &format_args!("{}", self.adc_calibration_2().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "Register 5 of BLOCK2.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_blk2_data5](index.html) module"]
 pub struct RD_BLK2_DATA5_SPEC;
 impl crate::RegisterSpec for RD_BLK2_DATA5_SPEC {

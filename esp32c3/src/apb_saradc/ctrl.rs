@@ -112,6 +112,45 @@ impl R {
         SARADC_WAIT_ARB_CYCLE_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::CTRL")
+            .field(
+                "saradc_start_force",
+                &format_args!("{}", self.saradc_start_force().bit()),
+            )
+            .field(
+                "saradc_start",
+                &format_args!("{}", self.saradc_start().bit()),
+            )
+            .field(
+                "saradc_sar_clk_gated",
+                &format_args!("{}", self.saradc_sar_clk_gated().bit()),
+            )
+            .field(
+                "saradc_sar_clk_div",
+                &format_args!("{}", self.saradc_sar_clk_div().bits()),
+            )
+            .field(
+                "saradc_sar_patt_len",
+                &format_args!("{}", self.saradc_sar_patt_len().bits()),
+            )
+            .field(
+                "saradc_sar_patt_p_clear",
+                &format_args!("{}", self.saradc_sar_patt_p_clear().bit()),
+            )
+            .field(
+                "saradc_xpd_sar_force",
+                &format_args!("{}", self.saradc_xpd_sar_force().bits()),
+            )
+            .field(
+                "saradc_wait_arb_cycle",
+                &format_args!("{}", self.saradc_wait_arb_cycle().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - select software enable saradc sample"]
     #[inline(always)]

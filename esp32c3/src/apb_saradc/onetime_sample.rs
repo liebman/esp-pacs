@@ -86,6 +86,33 @@ impl R {
         SARADC1_ONETIME_SAMPLE_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::ONETIME_SAMPLE")
+            .field(
+                "saradc_onetime_atten",
+                &format_args!("{}", self.saradc_onetime_atten().bits()),
+            )
+            .field(
+                "saradc_onetime_channel",
+                &format_args!("{}", self.saradc_onetime_channel().bits()),
+            )
+            .field(
+                "saradc_onetime_start",
+                &format_args!("{}", self.saradc_onetime_start().bit()),
+            )
+            .field(
+                "saradc2_onetime_sample",
+                &format_args!("{}", self.saradc2_onetime_sample().bit()),
+            )
+            .field(
+                "saradc1_onetime_sample",
+                &format_args!("{}", self.saradc1_onetime_sample().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 23:24 - configure onetime atten"]
     #[inline(always)]

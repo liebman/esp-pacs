@@ -60,6 +60,19 @@ impl R {
         CSPI_LOCK_DELAY_TIME_R::new(((self.bits >> 7) & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::FSM")
+            .field("cspi_st", &format_args!("{}", self.cspi_st().bits()))
+            .field("em_st", &format_args!("{}", self.em_st().bits()))
+            .field(
+                "cspi_lock_delay_time",
+                &format_args!("{}", self.cspi_lock_delay_time().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 7:11 - The lock delay time of SPI0/1 arbiter by spi0_slv_st, after PER is sent by SPI1."]
     #[inline(always)]

@@ -86,6 +86,33 @@ impl R {
         LP_SLEEP_PD_OSC_CLK_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::LP_SLEEP_LP_CK_POWER")
+            .field(
+                "lp_sleep_xpd_lppll",
+                &format_args!("{}", self.lp_sleep_xpd_lppll().bit()),
+            )
+            .field(
+                "lp_sleep_xpd_xtal32k",
+                &format_args!("{}", self.lp_sleep_xpd_xtal32k().bit()),
+            )
+            .field(
+                "lp_sleep_xpd_rc32k",
+                &format_args!("{}", self.lp_sleep_xpd_rc32k().bit()),
+            )
+            .field(
+                "lp_sleep_xpd_fosc_clk",
+                &format_args!("{}", self.lp_sleep_xpd_fosc_clk().bit()),
+            )
+            .field(
+                "lp_sleep_pd_osc_clk",
+                &format_args!("{}", self.lp_sleep_pd_osc_clk().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 27 - need_des"]
     #[inline(always)]

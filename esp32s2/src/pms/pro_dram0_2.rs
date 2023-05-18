@@ -86,6 +86,33 @@ impl R {
         PRO_DRAM0_RTCFAST_H_W_R::new(((self.bits >> 14) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_DRAM0_2")
+            .field(
+                "pro_dram0_rtcfast_spltaddr",
+                &format_args!("{}", self.pro_dram0_rtcfast_spltaddr().bits()),
+            )
+            .field(
+                "pro_dram0_rtcfast_l_r",
+                &format_args!("{}", self.pro_dram0_rtcfast_l_r().bit()),
+            )
+            .field(
+                "pro_dram0_rtcfast_l_w",
+                &format_args!("{}", self.pro_dram0_rtcfast_l_w().bit()),
+            )
+            .field(
+                "pro_dram0_rtcfast_h_r",
+                &format_args!("{}", self.pro_dram0_rtcfast_h_r().bit()),
+            )
+            .field(
+                "pro_dram0_rtcfast_h_w",
+                &format_args!("{}", self.pro_dram0_rtcfast_h_w().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - Configure the split address of RTC FAST for DBUS0 access."]
     #[inline(always)]

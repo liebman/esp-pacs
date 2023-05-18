@@ -46,6 +46,17 @@ impl R {
         L1_CACHE_AUTOLOAD_SCT0_SIZE_R::new(self.bits & 0x0fff_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_CACHE_AUTOLOAD_SCT0_SIZE")
+            .field(
+                "l1_cache_autoload_sct0_size",
+                &format_args!("{}", self.l1_cache_autoload_sct0_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:27 - Those bits are used to configure the size of the first section for autoload operation on L1-Cache. Note that it should be used together with L1_CACHE_AUTOLOAD_SCT0_ADDR and L1_CACHE_AUTOLOAD_SCT0_ENA."]
     #[inline(always)]

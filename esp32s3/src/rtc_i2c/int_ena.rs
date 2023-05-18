@@ -121,6 +121,49 @@ impl R {
         DETECT_START_INT_ENA_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_I2C::INT_ENA")
+            .field(
+                "slave_tran_comp_int_ena",
+                &format_args!("{}", self.slave_tran_comp_int_ena().bit()),
+            )
+            .field(
+                "arbitration_lost_int_ena",
+                &format_args!("{}", self.arbitration_lost_int_ena().bit()),
+            )
+            .field(
+                "master_tran_comp_int_ena",
+                &format_args!("{}", self.master_tran_comp_int_ena().bit()),
+            )
+            .field(
+                "trans_complete_int_ena",
+                &format_args!("{}", self.trans_complete_int_ena().bit()),
+            )
+            .field(
+                "time_out_int_ena",
+                &format_args!("{}", self.time_out_int_ena().bit()),
+            )
+            .field(
+                "ack_err_int_ena",
+                &format_args!("{}", self.ack_err_int_ena().bit()),
+            )
+            .field(
+                "rx_data_int_ena",
+                &format_args!("{}", self.rx_data_int_ena().bit()),
+            )
+            .field(
+                "tx_data_int_ena",
+                &format_args!("{}", self.tx_data_int_ena().bit()),
+            )
+            .field(
+                "detect_start_int_ena",
+                &format_args!("{}", self.detect_start_int_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - enable slave transit complete interrupt"]
     #[inline(always)]

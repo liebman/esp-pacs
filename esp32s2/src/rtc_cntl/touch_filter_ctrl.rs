@@ -126,6 +126,49 @@ impl R {
         TOUCH_FILTER_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::TOUCH_FILTER_CTRL")
+            .field(
+                "touch_smooth_lvl",
+                &format_args!("{}", self.touch_smooth_lvl().bits()),
+            )
+            .field(
+                "touch_jitter_step",
+                &format_args!("{}", self.touch_jitter_step().bits()),
+            )
+            .field(
+                "touch_neg_noise_limit",
+                &format_args!("{}", self.touch_neg_noise_limit().bits()),
+            )
+            .field(
+                "touch_neg_noise_thres",
+                &format_args!("{}", self.touch_neg_noise_thres().bits()),
+            )
+            .field(
+                "touch_noise_thres",
+                &format_args!("{}", self.touch_noise_thres().bits()),
+            )
+            .field(
+                "touch_hysteresis",
+                &format_args!("{}", self.touch_hysteresis().bits()),
+            )
+            .field(
+                "touch_debounce",
+                &format_args!("{}", self.touch_debounce().bits()),
+            )
+            .field(
+                "touch_filter_mode",
+                &format_args!("{}", self.touch_filter_mode().bits()),
+            )
+            .field(
+                "touch_filter_en",
+                &format_args!("{}", self.touch_filter_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 9:10 - 0: Raw data. 1: IIR1/2. 2: IIR1/4. 3: IIR1/8."]
     #[inline(always)]

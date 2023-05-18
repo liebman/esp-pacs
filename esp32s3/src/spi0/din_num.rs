@@ -117,6 +117,22 @@ impl R {
         DINS_NUM_R::new(((self.bits >> 16) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::DIN_NUM")
+            .field("din0_num", &format_args!("{}", self.din0_num().bits()))
+            .field("din1_num", &format_args!("{}", self.din1_num().bits()))
+            .field("din2_num", &format_args!("{}", self.din2_num().bits()))
+            .field("din3_num", &format_args!("{}", self.din3_num().bits()))
+            .field("din4_num", &format_args!("{}", self.din4_num().bits()))
+            .field("din5_num", &format_args!("{}", self.din5_num().bits()))
+            .field("din6_num", &format_args!("{}", self.din6_num().bits()))
+            .field("din7_num", &format_args!("{}", self.din7_num().bits()))
+            .field("dins_num", &format_args!("{}", self.dins_num().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - SPI_D input delay number."]
     #[inline(always)]

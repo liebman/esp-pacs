@@ -55,6 +55,21 @@ impl R {
         MEM_FULL_INTR_ENA_R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TRACE::INTR_ENA")
+            .field(
+                "fifo_overflow_intr_ena",
+                &format_args!("{}", self.fifo_overflow_intr_ena().bit()),
+            )
+            .field(
+                "mem_full_intr_ena",
+                &format_args!("{}", self.mem_full_intr_ena().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set 1 enable fifo_overflow interrupt"]
     #[inline(always)]

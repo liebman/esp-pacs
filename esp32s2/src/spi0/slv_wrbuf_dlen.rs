@@ -56,6 +56,21 @@ impl R {
         CONF_BASE_BITLEN_R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLV_WRBUF_DLEN")
+            .field(
+                "slv_wr_buf_done",
+                &format_args!("{}", self.slv_wr_buf_done().bit()),
+            )
+            .field(
+                "conf_base_bitlen",
+                &format_args!("{}", self.conf_base_bitlen().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 24 - The interrupt raw bit for the completion of write-buffer operation in the slave mode. Can not be changed by CONF_buf."]
     #[inline(always)]

@@ -76,6 +76,29 @@ impl R {
         SAR_SARADC_RESET_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENS::SAR_PERI_RESET_CONF")
+            .field(
+                "sar_cocpu_reset",
+                &format_args!("{}", self.sar_cocpu_reset().bit()),
+            )
+            .field(
+                "sar_rtc_i2c_reset",
+                &format_args!("{}", self.sar_rtc_i2c_reset().bit()),
+            )
+            .field(
+                "sar_tsens_reset",
+                &format_args!("{}", self.sar_tsens_reset().bit()),
+            )
+            .field(
+                "sar_saradc_reset",
+                &format_args!("{}", self.sar_saradc_reset().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 25 - enable ulp-riscv reset"]
     #[inline(always)]

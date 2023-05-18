@@ -45,6 +45,14 @@ impl R {
         SCRATCH6_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::STORE6")
+            .field("scratch6", &format_args!("{}", self.scratch6().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Need add desc"]
     #[inline(always)]

@@ -64,6 +64,25 @@ impl R {
         DCACHE_BLOCKSIZE_MODE_R::new(((self.bits >> 3) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_CTRL")
+            .field(
+                "dcache_enable",
+                &format_args!("{}", self.dcache_enable().bit()),
+            )
+            .field(
+                "dcache_size_mode",
+                &format_args!("{}", self.dcache_size_mode().bit()),
+            )
+            .field(
+                "dcache_blocksize_mode",
+                &format_args!("{}", self.dcache_blocksize_mode().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable, 1: enable"]
     #[inline(always)]

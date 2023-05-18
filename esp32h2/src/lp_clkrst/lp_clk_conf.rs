@@ -66,6 +66,25 @@ impl R {
         LP_PERI_DIV_NUM_R::new(((self.bits >> 4) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_CLKRST::LP_CLK_CONF")
+            .field(
+                "slow_clk_sel",
+                &format_args!("{}", self.slow_clk_sel().bits()),
+            )
+            .field(
+                "fast_clk_sel",
+                &format_args!("{}", self.fast_clk_sel().bits()),
+            )
+            .field(
+                "lp_peri_div_num",
+                &format_args!("{}", self.lp_peri_div_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - need_des"]
     #[inline(always)]

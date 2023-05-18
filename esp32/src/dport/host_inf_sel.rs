@@ -56,6 +56,21 @@ impl R {
         LINK_DEVICE_SEL_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DPORT::HOST_INF_SEL")
+            .field(
+                "peri_io_swap",
+                &format_args!("{}", self.peri_io_swap().bits()),
+            )
+            .field(
+                "link_device_sel",
+                &format_args!("{}", self.link_device_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7"]
     #[inline(always)]

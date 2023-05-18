@@ -149,6 +149,41 @@ impl R {
         CORRUPTTXPKT_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::GUSBCFG")
+            .field("toutcal", &format_args!("{}", self.toutcal().bits()))
+            .field("phyif", &format_args!("{}", self.phyif().bit()))
+            .field(
+                "ulpi_utmi_sel",
+                &format_args!("{}", self.ulpi_utmi_sel().bit()),
+            )
+            .field("fsintf", &format_args!("{}", self.fsintf().bit()))
+            .field("physel", &format_args!("{}", self.physel().bit()))
+            .field("srpcap", &format_args!("{}", self.srpcap().bit()))
+            .field("hnpcap", &format_args!("{}", self.hnpcap().bit()))
+            .field("usbtrdtim", &format_args!("{}", self.usbtrdtim().bits()))
+            .field(
+                "termseldlpulse",
+                &format_args!("{}", self.termseldlpulse().bit()),
+            )
+            .field("txenddelay", &format_args!("{}", self.txenddelay().bit()))
+            .field(
+                "forcehstmode",
+                &format_args!("{}", self.forcehstmode().bit()),
+            )
+            .field(
+                "forcedevmode",
+                &format_args!("{}", self.forcedevmode().bit()),
+            )
+            .field(
+                "corrupttxpkt",
+                &format_args!("{}", self.corrupttxpkt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2"]
     #[inline(always)]

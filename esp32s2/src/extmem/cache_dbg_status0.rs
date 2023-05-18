@@ -155,6 +155,93 @@ impl R {
         ICACHE_SET_LOCK_ILG_ST_R::new(((self.bits >> 24) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::CACHE_DBG_STATUS0")
+            .field(
+                "ibus0_acs_msk_icache_st",
+                &format_args!("{}", self.ibus0_acs_msk_icache_st().bit()),
+            )
+            .field(
+                "ibus1_acs_msk_icache_st",
+                &format_args!("{}", self.ibus1_acs_msk_icache_st().bit()),
+            )
+            .field(
+                "ibus2_acs_msk_icache_st",
+                &format_args!("{}", self.ibus2_acs_msk_icache_st().bit()),
+            )
+            .field(
+                "ibus0_acs_cnt_ovf_st",
+                &format_args!("{}", self.ibus0_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus1_acs_cnt_ovf_st",
+                &format_args!("{}", self.ibus1_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus2_acs_cnt_ovf_st",
+                &format_args!("{}", self.ibus2_acs_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus0_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.ibus0_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus1_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.ibus1_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus2_acs_miss_cnt_ovf_st",
+                &format_args!("{}", self.ibus2_acs_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus0_abandon_cnt_ovf_st",
+                &format_args!("{}", self.ibus0_abandon_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus1_abandon_cnt_ovf_st",
+                &format_args!("{}", self.ibus1_abandon_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ibus2_abandon_cnt_ovf_st",
+                &format_args!("{}", self.ibus2_abandon_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ic_preload_miss_cnt_ovf_st",
+                &format_args!("{}", self.ic_preload_miss_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ic_preload_cnt_ovf_st",
+                &format_args!("{}", self.ic_preload_cnt_ovf_st().bit()),
+            )
+            .field(
+                "ic_sync_size_fault_st",
+                &format_args!("{}", self.ic_sync_size_fault_st().bit()),
+            )
+            .field(
+                "ic_preload_size_fault_st",
+                &format_args!("{}", self.ic_preload_size_fault_st().bit()),
+            )
+            .field(
+                "icache_reject_st",
+                &format_args!("{}", self.icache_reject_st().bit()),
+            )
+            .field(
+                "icache_set_preload_ilg_st",
+                &format_args!("{}", self.icache_set_preload_ilg_st().bit()),
+            )
+            .field(
+                "icache_set_sync_ilg_st",
+                &format_args!("{}", self.icache_set_sync_ilg_st().bit()),
+            )
+            .field(
+                "icache_set_lock_ilg_st",
+                &format_args!("{}", self.icache_set_lock_ilg_st().bit()),
+            )
+            .finish()
+    }
+}
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cache_dbg_status0](index.html) module"]
 pub struct CACHE_DBG_STATUS0_SPEC;
 impl crate::RegisterSpec for CACHE_DBG_STATUS0_SPEC {

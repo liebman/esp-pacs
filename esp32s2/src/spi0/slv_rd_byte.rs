@@ -114,6 +114,42 @@ impl R {
         USR_CONF_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SLV_RD_BYTE")
+            .field(
+                "slv_data_bytelen",
+                &format_args!("{}", self.slv_data_bytelen().bits()),
+            )
+            .field(
+                "slv_rddma_bytelen_en",
+                &format_args!("{}", self.slv_rddma_bytelen_en().bit()),
+            )
+            .field(
+                "slv_wrdma_bytelen_en",
+                &format_args!("{}", self.slv_wrdma_bytelen_en().bit()),
+            )
+            .field(
+                "slv_rdbuf_bytelen_en",
+                &format_args!("{}", self.slv_rdbuf_bytelen_en().bit()),
+            )
+            .field(
+                "slv_wrbuf_bytelen_en",
+                &format_args!("{}", self.slv_wrbuf_bytelen_en().bit()),
+            )
+            .field(
+                "dma_seg_magic_value",
+                &format_args!("{}", self.dma_seg_magic_value().bits()),
+            )
+            .field(
+                "slv_rd_dma_done",
+                &format_args!("{}", self.slv_rd_dma_done().bit()),
+            )
+            .field("usr_conf", &format_args!("{}", self.usr_conf().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:19 - The full-duplex or half-duplex data byte length of the last SPI transfer in slave mode. In half-duplex mode, this value is controlled by bits \\[23:20\\]."]
     #[inline(always)]

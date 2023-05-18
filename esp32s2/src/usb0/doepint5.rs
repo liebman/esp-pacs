@@ -162,6 +162,39 @@ impl R {
         STUPPKTRCVD5_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::DOEPINT5")
+            .field("xfercompl5", &format_args!("{}", self.xfercompl5().bit()))
+            .field("epdisbld5", &format_args!("{}", self.epdisbld5().bit()))
+            .field("ahberr5", &format_args!("{}", self.ahberr5().bit()))
+            .field("setup5", &format_args!("{}", self.setup5().bit()))
+            .field(
+                "outtknepdis5",
+                &format_args!("{}", self.outtknepdis5().bit()),
+            )
+            .field(
+                "stsphsercvd5",
+                &format_args!("{}", self.stsphsercvd5().bit()),
+            )
+            .field(
+                "back2backsetup5",
+                &format_args!("{}", self.back2backsetup5().bit()),
+            )
+            .field("outpkterr5", &format_args!("{}", self.outpkterr5().bit()))
+            .field("bnaintr5", &format_args!("{}", self.bnaintr5().bit()))
+            .field("pktdrpsts5", &format_args!("{}", self.pktdrpsts5().bit()))
+            .field("bbleerr5", &format_args!("{}", self.bbleerr5().bit()))
+            .field("nakintrpt5", &format_args!("{}", self.nakintrpt5().bit()))
+            .field("nyepintrpt5", &format_args!("{}", self.nyepintrpt5().bit()))
+            .field(
+                "stuppktrcvd5",
+                &format_args!("{}", self.stuppktrcvd5().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

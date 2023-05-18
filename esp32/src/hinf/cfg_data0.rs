@@ -56,6 +56,21 @@ impl R {
         DEVICE_ID_FN1_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HINF::CFG_DATA0")
+            .field(
+                "user_id_fn1",
+                &format_args!("{}", self.user_id_fn1().bits()),
+            )
+            .field(
+                "device_id_fn1",
+                &format_args!("{}", self.device_id_fn1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]

@@ -75,6 +75,29 @@ impl R {
         LCD_RGB_MODE_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::LCD_CTRL")
+            .field(
+                "lcd_hb_front",
+                &format_args!("{}", self.lcd_hb_front().bits()),
+            )
+            .field(
+                "lcd_va_height",
+                &format_args!("{}", self.lcd_va_height().bits()),
+            )
+            .field(
+                "lcd_vt_height",
+                &format_args!("{}", self.lcd_vt_height().bits()),
+            )
+            .field(
+                "lcd_rgb_mode_en",
+                &format_args!("{}", self.lcd_rgb_mode_en().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - It is the horizontal blank front porch of a frame."]
     #[inline(always)]

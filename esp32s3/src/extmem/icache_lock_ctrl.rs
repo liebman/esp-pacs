@@ -63,6 +63,25 @@ impl R {
         ICACHE_LOCK_DONE_R::new(((self.bits >> 2) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::ICACHE_LOCK_CTRL")
+            .field(
+                "icache_lock_ena",
+                &format_args!("{}", self.icache_lock_ena().bit()),
+            )
+            .field(
+                "icache_unlock_ena",
+                &format_args!("{}", self.icache_unlock_ena().bit()),
+            )
+            .field(
+                "icache_lock_done",
+                &format_args!("{}", self.icache_lock_done().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to enable lock operation. It will be cleared by hardware after lock operation done."]
     #[inline(always)]

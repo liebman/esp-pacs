@@ -210,6 +210,70 @@ impl R {
         SPI_SMEM_HYPERBUS_CA_R::new(((self.bits >> 30) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI0::SPI_SMEM_DDR")
+            .field("en", &format_args!("{}", self.en().bit()))
+            .field(
+                "spi_smem_var_dummy",
+                &format_args!("{}", self.spi_smem_var_dummy().bit()),
+            )
+            .field("rdat_swp", &format_args!("{}", self.rdat_swp().bit()))
+            .field("wdat_swp", &format_args!("{}", self.wdat_swp().bit()))
+            .field("cmd_dis", &format_args!("{}", self.cmd_dis().bit()))
+            .field(
+                "spi_smem_outminbytelen",
+                &format_args!("{}", self.spi_smem_outminbytelen().bits()),
+            )
+            .field(
+                "spi_smem_tx_ddr_msk_en",
+                &format_args!("{}", self.spi_smem_tx_ddr_msk_en().bit()),
+            )
+            .field(
+                "spi_smem_rx_ddr_msk_en",
+                &format_args!("{}", self.spi_smem_rx_ddr_msk_en().bit()),
+            )
+            .field(
+                "spi_smem_usr_ddr_dqs_thd",
+                &format_args!("{}", self.spi_smem_usr_ddr_dqs_thd().bits()),
+            )
+            .field("dqs_loop", &format_args!("{}", self.dqs_loop().bit()))
+            .field(
+                "dqs_loop_mode",
+                &format_args!("{}", self.dqs_loop_mode().bit()),
+            )
+            .field(
+                "spi_smem_clk_diff_en",
+                &format_args!("{}", self.spi_smem_clk_diff_en().bit()),
+            )
+            .field(
+                "spi_smem_hyperbus_mode",
+                &format_args!("{}", self.spi_smem_hyperbus_mode().bit()),
+            )
+            .field(
+                "spi_smem_dqs_ca_in",
+                &format_args!("{}", self.spi_smem_dqs_ca_in().bit()),
+            )
+            .field(
+                "spi_smem_hyperbus_dummy_2x",
+                &format_args!("{}", self.spi_smem_hyperbus_dummy_2x().bit()),
+            )
+            .field(
+                "spi_smem_clk_diff_inv",
+                &format_args!("{}", self.spi_smem_clk_diff_inv().bit()),
+            )
+            .field(
+                "spi_smem_octa_ram_addr",
+                &format_args!("{}", self.spi_smem_octa_ram_addr().bit()),
+            )
+            .field(
+                "spi_smem_hyperbus_ca",
+                &format_args!("{}", self.spi_smem_hyperbus_ca().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: in ddr mode, 0 in sdr mode"]
     #[inline(always)]

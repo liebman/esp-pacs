@@ -56,6 +56,21 @@ impl R {
         SAR1_CLK_DIV_NUM_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PCR::SAR_CLK_DIV")
+            .field(
+                "sar2_clk_div_num",
+                &format_args!("{}", self.sar2_clk_div_num().bits()),
+            )
+            .field(
+                "sar1_clk_div_num",
+                &format_args!("{}", self.sar1_clk_div_num().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - xxxx"]
     #[inline(always)]

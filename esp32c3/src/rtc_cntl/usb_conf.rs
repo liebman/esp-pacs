@@ -46,6 +46,17 @@ impl R {
         IO_MUX_RESET_DISABLE_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::USB_CONF")
+            .field(
+                "io_mux_reset_disable",
+                &format_args!("{}", self.io_mux_reset_disable().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 18 - disable io_mux reset"]
     #[inline(always)]

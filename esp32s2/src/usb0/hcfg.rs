@@ -99,6 +99,29 @@ impl R {
         H_MODECHTIMEN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0::HCFG")
+            .field(
+                "h_fslspclksel",
+                &format_args!("{}", self.h_fslspclksel().bits()),
+            )
+            .field("h_fslssupp", &format_args!("{}", self.h_fslssupp().bit()))
+            .field("h_ena32khzs", &format_args!("{}", self.h_ena32khzs().bit()))
+            .field("h_descdma", &format_args!("{}", self.h_descdma().bit()))
+            .field("h_frlisten", &format_args!("{}", self.h_frlisten().bits()))
+            .field(
+                "h_perschedena",
+                &format_args!("{}", self.h_perschedena().bit()),
+            )
+            .field(
+                "h_modechtimen",
+                &format_args!("{}", self.h_modechtimen().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1"]
     #[inline(always)]

@@ -172,6 +172,61 @@ impl R {
         EXT_MEM_BK_SIZE_R::new(((self.bits >> 14) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2S0::LC_CONF")
+            .field("in_rst", &format_args!("{}", self.in_rst().bit()))
+            .field("out_rst", &format_args!("{}", self.out_rst().bit()))
+            .field(
+                "ahbm_fifo_rst",
+                &format_args!("{}", self.ahbm_fifo_rst().bit()),
+            )
+            .field("ahbm_rst", &format_args!("{}", self.ahbm_rst().bit()))
+            .field(
+                "out_loop_test",
+                &format_args!("{}", self.out_loop_test().bit()),
+            )
+            .field(
+                "in_loop_test",
+                &format_args!("{}", self.in_loop_test().bit()),
+            )
+            .field(
+                "out_auto_wrback",
+                &format_args!("{}", self.out_auto_wrback().bit()),
+            )
+            .field(
+                "out_no_restart_clr",
+                &format_args!("{}", self.out_no_restart_clr().bit()),
+            )
+            .field(
+                "out_eof_mode",
+                &format_args!("{}", self.out_eof_mode().bit()),
+            )
+            .field(
+                "outdscr_burst_en",
+                &format_args!("{}", self.outdscr_burst_en().bit()),
+            )
+            .field(
+                "indscr_burst_en",
+                &format_args!("{}", self.indscr_burst_en().bit()),
+            )
+            .field(
+                "out_data_burst_en",
+                &format_args!("{}", self.out_data_burst_en().bit()),
+            )
+            .field("check_owner", &format_args!("{}", self.check_owner().bit()))
+            .field(
+                "mem_trans_en",
+                &format_args!("{}", self.mem_trans_en().bit()),
+            )
+            .field(
+                "ext_mem_bk_size",
+                &format_args!("{}", self.ext_mem_bk_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to reset in-DMA FSM. Set this bit before the DMA configuration."]
     #[inline(always)]

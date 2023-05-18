@@ -46,6 +46,17 @@ impl R {
         L1_CACHE_PRELOAD_SIZE_R::new((self.bits & 0x3fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::L1_DCACHE_PRELOAD_SIZE")
+            .field(
+                "l1_cache_preload_size",
+                &format_args!("{}", self.l1_cache_preload_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - Those bits are used to configure the size of the first section of prelock on L1-Cache, which should be used together with L1_CACHE_PRELOAD_ADDR_REG"]
     #[inline(always)]

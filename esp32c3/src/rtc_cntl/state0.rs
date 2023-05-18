@@ -83,6 +83,24 @@ impl R {
         SLEEP_EN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTC_CNTL::STATE0")
+            .field(
+                "apb2rtc_bridge_sel",
+                &format_args!("{}", self.apb2rtc_bridge_sel().bit()),
+            )
+            .field(
+                "sdio_active_ind",
+                &format_args!("{}", self.sdio_active_ind().bit()),
+            )
+            .field("slp_wakeup", &format_args!("{}", self.slp_wakeup().bit()))
+            .field("slp_reject", &format_args!("{}", self.slp_reject().bit()))
+            .field("sleep_en", &format_args!("{}", self.sleep_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - rtc software interrupt to main cpu"]
     #[inline(always)]

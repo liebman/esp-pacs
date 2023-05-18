@@ -64,6 +64,25 @@ impl R {
         APB_ADC_TRANS_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_SARADC::DMA_CONF")
+            .field(
+                "apb_adc_eof_num",
+                &format_args!("{}", self.apb_adc_eof_num().bits()),
+            )
+            .field(
+                "apb_adc_reset_fsm",
+                &format_args!("{}", self.apb_adc_reset_fsm().bit()),
+            )
+            .field(
+                "apb_adc_trans",
+                &format_args!("{}", self.apb_adc_trans().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Generate dma_in_suc_eof when sample cnt = spi_eof_num."]
     #[inline(always)]

@@ -46,6 +46,17 @@ impl R {
         DCACHE_LOCK_ADDR_R::new(self.bits)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EXTMEM::DCACHE_LOCK_ADDR")
+            .field(
+                "dcache_lock_addr",
+                &format_args!("{}", self.dcache_lock_addr().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The bits are used to configure the start virtual address for lock operations. It should be combined with DCACHE_LOCK_SIZE_REG."]
     #[inline(always)]

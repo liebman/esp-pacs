@@ -54,6 +54,21 @@ impl R {
         DAC_CLK_PAD_SEL_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::DAC_CONF")
+            .field(
+                "dac_clk_div",
+                &format_args!("{}", self.dac_clk_div().bits()),
+            )
+            .field(
+                "dac_clk_pad_sel",
+                &format_args!("{}", self.dac_clk_pad_sel().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - efuse timing configure"]
     #[inline(always)]

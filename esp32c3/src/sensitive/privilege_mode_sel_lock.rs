@@ -46,6 +46,17 @@ impl R {
         PRIVILEGE_MODE_SEL_LOCK_R::new((self.bits & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::PRIVILEGE_MODE_SEL_LOCK")
+            .field(
+                "privilege_mode_sel_lock",
+                &format_args!("{}", self.privilege_mode_sel_lock().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - privilege_mode_sel_lock"]
     #[inline(always)]

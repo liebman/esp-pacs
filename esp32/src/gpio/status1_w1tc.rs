@@ -46,6 +46,17 @@ impl R {
         STATUS1_INT_W1TC_R::new((self.bits & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIO::STATUS1_W1TC")
+            .field(
+                "status1_int_w1tc",
+                &format_args!("{}", self.status1_int_w1tc().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - GPIO32~39 interrupt status write 1 to clear"]
     #[inline(always)]

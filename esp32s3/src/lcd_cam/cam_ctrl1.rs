@@ -133,6 +133,44 @@ impl R {
         CAM_START_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LCD_CAM::CAM_CTRL1")
+            .field(
+                "cam_rec_data_bytelen",
+                &format_args!("{}", self.cam_rec_data_bytelen().bits()),
+            )
+            .field(
+                "cam_line_int_num",
+                &format_args!("{}", self.cam_line_int_num().bits()),
+            )
+            .field("cam_clk_inv", &format_args!("{}", self.cam_clk_inv().bit()))
+            .field(
+                "cam_vsync_filter_en",
+                &format_args!("{}", self.cam_vsync_filter_en().bit()),
+            )
+            .field(
+                "cam_2byte_en",
+                &format_args!("{}", self.cam_2byte_en().bit()),
+            )
+            .field("cam_de_inv", &format_args!("{}", self.cam_de_inv().bit()))
+            .field(
+                "cam_hsync_inv",
+                &format_args!("{}", self.cam_hsync_inv().bit()),
+            )
+            .field(
+                "cam_vsync_inv",
+                &format_args!("{}", self.cam_vsync_inv().bit()),
+            )
+            .field(
+                "cam_vh_de_mode_en",
+                &format_args!("{}", self.cam_vh_de_mode_en().bit()),
+            )
+            .field("cam_start", &format_args!("{}", self.cam_start().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Camera receive data byte length minus 1 to set DMA in_suc_eof_int."]
     #[inline(always)]

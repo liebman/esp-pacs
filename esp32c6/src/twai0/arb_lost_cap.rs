@@ -22,6 +22,17 @@ impl R {
         ARBITRATION_LOST_CAPTURE_R::new((self.bits & 0x1f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TWAI0::ARB_LOST_CAP")
+            .field(
+                "arbitration_lost_capture",
+                &format_args!("{}", self.arbitration_lost_capture().bits()),
+            )
+            .finish()
+    }
+}
 #[doc = "TWAI arbiter lost capture register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [arb_lost_cap](index.html) module"]
 pub struct ARB_LOST_CAP_SPEC;
 impl crate::RegisterSpec for ARB_LOST_CAP_SPEC {

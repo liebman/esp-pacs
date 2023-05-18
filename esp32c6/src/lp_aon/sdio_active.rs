@@ -46,6 +46,17 @@ impl R {
         SDIO_ACT_DNUM_R::new(((self.bits >> 22) & 0x03ff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LP_AON::SDIO_ACTIVE")
+            .field(
+                "sdio_act_dnum",
+                &format_args!("{}", self.sdio_act_dnum().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 22:31 - need_des"]
     #[inline(always)]

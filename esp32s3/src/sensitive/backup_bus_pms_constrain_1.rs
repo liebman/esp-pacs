@@ -166,6 +166,65 @@ impl R {
         BACKUP_BUS_PMS_CONSTRAIN_UART1_R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::BACKUP_BUS_PMS_CONSTRAIN_1")
+            .field(
+                "backup_bus_pms_constrain_uart",
+                &format_args!("{}", self.backup_bus_pms_constrain_uart().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_g0spi_1",
+                &format_args!("{}", self.backup_bus_pms_constrain_g0spi_1().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_g0spi_0",
+                &format_args!("{}", self.backup_bus_pms_constrain_g0spi_0().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_gpio",
+                &format_args!("{}", self.backup_bus_pms_constrain_gpio().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_fe2",
+                &format_args!("{}", self.backup_bus_pms_constrain_fe2().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_fe",
+                &format_args!("{}", self.backup_bus_pms_constrain_fe().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_rtc",
+                &format_args!("{}", self.backup_bus_pms_constrain_rtc().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_io_mux",
+                &format_args!("{}", self.backup_bus_pms_constrain_io_mux().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_hinf",
+                &format_args!("{}", self.backup_bus_pms_constrain_hinf().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_misc",
+                &format_args!("{}", self.backup_bus_pms_constrain_misc().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_i2c",
+                &format_args!("{}", self.backup_bus_pms_constrain_i2c().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_i2s0",
+                &format_args!("{}", self.backup_bus_pms_constrain_i2s0().bits()),
+            )
+            .field(
+                "backup_bus_pms_constrain_uart1",
+                &format_args!("{}", self.backup_bus_pms_constrain_uart1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - BackUp access uart permission."]
     #[inline(always)]

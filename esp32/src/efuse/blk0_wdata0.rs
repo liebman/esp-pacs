@@ -64,6 +64,19 @@ impl R {
         FLASH_CRYPT_CNT_R::new(((self.bits >> 20) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_WDATA0")
+            .field("wr_dis", &format_args!("{}", self.wr_dis().bits()))
+            .field("rd_dis", &format_args!("{}", self.rd_dis().bits()))
+            .field(
+                "flash_crypt_cnt",
+                &format_args!("{}", self.flash_crypt_cnt().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - program for efuse_wr_disable"]
     #[inline(always)]

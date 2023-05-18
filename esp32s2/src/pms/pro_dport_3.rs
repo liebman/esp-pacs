@@ -46,6 +46,17 @@ impl R {
         PRO_DPORT_RESERVE_FIFO_1_R::new(self.bits & 0x0003_ffff)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMS::PRO_DPORT_3")
+            .field(
+                "pro_dport_reserve_fifo_1",
+                &format_args!("{}", self.pro_dport_reserve_fifo_1().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - Configure read-protection address 1."]
     #[inline(always)]

@@ -66,6 +66,25 @@ impl R {
         CAP_SYNCI_SEL_R::new(((self.bits >> 2) & 7) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCPWM0::CAP_TIMER_CFG")
+            .field(
+                "cap_timer_en",
+                &format_args!("{}", self.cap_timer_en().bit()),
+            )
+            .field(
+                "cap_synci_en",
+                &format_args!("{}", self.cap_synci_en().bit()),
+            )
+            .field(
+                "cap_synci_sel",
+                &format_args!("{}", self.cap_synci_sel().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - When set, capture timer incrementing under APB_clk is enabled."]
     #[inline(always)]

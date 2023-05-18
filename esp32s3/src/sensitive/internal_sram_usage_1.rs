@@ -66,6 +66,25 @@ impl R {
         INTERNAL_SRAM_CPU_USAGE_R::new(((self.bits >> 4) & 0x7f) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SENSITIVE::INTERNAL_SRAM_USAGE_1")
+            .field(
+                "internal_sram_icache_usage",
+                &format_args!("{}", self.internal_sram_icache_usage().bits()),
+            )
+            .field(
+                "internal_sram_dcache_usage",
+                &format_args!("{}", self.internal_sram_dcache_usage().bits()),
+            )
+            .field(
+                "internal_sram_cpu_usage",
+                &format_args!("{}", self.internal_sram_cpu_usage().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Set 1 to someone bit means corresponding internal SRAM level can be accessed by icache."]
     #[inline(always)]

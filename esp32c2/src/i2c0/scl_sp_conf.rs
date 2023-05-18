@@ -73,6 +73,23 @@ impl R {
         SDA_PD_EN_R::new(((self.bits >> 7) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("I2C0::SCL_SP_CONF")
+            .field(
+                "scl_rst_slv_en",
+                &format_args!("{}", self.scl_rst_slv_en().bit()),
+            )
+            .field(
+                "scl_rst_slv_num",
+                &format_args!("{}", self.scl_rst_slv_num().bits()),
+            )
+            .field("scl_pd_en", &format_args!("{}", self.scl_pd_en().bit()))
+            .field("sda_pd_en", &format_args!("{}", self.sda_pd_en().bit()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - When I2C master is IDLE, set this bit to send out SCL pulses. The number of pulses equals to reg_scl_rst_slv_num\\[4:0\\]."]
     #[inline(always)]

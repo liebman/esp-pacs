@@ -46,6 +46,17 @@ impl R {
         FLASH_ACE3_SIZE_R::new((self.bits & 0x1fff) as u16)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("APB_CTRL::FLASH_ACE3_SIZE")
+            .field(
+                "flash_ace3_size",
+                &format_args!("{}", self.flash_ace3_size().bits()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:12 - reg_flash_ace3_size"]
     #[inline(always)]

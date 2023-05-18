@@ -54,6 +54,15 @@ impl R {
         WB_MODE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI1::RD_STATUS")
+            .field("status", &format_args!("{}", self.status().bits()))
+            .field("wb_mode", &format_args!("{}", self.wb_mode().bits()))
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - The value is stored when set spi_mem_flash_rdsr bit and spi_mem_flash_res bit."]
     #[inline(always)]

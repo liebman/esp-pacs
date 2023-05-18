@@ -76,6 +76,29 @@ impl R {
         ENABLE_DOWNLOAD_MANUAL_ENCRYPT_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HP_SYS::EXTERNAL_DEVICE_ENCRYPT_DECRYPT_CONTROL")
+            .field(
+                "enable_spi_manual_encrypt",
+                &format_args!("{}", self.enable_spi_manual_encrypt().bit()),
+            )
+            .field(
+                "enable_download_db_encrypt",
+                &format_args!("{}", self.enable_download_db_encrypt().bit()),
+            )
+            .field(
+                "enable_download_g0cb_decrypt",
+                &format_args!("{}", self.enable_download_g0cb_decrypt().bit()),
+            )
+            .field(
+                "enable_download_manual_encrypt",
+                &format_args!("{}", self.enable_download_manual_encrypt().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit as 1 to enable mspi xts manual encrypt in spi boot mode."]
     #[inline(always)]

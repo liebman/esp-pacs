@@ -95,6 +95,42 @@ impl R {
         RD_SDIO_FORCE_R::new(((self.bits >> 16) & 1) != 0)
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EFUSE::BLK0_RDATA4")
+            .field(
+                "rd_ck8m_freq",
+                &format_args!("{}", self.rd_ck8m_freq().bits()),
+            )
+            .field(
+                "rd_adc_vref",
+                &format_args!("{}", self.rd_adc_vref().bits()),
+            )
+            .field(
+                "rd_sdio_drefh",
+                &format_args!("{}", self.rd_sdio_drefh().bits()),
+            )
+            .field(
+                "rd_sdio_drefm",
+                &format_args!("{}", self.rd_sdio_drefm().bits()),
+            )
+            .field(
+                "rd_sdio_drefl",
+                &format_args!("{}", self.rd_sdio_drefl().bits()),
+            )
+            .field("rd_xpd_sdio", &format_args!("{}", self.rd_xpd_sdio().bit()))
+            .field(
+                "rd_sdio_tieh",
+                &format_args!("{}", self.rd_sdio_tieh().bit()),
+            )
+            .field(
+                "rd_sdio_force",
+                &format_args!("{}", self.rd_sdio_force().bit()),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:12 - True ADC reference voltage"]
     #[inline(always)]
