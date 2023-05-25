@@ -87,20 +87,11 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("LEDC::TIMER_CONF")
-            .field(
-                "timer_duty_res",
-                &format_args!("{}", self.timer_duty_res().bits()),
-            )
-            .field(
-                "clk_div_timer",
-                &format_args!("{}", self.clk_div_timer().bits()),
-            )
-            .field("timer_pause", &format_args!("{}", self.timer_pause().bit()))
-            .field("timer_rst", &format_args!("{}", self.timer_rst().bit()))
-            .field(
-                "tick_sel_timer",
-                &format_args!("{}", self.tick_sel_timer().bit()),
-            )
+            .field("duty_res", &format_args!("{}", self.duty_res().bits()))
+            .field("clk_div", &format_args!("{}", self.clk_div().bits()))
+            .field("pause", &format_args!("{}", self.pause().bit()))
+            .field("rst", &format_args!("{}", self.rst().bit()))
+            .field("tick_sel", &format_args!("{}", self.tick_sel().bit()))
             .finish()
     }
 }

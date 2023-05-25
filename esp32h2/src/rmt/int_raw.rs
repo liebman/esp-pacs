@@ -187,20 +187,20 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.ch3_rx_end_int_raw().bit()),
             )
             .field(
-                "tx_ch0_err_int_raw",
-                &format_args!("{}", self.tx_ch0_err_int_raw().bit()),
+                "ch0_tx_err_int_raw",
+                &format_args!("{}", self.ch0_tx_err_int_raw().bit()),
             )
             .field(
-                "tx_ch1_err_int_raw",
-                &format_args!("{}", self.tx_ch1_err_int_raw().bit()),
+                "ch1_tx_err_int_raw",
+                &format_args!("{}", self.ch1_tx_err_int_raw().bit()),
             )
             .field(
-                "tx_ch2_err_int_raw",
-                &format_args!("{}", self.tx_ch2_err_int_raw().bit()),
+                "ch2_tx_err_int_raw",
+                &format_args!("{}", self.ch2_tx_err_int_raw().bit()),
             )
             .field(
-                "tx_ch3_err_int_raw",
-                &format_args!("{}", self.tx_ch3_err_int_raw().bit()),
+                "ch3_tx_err_int_raw",
+                &format_args!("{}", self.ch3_tx_err_int_raw().bit()),
             )
             .field(
                 "ch0_tx_thr_event_int_raw",

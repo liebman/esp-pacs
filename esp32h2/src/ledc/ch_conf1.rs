@@ -49,10 +49,7 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("LEDC::CH_CONF1")
-            .field(
-                "duty_start_ch",
-                &format_args!("{}", self.duty_start_ch().bit()),
-            )
+            .field("duty_start", &format_args!("{}", self.duty_start().bit()))
             .finish()
     }
 }

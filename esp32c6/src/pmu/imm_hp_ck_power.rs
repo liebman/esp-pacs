@@ -76,6 +76,12 @@ pub type TIE_HIGH_XPD_BBPLL_W<'a, const O: u8> =
 #[doc = "Field `TIE_HIGH_XPD_XTAL` writer - need_des"]
 pub type TIE_HIGH_XPD_XTAL_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, IMM_HP_CK_POWER_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PMU::IMM_HP_CK_POWER").finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - need_des"]
     #[inline(always)]

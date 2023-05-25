@@ -139,33 +139,21 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.mem_clk_force_on().bit()),
             )
             .field(
-                "rmt_mem_force_pd",
-                &format_args!("{}", self.rmt_mem_force_pd().bit()),
+                "mem_force_pd",
+                &format_args!("{}", self.mem_force_pd().bit()),
             )
             .field(
-                "rmt_mem_force_pu",
-                &format_args!("{}", self.rmt_mem_force_pu().bit()),
+                "mem_force_pu",
+                &format_args!("{}", self.mem_force_pu().bit()),
             )
             .field(
-                "rmt_sclk_div_num",
-                &format_args!("{}", self.rmt_sclk_div_num().bits()),
+                "sclk_div_num",
+                &format_args!("{}", self.sclk_div_num().bits()),
             )
-            .field(
-                "rmt_sclk_div_a",
-                &format_args!("{}", self.rmt_sclk_div_a().bits()),
-            )
-            .field(
-                "rmt_sclk_div_b",
-                &format_args!("{}", self.rmt_sclk_div_b().bits()),
-            )
-            .field(
-                "rmt_sclk_sel",
-                &format_args!("{}", self.rmt_sclk_sel().bits()),
-            )
-            .field(
-                "rmt_sclk_active",
-                &format_args!("{}", self.rmt_sclk_active().bit()),
-            )
+            .field("sclk_div_a", &format_args!("{}", self.sclk_div_a().bits()))
+            .field("sclk_div_b", &format_args!("{}", self.sclk_div_b().bits()))
+            .field("sclk_sel", &format_args!("{}", self.sclk_sel().bits()))
+            .field("sclk_active", &format_args!("{}", self.sclk_active().bit()))
             .field("clk_en", &format_args!("{}", self.clk_en().bit()))
             .finish()
     }
