@@ -130,7 +130,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_I2C0::I2C_INT_STATUS")
+        f.debug_struct("I2C_INT_STATUS")
             .field(
                 "i2c_rxfifo_wm_int_st",
                 &format_args!("{}", self.i2c_rxfifo_wm_int_st().bit()),
@@ -196,6 +196,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.i2c_det_start_int_st().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<I2C_INT_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Status of captured I2C communication events\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [i2c_int_status](index.html) module"]

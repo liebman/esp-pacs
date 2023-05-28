@@ -57,10 +57,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_UART::RS485_CONF")
+        f.debug_struct("RS485_CONF")
             .field("dl0_en", &format_args!("{}", self.dl0_en().bit()))
             .field("dl1_en", &format_args!("{}", self.dl1_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RS485_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

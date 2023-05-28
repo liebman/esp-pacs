@@ -35,6 +35,12 @@ pub type CH5_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_IDV_SPEC, u8, 
 pub type CH6_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_IDV_SPEC, u8, u8, 2, O>;
 #[doc = "Field `CH7` writer - Configure channel 7 output value. 0: hold output value. 1: set output value. 2: clear output value. 3: inverse output value."]
 pub type CH7_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_IDV_SPEC, u8, u8, 2, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_IDV_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Configure channel 0 output value. 0: hold output value. 1: set output value. 2: clear output value. 3: inverse output value."]
     #[inline(always)]

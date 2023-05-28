@@ -74,7 +74,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HINF::CONF_STATUS")
+        f.debug_struct("CONF_STATUS")
             .field(
                 "func0_config0",
                 &format_args!("{}", self.func0_config0().bits()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sdio_switch_end().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "func0 config0 status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [conf_status](index.html) module"]

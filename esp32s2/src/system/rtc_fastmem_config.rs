@@ -76,7 +76,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::RTC_FASTMEM_CONFIG")
+        f.debug_struct("RTC_FASTMEM_CONFIG")
             .field(
                 "rtc_mem_crc_start",
                 &format_args!("{}", self.rtc_mem_crc_start().bit()),
@@ -94,6 +94,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rtc_mem_crc_finish().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RTC_FASTMEM_CONFIG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

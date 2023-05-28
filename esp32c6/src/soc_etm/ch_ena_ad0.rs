@@ -327,7 +327,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SOC_ETM::CH_ENA_AD0")
+        f.debug_struct("CH_ENA_AD0")
             .field("ch_ena0", &format_args!("{}", self.ch_ena0().bit()))
             .field("ch_ena1", &format_args!("{}", self.ch_ena1().bit()))
             .field("ch_ena2", &format_args!("{}", self.ch_ena2().bit()))
@@ -361,6 +361,12 @@ impl core::fmt::Debug for R {
             .field("ch_ena30", &format_args!("{}", self.ch_ena30().bit()))
             .field("ch_ena31", &format_args!("{}", self.ch_ena31().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CH_ENA_AD0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

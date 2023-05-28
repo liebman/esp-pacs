@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::FH0_CFG1")
+        f.debug_struct("FH0_CFG1")
             .field("fh0_clr_ost", &format_args!("{}", self.fh0_clr_ost().bit()))
             .field(
                 "fh0_cbcpulse",
@@ -90,6 +90,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.fh0_force_ost().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FH0_CFG1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

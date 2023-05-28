@@ -59,7 +59,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::HOST_SLC0HOST_TOKEN_WDATA")
+        f.debug_struct("HOST_SLC0HOST_TOKEN_WDATA")
             .field(
                 "host_slc0host_token0_wd",
                 &format_args!("{}", self.host_slc0host_token0_wd().bits()),
@@ -69,6 +69,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.host_slc0host_token1_wd().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HOST_SLC0HOST_TOKEN_WDATA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

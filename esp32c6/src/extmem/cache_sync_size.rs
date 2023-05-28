@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CACHE_SYNC_SIZE")
+        f.debug_struct("CACHE_SYNC_SIZE")
             .field(
                 "cache_sync_size",
                 &format_args!("{}", self.cache_sync_size().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_SYNC_SIZE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

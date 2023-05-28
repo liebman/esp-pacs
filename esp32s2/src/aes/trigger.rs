@@ -21,6 +21,12 @@ impl From<crate::W<TRIGGER_SPEC>> for W {
 }
 #[doc = "Field `TRIGGER` writer - Set this bit to 1 to start AES operation."]
 pub type TRIGGER_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRIGGER_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TRIGGER_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to 1 to start AES operation."]
     #[inline(always)]

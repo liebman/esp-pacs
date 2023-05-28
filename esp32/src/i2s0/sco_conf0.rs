@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::SCO_CONF0")
+        f.debug_struct("SCO_CONF0")
             .field(
                 "sco_with_i2s_en",
                 &format_args!("{}", self.sco_with_i2s_en().bit()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cvsd_enc_reset().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SCO_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

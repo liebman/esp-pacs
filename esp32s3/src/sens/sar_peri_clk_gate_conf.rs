@@ -79,7 +79,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_PERI_CLK_GATE_CONF")
+        f.debug_struct("SAR_PERI_CLK_GATE_CONF")
             .field(
                 "rtc_i2c_clk_en",
                 &format_args!("{}", self.rtc_i2c_clk_en().bit()),
@@ -97,6 +97,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.iomux_clk_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_PERI_CLK_GATE_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

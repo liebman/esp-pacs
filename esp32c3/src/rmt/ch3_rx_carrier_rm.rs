@@ -59,7 +59,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::CH3_RX_CARRIER_RM")
+        f.debug_struct("CH3_RX_CARRIER_RM")
             .field(
                 "carrier_low_thres",
                 &format_args!("{}", self.carrier_low_thres().bits()),
@@ -69,6 +69,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.carrier_high_thres().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CH3_RX_CARRIER_RM_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

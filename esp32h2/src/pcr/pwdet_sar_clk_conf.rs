@@ -59,7 +59,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::PWDET_SAR_CLK_CONF")
+        f.debug_struct("PWDET_SAR_CLK_CONF")
             .field(
                 "pwdet_sar_clk_div_num",
                 &format_args!("{}", self.pwdet_sar_clk_div_num().bits()),
@@ -69,6 +69,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pwdet_sar_reader_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PWDET_SAR_CLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

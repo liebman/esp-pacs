@@ -102,7 +102,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("ASSIST_DEBUG::CORE_1_INTR_RAW")
+        f.debug_struct("CORE_1_INTR_RAW")
             .field(
                 "core_1_area_dram0_0_rd_raw",
                 &format_args!("{}", self.core_1_area_dram0_0_rd_raw().bit()),
@@ -152,6 +152,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core_1_dram0_exception_monitor_raw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_1_INTR_RAW_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Core1 monitor interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_1_intr_raw](index.html) module"]

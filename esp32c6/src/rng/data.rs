@@ -19,6 +19,12 @@ impl core::fmt::Debug for R {
         write!(f, "{}", self.bits())
     }
 }
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DATA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
+    }
+}
 #[doc = "Random number data\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [data](index.html) module"]
 pub struct DATA_SPEC;
 impl crate::RegisterSpec for DATA_SPEC {

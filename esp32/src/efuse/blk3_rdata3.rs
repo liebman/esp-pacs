@@ -86,7 +86,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::BLK3_RDATA3")
+        f.debug_struct("BLK3_RDATA3")
             .field("blk3_dout3", &format_args!("{}", self.blk3_dout3().bits()))
             .field(
                 "rd_adc1_tp_low",
@@ -105,6 +105,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rd_adc2_tp_high().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BLK3_RDATA3_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -21,6 +21,12 @@ impl From<crate::W<CONTINUE_OP_SPEC>> for W {
 }
 #[doc = "Field `CONTINUE_OP` writer - Set this bit to 1 to continue AES operation."]
 pub type CONTINUE_OP_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONTINUE_OP_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONTINUE_OP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to 1 to continue AES operation."]
     #[inline(always)]

@@ -130,7 +130,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::RD_RS_ERR0")
+        f.debug_struct("RD_RS_ERR0")
             .field(
                 "mac_spi_8m_err_num",
                 &format_args!("{}", self.mac_spi_8m_err_num().bits()),
@@ -181,6 +181,12 @@ impl core::fmt::Debug for R {
             )
             .field("key4_fail", &format_args!("{}", self.key4_fail().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RD_RS_ERR0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Programming error record register 0 of BLOCK1-10.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_rs_err0](index.html) module"]

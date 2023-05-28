@@ -260,7 +260,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::DIG_ISO")
+        f.debug_struct("DIG_ISO")
             .field("force_off", &format_args!("{}", self.force_off().bit()))
             .field("force_on", &format_args!("{}", self.force_on().bit()))
             .field(
@@ -352,6 +352,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dg_wrap_force_noiso().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DIG_ISO_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

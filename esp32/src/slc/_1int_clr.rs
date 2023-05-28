@@ -94,6 +94,12 @@ pub type SLC1_WR_RETRY_DONE_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `SLC1_TX_ERR_EOF_INT_CLR` writer - "]
 pub type SLC1_TX_ERR_EOF_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, _1INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<_1INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

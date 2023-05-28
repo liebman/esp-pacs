@@ -69,7 +69,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_ANA::VDD_SOURCE_CNTL")
+        f.debug_struct("VDD_SOURCE_CNTL")
             .field(
                 "detmode_sel",
                 &format_args!("{}", self.detmode_sel().bits()),
@@ -83,6 +83,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.bod_source_ena().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<VDD_SOURCE_CNTL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

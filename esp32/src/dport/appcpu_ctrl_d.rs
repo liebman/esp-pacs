@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::APPCPU_CTRL_D")
+        f.debug_struct("APPCPU_CTRL_D")
             .field(
                 "appcpu_boot_addr",
                 &format_args!("{}", self.appcpu_boot_addr().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<APPCPU_CTRL_D_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -308,7 +308,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::_0INT_ENA")
+        f.debug_struct("_0INT_ENA")
             .field(
                 "frhost_bit0_int_ena",
                 &format_args!("{}", self.frhost_bit0_int_ena().bit()),
@@ -418,6 +418,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slc0_rx_quick_eof_int_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<_0INT_ENA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

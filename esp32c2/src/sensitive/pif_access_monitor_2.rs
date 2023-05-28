@@ -36,7 +36,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::PIF_ACCESS_MONITOR_2")
+        f.debug_struct("PIF_ACCESS_MONITOR_2")
             .field(
                 "pif_access_monitor_nonword_violate_intr",
                 &format_args!("{}", self.pif_access_monitor_nonword_violate_intr().bit()),
@@ -50,6 +50,12 @@ impl core::fmt::Debug for R {
                 ),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PIF_ACCESS_MONITOR_2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pif_access_monitor_2](index.html) module"]

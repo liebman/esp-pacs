@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::MEM_PVT")
+        f.debug_struct("MEM_PVT")
             .field(
                 "mem_path_len",
                 &format_args!("{}", self.mem_path_len().bits()),
@@ -87,6 +87,12 @@ impl core::fmt::Debug for R {
             )
             .field("mem_vt_sel", &format_args!("{}", self.mem_vt_sel().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MEM_PVT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

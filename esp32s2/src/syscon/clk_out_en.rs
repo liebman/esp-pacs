@@ -138,7 +138,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSCON::CLK_OUT_EN")
+        f.debug_struct("CLK_OUT_EN")
             .field("clk20_oen", &format_args!("{}", self.clk20_oen().bit()))
             .field("clk22_oen", &format_args!("{}", self.clk22_oen().bit()))
             .field("clk44_oen", &format_args!("{}", self.clk44_oen().bit()))
@@ -166,6 +166,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.clk_xtal_oen().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLK_OUT_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

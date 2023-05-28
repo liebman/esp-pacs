@@ -193,7 +193,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_CONSTRAIN_6")
+        f.debug_struct("CORE_1_PIF_PMS_CONSTRAIN_6")
             .field(
                 "core_1_pif_pms_constrain_world_1_bt",
                 &format_args!("{}", self.core_1_pif_pms_constrain_world_1_bt().bits()),
@@ -263,6 +263,12 @@ impl core::fmt::Debug for R {
                 ),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_1_PIF_PMS_CONSTRAIN_6_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

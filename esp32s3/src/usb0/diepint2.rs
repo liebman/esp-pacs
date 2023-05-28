@@ -163,7 +163,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DIEPINT2")
+        f.debug_struct("DIEPINT2")
             .field(
                 "d_xfercompl2",
                 &format_args!("{}", self.d_xfercompl2().bit()),
@@ -203,6 +203,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.d_nyetintrpt2().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DIEPINT2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

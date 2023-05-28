@@ -79,7 +79,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::CONF_W10")
+        f.debug_struct("CONF_W10")
             .field(
                 "slchost_conf40",
                 &format_args!("{}", self.slchost_conf40().bits()),
@@ -97,6 +97,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slchost_conf43().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF_W10_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

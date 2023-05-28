@@ -55,6 +55,12 @@ pub type CH_SET47_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH_ENA_AD1_SET_
 pub type CH_SET48_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH_ENA_AD1_SET_SPEC, bool, O>;
 #[doc = "Field `CH_SET49` writer - ch49 set"]
 pub type CH_SET49_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH_ENA_AD1_SET_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CH_ENA_AD1_SET_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - ch32 set"]
     #[inline(always)]

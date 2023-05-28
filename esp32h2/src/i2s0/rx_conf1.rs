@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::RX_CONF1")
+        f.debug_struct("RX_CONF1")
             .field(
                 "rx_tdm_ws_width",
                 &format_args!("{}", self.rx_tdm_ws_width().bits()),
@@ -96,6 +96,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rx_tdm_chan_bits().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_CONF1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

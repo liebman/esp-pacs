@@ -58,7 +58,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::OUT_PUSH_CH2")
+        f.debug_struct("OUT_PUSH_CH2")
             .field(
                 "outfifo_wdata",
                 &format_args!("{}", self.outfifo_wdata().bits()),
@@ -68,6 +68,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.outfifo_push().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_PUSH_CH2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

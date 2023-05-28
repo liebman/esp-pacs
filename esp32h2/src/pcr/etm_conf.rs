@@ -64,11 +64,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::ETM_CONF")
+        f.debug_struct("ETM_CONF")
             .field("etm_clk_en", &format_args!("{}", self.etm_clk_en().bit()))
             .field("etm_rst_en", &format_args!("{}", self.etm_rst_en().bit()))
             .field("etm_ready", &format_args!("{}", self.etm_ready().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ETM_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

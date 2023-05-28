@@ -120,7 +120,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::PRO_DCACHE_DBUG3")
+        f.debug_struct("PRO_DCACHE_DBUG3")
             .field(
                 "pro_mmu_rdata",
                 &format_args!("{}", self.pro_mmu_rdata().bits()),
@@ -158,6 +158,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pro_cache_iram0_pid_error().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_DCACHE_DBUG3_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

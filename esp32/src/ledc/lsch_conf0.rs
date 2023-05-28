@@ -75,12 +75,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LEDC::LSCH_CONF0")
+        f.debug_struct("LSCH_CONF0")
             .field("timer_sel", &format_args!("{}", self.timer_sel().bits()))
             .field("sig_out_en", &format_args!("{}", self.sig_out_en().bit()))
             .field("idle_lv", &format_args!("{}", self.idle_lv().bit()))
             .field("para_up", &format_args!("{}", self.para_up().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LSCH_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

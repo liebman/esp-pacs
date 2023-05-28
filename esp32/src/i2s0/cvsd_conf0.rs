@@ -59,10 +59,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::CVSD_CONF0")
+        f.debug_struct("CVSD_CONF0")
             .field("cvsd_y_max", &format_args!("{}", self.cvsd_y_max().bits()))
             .field("cvsd_y_min", &format_args!("{}", self.cvsd_y_min().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CVSD_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

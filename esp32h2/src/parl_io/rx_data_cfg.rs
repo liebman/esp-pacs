@@ -69,7 +69,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PARL_IO::RX_DATA_CFG")
+        f.debug_struct("RX_DATA_CFG")
             .field("rx_bitlen", &format_args!("{}", self.rx_bitlen().bits()))
             .field(
                 "rx_data_order_inv",
@@ -80,6 +80,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rx_bus_wid_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_DATA_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

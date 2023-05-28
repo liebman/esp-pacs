@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::HOST_SLC_APBWIN_WDATA")
+        f.debug_struct("HOST_SLC_APBWIN_WDATA")
             .field(
                 "host_slc_apbwin_wdata",
                 &format_args!("{}", self.host_slc_apbwin_wdata().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HOST_SLC_APBWIN_WDATA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

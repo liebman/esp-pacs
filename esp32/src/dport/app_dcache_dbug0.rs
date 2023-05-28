@@ -105,7 +105,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::APP_DCACHE_DBUG0")
+        f.debug_struct("APP_DCACHE_DBUG0")
             .field(
                 "app_slave_wdata",
                 &format_args!("{}", self.app_slave_wdata().bit()),
@@ -137,6 +137,12 @@ impl core::fmt::Debug for R {
             )
             .field("app_rx_end", &format_args!("{}", self.app_rx_end().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<APP_DCACHE_DBUG0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

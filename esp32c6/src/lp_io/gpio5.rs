@@ -141,7 +141,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_IO::GPIO5")
+        f.debug_struct("GPIO5")
             .field(
                 "lp_gpio5_mcu_oe",
                 &format_args!("{}", self.lp_gpio5_mcu_oe().bit()),
@@ -187,6 +187,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lp_gpio5_mcu_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GPIO5_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

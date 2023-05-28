@@ -79,7 +79,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMS::CACHE_TAG_ACCESS_1")
+        f.debug_struct("CACHE_TAG_ACCESS_1")
             .field(
                 "pro_i_tag_rd_acs",
                 &format_args!("{}", self.pro_i_tag_rd_acs().bit()),
@@ -97,6 +97,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pro_d_tag_wr_acs().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_TAG_ACCESS_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

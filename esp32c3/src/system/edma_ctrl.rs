@@ -57,10 +57,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::EDMA_CTRL")
+        f.debug_struct("EDMA_CTRL")
             .field("edma_clk_on", &format_args!("{}", self.edma_clk_on().bit()))
             .field("edma_reset", &format_args!("{}", self.edma_reset().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<EDMA_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

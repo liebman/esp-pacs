@@ -174,7 +174,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI1::CTRL")
+        f.debug_struct("CTRL")
             .field("fdummy_out", &format_args!("{}", self.fdummy_out().bit()))
             .field("fcmd_dual", &format_args!("{}", self.fcmd_dual().bit()))
             .field("fcmd_quad", &format_args!("{}", self.fcmd_quad().bit()))
@@ -191,6 +191,12 @@ impl core::fmt::Debug for R {
             .field("fread_dio", &format_args!("{}", self.fread_dio().bit()))
             .field("fread_qio", &format_args!("{}", self.fread_qio().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

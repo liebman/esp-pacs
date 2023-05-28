@@ -66,11 +66,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DOEPTSIZ0")
+        f.debug_struct("DOEPTSIZ0")
             .field("xfersize0", &format_args!("{}", self.xfersize0().bits()))
             .field("pktcnt0", &format_args!("{}", self.pktcnt0().bit()))
             .field("supcnt0", &format_args!("{}", self.supcnt0().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DOEPTSIZ0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

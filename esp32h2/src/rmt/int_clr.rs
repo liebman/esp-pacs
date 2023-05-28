@@ -51,6 +51,12 @@ pub type CH3_RX_THR_EVENT_INT_CLR_W<'a, const O: u8> =
 pub type CH0_TX_LOOP_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
 #[doc = "Field `CH1_TX_LOOP_INT_CLR` writer - Set this bit to clear theCH1_TX_LOOP_INT interrupt."]
 pub type CH1_TX_LOOP_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to clear theCH0_TX_END_INT interrupt."]
     #[inline(always)]

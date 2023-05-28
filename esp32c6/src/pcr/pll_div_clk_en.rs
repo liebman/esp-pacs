@@ -109,7 +109,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::PLL_DIV_CLK_EN")
+        f.debug_struct("PLL_DIV_CLK_EN")
             .field(
                 "pll_240m_clk_en",
                 &format_args!("{}", self.pll_240m_clk_en().bit()),
@@ -139,6 +139,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pll_20m_clk_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PLL_DIV_CLK_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

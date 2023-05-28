@@ -21,6 +21,12 @@ impl From<crate::W<IV__SPEC>> for W {
 }
 #[doc = "Field `IV_0` writer - IV block data."]
 pub type IV_0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IV__SPEC, u32, u32, 32, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IV__SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - IV block data."]
     #[inline(always)]

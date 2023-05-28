@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SRAM_CLK")
+        f.debug_struct("SRAM_CLK")
             .field("sclkcnt_l", &format_args!("{}", self.sclkcnt_l().bits()))
             .field("sclkcnt_h", &format_args!("{}", self.sclkcnt_h().bits()))
             .field("sclkcnt_n", &format_args!("{}", self.sclkcnt_n().bits()))
@@ -84,6 +84,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sclk_equ_sysclk().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SRAM_CLK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

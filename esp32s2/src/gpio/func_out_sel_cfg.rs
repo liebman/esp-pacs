@@ -76,12 +76,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("GPIO::FUNC_OUT_SEL_CFG")
+        f.debug_struct("FUNC_OUT_SEL_CFG")
             .field("out_sel", &format_args!("{}", self.out_sel().bits()))
             .field("inv_sel", &format_args!("{}", self.inv_sel().bit()))
             .field("oen_sel", &format_args!("{}", self.oen_sel().bit()))
             .field("oen_inv_sel", &format_args!("{}", self.oen_inv_sel().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FUNC_OUT_SEL_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

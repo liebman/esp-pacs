@@ -57,13 +57,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::CONF")
+        f.debug_struct("CONF")
             .field("op_code", &format_args!("{}", self.op_code().bits()))
             .field(
                 "force_no_wr_rd_dis",
                 &format_args!("{}", self.force_no_wr_rd_dis().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

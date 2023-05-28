@@ -100,7 +100,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCNT::U_STATUS")
+        f.debug_struct("U_STATUS")
             .field(
                 "core_status_u0",
                 &format_args!("{}", self.core_status_u0().bits()),
@@ -112,6 +112,12 @@ impl core::fmt::Debug for R {
             .field("h_lim", &format_args!("{}", self.h_lim().bit()))
             .field("zero", &format_args!("{}", self.zero().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<U_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

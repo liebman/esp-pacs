@@ -135,7 +135,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2C0::CTR")
+        f.debug_struct("CTR")
             .field(
                 "sda_force_out",
                 &format_args!("{}", self.sda_force_out().bit()),
@@ -171,6 +171,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slv_tx_auto_start_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CTR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

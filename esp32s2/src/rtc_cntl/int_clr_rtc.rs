@@ -72,6 +72,12 @@ pub type TOUCH_TIMEOUT_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `GLITCH_DET_INT_CLR` writer - Clears the interrupt triggered when a glitch is detected."]
 pub type GLITCH_DET_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_RTC_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_RTC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Clears the interrupt triggered when the chip wakes up from sleep."]
     #[inline(always)]

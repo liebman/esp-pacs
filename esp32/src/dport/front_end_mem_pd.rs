@@ -79,7 +79,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::FRONT_END_MEM_PD")
+        f.debug_struct("FRONT_END_MEM_PD")
             .field(
                 "agc_mem_force_pu",
                 &format_args!("{}", self.agc_mem_force_pu().bit()),
@@ -97,6 +97,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pbus_mem_force_pd().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FRONT_END_MEM_PD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

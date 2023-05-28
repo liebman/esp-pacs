@@ -59,7 +59,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_CTRL::MEM_POWER_DOWN")
+        f.debug_struct("MEM_POWER_DOWN")
             .field(
                 "rom_power_down",
                 &format_args!("{}", self.rom_power_down().bits()),
@@ -69,6 +69,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sram_power_down().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MEM_POWER_DOWN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

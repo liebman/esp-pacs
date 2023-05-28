@@ -58,7 +58,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_MEAS2_MUX")
+        f.debug_struct("SAR_MEAS2_MUX")
             .field(
                 "sar2_pwdet_cct",
                 &format_args!("{}", self.sar2_pwdet_cct().bits()),
@@ -68,6 +68,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar2_rtc_force().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_MEAS2_MUX_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

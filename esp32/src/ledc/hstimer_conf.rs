@@ -94,7 +94,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LEDC::HSTIMER_CONF")
+        f.debug_struct("HSTIMER_CONF")
             .field("duty_res", &format_args!("{}", self.duty_res().bits()))
             .field("div_num", &format_args!("{}", self.div_num().bits()))
             .field("pause", &format_args!("{}", self.pause().bit()))
@@ -102,6 +102,12 @@ impl core::fmt::Debug for R {
             .field("tick_sel", &format_args!("{}", self.tick_sel().bit()))
             .field("lim", &format_args!("{}", self.lim().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HSTIMER_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

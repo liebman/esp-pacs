@@ -120,7 +120,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_I2C::CTRL")
+        f.debug_struct("CTRL")
             .field(
                 "sda_force_out",
                 &format_args!("{}", self.sda_force_out().bit()),
@@ -146,6 +146,12 @@ impl core::fmt::Debug for R {
             .field("i2c_reset", &format_args!("{}", self.i2c_reset().bit()))
             .field("i2cclk_en", &format_args!("{}", self.i2cclk_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -81,7 +81,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("TWAI0::STATUS")
+        f.debug_struct("STATUS")
             .field("rx_buf_st", &format_args!("{}", self.rx_buf_st().bit()))
             .field("overrun_st", &format_args!("{}", self.overrun_st().bit()))
             .field("tx_buf_st", &format_args!("{}", self.tx_buf_st().bit()))
@@ -92,6 +92,12 @@ impl core::fmt::Debug for R {
             .field("bus_off_st", &format_args!("{}", self.bus_off_st().bit()))
             .field("miss_st", &format_args!("{}", self.miss_st().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]

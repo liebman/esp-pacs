@@ -59,7 +59,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::RETENTION_CONF")
+        f.debug_struct("RETENTION_CONF")
             .field(
                 "retention_clk_en",
                 &format_args!("{}", self.retention_clk_en().bit()),
@@ -69,6 +69,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.retention_rst_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RETENTION_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

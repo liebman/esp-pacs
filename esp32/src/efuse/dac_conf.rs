@@ -57,7 +57,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::DAC_CONF")
+        f.debug_struct("DAC_CONF")
             .field(
                 "dac_clk_div",
                 &format_args!("{}", self.dac_clk_div().bits()),
@@ -67,6 +67,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dac_clk_pad_sel().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DAC_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

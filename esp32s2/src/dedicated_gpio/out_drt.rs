@@ -21,6 +21,12 @@ impl From<crate::W<OUT_DRT_SPEC>> for W {
 }
 #[doc = "Field `VLAUE` writer - This register is used to configure directive output value of 8-channel dedicated GPIO."]
 pub type VLAUE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_DRT_SPEC, u8, u8, 8, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_DRT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - This register is used to configure directive output value of 8-channel dedicated GPIO."]
     #[inline(always)]

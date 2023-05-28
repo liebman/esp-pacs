@@ -237,7 +237,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::CONF0")
+        f.debug_struct("CONF0")
             .field("parity", &format_args!("{}", self.parity().bit()))
             .field("parity_en", &format_args!("{}", self.parity_en().bit()))
             .field("bit_num", &format_args!("{}", self.bit_num().bits()))
@@ -267,6 +267,12 @@ impl core::fmt::Debug for R {
             .field("rxfifo_rst", &format_args!("{}", self.rxfifo_rst().bit()))
             .field("txfifo_rst", &format_args!("{}", self.txfifo_rst().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

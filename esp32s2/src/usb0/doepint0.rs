@@ -165,7 +165,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DOEPINT0")
+        f.debug_struct("DOEPINT0")
             .field("xfercompl0", &format_args!("{}", self.xfercompl0().bit()))
             .field("epdisbld0", &format_args!("{}", self.epdisbld0().bit()))
             .field("ahberr0", &format_args!("{}", self.ahberr0().bit()))
@@ -193,6 +193,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.stuppktrcvd0().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DOEPINT0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -76,12 +76,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::CVSD_CONF2")
+        f.debug_struct("CVSD_CONF2")
             .field("cvsd_k", &format_args!("{}", self.cvsd_k().bits()))
             .field("cvsd_j", &format_args!("{}", self.cvsd_j().bits()))
             .field("cvsd_beta", &format_args!("{}", self.cvsd_beta().bits()))
             .field("cvsd_h", &format_args!("{}", self.cvsd_h().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CVSD_CONF2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_WDT::SWD_CONF")
+        f.debug_struct("SWD_CONF")
             .field(
                 "swd_reset_flag",
                 &format_args!("{}", self.swd_reset_flag().bit()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
             )
             .field("swd_disable", &format_args!("{}", self.swd_disable().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SWD_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -88,7 +88,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::RMT_SCLK_CONF")
+        f.debug_struct("RMT_SCLK_CONF")
             .field("sclk_div_a", &format_args!("{}", self.sclk_div_a().bits()))
             .field("sclk_div_b", &format_args!("{}", self.sclk_div_b().bits()))
             .field(
@@ -98,6 +98,12 @@ impl core::fmt::Debug for R {
             .field("sclk_sel", &format_args!("{}", self.sclk_sel().bits()))
             .field("sclk_en", &format_args!("{}", self.sclk_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RMT_SCLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

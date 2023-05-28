@@ -59,10 +59,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::PDM_FREQ_CONF")
+        f.debug_struct("PDM_FREQ_CONF")
             .field("tx_pdm_fs", &format_args!("{}", self.tx_pdm_fs().bits()))
             .field("tx_pdm_fp", &format_args!("{}", self.tx_pdm_fp().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PDM_FREQ_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

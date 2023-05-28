@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::IBUS_PMS_TBL_BOUNDARY1")
+        f.debug_struct("IBUS_PMS_TBL_BOUNDARY1")
             .field(
                 "ibus_pms_boundary1",
                 &format_args!("{}", self.ibus_pms_boundary1().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IBUS_PMS_TBL_BOUNDARY1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -103,7 +103,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("ECC::MULT_CONF")
+        f.debug_struct("MULT_CONF")
             .field("start", &format_args!("{}", self.start().bit()))
             .field("key_length", &format_args!("{}", self.key_length().bit()))
             .field(
@@ -121,6 +121,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.mem_clock_gate_force_on().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MULT_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

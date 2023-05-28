@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("INTERRUPT_CORE1::SYSTIMER_TARGET2_INT_MAP")
+        f.debug_struct("SYSTIMER_TARGET2_INT_MAP")
             .field(
                 "systimer_target2_int_map",
                 &format_args!("{}", self.systimer_target2_int_map().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SYSTIMER_TARGET2_INT_MAP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

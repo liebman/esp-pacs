@@ -46,7 +46,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("WCL::Core_1_MESSAGE_PHASE")
+        f.debug_struct("Core_1_MESSAGE_PHASE")
             .field(
                 "core_1_message_match",
                 &format_args!("{}", self.core_1_message_match().bit()),
@@ -64,6 +64,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core_1_message_addressphase().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_1_MESSAGE_PHASE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Clear writer_buffer status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_1_message_phase](index.html) module"]

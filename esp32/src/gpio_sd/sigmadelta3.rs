@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("GPIO_SD::SIGMADELTA3")
+        f.debug_struct("SIGMADELTA3")
             .field("sd3_in", &format_args!("{}", self.sd3_in().bits()))
             .field(
                 "sd3_prescale",
                 &format_args!("{}", self.sd3_prescale().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SIGMADELTA3_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

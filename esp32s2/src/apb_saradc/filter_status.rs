@@ -32,7 +32,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_SARADC::FILTER_STATUS")
+        f.debug_struct("FILTER_STATUS")
             .field(
                 "adc2_filter_data",
                 &format_args!("{}", self.adc2_filter_data().bits()),
@@ -42,6 +42,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.adc1_filter_data().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FILTER_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Data status of DIG ADC2 filter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [filter_status](index.html) module"]

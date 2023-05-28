@@ -139,7 +139,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::CH_TX_CONF0")
+        f.debug_struct("CH_TX_CONF0")
             .field(
                 "tx_conti_mode",
                 &format_args!("{}", self.tx_conti_mode().bit()),
@@ -163,6 +163,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.carrier_out_lv().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CH_TX_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

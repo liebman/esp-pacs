@@ -116,7 +116,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DAINT")
+        f.debug_struct("DAINT")
             .field("inepint0", &format_args!("{}", self.inepint0().bit()))
             .field("inepint1", &format_args!("{}", self.inepint1().bit()))
             .field("inepint2", &format_args!("{}", self.inepint2().bit()))
@@ -132,6 +132,12 @@ impl core::fmt::Debug for R {
             .field("outepint5", &format_args!("{}", self.outepint5().bit()))
             .field("outepint6", &format_args!("{}", self.outepint6().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DAINT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [daint](index.html) module"]

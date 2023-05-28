@@ -319,7 +319,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LEDC::EVT_TASK_EN1")
+        f.debug_struct("EVT_TASK_EN1")
             .field(
                 "task_timer0_res_update_en",
                 &format_args!("{}", self.task_timer0_res_update_en().bit()),
@@ -433,6 +433,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.task_timer3_pause_resume_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<EVT_TASK_EN1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

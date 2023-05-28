@@ -57,7 +57,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_IO::LPI2C")
+        f.debug_struct("LPI2C")
             .field(
                 "lp_i2c_sda_ie",
                 &format_args!("{}", self.lp_i2c_sda_ie().bit()),
@@ -67,6 +67,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lp_i2c_scl_ie().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LPI2C_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

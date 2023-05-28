@@ -66,11 +66,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SRAM_CMD")
+        f.debug_struct("SRAM_CMD")
             .field("sram_dio", &format_args!("{}", self.sram_dio().bit()))
             .field("sram_qio", &format_args!("{}", self.sram_qio().bit()))
             .field("sram_rstio", &format_args!("{}", self.sram_rstio().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SRAM_CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -158,7 +158,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::RD_REPEAT_ERR0")
+        f.debug_struct("RD_REPEAT_ERR0")
             .field("rd_dis_err", &format_args!("{}", self.rd_dis_err().bits()))
             .field(
                 "rpt4_reserved0_err_4",
@@ -237,6 +237,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rpt4_reserved0_err_0().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RD_REPEAT_ERR0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Programming error record register 0 of BLOCK0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_err0](index.html) module"]

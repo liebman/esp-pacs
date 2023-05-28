@@ -244,7 +244,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::LOW_POWER_ST")
+        f.debug_struct("LOW_POWER_ST")
             .field("xpd_dig", &format_args!("{}", self.xpd_dig().bit()))
             .field(
                 "touch_state_start",
@@ -324,6 +324,12 @@ impl core::fmt::Debug for R {
             )
             .field("main_state", &format_args!("{}", self.main_state().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LOW_POWER_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

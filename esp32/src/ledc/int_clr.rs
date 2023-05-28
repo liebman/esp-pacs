@@ -83,6 +83,12 @@ pub type DUTY_CHNG_END_LSCH6_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `DUTY_CHNG_END_LSCH7_INT_CLR` writer - Set this bit to clear low speed channel 7 duty change done interrupt."]
 pub type DUTY_CHNG_END_LSCH7_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to clear high speed channel0 counter overflow interrupt."]
     #[inline(always)]

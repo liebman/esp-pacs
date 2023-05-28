@@ -174,7 +174,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SRAM_CMD")
+        f.debug_struct("SRAM_CMD")
             .field("sclk_mode", &format_args!("{}", self.sclk_mode().bits()))
             .field("swb_mode", &format_args!("{}", self.swb_mode().bits()))
             .field("sdin_dual", &format_args!("{}", self.sdin_dual().bit()))
@@ -191,6 +191,12 @@ impl core::fmt::Debug for R {
             .field("scmd_oct", &format_args!("{}", self.scmd_oct().bit()))
             .field("sdummy_out", &format_args!("{}", self.sdummy_out().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SRAM_CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

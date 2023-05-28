@@ -88,7 +88,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HINF::CFG_TIMING")
+        f.debug_struct("CFG_TIMING")
             .field("ncrc", &format_args!("{}", self.ncrc().bits()))
             .field(
                 "pst_end_cmd_low_value",
@@ -107,6 +107,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sample_clk_divider().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CFG_TIMING_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -99,7 +99,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMS::CACHE_SOURCE_1")
+        f.debug_struct("CACHE_SOURCE_1")
             .field(
                 "pro_cache_i_source_pro_iram1",
                 &format_args!("{}", self.pro_cache_i_source_pro_iram1().bit()),
@@ -125,6 +125,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pro_cache_d_source_pro_drom0().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_SOURCE_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

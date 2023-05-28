@@ -143,7 +143,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI1::FLASH_SUS_CTRL")
+        f.debug_struct("FLASH_SUS_CTRL")
             .field("flash_per", &format_args!("{}", self.flash_per().bit()))
             .field("flash_pes", &format_args!("{}", self.flash_pes().bit()))
             .field(
@@ -174,6 +174,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sus_timeout_cnt().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FLASH_SUS_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

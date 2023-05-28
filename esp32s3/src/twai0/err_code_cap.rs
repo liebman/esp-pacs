@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("TWAI0::ERR_CODE_CAP")
+        f.debug_struct("ERR_CODE_CAP")
             .field(
                 "ecc_segment",
                 &format_args!("{}", self.ecc_segment().bits()),
@@ -50,6 +50,12 @@ impl core::fmt::Debug for R {
             )
             .field("ecc_type", &format_args!("{}", self.ecc_type().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ERR_CODE_CAP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Error Code Capture Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [err_code_cap](index.html) module"]

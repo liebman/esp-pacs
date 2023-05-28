@@ -89,7 +89,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CORE0_ACS_CACHE_INT_ENA")
+        f.debug_struct("CORE0_ACS_CACHE_INT_ENA")
             .field(
                 "core0_ibus_acs_msk_ic_int_ena",
                 &format_args!("{}", self.core0_ibus_acs_msk_ic_int_ena().bit()),
@@ -111,6 +111,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core0_dbus_reject_int_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE0_ACS_CACHE_INT_ENA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

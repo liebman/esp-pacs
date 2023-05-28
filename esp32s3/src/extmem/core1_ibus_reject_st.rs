@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CORE1_IBUS_REJECT_ST")
+        f.debug_struct("CORE1_IBUS_REJECT_ST")
             .field(
                 "core1_ibus_tag_attr",
                 &format_args!("{}", self.core1_ibus_tag_attr().bits()),
@@ -53,6 +53,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core1_ibus_world().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE1_IBUS_REJECT_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "******* Description ***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core1_ibus_reject_st](index.html) module"]

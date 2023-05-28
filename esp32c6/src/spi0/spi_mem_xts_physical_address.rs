@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SPI_MEM_XTS_PHYSICAL_ADDRESS")
+        f.debug_struct("SPI_MEM_XTS_PHYSICAL_ADDRESS")
             .field(
                 "spi_xts_physical_address",
                 &format_args!("{}", self.spi_xts_physical_address().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SPI_MEM_XTS_PHYSICAL_ADDRESS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

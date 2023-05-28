@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::DCACHE_AUTOLOAD_SCT0_ADDR")
+        f.debug_struct("DCACHE_AUTOLOAD_SCT0_ADDR")
             .field(
                 "dcache_autoload_sct0_addr",
                 &format_args!("{}", self.dcache_autoload_sct0_addr().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DCACHE_AUTOLOAD_SCT0_ADDR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

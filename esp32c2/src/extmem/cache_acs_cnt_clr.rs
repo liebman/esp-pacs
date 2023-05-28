@@ -25,6 +25,12 @@ pub type IBUS_ACS_CNT_CLR_W<'a, const O: u8> =
 #[doc = "Field `DBUS_ACS_CNT_CLR` writer - The bit is used to clear dbus counter."]
 pub type DBUS_ACS_CNT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CACHE_ACS_CNT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_ACS_CNT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to clear ibus counter."]
     #[inline(always)]

@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("ASSIST_DEBUG::CORE_0_IRAM0_EXCEPTION_MONITOR_1")
+        f.debug_struct("CORE_0_IRAM0_EXCEPTION_MONITOR_1")
             .field(
                 "core_0_iram0_recording_addr_1",
                 &format_args!("{}", self.core_0_iram0_recording_addr_1().bits()),
@@ -53,6 +53,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core_0_iram0_recording_loadstore_1().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_0_IRAM0_EXCEPTION_MONITOR_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "exception monitor status register1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_iram0_exception_monitor_1](index.html) module"]

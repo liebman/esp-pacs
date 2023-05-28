@@ -88,7 +88,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::PG_CTRL")
+        f.debug_struct("PG_CTRL")
             .field(
                 "power_glitch_dsense",
                 &format_args!("{}", self.power_glitch_dsense().bits()),
@@ -110,6 +110,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.power_glitch_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PG_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

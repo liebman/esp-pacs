@@ -129,7 +129,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_UART::CLK_CONF")
+        f.debug_struct("CLK_CONF")
             .field("sclk_div_b", &format_args!("{}", self.sclk_div_b().bits()))
             .field("sclk_div_a", &format_args!("{}", self.sclk_div_a().bits()))
             .field(
@@ -144,6 +144,12 @@ impl core::fmt::Debug for R {
             .field("tx_rst_core", &format_args!("{}", self.tx_rst_core().bit()))
             .field("rx_rst_core", &format_args!("{}", self.rx_rst_core().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

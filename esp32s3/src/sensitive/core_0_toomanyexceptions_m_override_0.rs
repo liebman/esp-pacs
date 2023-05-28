@@ -51,12 +51,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::CORE_0_TOOMANYEXCEPTIONS_M_OVERRIDE_0")
+        f.debug_struct("CORE_0_TOOMANYEXCEPTIONS_M_OVERRIDE_0")
             .field(
                 "core_0_toomanyexceptions_m_override_lock",
                 &format_args!("{}", self.core_0_toomanyexceptions_m_override_lock().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_0_TOOMANYEXCEPTIONS_M_OVERRIDE_0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

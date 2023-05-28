@@ -129,7 +129,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::CORE_X_IRAM0_PMS_CONSTRAIN_1")
+        f.debug_struct("CORE_X_IRAM0_PMS_CONSTRAIN_1")
             .field(
                 "core_x_iram0_pms_constrain_sram_world_1_pms_0",
                 &format_args!(
@@ -182,6 +182,12 @@ impl core::fmt::Debug for R {
                 ),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_X_IRAM0_PMS_CONSTRAIN_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

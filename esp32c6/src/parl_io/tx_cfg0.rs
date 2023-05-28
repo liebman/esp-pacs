@@ -112,7 +112,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PARL_IO::TX_CFG0")
+        f.debug_struct("TX_CFG0")
             .field("tx_bytelen", &format_args!("{}", self.tx_bytelen().bits()))
             .field(
                 "tx_gating_en",
@@ -140,6 +140,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.tx_fifo_srst().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TX_CFG0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

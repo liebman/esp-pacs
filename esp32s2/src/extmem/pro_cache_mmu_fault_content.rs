@@ -32,7 +32,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::PRO_CACHE_MMU_FAULT_CONTENT")
+        f.debug_struct("PRO_CACHE_MMU_FAULT_CONTENT")
             .field(
                 "pro_cache_mmu_fault_content",
                 &format_args!("{}", self.pro_cache_mmu_fault_content().bits()),
@@ -42,6 +42,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pro_cache_mmu_fault_code().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_CACHE_MMU_FAULT_CONTENT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pro_cache_mmu_fault_content](index.html) module"]

@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::IN_STATE_CH1")
+        f.debug_struct("IN_STATE_CH1")
             .field(
                 "inlink_dscr_addr",
                 &format_args!("{}", self.inlink_dscr_addr().bits()),
@@ -50,6 +50,12 @@ impl core::fmt::Debug for R {
             )
             .field("in_state", &format_args!("{}", self.in_state().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IN_STATE_CH1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "DMA_IN_STATE_CH1_REG.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_state_ch1](index.html) module"]

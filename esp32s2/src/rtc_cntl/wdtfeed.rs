@@ -21,6 +21,12 @@ impl From<crate::W<WDTFEED_SPEC>> for W {
 }
 #[doc = "Field `WDT_FEED` writer - Set 1 to feed the RTC watchdog."]
 pub type WDT_FEED_W<'a, const O: u8> = crate::BitWriter<'a, u32, WDTFEED_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<WDTFEED_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 31 - Set 1 to feed the RTC watchdog."]
     #[inline(always)]

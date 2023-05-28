@@ -79,7 +79,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::WIFI_CLK_EN")
+        f.debug_struct("WIFI_CLK_EN")
             .field(
                 "wifi_clk_en",
                 &format_args!("{}", self.wifi_clk_en().bits()),
@@ -97,6 +97,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.wifi_clk_bt_en().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<WIFI_CLK_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

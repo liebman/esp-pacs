@@ -27,7 +27,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::CORE_1_PIF_PMS_MONITOR_6")
+        f.debug_struct("CORE_1_PIF_PMS_MONITOR_6")
             .field(
                 "core_1_pif_pms_monitor_nonword_violate_status_haddr",
                 &format_args!(
@@ -37,6 +37,12 @@ impl core::fmt::Debug for R {
                 ),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_1_PIF_PMS_MONITOR_6_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "core1 permission report register 6.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_1_pif_pms_monitor_6](index.html) module"]

@@ -41,6 +41,12 @@ pub type SLC1HOST_TOKEN0_WR_W<'a, const O: u8> = crate::BitWriter<'a, u32, TOKEN
 pub type SLC1HOST_TOKEN1_WR_W<'a, const O: u8> = crate::BitWriter<'a, u32, TOKEN_CON_SPEC, bool, O>;
 #[doc = "Field `SLC0HOST_LEN_WR` writer - *******Description***********"]
 pub type SLC0HOST_LEN_WR_W<'a, const O: u8> = crate::BitWriter<'a, u32, TOKEN_CON_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TOKEN_CON_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - *******Description***********"]
     #[inline(always)]

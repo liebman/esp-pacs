@@ -159,7 +159,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMS::PRO_IRAM0_1")
+        f.debug_struct("PRO_IRAM0_1")
             .field(
                 "pro_iram0_sram_0_f",
                 &format_args!("{}", self.pro_iram0_sram_0_f().bit()),
@@ -209,6 +209,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pro_iram0_sram_3_w().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_IRAM0_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

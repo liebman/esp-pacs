@@ -309,7 +309,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::EVT_EN")
+        f.debug_struct("EVT_EN")
             .field(
                 "evt_timer0_stop_en",
                 &format_args!("{}", self.evt_timer0_stop_en().bit()),
@@ -413,6 +413,12 @@ impl core::fmt::Debug for R {
             .field("evt_cap1_en", &format_args!("{}", self.evt_cap1_en().bit()))
             .field("evt_cap2_en", &format_args!("{}", self.evt_cap2_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<EVT_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

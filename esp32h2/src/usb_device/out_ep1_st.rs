@@ -46,7 +46,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::OUT_EP1_ST")
+        f.debug_struct("OUT_EP1_ST")
             .field(
                 "out_ep1_state",
                 &format_args!("{}", self.out_ep1_state().bits()),
@@ -64,6 +64,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.out_ep1_rec_data_cnt().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_EP1_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "CDC-ACM OUT endpoint status information.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [out_ep1_st](index.html) module"]

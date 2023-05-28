@@ -32,7 +32,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::TIMER0_STATUS")
+        f.debug_struct("TIMER0_STATUS")
             .field(
                 "timer0_value",
                 &format_args!("{}", self.timer0_value().bits()),
@@ -42,6 +42,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.timer0_direction().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TIMER0_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "PWM timer0 status register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [timer0_status](index.html) module"]

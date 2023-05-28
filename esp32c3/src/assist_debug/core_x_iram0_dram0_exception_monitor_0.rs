@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("ASSIST_DEBUG::CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR_0")
+        f.debug_struct("CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR_0")
             .field(
                 "core_x_iram0_dram0_limit_cycle_0",
                 &format_args!("{}", self.core_x_iram0_dram0_limit_cycle_0().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR_0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

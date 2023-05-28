@@ -109,7 +109,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::INT_ST_CH2")
+        f.debug_struct("INT_ST_CH2")
             .field("in_done", &format_args!("{}", self.in_done().bit()))
             .field("in_suc_eof", &format_args!("{}", self.in_suc_eof().bit()))
             .field("in_err_eof", &format_args!("{}", self.in_err_eof().bit()))
@@ -133,6 +133,12 @@ impl core::fmt::Debug for R {
             .field("outfifo_ovf", &format_args!("{}", self.outfifo_ovf().bit()))
             .field("outfifo_udf", &format_args!("{}", self.outfifo_udf().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_ST_CH2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "DMA_INT_ST_CH2_REG.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_st_ch2](index.html) module"]

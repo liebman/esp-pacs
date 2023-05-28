@@ -160,7 +160,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LCD_CAM::LCD_USER")
+        f.debug_struct("LCD_USER")
             .field(
                 "lcd_dout_cyclelen",
                 &format_args!("{}", self.lcd_dout_cyclelen().bits()),
@@ -199,6 +199,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lcd_cmd_2_cycle_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LCD_USER_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

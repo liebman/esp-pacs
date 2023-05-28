@@ -109,7 +109,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::SDIO_CONF")
+        f.debug_struct("SDIO_CONF")
             .field("sdio_pd_en", &format_args!("{}", self.sdio_pd_en().bit()))
             .field("sdio_force", &format_args!("{}", self.sdio_force().bit()))
             .field("sdio_tieh", &format_args!("{}", self.sdio_tieh().bit()))
@@ -122,6 +122,12 @@ impl core::fmt::Debug for R {
             .field("drefh_sdio", &format_args!("{}", self.drefh_sdio().bits()))
             .field("xpd_sdio", &format_args!("{}", self.xpd_sdio().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SDIO_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

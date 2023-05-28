@@ -99,7 +99,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::HP_MODEM_HP_REGULATOR0")
+        f.debug_struct("HP_MODEM_HP_REGULATOR0")
             .field(
                 "hp_modem_hp_regulator_slp_mem_xpd",
                 &format_args!("{}", self.hp_modem_hp_regulator_slp_mem_xpd().bit()),
@@ -125,6 +125,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.hp_modem_hp_regulator_dbias().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HP_MODEM_HP_REGULATOR0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

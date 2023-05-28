@@ -88,7 +88,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_ANA::INT_RAW")
+        f.debug_struct("INT_RAW")
             .field(
                 "vddbat_charge_upvoltage_int_raw",
                 &format_args!("{}", self.vddbat_charge_upvoltage_int_raw().bit()),
@@ -110,6 +110,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.bod_mode0_int_raw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_RAW_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

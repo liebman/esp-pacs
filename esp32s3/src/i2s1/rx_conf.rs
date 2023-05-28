@@ -178,7 +178,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S1::RX_CONF")
+        f.debug_struct("RX_CONF")
             .field("rx_start", &format_args!("{}", self.rx_start().bit()))
             .field(
                 "rx_slave_mod",
@@ -225,6 +225,12 @@ impl core::fmt::Debug for R {
             .field("rx_tdm_en", &format_args!("{}", self.rx_tdm_en().bit()))
             .field("rx_pdm_en", &format_args!("{}", self.rx_pdm_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

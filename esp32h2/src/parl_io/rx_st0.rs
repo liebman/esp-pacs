@@ -32,13 +32,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PARL_IO::RX_ST0")
+        f.debug_struct("RX_ST0")
             .field("rx_cnt", &format_args!("{}", self.rx_cnt().bits()))
             .field(
                 "rx_fifo_wr_bit_cnt",
                 &format_args!("{}", self.rx_fifo_wr_bit_cnt().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_ST0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Parallel IO RX status register0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rx_st0](index.html) module"]

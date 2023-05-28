@@ -21,6 +21,12 @@ impl From<crate::W<DMA_START_SPEC>> for W {
 }
 #[doc = "Field `DMA_START` writer - Write 1 to start DMA-SHA calculation."]
 pub type DMA_START_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMA_START_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_START_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Write 1 to start DMA-SHA calculation."]
     #[inline(always)]

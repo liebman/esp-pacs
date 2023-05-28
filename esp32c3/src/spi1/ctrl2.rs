@@ -21,6 +21,12 @@ impl From<crate::W<CTRL2_SPEC>> for W {
 }
 #[doc = "Field `SYNC_RESET` writer - The FSM will be reset."]
 pub type SYNC_RESET_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL2_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CTRL2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 31 - The FSM will be reset."]
     #[inline(always)]

@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::DCACHE_ATOMIC_OPERATE_ENA")
+        f.debug_struct("DCACHE_ATOMIC_OPERATE_ENA")
             .field(
                 "dcache_atomic_operate_ena",
                 &format_args!("{}", self.dcache_atomic_operate_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DCACHE_ATOMIC_OPERATE_ENA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

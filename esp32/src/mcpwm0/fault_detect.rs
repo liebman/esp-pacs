@@ -114,7 +114,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::FAULT_DETECT")
+        f.debug_struct("FAULT_DETECT")
             .field("f0_en", &format_args!("{}", self.f0_en().bit()))
             .field("f1_en", &format_args!("{}", self.f1_en().bit()))
             .field("f2_en", &format_args!("{}", self.f2_en().bit()))
@@ -125,6 +125,12 @@ impl core::fmt::Debug for R {
             .field("event_f1", &format_args!("{}", self.event_f1().bit()))
             .field("event_f2", &format_args!("{}", self.event_f2().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FAULT_DETECT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

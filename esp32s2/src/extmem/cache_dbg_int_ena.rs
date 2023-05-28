@@ -229,7 +229,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CACHE_DBG_INT_ENA")
+        f.debug_struct("CACHE_DBG_INT_ENA")
             .field(
                 "cache_dbg_en",
                 &format_args!("{}", self.cache_dbg_en().bit()),
@@ -307,6 +307,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.mmu_entry_fault_int_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_DBG_INT_ENA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -75,12 +75,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::REF_CNT_RST")
+        f.debug_struct("REF_CNT_RST")
             .field("ch0", &format_args!("{}", self.ch0().bit()))
             .field("ch1", &format_args!("{}", self.ch1().bit()))
             .field("ch2", &format_args!("{}", self.ch2().bit()))
             .field("ch3", &format_args!("{}", self.ch3().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<REF_CNT_RST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

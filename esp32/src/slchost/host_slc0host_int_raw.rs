@@ -200,7 +200,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::HOST_SLC0HOST_INT_RAW")
+        f.debug_struct("HOST_SLC0HOST_INT_RAW")
             .field(
                 "host_slc0_tohost_bit0_int_raw",
                 &format_args!("{}", self.host_slc0_tohost_bit0_int_raw().bit()),
@@ -306,6 +306,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.host_gpio_sdio_int_raw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HOST_SLC0HOST_INT_RAW_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [host_slc0host_int_raw](index.html) module"]

@@ -102,7 +102,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CACHE_ILG_INT_ST")
+        f.debug_struct("CACHE_ILG_INT_ST")
             .field(
                 "icache_sync_op_fault_st",
                 &format_args!("{}", self.icache_sync_op_fault_st().bit()),
@@ -152,6 +152,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dbus_acs_spiram_miss_cnt_ovf_st().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_ILG_INT_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "******* Description ***********\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cache_ilg_int_st](index.html) module"]

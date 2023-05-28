@@ -211,7 +211,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::EXT_XTL_CONF")
+        f.debug_struct("EXT_XTL_CONF")
             .field(
                 "xtal32k_wdt_en",
                 &format_args!("{}", self.xtal32k_wdt_en().bit()),
@@ -282,6 +282,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.xtl_ext_ctr_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<EXT_XTL_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -85,7 +85,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::IN_CONF0_CH1")
+        f.debug_struct("IN_CONF0_CH1")
             .field("in_rst", &format_args!("{}", self.in_rst().bit()))
             .field(
                 "in_loop_test",
@@ -104,6 +104,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.mem_trans_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IN_CONF0_CH1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

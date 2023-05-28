@@ -37,6 +37,12 @@ pub type APB_SARADC2_DONE_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `APB_SARADC1_DONE_INT_CLR` writer - saradc1 done interrupt clear"]
 pub type APB_SARADC1_DONE_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 26 - saradc thres1 low interrupt clear"]
     #[inline(always)]

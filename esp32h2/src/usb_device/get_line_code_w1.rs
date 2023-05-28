@@ -69,7 +69,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::GET_LINE_CODE_W1")
+        f.debug_struct("GET_LINE_CODE_W1")
             .field(
                 "get_bdata_bits",
                 &format_args!("{}", self.get_bdata_bits().bits()),
@@ -83,6 +83,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.get_bchar_format().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GET_LINE_CODE_W1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

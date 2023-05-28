@@ -23,6 +23,12 @@ impl From<crate::W<INT_CLR_TIMERS_SPEC>> for W {
 pub type T0_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_TIMERS_SPEC, bool, O>;
 #[doc = "Field `WDT_INT_CLR` writer - wdt_int_clr"]
 pub type WDT_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_TIMERS_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_TIMERS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - t0_int_clr"]
     #[inline(always)]

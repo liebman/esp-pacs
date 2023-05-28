@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::PRIVILEGE_MODE_SEL_LOCK")
+        f.debug_struct("PRIVILEGE_MODE_SEL_LOCK")
             .field(
                 "privilege_mode_sel_lock",
                 &format_args!("{}", self.privilege_mode_sel_lock().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRIVILEGE_MODE_SEL_LOCK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

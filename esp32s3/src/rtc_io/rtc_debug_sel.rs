@@ -99,7 +99,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::RTC_DEBUG_SEL")
+        f.debug_struct("RTC_DEBUG_SEL")
             .field(
                 "rtc_debug_sel0",
                 &format_args!("{}", self.rtc_debug_sel0().bits()),
@@ -125,6 +125,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rtc_debug_12m_no_gating().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RTC_DEBUG_SEL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

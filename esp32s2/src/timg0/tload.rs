@@ -21,6 +21,12 @@ impl From<crate::W<TLOAD_SPEC>> for W {
 }
 #[doc = "Field `LOAD` writer - Write any value to trigger a timer %s time-base counter reload."]
 pub type LOAD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TLOAD_SPEC, u32, u32, 32, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TLOAD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Write any value to trigger a timer %s time-base counter reload."]
     #[inline(always)]

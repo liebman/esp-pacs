@@ -60,7 +60,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::SDIO_ST")
+        f.debug_struct("SDIO_ST")
             .field("cmd_st", &format_args!("{}", self.cmd_st().bits()))
             .field("func_st", &format_args!("{}", self.func_st().bits()))
             .field("sdio_wakeup", &format_args!("{}", self.sdio_wakeup().bit()))
@@ -74,6 +74,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.func2_acc_state().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SDIO_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sdio_st](index.html) module"]

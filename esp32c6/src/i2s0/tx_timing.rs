@@ -98,7 +98,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::TX_TIMING")
+        f.debug_struct("TX_TIMING")
             .field(
                 "tx_sd_out_dm",
                 &format_args!("{}", self.tx_sd_out_dm().bits()),
@@ -124,6 +124,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.tx_bck_in_dm().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TX_TIMING_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

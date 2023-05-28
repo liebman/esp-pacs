@@ -99,7 +99,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::BT_LPCK_DIV_FRAC")
+        f.debug_struct("BT_LPCK_DIV_FRAC")
             .field(
                 "bt_lpck_div_b",
                 &format_args!("{}", self.bt_lpck_div_b().bits()),
@@ -125,6 +125,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lpclk_sel_xtal32k().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BT_LPCK_DIV_FRAC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

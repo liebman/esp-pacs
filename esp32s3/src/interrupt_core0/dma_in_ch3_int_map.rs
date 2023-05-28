@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("INTERRUPT_CORE0::DMA_IN_CH3_INT_MAP")
+        f.debug_struct("DMA_IN_CH3_INT_MAP")
             .field(
                 "dma_in_ch3_int_map",
                 &format_args!("{}", self.dma_in_ch3_int_map().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_IN_CH3_INT_MAP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

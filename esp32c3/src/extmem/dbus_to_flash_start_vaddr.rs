@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::DBUS_TO_FLASH_START_VADDR")
+        f.debug_struct("DBUS_TO_FLASH_START_VADDR")
             .field(
                 "dbus_to_flash_start_vaddr",
                 &format_args!("{}", self.dbus_to_flash_start_vaddr().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DBUS_TO_FLASH_START_VADDR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -102,7 +102,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SDMMC::IDINTEN")
+        f.debug_struct("IDINTEN")
             .field("ti", &format_args!("{}", self.ti().bit()))
             .field("ri", &format_args!("{}", self.ri().bit()))
             .field("fbe", &format_args!("{}", self.fbe().bit()))
@@ -111,6 +111,12 @@ impl core::fmt::Debug for R {
             .field("ni", &format_args!("{}", self.ni().bit()))
             .field("ai", &format_args!("{}", self.ai().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IDINTEN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

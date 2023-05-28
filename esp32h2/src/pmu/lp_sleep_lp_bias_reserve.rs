@@ -22,6 +22,12 @@ impl From<crate::W<LP_SLEEP_LP_BIAS_RESERVE_SPEC>> for W {
 #[doc = "Field `LP_SLEEP_LP_BIAS_RESERVE` writer - need_des"]
 pub type LP_SLEEP_LP_BIAS_RESERVE_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LP_SLEEP_LP_BIAS_RESERVE_SPEC, u32, u32, 32, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LP_SLEEP_LP_BIAS_RESERVE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - need_des"]
     #[inline(always)]

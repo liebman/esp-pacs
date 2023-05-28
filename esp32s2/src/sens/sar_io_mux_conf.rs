@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_IO_MUX_CONF")
+        f.debug_struct("SAR_IO_MUX_CONF")
             .field("iomux_reset", &format_args!("{}", self.iomux_reset().bit()))
             .field(
                 "iomux_clk_gate_en",
                 &format_args!("{}", self.iomux_clk_gate_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_IO_MUX_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

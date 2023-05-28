@@ -85,7 +85,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("IO_MUX::PIN_CTRL")
+        f.debug_struct("PIN_CTRL")
             .field(
                 "pin_clk_out1",
                 &format_args!("{}", self.pin_clk_out1().bits()),
@@ -107,6 +107,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pad_power_ctrl().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PIN_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

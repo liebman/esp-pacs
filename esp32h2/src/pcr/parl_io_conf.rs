@@ -64,11 +64,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::PARL_IO_CONF")
+        f.debug_struct("PARL_IO_CONF")
             .field("parl_clk_en", &format_args!("{}", self.parl_clk_en().bit()))
             .field("parl_rst_en", &format_args!("{}", self.parl_rst_en().bit()))
             .field("parl_ready", &format_args!("{}", self.parl_ready().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PARL_IO_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -57,7 +57,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::AHB_TEST")
+        f.debug_struct("AHB_TEST")
             .field(
                 "ahb_testmode",
                 &format_args!("{}", self.ahb_testmode().bits()),
@@ -67,6 +67,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.ahb_testaddr().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<AHB_TEST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

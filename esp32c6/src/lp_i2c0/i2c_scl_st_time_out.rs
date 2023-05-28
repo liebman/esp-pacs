@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_I2C0::I2C_SCL_ST_TIME_OUT")
+        f.debug_struct("I2C_SCL_ST_TIME_OUT")
             .field(
                 "i2c_scl_st_to_i2c",
                 &format_args!("{}", self.i2c_scl_st_to_i2c().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<I2C_SCL_ST_TIME_OUT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

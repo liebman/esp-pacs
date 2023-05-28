@@ -57,7 +57,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_UART::RX_FILT")
+        f.debug_struct("RX_FILT")
             .field(
                 "glitch_filt",
                 &format_args!("{}", self.glitch_filt().bits()),
@@ -67,6 +67,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.glitch_filt_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_FILT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

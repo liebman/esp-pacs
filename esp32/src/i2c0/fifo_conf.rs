@@ -115,7 +115,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2C0::FIFO_CONF")
+        f.debug_struct("FIFO_CONF")
             .field(
                 "rxfifo_full_thrhd",
                 &format_args!("{}", self.rxfifo_full_thrhd().bits()),
@@ -140,6 +140,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.nonfifo_tx_thres().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FIFO_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -120,7 +120,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SDMMC::IDSTS")
+        f.debug_struct("IDSTS")
             .field("ti", &format_args!("{}", self.ti().bit()))
             .field("ri", &format_args!("{}", self.ri().bit()))
             .field("fbe", &format_args!("{}", self.fbe().bit()))
@@ -131,6 +131,12 @@ impl core::fmt::Debug for R {
             .field("fbe_code", &format_args!("{}", self.fbe_code().bits()))
             .field("fsm", &format_args!("{}", self.fsm().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IDSTS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

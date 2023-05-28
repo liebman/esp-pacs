@@ -32,10 +32,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::MEM_CNT_STATUS")
+        f.debug_struct("MEM_CNT_STATUS")
             .field("rx_mem_cnt", &format_args!("{}", self.rx_mem_cnt().bits()))
             .field("tx_mem_cnt", &format_args!("{}", self.tx_mem_cnt().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MEM_CNT_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mem_cnt_status](index.html) module"]

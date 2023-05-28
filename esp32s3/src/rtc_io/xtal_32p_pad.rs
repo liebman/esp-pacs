@@ -121,7 +121,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::XTAL_32P_PAD")
+        f.debug_struct("XTAL_32P_PAD")
             .field("x32p_fun_ie", &format_args!("{}", self.x32p_fun_ie().bit()))
             .field("x32p_slp_oe", &format_args!("{}", self.x32p_slp_oe().bit()))
             .field("x32p_slp_ie", &format_args!("{}", self.x32p_slp_ie().bit()))
@@ -141,6 +141,12 @@ impl core::fmt::Debug for R {
             .field("x32p_rde", &format_args!("{}", self.x32p_rde().bit()))
             .field("x32p_drv", &format_args!("{}", self.x32p_drv().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<XTAL_32P_PAD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

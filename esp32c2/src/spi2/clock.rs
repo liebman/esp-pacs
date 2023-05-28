@@ -84,7 +84,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI2::CLOCK")
+        f.debug_struct("CLOCK")
             .field("clkcnt_l", &format_args!("{}", self.clkcnt_l().bits()))
             .field("clkcnt_h", &format_args!("{}", self.clkcnt_h().bits()))
             .field("clkcnt_n", &format_args!("{}", self.clkcnt_n().bits()))
@@ -94,6 +94,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.clk_equ_sysclk().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLOCK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

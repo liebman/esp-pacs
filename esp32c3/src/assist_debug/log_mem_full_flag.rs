@@ -56,7 +56,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("ASSIST_DEBUG::LOG_MEM_FULL_FLAG")
+        f.debug_struct("LOG_MEM_FULL_FLAG")
             .field(
                 "log_mem_full_flag",
                 &format_args!("{}", self.log_mem_full_flag().bit()),
@@ -66,6 +66,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.clr_log_mem_full_flag().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LOG_MEM_FULL_FLAG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

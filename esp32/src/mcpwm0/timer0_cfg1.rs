@@ -59,13 +59,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::TIMER0_CFG1")
+        f.debug_struct("TIMER0_CFG1")
             .field(
                 "timer0_start",
                 &format_args!("{}", self.timer0_start().bits()),
             )
             .field("timer0_mod", &format_args!("{}", self.timer0_mod().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TIMER0_CFG1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

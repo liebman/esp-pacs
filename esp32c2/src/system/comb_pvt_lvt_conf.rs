@@ -62,7 +62,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::COMB_PVT_LVT_CONF")
+        f.debug_struct("COMB_PVT_LVT_CONF")
             .field(
                 "comb_path_len_lvt",
                 &format_args!("{}", self.comb_path_len_lvt().bits()),
@@ -72,6 +72,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.comb_pvt_monitor_en_lvt().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<COMB_PVT_LVT_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

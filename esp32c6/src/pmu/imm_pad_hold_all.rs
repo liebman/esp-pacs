@@ -31,6 +31,12 @@ pub type TIE_HIGH_HP_PAD_HOLD_ALL_W<'a, const O: u8> =
 #[doc = "Field `TIE_LOW_HP_PAD_HOLD_ALL` writer - need_des"]
 pub type TIE_LOW_HP_PAD_HOLD_ALL_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, IMM_PAD_HOLD_ALL_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IMM_PAD_HOLD_ALL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 28 - need_des"]
     #[inline(always)]

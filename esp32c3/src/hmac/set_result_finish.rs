@@ -22,6 +22,12 @@ impl From<crate::W<SET_RESULT_FINISH_SPEC>> for W {
 #[doc = "Field `SET_RESULT_END` writer - After read result from upstream, then let hmac back to idle."]
 pub type SET_RESULT_END_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, SET_RESULT_FINISH_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SET_RESULT_FINISH_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - After read result from upstream, then let hmac back to idle."]
     #[inline(always)]

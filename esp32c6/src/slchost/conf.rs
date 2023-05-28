@@ -111,7 +111,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::CONF")
+        f.debug_struct("CONF")
             .field("frc_sdio11", &format_args!("{}", self.frc_sdio11().bits()))
             .field("frc_sdio20", &format_args!("{}", self.frc_sdio20().bits()))
             .field(
@@ -139,6 +139,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.hspeed_con_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

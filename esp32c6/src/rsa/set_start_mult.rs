@@ -22,6 +22,12 @@ impl From<crate::W<SET_START_MULT_SPEC>> for W {
 #[doc = "Field `SET_START_MULT` writer - start multiplicaiton"]
 pub type SET_START_MULT_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, SET_START_MULT_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SET_START_MULT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - start multiplicaiton"]
     #[inline(always)]

@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SPI_MEM_TIMING_CALI")
+        f.debug_struct("SPI_MEM_TIMING_CALI")
             .field(
                 "spi_mem_timing_clk_ena",
                 &format_args!("{}", self.spi_mem_timing_clk_ena().bit()),
@@ -96,6 +96,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.spi_mem_dll_timing_cali().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SPI_MEM_TIMING_CALI_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::RESET_EVENT_BYPASS")
+        f.debug_struct("RESET_EVENT_BYPASS")
             .field("apm", &format_args!("{}", self.apm().bit()))
             .field(
                 "reset_event_bypass",
                 &format_args!("{}", self.reset_event_bypass().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RESET_EVENT_BYPASS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

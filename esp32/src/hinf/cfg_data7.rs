@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HINF::CFG_DATA7")
+        f.debug_struct("CFG_DATA7")
             .field("pin_state", &format_args!("{}", self.pin_state().bits()))
             .field("chip_state", &format_args!("{}", self.chip_state().bits()))
             .field("sdio_rst", &format_args!("{}", self.sdio_rst().bit()))
@@ -84,6 +84,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sdio_ioready0().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CFG_DATA7_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -56,7 +56,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_I2C_ANA_MST::I2C0_CTRL")
+        f.debug_struct("I2C0_CTRL")
             .field(
                 "lp_i2c_ana_mast_i2c0_ctrl",
                 &format_args!("{}", self.lp_i2c_ana_mast_i2c0_ctrl().bits()),
@@ -66,6 +66,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lp_i2c_ana_mast_i2c0_busy().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<I2C0_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

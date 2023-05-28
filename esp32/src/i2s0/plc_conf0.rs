@@ -95,7 +95,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::PLC_CONF0")
+        f.debug_struct("PLC_CONF0")
             .field(
                 "good_pack_max",
                 &format_args!("{}", self.good_pack_max().bits()),
@@ -112,6 +112,12 @@ impl core::fmt::Debug for R {
             )
             .field("n_min_err", &format_args!("{}", self.n_min_err().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PLC_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

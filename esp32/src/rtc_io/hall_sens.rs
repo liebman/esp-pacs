@@ -57,10 +57,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::HALL_SENS")
+        f.debug_struct("HALL_SENS")
             .field("hall_phase", &format_args!("{}", self.hall_phase().bit()))
             .field("xpd_hall", &format_args!("{}", self.xpd_hall().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HALL_SENS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

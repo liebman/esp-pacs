@@ -98,7 +98,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::BLK0_RDATA4")
+        f.debug_struct("BLK0_RDATA4")
             .field(
                 "rd_ck8m_freq",
                 &format_args!("{}", self.rd_ck8m_freq().bits()),
@@ -129,6 +129,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rd_sdio_force().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BLK0_RDATA4_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

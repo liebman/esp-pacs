@@ -21,6 +21,12 @@ impl From<crate::W<LACTLOAD_SPEC>> for W {
 }
 #[doc = "Field `LACT_LOAD` writer - Reserved."]
 pub type LACT_LOAD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LACTLOAD_SPEC, u32, u32, 32, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LACTLOAD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Reserved."]
     #[inline(always)]

@@ -109,7 +109,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::HP_SLEEP_HP_REGULATOR0")
+        f.debug_struct("HP_SLEEP_HP_REGULATOR0")
             .field(
                 "hp_sleep_hp_power_det_bypass",
                 &format_args!("{}", self.hp_sleep_hp_power_det_bypass().bit()),
@@ -139,6 +139,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.hp_sleep_hp_regulator_dbias().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HP_SLEEP_HP_REGULATOR0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

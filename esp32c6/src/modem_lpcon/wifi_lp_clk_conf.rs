@@ -89,7 +89,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MODEM_LPCON::WIFI_LP_CLK_CONF")
+        f.debug_struct("WIFI_LP_CLK_CONF")
             .field(
                 "clk_wifipwr_lp_sel_osc_slow",
                 &format_args!("{}", self.clk_wifipwr_lp_sel_osc_slow().bit()),
@@ -111,6 +111,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.clk_wifipwr_lp_div_num().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<WIFI_LP_CLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

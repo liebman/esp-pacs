@@ -121,7 +121,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::SWFC_CONF0")
+        f.debug_struct("SWFC_CONF0")
             .field("xon_char", &format_args!("{}", self.xon_char().bits()))
             .field("xoff_char", &format_args!("{}", self.xoff_char().bits()))
             .field(
@@ -138,6 +138,12 @@ impl core::fmt::Debug for R {
             .field("send_xon", &format_args!("{}", self.send_xon().bit()))
             .field("send_xoff", &format_args!("{}", self.send_xoff().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SWFC_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

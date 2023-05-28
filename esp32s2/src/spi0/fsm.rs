@@ -56,13 +56,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::FSM")
+        f.debug_struct("FSM")
             .field("st", &format_args!("{}", self.st().bits()))
             .field(
                 "mst_dma_rd_bytelen",
                 &format_args!("{}", self.mst_dma_rd_bytelen().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FSM_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

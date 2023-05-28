@@ -97,6 +97,12 @@ pub type HOST_SLC1_HOST_RD_RETRY_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `HOST_SLC1_BT_RX_NEW_PACKET_INT_CLR` writer - "]
 pub type HOST_SLC1_BT_RX_NEW_PACKET_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, HOST_SLC1HOST_INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HOST_SLC1HOST_INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

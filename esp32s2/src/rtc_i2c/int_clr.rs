@@ -41,6 +41,12 @@ pub type RX_DATA_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_
 pub type TX_DATA_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
 #[doc = "Field `DETECT_START_INT_CLR` writer - RTC_I2C_DETECT_START_INT interrupt clear bit"]
 pub type DETECT_START_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - RTC_I2C_SLAVE_TRAN_COMP_INT interrupt clear bit"]
     #[inline(always)]

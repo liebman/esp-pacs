@@ -196,7 +196,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI1::SPI_MEM_CMD")
+        f.debug_struct("SPI_MEM_CMD")
             .field(
                 "spi_mem_mst_st",
                 &format_args!("{}", self.spi_mem_mst_st().bits()),
@@ -263,6 +263,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.spi_mem_flash_read().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SPI_MEM_CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

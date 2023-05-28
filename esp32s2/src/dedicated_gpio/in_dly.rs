@@ -111,7 +111,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DEDICATED_GPIO::IN_DLY")
+        f.debug_struct("IN_DLY")
             .field("ch0", &format_args!("{}", self.ch0().bits()))
             .field("ch1", &format_args!("{}", self.ch1().bits()))
             .field("ch2", &format_args!("{}", self.ch2().bits()))
@@ -121,6 +121,12 @@ impl core::fmt::Debug for R {
             .field("ch6", &format_args!("{}", self.ch6().bits()))
             .field("ch7", &format_args!("{}", self.ch7().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IN_DLY_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

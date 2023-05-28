@@ -58,7 +58,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HP_SYS::SEC_DPA_CONF")
+        f.debug_struct("SEC_DPA_CONF")
             .field(
                 "sec_dpa_level",
                 &format_args!("{}", self.sec_dpa_level().bits()),
@@ -68,6 +68,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sec_dpa_cfg_sel().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SEC_DPA_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

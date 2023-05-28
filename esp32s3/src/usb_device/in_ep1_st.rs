@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::IN_EP1_ST")
+        f.debug_struct("IN_EP1_ST")
             .field(
                 "in_ep1_state",
                 &format_args!("{}", self.in_ep1_state().bits()),
@@ -53,6 +53,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.in_ep1_rd_addr().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IN_EP1_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "IN Endpoint 1 status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [in_ep1_st](index.html) module"]

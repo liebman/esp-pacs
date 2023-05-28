@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::SET_LINE_CODE_W1")
+        f.debug_struct("SET_LINE_CODE_W1")
             .field(
                 "bchar_format",
                 &format_args!("{}", self.bchar_format().bits()),
@@ -50,6 +50,12 @@ impl core::fmt::Debug for R {
             )
             .field("bdata_bits", &format_args!("{}", self.bdata_bits().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SET_LINE_CODE_W1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "W1 of SET_LINE_CODING command.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [set_line_code_w1](index.html) module"]

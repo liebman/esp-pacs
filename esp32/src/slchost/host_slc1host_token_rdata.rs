@@ -46,7 +46,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::HOST_SLC1HOST_TOKEN_RDATA")
+        f.debug_struct("HOST_SLC1HOST_TOKEN_RDATA")
             .field(
                 "host_slc1_token0",
                 &format_args!("{}", self.host_slc1_token0().bits()),
@@ -64,6 +64,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.host_slc1_rx_pf_eof().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HOST_SLC1HOST_TOKEN_RDATA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [host_slc1host_token_rdata](index.html) module"]

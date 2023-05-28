@@ -61,7 +61,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::CORE_0_IRAM0_PMS_MONITOR_2")
+        f.debug_struct("CORE_0_IRAM0_PMS_MONITOR_2")
             .field(
                 "core_0_iram0_pms_monitor_violate_intr",
                 &format_args!("{}", self.core_0_iram0_pms_monitor_violate_intr().bit()),
@@ -96,6 +96,12 @@ impl core::fmt::Debug for R {
                 ),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_0_IRAM0_PMS_MONITOR_2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "SENSITIVE_CORE_0_IRAM0_PMS_MONITOR_2_REG\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [core_0_iram0_pms_monitor_2](index.html) module"]

@@ -93,7 +93,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::GOTGINT")
+        f.debug_struct("GOTGINT")
             .field("sesenddet", &format_args!("{}", self.sesenddet().bit()))
             .field(
                 "sesreqsucstschng",
@@ -107,6 +107,12 @@ impl core::fmt::Debug for R {
             .field("adevtoutchg", &format_args!("{}", self.adevtoutchg().bit()))
             .field("dbncedone", &format_args!("{}", self.dbncedone().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GOTGINT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -95,7 +95,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("GPIO::CPUSDIO_INT1")
+        f.debug_struct("CPUSDIO_INT1")
             .field("sdio_int_h", &format_args!("{}", self.sdio_int_h().bits()))
             .field(
                 "pin_pad_driver",
@@ -115,6 +115,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pin_int_ena().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CPUSDIO_INT1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

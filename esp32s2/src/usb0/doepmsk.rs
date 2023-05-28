@@ -147,7 +147,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DOEPMSK")
+        f.debug_struct("DOEPMSK")
             .field(
                 "xfercomplmsk",
                 &format_args!("{}", self.xfercomplmsk().bit()),
@@ -179,6 +179,12 @@ impl core::fmt::Debug for R {
             .field("nakmsk", &format_args!("{}", self.nakmsk().bit()))
             .field("nyetmsk", &format_args!("{}", self.nyetmsk().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DOEPMSK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -147,7 +147,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::ADC_PAD")
+        f.debug_struct("ADC_PAD")
             .field("adc2_fun_ie", &format_args!("{}", self.adc2_fun_ie().bit()))
             .field("adc2_slp_ie", &format_args!("{}", self.adc2_slp_ie().bit()))
             .field(
@@ -179,6 +179,12 @@ impl core::fmt::Debug for R {
             .field("adc2_hold", &format_args!("{}", self.adc2_hold().bit()))
             .field("adc1_hold", &format_args!("{}", self.adc1_hold().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ADC_PAD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

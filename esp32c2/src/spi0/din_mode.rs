@@ -46,12 +46,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::DIN_MODE")
+        f.debug_struct("DIN_MODE")
             .field("din0_mode", &format_args!("{}", self.din0_mode().bits()))
             .field("din1_mode", &format_args!("{}", self.din1_mode().bits()))
             .field("din2_mode", &format_args!("{}", self.din2_mode().bits()))
             .field("din3_mode", &format_args!("{}", self.din3_mode().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DIN_MODE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "SPI0 input delay mode control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [din_mode](index.html) module"]

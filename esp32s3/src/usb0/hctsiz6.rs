@@ -76,7 +76,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::HCTSIZ6")
+        f.debug_struct("HCTSIZ6")
             .field(
                 "h_xfersize6",
                 &format_args!("{}", self.h_xfersize6().bits()),
@@ -85,6 +85,12 @@ impl core::fmt::Debug for R {
             .field("h_pid6", &format_args!("{}", self.h_pid6().bits()))
             .field("h_dopng6", &format_args!("{}", self.h_dopng6().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HCTSIZ6_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

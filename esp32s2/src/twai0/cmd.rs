@@ -29,6 +29,12 @@ pub type RELEASE_BUF_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bo
 pub type CLR_OVERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 #[doc = "Field `SELF_RX_REQ` writer - Self reception request command. Set the bit to 1 to allow a message be transmitted and received simultaneously."]
 pub type SELF_RX_REQ_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set the bit to 1 to allow the driving nodes start transmission."]
     #[inline(always)]

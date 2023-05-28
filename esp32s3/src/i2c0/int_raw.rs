@@ -144,7 +144,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2C0::INT_RAW")
+        f.debug_struct("INT_RAW")
             .field(
                 "rxfifo_wm_int_raw",
                 &format_args!("{}", self.rxfifo_wm_int_raw().bit()),
@@ -218,6 +218,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.general_call_int_raw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_RAW_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Raw interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_raw](index.html) module"]

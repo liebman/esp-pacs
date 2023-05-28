@@ -116,7 +116,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI1::SPI_MEM_DDR")
+        f.debug_struct("SPI_MEM_DDR")
             .field(
                 "spi_fmem_ddr_en",
                 &format_args!("{}", self.spi_fmem_ddr_en().bit()),
@@ -174,6 +174,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.spi_fmem_hyperbus_ca().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SPI_MEM_DDR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "SPI1 DDR control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_ddr](index.html) module"]

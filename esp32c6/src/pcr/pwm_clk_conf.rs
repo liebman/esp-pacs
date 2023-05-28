@@ -68,7 +68,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::PWM_CLK_CONF")
+        f.debug_struct("PWM_CLK_CONF")
             .field(
                 "pwm_div_num",
                 &format_args!("{}", self.pwm_div_num().bits()),
@@ -79,6 +79,12 @@ impl core::fmt::Debug for R {
             )
             .field("pwm_clkm_en", &format_args!("{}", self.pwm_clkm_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PWM_CLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -99,7 +99,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_CTRL::PERI_BACKUP_CONFIG")
+        f.debug_struct("PERI_BACKUP_CONFIG")
             .field(
                 "peri_backup_flow_err",
                 &format_args!("{}", self.peri_backup_flow_err().bits()),
@@ -125,6 +125,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.peri_backup_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PERI_BACKUP_CONFIG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

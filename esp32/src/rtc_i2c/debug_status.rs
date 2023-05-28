@@ -123,7 +123,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_I2C::DEBUG_STATUS")
+        f.debug_struct("DEBUG_STATUS")
             .field("ack_val", &format_args!("{}", self.ack_val().bit()))
             .field("slave_rw", &format_args!("{}", self.slave_rw().bit()))
             .field("timed_out", &format_args!("{}", self.timed_out().bit()))
@@ -137,6 +137,12 @@ impl core::fmt::Debug for R {
             .field("main_state", &format_args!("{}", self.main_state().bits()))
             .field("scl_state", &format_args!("{}", self.scl_state().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DEBUG_STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

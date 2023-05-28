@@ -66,7 +66,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSCON::SYSCLK_CONF")
+        f.debug_struct("SYSCLK_CONF")
             .field("clk_320m_en", &format_args!("{}", self.clk_320m_en().bit()))
             .field("clk_en", &format_args!("{}", self.clk_en().bit()))
             .field(
@@ -74,6 +74,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rst_tick_cnt().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SYSCLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

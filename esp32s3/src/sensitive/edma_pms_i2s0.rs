@@ -57,10 +57,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::EDMA_PMS_I2S0")
+        f.debug_struct("EDMA_PMS_I2S0")
             .field("attr1", &format_args!("{}", self.attr1().bits()))
             .field("attr2", &format_args!("{}", self.attr2().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<EDMA_PMS_I2S0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

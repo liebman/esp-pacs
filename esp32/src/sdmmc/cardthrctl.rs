@@ -76,7 +76,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SDMMC::CARDTHRCTL")
+        f.debug_struct("CARDTHRCTL")
             .field("cardrdthren", &format_args!("{}", self.cardrdthren().bit()))
             .field(
                 "cardclrinten",
@@ -88,6 +88,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cardthreshold().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CARDTHRCTL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

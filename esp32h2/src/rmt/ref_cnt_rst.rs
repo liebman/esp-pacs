@@ -31,6 +31,12 @@ pub type RX_REF_CNT_RST_CH2_W<'a, const O: u8> =
 #[doc = "Field `RX_REF_CNT_RST_CH3` writer - This register is used to reset the clock divider of CHANNEL3."]
 pub type RX_REF_CNT_RST_CH3_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, REF_CNT_RST_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<REF_CNT_RST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - This register is used to reset the clock divider of CHANNEL0."]
     #[inline(always)]

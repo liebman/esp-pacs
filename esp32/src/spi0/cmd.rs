@@ -183,7 +183,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::CMD")
+        f.debug_struct("CMD")
             .field("flash_per", &format_args!("{}", self.flash_per().bit()))
             .field("flash_pes", &format_args!("{}", self.flash_pes().bit()))
             .field("usr", &format_args!("{}", self.usr().bit()))
@@ -201,6 +201,12 @@ impl core::fmt::Debug for R {
             .field("flash_wren", &format_args!("{}", self.flash_wren().bit()))
             .field("flash_read", &format_args!("{}", self.flash_read().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

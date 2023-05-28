@@ -58,7 +58,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::USER1")
+        f.debug_struct("USER1")
             .field(
                 "usr_dummy_cyclelen",
                 &format_args!("{}", self.usr_dummy_cyclelen().bits()),
@@ -68,6 +68,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.usr_addr_bitlen().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<USER1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

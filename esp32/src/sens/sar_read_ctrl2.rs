@@ -118,7 +118,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_READ_CTRL2")
+        f.debug_struct("SAR_READ_CTRL2")
             .field(
                 "sar2_clk_div",
                 &format_args!("{}", self.sar2_clk_div().bits()),
@@ -152,6 +152,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar2_data_inv().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_READ_CTRL2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

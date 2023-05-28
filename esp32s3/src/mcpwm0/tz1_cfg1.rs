@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::TZ1_CFG1")
+        f.debug_struct("TZ1_CFG1")
             .field("tz1_clr_ost", &format_args!("{}", self.tz1_clr_ost().bit()))
             .field(
                 "tz1_cbcpulse",
@@ -90,6 +90,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.tz1_force_ost().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TZ1_CFG1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -89,7 +89,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::HP_ACTIVE_SYSCLK")
+        f.debug_struct("HP_ACTIVE_SYSCLK")
             .field(
                 "hp_active_dig_sys_clk_no_div",
                 &format_args!("{}", self.hp_active_dig_sys_clk_no_div().bit()),
@@ -111,6 +111,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.hp_active_dig_sys_clk_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HP_ACTIVE_SYSCLK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

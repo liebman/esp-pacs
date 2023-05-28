@@ -489,7 +489,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::CLK_CONF")
+        f.debug_struct("CLK_CONF")
             .field("ck8m_div", &format_args!("{}", self.ck8m_div().bits()))
             .field("enb_ck8m", &format_args!("{}", self.enb_ck8m().bit()))
             .field(
@@ -546,6 +546,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.ana_clk_rtc_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

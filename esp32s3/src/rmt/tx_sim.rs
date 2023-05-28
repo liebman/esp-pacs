@@ -84,13 +84,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::TX_SIM")
+        f.debug_struct("TX_SIM")
             .field("ch0", &format_args!("{}", self.ch0().bit()))
             .field("ch1", &format_args!("{}", self.ch1().bit()))
             .field("ch2", &format_args!("{}", self.ch2().bit()))
             .field("ch3", &format_args!("{}", self.ch3().bit()))
             .field("en", &format_args!("{}", self.en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TX_SIM_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

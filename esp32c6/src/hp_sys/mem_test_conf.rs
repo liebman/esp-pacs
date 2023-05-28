@@ -69,7 +69,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HP_SYS::MEM_TEST_CONF")
+        f.debug_struct("MEM_TEST_CONF")
             .field(
                 "hp_mem_wpulse",
                 &format_args!("{}", self.hp_mem_wpulse().bits()),
@@ -77,6 +77,12 @@ impl core::fmt::Debug for R {
             .field("hp_mem_wa", &format_args!("{}", self.hp_mem_wa().bits()))
             .field("hp_mem_ra", &format_args!("{}", self.hp_mem_ra().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MEM_TEST_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

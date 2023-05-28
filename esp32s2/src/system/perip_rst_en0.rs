@@ -328,7 +328,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::PERIP_RST_EN0")
+        f.debug_struct("PERIP_RST_EN0")
             .field("timers_rst", &format_args!("{}", self.timers_rst().bit()))
             .field("spi01_rst", &format_args!("{}", self.spi01_rst().bit()))
             .field("uart_rst", &format_args!("{}", self.uart_rst().bit()))
@@ -392,6 +392,12 @@ impl core::fmt::Debug for R {
             )
             .field("spi4_rst", &format_args!("{}", self.spi4_rst().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PERIP_RST_EN0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -81,7 +81,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SDMMC::HCON")
+        f.debug_struct("HCON")
             .field("card_type", &format_args!("{}", self.card_type().bit()))
             .field("card_num", &format_args!("{}", self.card_num().bits()))
             .field("bus_type", &format_args!("{}", self.bus_type().bit()))
@@ -95,6 +95,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.num_clk_div().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HCON_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Hardware feature register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hcon](index.html) module"]

@@ -96,7 +96,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::PRO_CPU_RECORD_PDEBUGINST")
+        f.debug_struct("PRO_CPU_RECORD_PDEBUGINST")
             .field(
                 "record_pro_pdebuginst",
                 &format_args!("{}", self.record_pro_pdebuginst().bits()),
@@ -122,6 +122,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.record_pdebuginst_cintl().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_CPU_RECORD_PDEBUGINST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

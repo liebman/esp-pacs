@@ -104,7 +104,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_COCPU_INT_RAW")
+        f.debug_struct("SAR_COCPU_INT_RAW")
             .field(
                 "sar_cocpu_touch_done_int_raw",
                 &format_args!("{}", self.sar_cocpu_touch_done_int_raw().bit()),
@@ -157,6 +157,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar_cocpu_touch_scan_done_int_raw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_COCPU_INT_RAW_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "the interrupt raw of ulp\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sar_cocpu_int_raw](index.html) module"]

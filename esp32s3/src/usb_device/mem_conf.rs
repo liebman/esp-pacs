@@ -57,13 +57,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::MEM_CONF")
+        f.debug_struct("MEM_CONF")
             .field("usb_mem_pd", &format_args!("{}", self.usb_mem_pd().bit()))
             .field(
                 "usb_mem_clk_en",
                 &format_args!("{}", self.usb_mem_clk_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MEM_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

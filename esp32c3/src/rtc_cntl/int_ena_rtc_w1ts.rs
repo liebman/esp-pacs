@@ -46,6 +46,12 @@ pub type GLITCH_DET_INT_ENA_W1TS_W<'a, const O: u8> =
 #[doc = "Field `BBPLL_CAL_INT_ENA_W1TS` writer - enbale bbpll cal interrupt"]
 pub type BBPLL_CAL_INT_ENA_W1TS_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_ENA_RTC_W1TS_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_ENA_RTC_W1TS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - enable sleep wakeup interrupt"]
     #[inline(always)]

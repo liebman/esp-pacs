@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::CAP_CH0_CFG")
+        f.debug_struct("CAP_CH0_CFG")
             .field("cap0_en", &format_args!("{}", self.cap0_en().bit()))
             .field("cap0_mode", &format_args!("{}", self.cap0_mode().bits()))
             .field(
@@ -90,6 +90,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cap0_in_invert().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CAP_CH0_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

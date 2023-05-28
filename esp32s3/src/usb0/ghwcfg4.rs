@@ -144,7 +144,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::GHWCFG4")
+        f.debug_struct("GHWCFG4")
             .field(
                 "g_numdevperioeps",
                 &format_args!("{}", self.g_numdevperioeps().bits()),
@@ -203,6 +203,12 @@ impl core::fmt::Debug for R {
             )
             .field("g_descdma", &format_args!("{}", self.g_descdma().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GHWCFG4_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ghwcfg4](index.html) module"]

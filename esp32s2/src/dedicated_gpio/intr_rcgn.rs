@@ -119,7 +119,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DEDICATED_GPIO::INTR_RCGN")
+        f.debug_struct("INTR_RCGN")
             .field(
                 "intr_mode_ch0",
                 &format_args!("{}", self.intr_mode_ch0().bits()),
@@ -153,6 +153,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.intr_mode_ch7().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INTR_RCGN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

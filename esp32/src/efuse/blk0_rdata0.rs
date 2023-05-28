@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::BLK0_RDATA0")
+        f.debug_struct("BLK0_RDATA0")
             .field(
                 "rd_efuse_wr_dis",
                 &format_args!("{}", self.rd_efuse_wr_dis().bits()),
@@ -53,6 +53,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rd_flash_crypt_cnt().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BLK0_RDATA0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [blk0_rdata0](index.html) module"]

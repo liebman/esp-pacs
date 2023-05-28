@@ -55,7 +55,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::_0TXFIFO_POP")
+        f.debug_struct("_0TXFIFO_POP")
             .field(
                 "slc0_txfifo_rdata",
                 &format_args!("{}", self.slc0_txfifo_rdata().bits()),
@@ -65,6 +65,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slc0_txfifo_pop().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<_0TXFIFO_POP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

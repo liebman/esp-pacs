@@ -21,6 +21,12 @@ impl From<crate::W<START_SPEC>> for W {
 }
 #[doc = "Field `START` writer - Reserved."]
 pub type START_W<'a, const O: u8> = crate::FieldWriter<'a, u32, START_SPEC, u32, u32, 31, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<START_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 1:31 - Reserved."]
     #[inline(always)]

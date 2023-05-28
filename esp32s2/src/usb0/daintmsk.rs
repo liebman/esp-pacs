@@ -165,7 +165,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DAINTMSK")
+        f.debug_struct("DAINTMSK")
             .field("inepmsk0", &format_args!("{}", self.inepmsk0().bit()))
             .field("inepmsk1", &format_args!("{}", self.inepmsk1().bit()))
             .field("inepmsk2", &format_args!("{}", self.inepmsk2().bit()))
@@ -181,6 +181,12 @@ impl core::fmt::Debug for R {
             .field("outepmsk5", &format_args!("{}", self.outepmsk5().bit()))
             .field("outepmsk6", &format_args!("{}", self.outepmsk6().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DAINTMSK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

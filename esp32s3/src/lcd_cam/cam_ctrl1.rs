@@ -136,7 +136,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LCD_CAM::CAM_CTRL1")
+        f.debug_struct("CAM_CTRL1")
             .field(
                 "cam_rec_data_bytelen",
                 &format_args!("{}", self.cam_rec_data_bytelen().bits()),
@@ -169,6 +169,12 @@ impl core::fmt::Debug for R {
             )
             .field("cam_start", &format_args!("{}", self.cam_start().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CAM_CTRL1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

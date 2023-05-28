@@ -137,7 +137,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LCD_CAM::LCD_RGB_YUV")
+        f.debug_struct("LCD_RGB_YUV")
             .field(
                 "lcd_conv_8bits_data_inv",
                 &format_args!("{}", self.lcd_conv_8bits_data_inv().bit()),
@@ -179,6 +179,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lcd_conv_bypass().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LCD_RGB_YUV_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

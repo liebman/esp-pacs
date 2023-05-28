@@ -22,6 +22,12 @@ impl From<crate::W<SET_INVALIDATE_DS_SPEC>> for W {
 #[doc = "Field `SET_INVALIDATE_DS` writer - Clear result from hmac downstream DS."]
 pub type SET_INVALIDATE_DS_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, SET_INVALIDATE_DS_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SET_INVALIDATE_DS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Clear result from hmac downstream DS."]
     #[inline(always)]

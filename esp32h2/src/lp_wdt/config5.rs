@@ -68,7 +68,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_WDT::CONFIG5")
+        f.debug_struct("CONFIG5")
             .field(
                 "chip_reset_target",
                 &format_args!("{}", self.chip_reset_target().bits()),
@@ -82,6 +82,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.chip_reset_key().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONFIG5_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

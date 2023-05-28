@@ -63,7 +63,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::CHIP_RST")
+        f.debug_struct("CHIP_RST")
             .field("rts", &format_args!("{}", self.rts().bit()))
             .field("dtr", &format_args!("{}", self.dtr().bit()))
             .field(
@@ -71,6 +71,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.usb_uart_chip_rst_dis().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CHIP_RST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -128,7 +128,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::HP_ACTIVE_HP_REGULATOR0")
+        f.debug_struct("HP_ACTIVE_HP_REGULATOR0")
             .field(
                 "lp_dbias_vol",
                 &format_args!("{}", self.lp_dbias_vol().bits()),
@@ -166,6 +166,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.hp_active_hp_regulator_dbias().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HP_ACTIVE_HP_REGULATOR0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

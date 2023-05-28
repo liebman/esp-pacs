@@ -62,7 +62,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HP_SYS::CPU_PERI_TIMEOUT_CONF")
+        f.debug_struct("CPU_PERI_TIMEOUT_CONF")
             .field(
                 "cpu_peri_timeout_thres",
                 &format_args!("{}", self.cpu_peri_timeout_thres().bits()),
@@ -72,6 +72,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cpu_peri_timeout_protect_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CPU_PERI_TIMEOUT_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

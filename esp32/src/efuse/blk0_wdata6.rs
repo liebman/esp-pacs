@@ -134,7 +134,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::BLK0_WDATA6")
+        f.debug_struct("BLK0_WDATA6")
             .field(
                 "coding_scheme",
                 &format_args!("{}", self.coding_scheme().bits()),
@@ -167,6 +167,12 @@ impl core::fmt::Debug for R {
             )
             .field("key_status", &format_args!("{}", self.key_status().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BLK0_WDATA6_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

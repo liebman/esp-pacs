@@ -169,7 +169,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMS::DMA_APB_I_1")
+        f.debug_struct("DMA_APB_I_1")
             .field(
                 "dma_apb_i_sram_0_r",
                 &format_args!("{}", self.dma_apb_i_sram_0_r().bit()),
@@ -223,6 +223,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dma_apb_i_sram_4_h_w().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_APB_I_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

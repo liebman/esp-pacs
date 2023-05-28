@@ -24,6 +24,12 @@ pub type SUPER_WDT_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_RTC_SPEC, bool, O>;
 #[doc = "Field `WDT_INT_CLR` writer - need_des"]
 pub type WDT_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_RTC_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_RTC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

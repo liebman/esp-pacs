@@ -68,7 +68,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTIMER::TARGET0_CONF")
+        f.debug_struct("TARGET0_CONF")
             .field(
                 "target0_period",
                 &format_args!("{}", self.target0_period().bits()),
@@ -82,6 +82,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.target0_work_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TARGET0_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

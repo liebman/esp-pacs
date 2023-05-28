@@ -165,7 +165,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI2::DMA_INT_ST")
+        f.debug_struct("DMA_INT_ST")
             .field(
                 "dma_infifo_full_err_int_st",
                 &format_args!("{}", self.dma_infifo_full_err_int_st().bit()),
@@ -245,6 +245,12 @@ impl core::fmt::Debug for R {
             .field("app2_int_st", &format_args!("{}", self.app2_int_st().bit()))
             .field("app1_int_st", &format_args!("{}", self.app1_int_st().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_INT_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "SPI interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_int_st](index.html) module"]

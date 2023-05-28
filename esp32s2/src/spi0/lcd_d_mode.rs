@@ -104,7 +104,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::LCD_D_MODE")
+        f.debug_struct("LCD_D_MODE")
             .field("d_dqs_mode", &format_args!("{}", self.d_dqs_mode().bits()))
             .field("d_cd_mode", &format_args!("{}", self.d_cd_mode().bits()))
             .field("d_de_mode", &format_args!("{}", self.d_de_mode().bits()))
@@ -119,6 +119,12 @@ impl core::fmt::Debug for R {
             .field("de_idle_pol", &format_args!("{}", self.de_idle_pol().bit()))
             .field("hs_blank_en", &format_args!("{}", self.hs_blank_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LCD_D_MODE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

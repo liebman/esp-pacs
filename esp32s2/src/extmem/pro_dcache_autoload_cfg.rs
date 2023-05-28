@@ -109,7 +109,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::PRO_DCACHE_AUTOLOAD_CFG")
+        f.debug_struct("PRO_DCACHE_AUTOLOAD_CFG")
             .field(
                 "pro_dcache_autoload_mode",
                 &format_args!("{}", self.pro_dcache_autoload_mode().bit()),
@@ -139,6 +139,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pro_dcache_autoload_sct1_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_DCACHE_AUTOLOAD_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

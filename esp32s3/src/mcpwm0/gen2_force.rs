@@ -107,7 +107,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::GEN2_FORCE")
+        f.debug_struct("GEN2_FORCE")
             .field(
                 "gen2_cntuforce_upmethod",
                 &format_args!("{}", self.gen2_cntuforce_upmethod().bits()),
@@ -137,6 +137,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.gen2_b_nciforce_mode().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GEN2_FORCE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

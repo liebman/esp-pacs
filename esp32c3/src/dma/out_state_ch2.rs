@@ -39,7 +39,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::OUT_STATE_CH2")
+        f.debug_struct("OUT_STATE_CH2")
             .field(
                 "outlink_dscr_addr",
                 &format_args!("{}", self.outlink_dscr_addr().bits()),
@@ -50,6 +50,12 @@ impl core::fmt::Debug for R {
             )
             .field("out_state", &format_args!("{}", self.out_state().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_STATE_CH2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "DMA_OUT_STATE_CH2_REG.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [out_state_ch2](index.html) module"]

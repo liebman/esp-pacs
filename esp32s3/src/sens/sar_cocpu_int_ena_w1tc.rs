@@ -55,6 +55,12 @@ pub type SAR_COCPU_TOUCH_APPROACH_LOOP_DONE_INT_ENA_W1TC_W<'a, const O: u8> =
 #[doc = "Field `SAR_COCPU_TOUCH_SCAN_DONE_INT_ENA_W1TC` writer - Clear int enable of touch scan done"]
 pub type SAR_COCPU_TOUCH_SCAN_DONE_INT_ENA_W1TC_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, SAR_COCPU_INT_ENA_W1TC_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_COCPU_INT_ENA_W1TC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Clear int enable of touch done"]
     #[inline(always)]

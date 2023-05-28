@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("TIMG0::INT_ENA_TIMERS")
+        f.debug_struct("INT_ENA_TIMERS")
             .field("t0_int_ena", &format_args!("{}", self.t0_int_ena().bit()))
             .field("t1_int_ena", &format_args!("{}", self.t1_int_ena().bit()))
             .field("wdt_int_ena", &format_args!("{}", self.wdt_int_ena().bit()))
@@ -84,6 +84,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lact_int_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_ENA_TIMERS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

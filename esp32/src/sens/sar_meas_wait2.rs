@@ -89,7 +89,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_MEAS_WAIT2")
+        f.debug_struct("SAR_MEAS_WAIT2")
             .field(
                 "force_xpd_sar_sw",
                 &format_args!("{}", self.force_xpd_sar_sw().bit()),
@@ -111,6 +111,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar2_rstb_wait().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_MEAS_WAIT2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

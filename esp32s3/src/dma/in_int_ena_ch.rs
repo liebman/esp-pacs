@@ -129,7 +129,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::IN_INT_ENA_CH")
+        f.debug_struct("IN_INT_ENA_CH")
             .field("in_done", &format_args!("{}", self.in_done().bit()))
             .field("in_suc_eof", &format_args!("{}", self.in_suc_eof().bit()))
             .field("in_err_eof", &format_args!("{}", self.in_err_eof().bit()))
@@ -159,6 +159,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.infifo_udf_l3().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IN_INT_ENA_CH_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

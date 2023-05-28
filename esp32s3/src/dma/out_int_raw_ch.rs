@@ -115,7 +115,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::OUT_INT_RAW_CH")
+        f.debug_struct("OUT_INT_RAW_CH")
             .field("out_done", &format_args!("{}", self.out_done().bit()))
             .field("out_eof", &format_args!("{}", self.out_eof().bit()))
             .field(
@@ -143,6 +143,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.outfifo_udf_l3().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_INT_RAW_CH_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

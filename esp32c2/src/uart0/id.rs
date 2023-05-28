@@ -66,11 +66,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::ID")
+        f.debug_struct("ID")
             .field("id", &format_args!("{}", self.id().bits()))
             .field("high_speed", &format_args!("{}", self.high_speed().bit()))
             .field("reg_update", &format_args!("{}", self.reg_update().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ID_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -84,7 +84,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2C0::CLK_CONF")
+        f.debug_struct("CLK_CONF")
             .field(
                 "sclk_div_num",
                 &format_args!("{}", self.sclk_div_num().bits()),
@@ -94,6 +94,12 @@ impl core::fmt::Debug for R {
             .field("sclk_sel", &format_args!("{}", self.sclk_sel().bit()))
             .field("sclk_active", &format_args!("{}", self.sclk_active().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

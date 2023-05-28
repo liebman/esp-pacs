@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI1::TIMING_CALI")
+        f.debug_struct("TIMING_CALI")
             .field("timing_cali", &format_args!("{}", self.timing_cali().bit()))
             .field(
                 "extra_dummy_cyclelen",
                 &format_args!("{}", self.extra_dummy_cyclelen().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TIMING_CALI_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

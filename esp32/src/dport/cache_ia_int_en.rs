@@ -169,7 +169,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::CACHE_IA_INT_EN")
+        f.debug_struct("CACHE_IA_INT_EN")
             .field(
                 "cache_ia_int_en",
                 &format_args!("{}", self.cache_ia_int_en().bits()),
@@ -223,6 +223,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cache_ia_int_pro_opposite().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_IA_INT_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

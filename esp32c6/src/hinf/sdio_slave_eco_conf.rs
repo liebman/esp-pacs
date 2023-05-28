@@ -90,7 +90,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HINF::SDIO_SLAVE_ECO_CONF")
+        f.debug_struct("SDIO_SLAVE_ECO_CONF")
             .field(
                 "sdio_slave_rdn_result",
                 &format_args!("{}", self.sdio_slave_rdn_result().bit()),
@@ -116,6 +116,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sdio_slave_sdclk_pad_rdn_ena().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SDIO_SLAVE_ECO_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

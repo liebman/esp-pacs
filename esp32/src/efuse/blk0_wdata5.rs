@@ -119,7 +119,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::BLK0_WDATA5")
+        f.debug_struct("BLK0_WDATA5")
             .field(
                 "spi_pad_config_clk",
                 &format_args!("{}", self.spi_pad_config_clk().bits()),
@@ -150,6 +150,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.flash_crypt_config().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BLK0_WDATA5_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -129,7 +129,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("HP_APM::REGION9_PMS_ATTR")
+        f.debug_struct("REGION9_PMS_ATTR")
             .field(
                 "region9_r0_pms_x",
                 &format_args!("{}", self.region9_r0_pms_x().bit()),
@@ -167,6 +167,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.region9_r2_pms_r().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<REGION9_PMS_ATTR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

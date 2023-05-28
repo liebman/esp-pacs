@@ -61,7 +61,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::PIF_ACCESS_MONITOR_1")
+        f.debug_struct("PIF_ACCESS_MONITOR_1")
             .field(
                 "pif_access_monitor_nonword_violate_clr",
                 &format_args!("{}", self.pif_access_monitor_nonword_violate_clr().bit()),
@@ -71,6 +71,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.pif_access_monitor_nonword_violate_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PIF_ACCESS_MONITOR_1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

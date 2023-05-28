@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_UART::AT_CMD_CHAR")
+        f.debug_struct("AT_CMD_CHAR")
             .field(
                 "at_cmd_char",
                 &format_args!("{}", self.at_cmd_char().bits()),
             )
             .field("char_num", &format_args!("{}", self.char_num().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<AT_CMD_CHAR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

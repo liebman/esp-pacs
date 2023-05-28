@@ -53,13 +53,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::GRXSTSR")
+        f.debug_struct("GRXSTSR")
             .field("g_chnum", &format_args!("{}", self.g_chnum().bits()))
             .field("g_bcnt", &format_args!("{}", self.g_bcnt().bits()))
             .field("g_dpid", &format_args!("{}", self.g_dpid().bits()))
             .field("g_pktsts", &format_args!("{}", self.g_pktsts().bits()))
             .field("g_fn", &format_args!("{}", self.g_fn().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GRXSTSR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [grxstsr](index.html) module"]

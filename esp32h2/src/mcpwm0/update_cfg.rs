@@ -111,7 +111,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::UPDATE_CFG")
+        f.debug_struct("UPDATE_CFG")
             .field(
                 "global_up_en",
                 &format_args!("{}", self.global_up_en().bit()),
@@ -136,6 +136,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.op2_force_up().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<UPDATE_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

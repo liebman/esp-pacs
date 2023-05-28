@@ -62,7 +62,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_I2C::DATA")
+        f.debug_struct("DATA")
             .field("rdata", &format_args!("{}", self.rdata().bits()))
             .field(
                 "slave_tx_data",
@@ -70,6 +70,12 @@ impl core::fmt::Debug for R {
             )
             .field("done", &format_args!("{}", self.done().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DATA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

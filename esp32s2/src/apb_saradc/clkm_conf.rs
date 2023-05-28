@@ -76,7 +76,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_SARADC::CLKM_CONF")
+        f.debug_struct("CLKM_CONF")
             .field(
                 "clkm_div_num",
                 &format_args!("{}", self.clkm_div_num().bits()),
@@ -85,6 +85,12 @@ impl core::fmt::Debug for R {
             .field("clkm_div_a", &format_args!("{}", self.clkm_div_a().bits()))
             .field("clk_sel", &format_args!("{}", self.clk_sel().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLKM_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

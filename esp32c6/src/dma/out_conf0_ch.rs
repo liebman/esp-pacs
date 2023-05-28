@@ -104,7 +104,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::OUT_CONF0_CH")
+        f.debug_struct("OUT_CONF0_CH")
             .field("out_rst", &format_args!("{}", self.out_rst().bit()))
             .field(
                 "out_loop_test",
@@ -128,6 +128,12 @@ impl core::fmt::Debug for R {
             )
             .field("out_etm_en", &format_args!("{}", self.out_etm_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_CONF0_CH_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -213,7 +213,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SPI_SMEM_DDR")
+        f.debug_struct("SPI_SMEM_DDR")
             .field("en", &format_args!("{}", self.en().bit()))
             .field(
                 "spi_smem_var_dummy",
@@ -272,6 +272,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.spi_smem_hyperbus_ca().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SPI_SMEM_DDR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

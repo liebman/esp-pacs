@@ -32,13 +32,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::RD_BLK2_DATA2")
+        f.debug_struct("RD_BLK2_DATA2")
             .field(
                 "ldo_vol_bias_config_high",
                 &format_args!("{}", self.ldo_vol_bias_config_high().bits()),
             )
             .field("pvt_low", &format_args!("{}", self.pvt_low().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RD_BLK2_DATA2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Register 2 of BLOCK2.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_blk2_data2](index.html) module"]

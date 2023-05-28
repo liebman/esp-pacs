@@ -27,6 +27,12 @@ pub type RST_COEX_W<'a, const O: u8> = crate::BitWriter<'a, u32, RST_CONF_SPEC, 
 pub type RST_I2C_MST_W<'a, const O: u8> = crate::BitWriter<'a, u32, RST_CONF_SPEC, bool, O>;
 #[doc = "Field `RST_LP_TIMER` writer - "]
 pub type RST_LP_TIMER_W<'a, const O: u8> = crate::BitWriter<'a, u32, RST_CONF_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RST_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]

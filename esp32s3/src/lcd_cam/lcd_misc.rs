@@ -125,7 +125,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LCD_CAM::LCD_MISC")
+        f.debug_struct("LCD_MISC")
             .field(
                 "lcd_afifo_threshold_num",
                 &format_args!("{}", self.lcd_afifo_threshold_num().bits()),
@@ -160,6 +160,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.lcd_cd_idle_edge().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LCD_MISC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

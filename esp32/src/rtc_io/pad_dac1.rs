@@ -157,7 +157,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::PAD_DAC1")
+        f.debug_struct("PAD_DAC1")
             .field(
                 "pdac1_dac_xpd_force",
                 &format_args!("{}", self.pdac1_dac_xpd_force().bit()),
@@ -196,6 +196,12 @@ impl core::fmt::Debug for R {
             .field("pdac1_hold", &format_args!("{}", self.pdac1_hold().bit()))
             .field("pdac1_drv", &format_args!("{}", self.pdac1_drv().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PAD_DAC1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

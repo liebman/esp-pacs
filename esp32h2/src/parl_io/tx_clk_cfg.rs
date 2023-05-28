@@ -57,7 +57,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PARL_IO::TX_CLK_CFG")
+        f.debug_struct("TX_CLK_CFG")
             .field(
                 "tx_clk_i_inv",
                 &format_args!("{}", self.tx_clk_i_inv().bit()),
@@ -67,6 +67,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.tx_clk_o_inv().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TX_CLK_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

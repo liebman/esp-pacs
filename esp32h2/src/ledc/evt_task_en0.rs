@@ -299,7 +299,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LEDC::EVT_TASK_EN0")
+        f.debug_struct("EVT_TASK_EN0")
             .field(
                 "evt_duty_chng_end_ch0_en",
                 &format_args!("{}", self.evt_duty_chng_end_ch0_en().bit()),
@@ -405,6 +405,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.task_duty_scale_update_ch5_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<EVT_TASK_EN0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

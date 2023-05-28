@@ -21,6 +21,12 @@ impl From<crate::W<DMA_EXIT_SPEC>> for W {
 }
 #[doc = "Field `DMA_EXIT` writer - Set this bit to 1 to exit AES operation. This field is only effective for DMA-AES operation."]
 pub type DMA_EXIT_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMA_EXIT_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_EXIT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to 1 to exit AES operation. This field is only effective for DMA-AES operation."]
     #[inline(always)]

@@ -151,7 +151,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::ANA_CONF")
+        f.debug_struct("ANA_CONF")
             .field(
                 "i2c_reset_por_force_pd",
                 &format_args!("{}", self.i2c_reset_por_force_pd().bit()),
@@ -189,6 +189,12 @@ impl core::fmt::Debug for R {
             )
             .field("pll_i2c_pu", &format_args!("{}", self.pll_i2c_pu().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ANA_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

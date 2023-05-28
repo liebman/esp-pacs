@@ -115,7 +115,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::L1_CACHE_OBJECT_CTRL")
+        f.debug_struct("L1_CACHE_OBJECT_CTRL")
             .field(
                 "l1_icache0_tag_object",
                 &format_args!("{}", self.l1_icache0_tag_object().bit()),
@@ -157,6 +157,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.l1_cache_mem_object().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<L1_CACHE_OBJECT_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

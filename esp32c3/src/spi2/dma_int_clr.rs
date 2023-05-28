@@ -76,6 +76,12 @@ pub type MST_TX_AFIFO_REMPTY_ERR_INT_CLR_W<'a, const O: u8> =
 pub type APP2_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMA_INT_CLR_SPEC, bool, O>;
 #[doc = "Field `APP1_INT_CLR` writer - The clear bit for SPI_APP1_INT interrupt."]
 pub type APP1_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMA_INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear bit for SPI_DMA_INFIFO_FULL_ERR_INT interrupt."]
     #[inline(always)]

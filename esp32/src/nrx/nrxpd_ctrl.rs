@@ -111,7 +111,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("NRX::NRXPD_CTRL")
+        f.debug_struct("NRXPD_CTRL")
             .field(
                 "demap_force_pd",
                 &format_args!("{}", self.demap_force_pd().bit()),
@@ -145,6 +145,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.chan_est_force_pu().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<NRXPD_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

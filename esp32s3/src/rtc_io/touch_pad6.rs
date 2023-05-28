@@ -147,7 +147,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::TOUCH_PAD6")
+        f.debug_struct("TOUCH_PAD6")
             .field("fun_ie", &format_args!("{}", self.fun_ie().bit()))
             .field("slp_oe", &format_args!("{}", self.slp_oe().bit()))
             .field("slp_ie", &format_args!("{}", self.slp_ie().bit()))
@@ -161,6 +161,12 @@ impl core::fmt::Debug for R {
             .field("rde", &format_args!("{}", self.rde().bit()))
             .field("drv", &format_args!("{}", self.drv().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TOUCH_PAD6_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

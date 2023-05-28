@@ -67,7 +67,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_SARADC::DMA_CONF")
+        f.debug_struct("DMA_CONF")
             .field(
                 "apb_adc_eof_num",
                 &format_args!("{}", self.apb_adc_eof_num().bits()),
@@ -81,6 +81,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.apb_adc_trans().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

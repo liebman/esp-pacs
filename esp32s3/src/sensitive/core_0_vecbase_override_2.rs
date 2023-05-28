@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENSITIVE::CORE_0_VECBASE_OVERRIDE_2")
+        f.debug_struct("CORE_0_VECBASE_OVERRIDE_2")
             .field(
                 "core_0_vecbase_override_world1_value",
                 &format_args!("{}", self.core_0_vecbase_override_world1_value().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_0_VECBASE_OVERRIDE_2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -61,6 +61,12 @@ pub type DCACHE_SET_ILG_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `MMU_ENTRY_FAULT_INT_CLR` writer - The bit is used to clear interrupt by mmu entry fault."]
 pub type MMU_ENTRY_FAULT_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CACHE_DBG_INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_DBG_INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - The bit is used to clear interrupt by cpu access icache while the corresponding ibus is disabled or icache is disabled which include speculative access."]
     #[inline(always)]

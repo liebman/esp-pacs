@@ -69,11 +69,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::APP_CACHE_LOCK_2_ADDR")
+        f.debug_struct("APP_CACHE_LOCK_2_ADDR")
             .field("pre", &format_args!("{}", self.pre().bits()))
             .field("min", &format_args!("{}", self.min().bits()))
             .field("max", &format_args!("{}", self.max().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<APP_CACHE_LOCK_2_ADDR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

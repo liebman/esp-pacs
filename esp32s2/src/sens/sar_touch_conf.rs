@@ -106,7 +106,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_TOUCH_CONF")
+        f.debug_struct("SAR_TOUCH_CONF")
             .field(
                 "touch_outen",
                 &format_args!("{}", self.touch_outen().bits()),
@@ -136,6 +136,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.touch_approach_pad0().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_TOUCH_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

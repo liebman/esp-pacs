@@ -83,7 +83,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::IN_LINK")
+        f.debug_struct("IN_LINK")
             .field(
                 "inlink_addr",
                 &format_args!("{}", self.inlink_addr().bits()),
@@ -99,6 +99,12 @@ impl core::fmt::Debug for R {
             )
             .field("inlink_park", &format_args!("{}", self.inlink_park().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IN_LINK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

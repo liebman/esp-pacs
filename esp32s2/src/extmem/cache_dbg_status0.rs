@@ -158,7 +158,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CACHE_DBG_STATUS0")
+        f.debug_struct("CACHE_DBG_STATUS0")
             .field(
                 "ibus0_acs_msk_icache_st",
                 &format_args!("{}", self.ibus0_acs_msk_icache_st().bit()),
@@ -240,6 +240,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.icache_set_lock_ilg_st().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_DBG_STATUS0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "register description\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cache_dbg_status0](index.html) module"]

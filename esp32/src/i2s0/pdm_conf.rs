@@ -154,7 +154,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::PDM_CONF")
+        f.debug_struct("PDM_CONF")
             .field("tx_pdm_en", &format_args!("{}", self.tx_pdm_en().bit()))
             .field("rx_pdm_en", &format_args!("{}", self.rx_pdm_en().bit()))
             .field(
@@ -198,6 +198,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.tx_pdm_hp_bypass().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PDM_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

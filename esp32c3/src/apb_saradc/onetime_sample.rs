@@ -89,7 +89,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_SARADC::ONETIME_SAMPLE")
+        f.debug_struct("ONETIME_SAMPLE")
             .field(
                 "saradc_onetime_atten",
                 &format_args!("{}", self.saradc_onetime_atten().bits()),
@@ -111,6 +111,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.saradc1_onetime_sample().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ONETIME_SAMPLE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

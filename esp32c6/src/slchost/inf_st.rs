@@ -96,7 +96,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLCHOST::INF_ST")
+        f.debug_struct("INF_ST")
             .field(
                 "sdio20_mode",
                 &format_args!("{}", self.sdio20_mode().bits()),
@@ -114,6 +114,12 @@ impl core::fmt::Debug for R {
             .field("clk_mode_sw", &format_args!("{}", self.clk_mode_sw().bit()))
             .field("clk_mode", &format_args!("{}", self.clk_mode().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INF_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

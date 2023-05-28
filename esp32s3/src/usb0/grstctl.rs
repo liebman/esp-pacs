@@ -107,7 +107,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::GRSTCTL")
+        f.debug_struct("GRSTCTL")
             .field("csftrst", &format_args!("{}", self.csftrst().bit()))
             .field("piufssftrst", &format_args!("{}", self.piufssftrst().bit()))
             .field("frmcntrrst", &format_args!("{}", self.frmcntrrst().bit()))
@@ -117,6 +117,12 @@ impl core::fmt::Debug for R {
             .field("dmareq", &format_args!("{}", self.dmareq().bit()))
             .field("ahbidle", &format_args!("{}", self.ahbidle().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GRSTCTL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

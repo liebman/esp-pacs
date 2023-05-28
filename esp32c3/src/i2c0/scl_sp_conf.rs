@@ -76,7 +76,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2C0::SCL_SP_CONF")
+        f.debug_struct("SCL_SP_CONF")
             .field(
                 "scl_rst_slv_en",
                 &format_args!("{}", self.scl_rst_slv_en().bit()),
@@ -88,6 +88,12 @@ impl core::fmt::Debug for R {
             .field("scl_pd_en", &format_args!("{}", self.scl_pd_en().bit()))
             .field("sda_pd_en", &format_args!("{}", self.sda_pd_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SCL_SP_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -228,7 +228,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI2::USER")
+        f.debug_struct("USER")
             .field("doutdin", &format_args!("{}", self.doutdin().bit()))
             .field("qpi_mode", &format_args!("{}", self.qpi_mode().bit()))
             .field("opi_mode", &format_args!("{}", self.opi_mode().bit()))
@@ -263,6 +263,12 @@ impl core::fmt::Debug for R {
             .field("usr_addr", &format_args!("{}", self.usr_addr().bit()))
             .field("usr_command", &format_args!("{}", self.usr_command().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<USER_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

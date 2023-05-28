@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_CLKRST::CPU_RESET")
+        f.debug_struct("CPU_RESET")
             .field(
                 "rtc_wdt_cpu_reset_length",
                 &format_args!("{}", self.rtc_wdt_cpu_reset_length().bits()),
@@ -96,6 +96,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cpu_stall_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CPU_RESET_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

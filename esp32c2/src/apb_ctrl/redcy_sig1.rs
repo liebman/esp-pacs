@@ -56,13 +56,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_CTRL::REDCY_SIG1")
+        f.debug_struct("REDCY_SIG1")
             .field("redcy_sig1", &format_args!("{}", self.redcy_sig1().bits()))
             .field(
                 "redcy_nandor",
                 &format_args!("{}", self.redcy_nandor().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<REDCY_SIG1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

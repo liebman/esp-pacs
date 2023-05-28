@@ -183,7 +183,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::FH1_CFG0")
+        f.debug_struct("FH1_CFG0")
             .field("fh1_sw_cbc", &format_args!("{}", self.fh1_sw_cbc().bit()))
             .field("fh1_f2_cbc", &format_args!("{}", self.fh1_f2_cbc().bit()))
             .field("fh1_f1_cbc", &format_args!("{}", self.fh1_f1_cbc().bit()))
@@ -225,6 +225,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.fh1_b_ost_u().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<FH1_CFG0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

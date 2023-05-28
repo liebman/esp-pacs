@@ -93,7 +93,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_MEAS_START1")
+        f.debug_struct("SAR_MEAS_START1")
             .field(
                 "meas1_data_sar",
                 &format_args!("{}", self.meas1_data_sar().bits()),
@@ -119,6 +119,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar1_en_pad_force().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_MEAS_START1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

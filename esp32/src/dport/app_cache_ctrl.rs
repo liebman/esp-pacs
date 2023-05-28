@@ -159,7 +159,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::APP_CACHE_CTRL")
+        f.debug_struct("APP_CACHE_CTRL")
             .field(
                 "app_cache_mode",
                 &format_args!("{}", self.app_cache_mode().bit()),
@@ -210,6 +210,12 @@ impl core::fmt::Debug for R {
             )
             .field("app_dram_hl", &format_args!("{}", self.app_dram_hl().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<APP_CACHE_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

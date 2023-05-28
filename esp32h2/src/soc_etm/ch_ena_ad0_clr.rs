@@ -83,6 +83,12 @@ pub type CH_CLR29_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH_ENA_AD0_CLR_
 pub type CH_CLR30_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH_ENA_AD0_CLR_SPEC, bool, O>;
 #[doc = "Field `CH_CLR31` writer - ch31 clear"]
 pub type CH_CLR31_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH_ENA_AD0_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CH_ENA_AD0_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - ch0 clear"]
     #[inline(always)]

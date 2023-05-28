@@ -179,7 +179,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCNT::U_CONF0")
+        f.debug_struct("U_CONF0")
             .field(
                 "filter_thres",
                 &format_args!("{}", self.filter_thres().bits()),
@@ -235,6 +235,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.ch1_lctrl_mode().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<U_CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

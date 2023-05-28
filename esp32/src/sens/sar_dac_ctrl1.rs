@@ -106,7 +106,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_DAC_CTRL1")
+        f.debug_struct("SAR_DAC_CTRL1")
             .field("sw_fstep", &format_args!("{}", self.sw_fstep().bits()))
             .field("sw_tone_en", &format_args!("{}", self.sw_tone_en().bit()))
             .field(
@@ -127,6 +127,12 @@ impl core::fmt::Debug for R {
             )
             .field("dac_clk_inv", &format_args!("{}", self.dac_clk_inv().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_DAC_CTRL1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

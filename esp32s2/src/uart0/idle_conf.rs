@@ -68,7 +68,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::IDLE_CONF")
+        f.debug_struct("IDLE_CONF")
             .field(
                 "rx_idle_thrhd",
                 &format_args!("{}", self.rx_idle_thrhd().bits()),
@@ -79,6 +79,12 @@ impl core::fmt::Debug for R {
             )
             .field("tx_brk_num", &format_args!("{}", self.tx_brk_num().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IDLE_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -22,6 +22,12 @@ impl From<crate::W<CLEAR_INTERRUPT_SPEC>> for W {
 #[doc = "Field `CLEAR_INTERRUPT` writer - set this bit to 1 to clear the RSA interrupt."]
 pub type CLEAR_INTERRUPT_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CLEAR_INTERRUPT_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLEAR_INTERRUPT_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - set this bit to 1 to clear the RSA interrupt."]
     #[inline(always)]

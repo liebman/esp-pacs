@@ -35,6 +35,12 @@ pub type GPIO5_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_CLR_S
 pub type GPIO6_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_CLR_SPEC, bool, O>;
 #[doc = "Field `GPIO7_INT_CLR` writer - Set this bit to clear the DEDIC_GPIO7_INT_RAW interrupt."]
 pub type GPIO7_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INTR_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to clear the DEDIC_GPIO0_INT_RAW interrupt."]
     #[inline(always)]

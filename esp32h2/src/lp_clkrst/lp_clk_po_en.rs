@@ -138,7 +138,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_CLKRST::LP_CLK_PO_EN")
+        f.debug_struct("LP_CLK_PO_EN")
             .field(
                 "aon_slow_oen",
                 &format_args!("{}", self.aon_slow_oen().bit()),
@@ -160,6 +160,12 @@ impl core::fmt::Debug for R {
             .field("rng_oen", &format_args!("{}", self.rng_oen().bit()))
             .field("lpbus_oen", &format_args!("{}", self.lpbus_oen().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LP_CLK_PO_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

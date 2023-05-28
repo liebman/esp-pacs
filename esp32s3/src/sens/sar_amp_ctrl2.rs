@@ -119,7 +119,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_AMP_CTRL2")
+        f.debug_struct("SAR_AMP_CTRL2")
             .field(
                 "sar_sar1_dac_xpd_fsm_idle",
                 &format_args!("{}", self.sar_sar1_dac_xpd_fsm_idle().bit()),
@@ -153,6 +153,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar_amp_wait3().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_AMP_CTRL2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

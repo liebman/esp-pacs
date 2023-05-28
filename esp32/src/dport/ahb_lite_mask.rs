@@ -94,7 +94,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::AHB_LITE_MASK")
+        f.debug_struct("AHB_LITE_MASK")
             .field("pro", &format_args!("{}", self.pro().bit()))
             .field("app", &format_args!("{}", self.app().bit()))
             .field("sdio", &format_args!("{}", self.sdio().bit()))
@@ -105,6 +105,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.ahb_lite_sdhost_pid().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<AHB_LITE_MASK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

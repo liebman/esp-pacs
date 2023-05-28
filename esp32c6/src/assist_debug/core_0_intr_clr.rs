@@ -55,6 +55,12 @@ pub type CORE_0_IRAM0_EXCEPTION_MONITOR_CLR_W<'a, const O: u8> =
 #[doc = "Field `CORE_0_DRAM0_EXCEPTION_MONITOR_CLR` writer - DBUS busy monitor interrupt clr"]
 pub type CORE_0_DRAM0_EXCEPTION_MONITOR_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CORE_0_INTR_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_0_INTR_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Core0 dram0 area0 read monitor interrupt clr"]
     #[inline(always)]

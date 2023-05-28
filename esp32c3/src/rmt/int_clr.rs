@@ -38,6 +38,12 @@ pub type CH3_RX_THR_EVENT_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
 #[doc = "Field `CH_TX_LOOP_INT_CLR[0-1]` writer - reg_ch%s_tx_loop_int_clr."]
 pub type CH_TX_LOOP_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "reg_ch[0-1]_tx_end_int_clr."]
     #[inline(always)]

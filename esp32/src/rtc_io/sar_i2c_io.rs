@@ -69,7 +69,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::SAR_I2C_IO")
+        f.debug_struct("SAR_I2C_IO")
             .field(
                 "sar_debug_bit_sel",
                 &format_args!("{}", self.sar_debug_bit_sel().bits()),
@@ -83,6 +83,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.sar_i2c_sda_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_I2C_IO_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

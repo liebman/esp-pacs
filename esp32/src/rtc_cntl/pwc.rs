@@ -228,7 +228,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::PWC")
+        f.debug_struct("PWC")
             .field(
                 "fastmem_force_noiso",
                 &format_args!("{}", self.fastmem_force_noiso().bit()),
@@ -299,6 +299,12 @@ impl core::fmt::Debug for R {
             .field("force_pu", &format_args!("{}", self.force_pu().bit()))
             .field("pd_en", &format_args!("{}", self.pd_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PWC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_CLKRST::CLK_TO_HP")
+        f.debug_struct("CLK_TO_HP")
             .field(
                 "icg_hp_xtal32k",
                 &format_args!("{}", self.icg_hp_xtal32k().bit()),
@@ -87,6 +87,12 @@ impl core::fmt::Debug for R {
             )
             .field("icg_hp_fosc", &format_args!("{}", self.icg_hp_fosc().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLK_TO_HP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

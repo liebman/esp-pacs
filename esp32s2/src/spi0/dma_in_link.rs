@@ -94,7 +94,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::DMA_IN_LINK")
+        f.debug_struct("DMA_IN_LINK")
             .field(
                 "inlink_addr",
                 &format_args!("{}", self.inlink_addr().bits()),
@@ -114,6 +114,12 @@ impl core::fmt::Debug for R {
             )
             .field("dma_rx_ena", &format_args!("{}", self.dma_rx_ena().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_IN_LINK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

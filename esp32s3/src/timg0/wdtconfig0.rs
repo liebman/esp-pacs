@@ -134,7 +134,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("TIMG0::WDTCONFIG0")
+        f.debug_struct("WDTCONFIG0")
             .field(
                 "wdt_appcpu_reset_en",
                 &format_args!("{}", self.wdt_appcpu_reset_en().bit()),
@@ -161,6 +161,12 @@ impl core::fmt::Debug for R {
             .field("wdt_stg0", &format_args!("{}", self.wdt_stg0().bits()))
             .field("wdt_en", &format_args!("{}", self.wdt_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<WDTCONFIG0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

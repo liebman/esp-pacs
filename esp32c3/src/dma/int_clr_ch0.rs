@@ -45,6 +45,12 @@ pub type INFIFO_UDF_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_CH0_S
 pub type OUTFIFO_OVF_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_CH0_SPEC, bool, O>;
 #[doc = "Field `OUTFIFO_UDF` writer - Set this bit to clear the OUTFIFO_UDF_L1_CH_INT interrupt."]
 pub type OUTFIFO_UDF_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_CH0_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_CH0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to clear the IN_DONE_CH_INT interrupt."]
     #[inline(always)]

@@ -237,7 +237,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UHCI0::CONF0")
+        f.debug_struct("CONF0")
             .field("in_rst", &format_args!("{}", self.in_rst().bit()))
             .field("out_rst", &format_args!("{}", self.out_rst().bit()))
             .field(
@@ -297,6 +297,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.uart_rx_brk_eof_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

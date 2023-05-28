@@ -57,13 +57,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::AUTOBAUD")
+        f.debug_struct("AUTOBAUD")
             .field("en", &format_args!("{}", self.en().bit()))
             .field(
                 "glitch_filt",
                 &format_args!("{}", self.glitch_filt().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<AUTOBAUD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -154,7 +154,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::INT_RAW")
+        f.debug_struct("INT_RAW")
             .field(
                 "jtag_in_flush_int_raw",
                 &format_args!("{}", self.jtag_in_flush_int_raw().bit()),
@@ -201,6 +201,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.out_ep2_zero_payload_int_raw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_RAW_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

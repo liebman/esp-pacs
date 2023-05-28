@@ -127,7 +127,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::COCPU_CTRL")
+        f.debug_struct("COCPU_CTRL")
             .field(
                 "cocpu_clk_fo",
                 &format_args!("{}", self.cocpu_clk_fo().bit()),
@@ -156,6 +156,12 @@ impl core::fmt::Debug for R {
             )
             .field("cocpu_done", &format_args!("{}", self.cocpu_done().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<COCPU_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

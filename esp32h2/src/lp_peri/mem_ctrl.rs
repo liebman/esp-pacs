@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_PERI::MEM_CTRL")
+        f.debug_struct("MEM_CTRL")
             .field(
                 "uart_wakeup_flag",
                 &format_args!("{}", self.uart_wakeup_flag().bit()),
@@ -96,6 +96,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.uart_mem_force_pu().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MEM_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

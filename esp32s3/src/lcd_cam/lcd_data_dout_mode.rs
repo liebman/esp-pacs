@@ -199,7 +199,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LCD_CAM::LCD_DATA_DOUT_MODE")
+        f.debug_struct("LCD_DATA_DOUT_MODE")
             .field("dout0_mode", &format_args!("{}", self.dout0_mode().bits()))
             .field("dout1_mode", &format_args!("{}", self.dout1_mode().bits()))
             .field("dout2_mode", &format_args!("{}", self.dout2_mode().bits()))
@@ -235,6 +235,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dout15_mode().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LCD_DATA_DOUT_MODE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

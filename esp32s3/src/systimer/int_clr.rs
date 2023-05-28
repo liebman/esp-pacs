@@ -25,6 +25,12 @@ pub type TARGET0_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_
 pub type TARGET1_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
 #[doc = "Field `TARGET2_INT_CLR` writer - interupt2 clear"]
 pub type TARGET2_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - interupt0 clear"]
     #[inline(always)]

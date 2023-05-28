@@ -69,7 +69,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::CACHE_ENCRYPT_DECRYPT_CLK_FORCE_ON")
+        f.debug_struct("CACHE_ENCRYPT_DECRYPT_CLK_FORCE_ON")
             .field(
                 "clk_force_on_manual_crypt",
                 &format_args!("{}", self.clk_force_on_manual_crypt().bit()),
@@ -83,6 +83,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.clk_force_on_crypt().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_ENCRYPT_DECRYPT_CLK_FORCE_ON_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

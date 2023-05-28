@@ -67,7 +67,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2C0::SR")
+        f.debug_struct("SR")
             .field("resp_rec", &format_args!("{}", self.resp_rec().bit()))
             .field("arb_lost", &format_args!("{}", self.arb_lost().bit()))
             .field("bus_busy", &format_args!("{}", self.bus_busy().bit()))
@@ -82,6 +82,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.scl_state_last().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Describe I2C work status.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sr](index.html) module"]

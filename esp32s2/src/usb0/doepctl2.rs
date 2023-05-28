@@ -109,7 +109,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DOEPCTL2")
+        f.debug_struct("DOEPCTL2")
             .field("mps2", &format_args!("{}", self.mps2().bits()))
             .field("usbactep2", &format_args!("{}", self.usbactep2().bit()))
             .field("naksts2", &format_args!("{}", self.naksts2().bit()))
@@ -119,6 +119,12 @@ impl core::fmt::Debug for R {
             .field("epdis2", &format_args!("{}", self.epdis2().bit()))
             .field("epena2", &format_args!("{}", self.epena2().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DOEPCTL2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

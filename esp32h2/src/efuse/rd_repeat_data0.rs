@@ -158,7 +158,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EFUSE::RD_REPEAT_DATA0")
+        f.debug_struct("RD_REPEAT_DATA0")
             .field("rd_dis", &format_args!("{}", self.rd_dis().bits()))
             .field(
                 "rpt4_reserved0_4",
@@ -225,6 +225,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rpt4_reserved0_0().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RD_REPEAT_DATA0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "BLOCK0 data register 1.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rd_repeat_data0](index.html) module"]

@@ -214,7 +214,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::LOW_POWER_ST")
+        f.debug_struct("LOW_POWER_ST")
             .field("xpd_rom0", &format_args!("{}", self.xpd_rom0().bit()))
             .field(
                 "xpd_dig_dcdc",
@@ -307,6 +307,12 @@ impl core::fmt::Debug for R {
             )
             .field("main_state", &format_args!("{}", self.main_state().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LOW_POWER_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "rtc configure register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [low_power_st](index.html) module"]

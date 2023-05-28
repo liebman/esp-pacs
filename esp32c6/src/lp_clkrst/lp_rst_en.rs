@@ -76,7 +76,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_CLKRST::LP_RST_EN")
+        f.debug_struct("LP_RST_EN")
             .field(
                 "aon_efuse_core_reset_en",
                 &format_args!("{}", self.aon_efuse_core_reset_en().bit()),
@@ -94,6 +94,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.ana_peri_reset_en().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LP_RST_EN_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

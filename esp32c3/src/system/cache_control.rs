@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::CACHE_CONTROL")
+        f.debug_struct("CACHE_CONTROL")
             .field(
                 "icache_clk_on",
                 &format_args!("{}", self.icache_clk_on().bit()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dcache_reset().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_CONTROL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

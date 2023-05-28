@@ -31,6 +31,12 @@ pub type CAM_VSYNC_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `CAM_HS_INT_CLR` writer - The clear bit for Camera line interrupt."]
 pub type CAM_HS_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, LC_DMA_INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LC_DMA_INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - The clear bit for LCD frame end interrupt."]
     #[inline(always)]

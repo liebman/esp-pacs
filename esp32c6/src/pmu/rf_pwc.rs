@@ -93,7 +93,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::RF_PWC")
+        f.debug_struct("RF_PWC")
             .field(
                 "perif_i2c_rstb",
                 &format_args!("{}", self.perif_i2c_rstb().bit()),
@@ -116,6 +116,12 @@ impl core::fmt::Debug for R {
             )
             .field("xpd_pll_i2c", &format_args!("{}", self.xpd_pll_i2c().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RF_PWC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::LCD_CTRL")
+        f.debug_struct("LCD_CTRL")
             .field(
                 "lcd_hb_front",
                 &format_args!("{}", self.lcd_hb_front().bits()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
             )
             .field("lcd_mode_en", &format_args!("{}", self.lcd_mode_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LCD_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

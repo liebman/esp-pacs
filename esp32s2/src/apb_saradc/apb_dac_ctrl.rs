@@ -95,7 +95,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_SARADC::APB_DAC_CTRL")
+        f.debug_struct("APB_DAC_CTRL")
             .field(
                 "dac_timer_target",
                 &format_args!("{}", self.dac_timer_target().bits()),
@@ -118,6 +118,12 @@ impl core::fmt::Debug for R {
             )
             .field("apb_dac_rst", &format_args!("{}", self.apb_dac_rst().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<APB_DAC_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

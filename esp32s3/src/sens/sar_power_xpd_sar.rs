@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_POWER_XPD_SAR")
+        f.debug_struct("SAR_POWER_XPD_SAR")
             .field(
                 "force_xpd_sar",
                 &format_args!("{}", self.force_xpd_sar().bits()),
             )
             .field("sarclk_en", &format_args!("{}", self.sarclk_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_POWER_XPD_SAR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

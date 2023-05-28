@@ -356,7 +356,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DPORT::PRO_CPU_RECORD_PDEBUGDATA")
+        f.debug_struct("PRO_CPU_RECORD_PDEBUGDATA")
             .field(
                 "record_pro_pdebugdata",
                 &format_args!("{}", self.record_pro_pdebugdata().bits()),
@@ -486,6 +486,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.record_pdebugdata_stall_iterdiv().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_CPU_RECORD_PDEBUGDATA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -99,7 +99,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB_DEVICE::JFIFO_ST")
+        f.debug_struct("JFIFO_ST")
             .field(
                 "in_fifo_cnt",
                 &format_args!("{}", self.in_fifo_cnt().bits()),
@@ -133,6 +133,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.out_fifo_reset().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<JFIFO_ST_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

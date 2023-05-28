@@ -21,6 +21,12 @@ impl From<crate::W<CONTINUE_SPEC>> for W {
 }
 #[doc = "Field `CONTINUE` writer - Set this bit to 1 to continue GCM operation."]
 pub type CONTINUE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONTINUE_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONTINUE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to 1 to continue GCM operation."]
     #[inline(always)]

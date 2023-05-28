@@ -25,6 +25,12 @@ pub type TIE_HIGH_I2C_ISO_EN_W<'a, const O: u8> =
 #[doc = "Field `TIE_LOW_I2C_ISO_EN` writer - need_des"]
 pub type TIE_LOW_I2C_ISO_EN_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, IMM_I2C_ISO_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<IMM_I2C_ISO_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

@@ -111,7 +111,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DEDICATED_GPIO::OUT_CPU")
+        f.debug_struct("OUT_CPU")
             .field("sel0", &format_args!("{}", self.sel0().bit()))
             .field("sel1", &format_args!("{}", self.sel1().bit()))
             .field("sel2", &format_args!("{}", self.sel2().bit()))
@@ -121,6 +121,12 @@ impl core::fmt::Debug for R {
             .field("sel6", &format_args!("{}", self.sel6().bit()))
             .field("sel7", &format_args!("{}", self.sel7().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_CPU_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

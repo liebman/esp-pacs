@@ -193,7 +193,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SDMMC::CMD")
+        f.debug_struct("CMD")
             .field("index", &format_args!("{}", self.index().bits()))
             .field(
                 "response_expect",
@@ -251,6 +251,12 @@ impl core::fmt::Debug for R {
             .field("use_hole", &format_args!("{}", self.use_hole().bit()))
             .field("start_cmd", &format_args!("{}", self.start_cmd().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -60,7 +60,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("I2S0::LC_STATE0")
+        f.debug_struct("LC_STATE0")
             .field(
                 "outlink_dscr_addr",
                 &format_args!("{}", self.outlink_dscr_addr().bits()),
@@ -77,6 +77,12 @@ impl core::fmt::Debug for R {
             .field("out_full", &format_args!("{}", self.out_full().bit()))
             .field("out_empty", &format_args!("{}", self.out_empty().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LC_STATE0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "I2S DMA TX status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lc_state0](index.html) module"]

@@ -60,7 +60,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::OUT_INT_ST_CH")
+        f.debug_struct("OUT_INT_ST_CH")
             .field("out_done", &format_args!("{}", self.out_done().bit()))
             .field("out_eof", &format_args!("{}", self.out_eof().bit()))
             .field(
@@ -74,6 +74,12 @@ impl core::fmt::Debug for R {
             .field("outfifo_ovf", &format_args!("{}", self.outfifo_ovf().bit()))
             .field("outfifo_udf", &format_args!("{}", self.outfifo_udf().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_INT_ST_CH_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "Masked interrupt of channel 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [out_int_st_ch](index.html) module"]

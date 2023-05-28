@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::HP_SLEEP_ICG_HP_APB")
+        f.debug_struct("HP_SLEEP_ICG_HP_APB")
             .field(
                 "hp_sleep_dig_icg_apb_en",
                 &format_args!("{}", self.hp_sleep_dig_icg_apb_en().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HP_SLEEP_ICG_HP_APB_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

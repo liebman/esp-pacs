@@ -66,7 +66,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("EXTMEM::L1_CACHE_PRELOCK_CONF")
+        f.debug_struct("L1_CACHE_PRELOCK_CONF")
             .field(
                 "l1_cache_prelock_sct0_en",
                 &format_args!("{}", self.l1_cache_prelock_sct0_en().bit()),
@@ -80,6 +80,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.l1_cache_prelock_rgid().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<L1_CACHE_PRELOCK_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

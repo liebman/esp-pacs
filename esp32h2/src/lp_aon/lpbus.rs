@@ -103,7 +103,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_AON::LPBUS")
+        f.debug_struct("LPBUS")
             .field(
                 "fast_mem_wpulse",
                 &format_args!("{}", self.fast_mem_wpulse().bits()),
@@ -137,6 +137,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.fast_mem_mux_sel().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LPBUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

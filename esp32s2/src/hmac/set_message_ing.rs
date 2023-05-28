@@ -21,6 +21,12 @@ impl From<crate::W<SET_MESSAGE_ING_SPEC>> for W {
 }
 #[doc = "Field `SET_TEXT_ING` writer - Set this bit to show there are still some message blocks to be processed."]
 pub type SET_TEXT_ING_W<'a, const O: u8> = crate::BitWriter<'a, u32, SET_MESSAGE_ING_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SET_MESSAGE_ING_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to show there are still some message blocks to be processed."]
     #[inline(always)]

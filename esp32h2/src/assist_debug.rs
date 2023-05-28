@@ -1,5 +1,6 @@
 #[doc = r"Register block"]
 #[repr(C)]
+#[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
     #[doc = "0x00 - core0 monitor enable configuration register"]
     pub c0re_0_intr_ena: C0RE_0_INTR_ENA,

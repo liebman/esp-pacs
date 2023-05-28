@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMA::MISC_CONF")
+        f.debug_struct("MISC_CONF")
             .field(
                 "ahbm_rst_inter",
                 &format_args!("{}", self.ahbm_rst_inter().bit()),
@@ -87,6 +87,12 @@ impl core::fmt::Debug for R {
             .field("arb_pri_dis", &format_args!("{}", self.arb_pri_dis().bit()))
             .field("clk_en", &format_args!("{}", self.clk_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MISC_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

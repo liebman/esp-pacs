@@ -142,7 +142,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::DCTL")
+        f.debug_struct("DCTL")
             .field("rmtwkupsig", &format_args!("{}", self.rmtwkupsig().bit()))
             .field("sftdiscon", &format_args!("{}", self.sftdiscon().bit()))
             .field("gnpinnaksts", &format_args!("{}", self.gnpinnaksts().bit()))
@@ -164,6 +164,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.deepsleepbeslreject().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DCTL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

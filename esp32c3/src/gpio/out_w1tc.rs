@@ -21,6 +21,12 @@ impl From<crate::W<OUT_W1TC_SPEC>> for W {
 }
 #[doc = "Field `OUT_W1TC` writer - GPIO output clear register for GPIO0-25"]
 pub type OUT_W1TC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_W1TC_SPEC, u32, u32, 26, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<OUT_W1TC_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:25 - GPIO output clear register for GPIO0-25"]
     #[inline(always)]

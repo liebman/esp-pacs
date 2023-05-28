@@ -327,7 +327,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::CONF0")
+        f.debug_struct("CONF0")
             .field("slc0_tx_rst", &format_args!("{}", self.slc0_tx_rst().bit()))
             .field("slc0_rx_rst", &format_args!("{}", self.slc0_rx_rst().bit()))
             .field(
@@ -442,6 +442,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slc1_token_sel().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

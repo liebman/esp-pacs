@@ -145,7 +145,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::CHCONF1")
+        f.debug_struct("CHCONF1")
             .field("tx_start", &format_args!("{}", self.tx_start().bit()))
             .field("rx_en", &format_args!("{}", self.rx_en().bit()))
             .field("mem_owner", &format_args!("{}", self.mem_owner().bit()))
@@ -173,6 +173,12 @@ impl core::fmt::Debug for R {
             .field("idle_out_en", &format_args!("{}", self.idle_out_en().bit()))
             .field("tx_stop", &format_args!("{}", self.tx_stop().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CHCONF1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

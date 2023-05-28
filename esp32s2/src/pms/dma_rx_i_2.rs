@@ -64,7 +64,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMS::DMA_RX_I_2")
+        f.debug_struct("DMA_RX_I_2")
             .field(
                 "dma_rx_i_ilg_clr",
                 &format_args!("{}", self.dma_rx_i_ilg_clr().bit()),
@@ -78,6 +78,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dma_rx_i_ilg_intr().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DMA_RX_I_2_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

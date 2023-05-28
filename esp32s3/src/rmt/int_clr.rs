@@ -50,6 +50,12 @@ pub type TX_CH3_DMA_ACCESS_FAIL_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `RX_CH7_DMA_ACCESS_FAIL_INT_CLR` writer - Set this bit to clear the CH7_DMA_ACCESS_FAIL_INT interrupt."]
 pub type RX_CH7_DMA_ACCESS_FAIL_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Set this bit to clear theCH[0-3]_TX_END_INT interrupt."]
     #[inline(always)]

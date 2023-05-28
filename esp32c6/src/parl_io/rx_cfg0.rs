@@ -142,7 +142,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PARL_IO::RX_CFG0")
+        f.debug_struct("RX_CFG0")
             .field(
                 "rx_eof_gen_sel",
                 &format_args!("{}", self.rx_eof_gen_sel().bit()),
@@ -182,6 +182,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rx_fifo_srst().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_CFG0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -102,7 +102,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MODEM_SYSCON::CLK_CONF1")
+        f.debug_struct("CLK_CONF1")
             .field(
                 "clk_fe_16m_en",
                 &format_args!("{}", self.clk_fe_16m_en().bit()),
@@ -129,6 +129,12 @@ impl core::fmt::Debug for R {
             )
             .field("clk_bt_en", &format_args!("{}", self.clk_bt_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLK_CONF1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -21,6 +21,12 @@ impl From<crate::W<WR_MESSAGE__SPEC>> for W {
 }
 #[doc = "Field `WDATA` writer - Store the %sth 32-bit of message."]
 pub type WDATA_W<'a, const O: u8> = crate::FieldWriter<'a, u32, WR_MESSAGE__SPEC, u32, u32, 32, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<WR_MESSAGE__SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Store the %sth 32-bit of message."]
     #[inline(always)]

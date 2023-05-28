@@ -64,11 +64,17 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::PWM_CONF")
+        f.debug_struct("PWM_CONF")
             .field("pwm_clk_en", &format_args!("{}", self.pwm_clk_en().bit()))
             .field("pwm_rst_en", &format_args!("{}", self.pwm_rst_en().bit()))
             .field("pwm_ready", &format_args!("{}", self.pwm_ready().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PWM_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

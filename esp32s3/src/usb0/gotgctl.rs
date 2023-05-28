@@ -205,7 +205,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::GOTGCTL")
+        f.debug_struct("GOTGCTL")
             .field("sesreqscs", &format_args!("{}", self.sesreqscs().bit()))
             .field("sesreq", &format_args!("{}", self.sesreq().bit()))
             .field("vbvalidoven", &format_args!("{}", self.vbvalidoven().bit()))
@@ -233,6 +233,12 @@ impl core::fmt::Debug for R {
             .field("otgver", &format_args!("{}", self.otgver().bit()))
             .field("curmod", &format_args!("{}", self.curmod().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GOTGCTL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

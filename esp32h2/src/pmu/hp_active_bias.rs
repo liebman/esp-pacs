@@ -78,7 +78,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::HP_ACTIVE_BIAS")
+        f.debug_struct("HP_ACTIVE_BIAS")
             .field(
                 "hp_active_xpd_trx",
                 &format_args!("{}", self.hp_active_xpd_trx().bit()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
             )
             .field("sleep", &format_args!("{}", self.sleep().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HP_ACTIVE_BIAS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

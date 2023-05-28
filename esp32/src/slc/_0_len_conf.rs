@@ -89,7 +89,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::_0_LEN_CONF")
+        f.debug_struct("_0_LEN_CONF")
             .field(
                 "slc0_rx_packet_load_en",
                 &format_args!("{}", self.slc0_rx_packet_load_en().bit()),
@@ -107,6 +107,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slc0_tx_new_pkt_ind().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<_0_LEN_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

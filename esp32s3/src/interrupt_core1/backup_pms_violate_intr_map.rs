@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("INTERRUPT_CORE1::BACKUP_PMS_VIOLATE_INTR_MAP")
+        f.debug_struct("BACKUP_PMS_VIOLATE_INTR_MAP")
             .field(
                 "backup_pms_violate_intr_map",
                 &format_args!("{}", self.backup_pms_violate_intr_map().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<BACKUP_PMS_VIOLATE_INTR_MAP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

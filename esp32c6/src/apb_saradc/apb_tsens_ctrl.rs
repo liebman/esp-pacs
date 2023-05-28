@@ -74,7 +74,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("APB_SARADC::APB_TSENS_CTRL")
+        f.debug_struct("APB_TSENS_CTRL")
             .field("tsens_out", &format_args!("{}", self.tsens_out().bits()))
             .field(
                 "tsens_in_inv",
@@ -86,6 +86,12 @@ impl core::fmt::Debug for R {
             )
             .field("tsens_pu", &format_args!("{}", self.tsens_pu().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<APB_TSENS_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

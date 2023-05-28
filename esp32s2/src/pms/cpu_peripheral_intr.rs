@@ -66,7 +66,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMS::CPU_PERIPHERAL_INTR")
+        f.debug_struct("CPU_PERIPHERAL_INTR")
             .field(
                 "cpu_peri_byte_error_clr",
                 &format_args!("{}", self.cpu_peri_byte_error_clr().bit()),
@@ -80,6 +80,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cpu_peri_byte_error_intr().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CPU_PERIPHERAL_INTR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

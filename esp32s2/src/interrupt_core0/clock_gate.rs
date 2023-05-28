@@ -57,13 +57,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("INTERRUPT_CORE0::CLOCK_GATE")
+        f.debug_struct("CLOCK_GATE")
             .field("clk_en", &format_args!("{}", self.clk_en().bit()))
             .field(
                 "pro_nmi_mask_hw",
                 &format_args!("{}", self.pro_nmi_mask_hw().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CLOCK_GATE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

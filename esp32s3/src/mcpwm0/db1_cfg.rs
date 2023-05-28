@@ -149,7 +149,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::DB1_CFG")
+        f.debug_struct("DB1_CFG")
             .field(
                 "db1_fed_upmethod",
                 &format_args!("{}", self.db1_fed_upmethod().bits()),
@@ -196,6 +196,12 @@ impl core::fmt::Debug for R {
             )
             .field("db1_clk_sel", &format_args!("{}", self.db1_clk_sel().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DB1_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

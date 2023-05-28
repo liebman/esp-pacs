@@ -165,7 +165,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::HCINT7")
+        f.debug_struct("HCINT7")
             .field(
                 "h_xfercompl7",
                 &format_args!("{}", self.h_xfercompl7().bit()),
@@ -193,6 +193,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.h_desc_lst_rollintr7().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HCINT7_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

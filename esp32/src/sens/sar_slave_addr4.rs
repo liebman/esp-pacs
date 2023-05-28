@@ -73,7 +73,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SENS::SAR_SLAVE_ADDR4")
+        f.debug_struct("SAR_SLAVE_ADDR4")
             .field(
                 "i2c_slave_addr7",
                 &format_args!("{}", self.i2c_slave_addr7().bits()),
@@ -85,6 +85,12 @@ impl core::fmt::Debug for R {
             .field("i2c_rdata", &format_args!("{}", self.i2c_rdata().bits()))
             .field("i2c_done", &format_args!("{}", self.i2c_done().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SAR_SLAVE_ADDR4_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

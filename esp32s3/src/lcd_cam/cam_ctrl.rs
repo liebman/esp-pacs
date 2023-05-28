@@ -142,7 +142,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LCD_CAM::CAM_CTRL")
+        f.debug_struct("CAM_CTRL")
             .field("cam_stop_en", &format_args!("{}", self.cam_stop_en().bit()))
             .field(
                 "cam_vsync_filter_thres",
@@ -182,6 +182,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cam_clk_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CAM_CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -62,7 +62,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_CLKRST::RESET_CAUSE")
+        f.debug_struct("RESET_CAUSE")
             .field(
                 "reset_cause",
                 &format_args!("{}", self.reset_cause().bits()),
@@ -72,6 +72,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core0_reset_flag().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RESET_CAUSE_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -68,7 +68,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UHCI0::ESC_CONF1")
+        f.debug_struct("ESC_CONF1")
             .field("esc_seq0", &format_args!("{}", self.esc_seq0().bits()))
             .field(
                 "esc_seq0_char0",
@@ -79,6 +79,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.esc_seq0_char1().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<ESC_CONF1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

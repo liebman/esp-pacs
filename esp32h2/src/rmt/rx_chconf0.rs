@@ -88,7 +88,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::RX_CHCONF0")
+        f.debug_struct("RX_CHCONF0")
             .field(
                 "div_cnt_ch2",
                 &format_args!("{}", self.div_cnt_ch2().bits()),
@@ -110,6 +110,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.carrier_out_lv_ch2().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<RX_CHCONF0_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

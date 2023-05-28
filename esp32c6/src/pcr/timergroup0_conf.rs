@@ -57,10 +57,16 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCR::TIMERGROUP0_CONF")
+        f.debug_struct("TIMERGROUP0_CONF")
             .field("tg0_clk_en", &format_args!("{}", self.tg0_clk_en().bit()))
             .field("tg0_rst_en", &format_args!("{}", self.tg0_rst_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TIMERGROUP0_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

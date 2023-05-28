@@ -159,7 +159,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("ASSIST_DEBUG::CORE_1_INTR_CLR")
+        f.debug_struct("CORE_1_INTR_CLR")
             .field(
                 "core_1_area_dram0_0_rd_clr",
                 &format_args!("{}", self.core_1_area_dram0_0_rd_clr().bit()),
@@ -209,6 +209,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.core_1_dram0_exception_monitor_clr().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CORE_1_INTR_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -85,7 +85,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_IO::TOUCH_CFG")
+        f.debug_struct("TOUCH_CFG")
             .field("touch_dcur", &format_args!("{}", self.touch_dcur().bits()))
             .field(
                 "touch_drange",
@@ -104,6 +104,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.touch_xpd_bias().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<TOUCH_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

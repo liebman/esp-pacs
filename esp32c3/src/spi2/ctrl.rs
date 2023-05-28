@@ -156,7 +156,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI2::CTRL")
+        f.debug_struct("CTRL")
             .field("dummy_out", &format_args!("{}", self.dummy_out().bit()))
             .field("faddr_dual", &format_args!("{}", self.faddr_dual().bit()))
             .field("faddr_quad", &format_args!("{}", self.faddr_quad().bit()))
@@ -177,6 +177,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.wr_bit_order().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

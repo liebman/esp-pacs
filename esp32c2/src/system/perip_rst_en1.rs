@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SYSTEM::PERIP_RST_EN1")
+        f.debug_struct("PERIP_RST_EN1")
             .field(
                 "crypto_ecc_rst",
                 &format_args!("{}", self.crypto_ecc_rst().bit()),
@@ -87,6 +87,12 @@ impl core::fmt::Debug for R {
             .field("dma_rst", &format_args!("{}", self.dma_rst().bit()))
             .field("tsens_rst", &format_args!("{}", self.tsens_rst().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PERIP_RST_EN1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

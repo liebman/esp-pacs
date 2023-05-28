@@ -68,7 +68,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PMU::LP_SLEEP_BIAS")
+        f.debug_struct("LP_SLEEP_BIAS")
             .field(
                 "lp_sleep_xpd_bias",
                 &format_args!("{}", self.lp_sleep_xpd_bias().bit()),
@@ -79,6 +79,12 @@ impl core::fmt::Debug for R {
             )
             .field("sleep", &format_args!("{}", self.sleep().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LP_SLEEP_BIAS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -102,7 +102,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PERI_BACKUP::CONFIG")
+        f.debug_struct("CONFIG")
             .field("flow_err", &format_args!("{}", self.flow_err().bits()))
             .field(
                 "addr_map_mode",
@@ -117,6 +117,12 @@ impl core::fmt::Debug for R {
             .field("to_mem", &format_args!("{}", self.to_mem().bit()))
             .field("ena", &format_args!("{}", self.ena().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONFIG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

@@ -32,7 +32,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::SPI_MEM_SRAM_DWR_CMD")
+        f.debug_struct("SPI_MEM_SRAM_DWR_CMD")
             .field(
                 "spi_mem_cache_sram_usr_wr_cmd_value",
                 &format_args!("{}", self.spi_mem_cache_sram_usr_wr_cmd_value().bits()),
@@ -42,6 +42,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.spi_mem_cache_sram_usr_wr_cmd_bitlen().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<SPI_MEM_SRAM_DWR_CMD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "SPI0 external RAM DDR write command control register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [spi_mem_sram_dwr_cmd](index.html) module"]

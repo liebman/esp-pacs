@@ -111,7 +111,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("PCNT::INT_ENA")
+        f.debug_struct("INT_ENA")
             .field(
                 "cnt_thr_event_u0",
                 &format_args!("{}", self.cnt_thr_event_u0().bit()),
@@ -145,6 +145,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cnt_thr_event_u7().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_ENA_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

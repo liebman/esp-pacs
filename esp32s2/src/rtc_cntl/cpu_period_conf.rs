@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RTC_CNTL::CPU_PERIOD_CONF")
+        f.debug_struct("CPU_PERIOD_CONF")
             .field("cpusel_conf", &format_args!("{}", self.cpusel_conf().bit()))
             .field(
                 "cpuperiod_sel",
                 &format_args!("{}", self.cpuperiod_sel().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CPU_PERIOD_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

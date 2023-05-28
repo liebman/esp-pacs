@@ -21,6 +21,12 @@ impl From<crate::W<UNIT1_LOAD_SPEC>> for W {
 }
 #[doc = "Field `TIMER_UNIT1_LOAD` writer - timer unit1 sync enable signal"]
 pub type TIMER_UNIT1_LOAD_W<'a, const O: u8> = crate::BitWriter<'a, u32, UNIT1_LOAD_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<UNIT1_LOAD_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - timer unit1 sync enable signal"]
     #[inline(always)]

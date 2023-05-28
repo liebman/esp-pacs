@@ -49,12 +49,18 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("INTERRUPT_CORE0::PRO_CPU_INTR_FROM_CPU_3_MAP")
+        f.debug_struct("PRO_CPU_INTR_FROM_CPU_3_MAP")
             .field(
                 "pro_cpu_intr_from_cpu_3_map",
                 &format_args!("{}", self.pro_cpu_intr_from_cpu_3_map().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<PRO_CPU_INTR_FROM_CPU_3_MAP_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

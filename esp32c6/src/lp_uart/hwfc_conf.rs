@@ -58,13 +58,19 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_UART::HWFC_CONF")
+        f.debug_struct("HWFC_CONF")
             .field(
                 "rx_flow_thrhd",
                 &format_args!("{}", self.rx_flow_thrhd().bits()),
             )
             .field("rx_flow_en", &format_args!("{}", self.rx_flow_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HWFC_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

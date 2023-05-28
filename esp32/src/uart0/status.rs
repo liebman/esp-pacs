@@ -88,7 +88,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("UART0::STATUS")
+        f.debug_struct("STATUS")
             .field("rxfifo_cnt", &format_args!("{}", self.rxfifo_cnt().bits()))
             .field("st_urx_out", &format_args!("{}", self.st_urx_out().bits()))
             .field("dsrn", &format_args!("{}", self.dsrn().bit()))
@@ -100,6 +100,12 @@ impl core::fmt::Debug for R {
             .field("rtsn", &format_args!("{}", self.rtsn().bit()))
             .field("txd", &format_args!("{}", self.txd().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](index.html) module"]

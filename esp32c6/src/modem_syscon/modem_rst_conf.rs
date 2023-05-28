@@ -174,7 +174,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MODEM_SYSCON::MODEM_RST_CONF")
+        f.debug_struct("MODEM_RST_CONF")
             .field("rst_wifibb", &format_args!("{}", self.rst_wifibb().bit()))
             .field("rst_wifimac", &format_args!("{}", self.rst_wifimac().bit()))
             .field("rst_fe", &format_args!("{}", self.rst_fe().bit()))
@@ -215,6 +215,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.rst_data_dump().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MODEM_RST_CONF_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

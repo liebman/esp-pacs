@@ -138,7 +138,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("IO_MUX::GPIO13")
+        f.debug_struct("GPIO13")
             .field("mcu_oe", &format_args!("{}", self.mcu_oe().bit()))
             .field("slp_sel", &format_args!("{}", self.slp_sel().bit()))
             .field("mcu_wpd", &format_args!("{}", self.mcu_wpd().bit()))
@@ -151,6 +151,12 @@ impl core::fmt::Debug for R {
             .field("mcu_sel", &format_args!("{}", self.mcu_sel().bits()))
             .field("filter_en", &format_args!("{}", self.filter_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<GPIO13_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

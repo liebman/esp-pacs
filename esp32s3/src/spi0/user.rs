@@ -84,7 +84,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::USER")
+        f.debug_struct("USER")
             .field("cs_hold", &format_args!("{}", self.cs_hold().bit()))
             .field("cs_setup", &format_args!("{}", self.cs_setup().bit()))
             .field("ck_out_edge", &format_args!("{}", self.ck_out_edge().bit()))
@@ -94,6 +94,12 @@ impl core::fmt::Debug for R {
             )
             .field("usr_dummy", &format_args!("{}", self.usr_dummy().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<USER_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

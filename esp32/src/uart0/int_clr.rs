@@ -61,6 +61,12 @@ pub type RS485_CLASH_INT_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_
 #[doc = "Field `AT_CMD_CHAR_DET_INT_CLR` writer - Set this bit to clear the at_cmd_char_det_int_raw interrupt."]
 pub type AT_CMD_CHAR_DET_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to clear the rxfifo_full_int_raw interrupt."]
     #[inline(always)]

@@ -25,6 +25,12 @@ pub type MAIN_TIMER_OVERFLOW_LP_INT_CLR_W<'a, const O: u8> =
 #[doc = "Field `MAIN_TIMER_LP_INT_CLR` writer - need_des"]
 pub type MAIN_TIMER_LP_INT_CLR_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, LP_INT_CLR_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<LP_INT_CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 30 - need_des"]
     #[inline(always)]

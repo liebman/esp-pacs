@@ -60,7 +60,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("RMT::CH2STATUS")
+        f.debug_struct("CH2STATUS")
             .field(
                 "mem_waddr_ex",
                 &format_args!("{}", self.mem_waddr_ex().bits()),
@@ -80,6 +80,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.apb_mem_rd_err().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CH2STATUS_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "RMT_CH2STATUS_REG.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ch2status](index.html) module"]

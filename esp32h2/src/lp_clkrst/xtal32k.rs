@@ -75,7 +75,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("LP_CLKRST::XTAL32K")
+        f.debug_struct("XTAL32K")
             .field(
                 "dres_xtal32k",
                 &format_args!("{}", self.dres_xtal32k().bits()),
@@ -93,6 +93,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.dac_xtal32k().bits()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<XTAL32K_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

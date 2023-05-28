@@ -193,7 +193,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::_1INT_ST1")
+        f.debug_struct("_1INT_ST1")
             .field(
                 "frhost_bit8_int_st1",
                 &format_args!("{}", self.frhost_bit8_int_st1().bit()),
@@ -295,6 +295,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slc1_tx_err_eof_int_st1().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<_1INT_ST1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 #[doc = "\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [_1int_st1](index.html) module"]

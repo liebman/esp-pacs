@@ -129,7 +129,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("USB0::HCCHAR7")
+        f.debug_struct("HCCHAR7")
             .field("h_mps7", &format_args!("{}", self.h_mps7().bits()))
             .field("h_epnum7", &format_args!("{}", self.h_epnum7().bits()))
             .field("h_epdir7", &format_args!("{}", self.h_epdir7().bit()))
@@ -141,6 +141,12 @@ impl core::fmt::Debug for R {
             .field("h_chdis7", &format_args!("{}", self.h_chdis7().bit()))
             .field("h_chena7", &format_args!("{}", self.h_chena7().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<HCCHAR7_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

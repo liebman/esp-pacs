@@ -103,7 +103,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI2::DIN_NUM")
+        f.debug_struct("DIN_NUM")
             .field("din0_num", &format_args!("{}", self.din0_num().bits()))
             .field("din1_num", &format_args!("{}", self.din1_num().bits()))
             .field("din2_num", &format_args!("{}", self.din2_num().bits()))
@@ -113,6 +113,12 @@ impl core::fmt::Debug for R {
             .field("din6_num", &format_args!("{}", self.din6_num().bits()))
             .field("din7_num", &format_args!("{}", self.din7_num().bits()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<DIN_NUM_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

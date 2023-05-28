@@ -165,7 +165,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::CONF1")
+        f.debug_struct("CONF1")
             .field(
                 "slc0_check_owner",
                 &format_args!("{}", self.slc0_check_owner().bit()),
@@ -217,6 +217,12 @@ impl core::fmt::Debug for R {
             )
             .field("clk_en", &format_args!("{}", self.clk_en().bit()))
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CONF1_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

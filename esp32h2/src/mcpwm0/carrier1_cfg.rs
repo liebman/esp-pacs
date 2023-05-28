@@ -98,7 +98,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MCPWM0::CARRIER1_CFG")
+        f.debug_struct("CARRIER1_CFG")
             .field("chopper1_en", &format_args!("{}", self.chopper1_en().bit()))
             .field(
                 "chopper1_prescale",
@@ -121,6 +121,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.chopper1_in_invert().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CARRIER1_CFG_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

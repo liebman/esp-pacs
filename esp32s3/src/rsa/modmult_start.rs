@@ -21,6 +21,12 @@ impl From<crate::W<MODMULT_START_SPEC>> for W {
 }
 #[doc = "Field `MODMULT_START` writer - Set this bit to 1 to start the modular multiplication"]
 pub type MODMULT_START_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODMULT_START_SPEC, bool, O>;
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<MODMULT_START_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(write only register)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - Set this bit to 1 to start the modular multiplication"]
     #[inline(always)]

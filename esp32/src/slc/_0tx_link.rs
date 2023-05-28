@@ -84,7 +84,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SLC::_0TX_LINK")
+        f.debug_struct("_0TX_LINK")
             .field(
                 "slc0_txlink_addr",
                 &format_args!("{}", self.slc0_txlink_addr().bits()),
@@ -106,6 +106,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.slc0_txlink_park().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<_0TX_LINK_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {

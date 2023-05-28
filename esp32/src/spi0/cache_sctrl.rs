@@ -127,7 +127,7 @@ impl R {
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("SPI0::CACHE_SCTRL")
+        f.debug_struct("CACHE_SCTRL")
             .field(
                 "usr_sram_dio",
                 &format_args!("{}", self.usr_sram_dio().bit()),
@@ -165,6 +165,12 @@ impl core::fmt::Debug for R {
                 &format_args!("{}", self.cache_sram_usr_wcmd().bit()),
             )
             .finish()
+    }
+}
+#[cfg(feature = "impl-register-debug")]
+impl core::fmt::Debug for crate::generic::Reg<CACHE_SCTRL_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        self.read().fmt(f)
     }
 }
 impl W {
