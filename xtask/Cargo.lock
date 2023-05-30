@@ -396,9 +396,9 @@ dependencies = [
 
 [[package]]
 name = "once_cell"
-version = "1.17.1"
+version = "1.17.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b7e5500299e16ebb147ae15a00a942af264cf3688f47923b8fc2cd5858f23ad3"
+checksum = "9670a07f94779e00908f3e686eab508878ebb390ba6e604d3a284c00e8d0487b"
 
 [[package]]
 name = "proc-macro2"
@@ -597,7 +597,7 @@ dependencies = [
 [[package]]
 name = "svd2rust"
 version = "0.28.0"
-source = "git+https://github.com/liebman/svd2rust.git?branch=impl-debug-for-registers#d5537ad178ca15e412db2ec8a08da2fe5a9d08da"
+source = "git+https://github.com/liebman/svd2rust.git?branch=impl-debug-for-registers#030a73120f43ac5474ca84e53b39f409faf1a5b9"
 dependencies = [
  "anyhow",
  "html-escape",
