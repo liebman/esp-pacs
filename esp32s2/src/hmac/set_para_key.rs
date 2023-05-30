@@ -24,7 +24,7 @@ pub type KEY_SET_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SET_PARA_KEY_S
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<SET_PARA_KEY_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

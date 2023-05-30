@@ -597,7 +597,7 @@ dependencies = [
 [[package]]
 name = "svd2rust"
 version = "0.28.0"
-source = "git+https://github.com/liebman/svd2rust.git?branch=impl-debug-for-registers#030a73120f43ac5474ca84e53b39f409faf1a5b9"
+source = "git+https://github.com/liebman/svd2rust.git?branch=impl-debug-for-registers#2d02a20a2b5c587152d776ff9d525dc20dcc1298"
 dependencies = [
  "anyhow",
  "html-escape",

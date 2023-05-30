@@ -30,7 +30,7 @@ pub type RST_LP_TIMER_W<'a, const O: u8> = crate::BitWriter<'a, u32, RST_CONF_SP
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<RST_CONF_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

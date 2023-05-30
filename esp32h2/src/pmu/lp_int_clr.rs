@@ -58,7 +58,7 @@ pub type HP_SW_TRIGGER_INT_CLR_W<'a, const O: u8> =
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<LP_INT_CLR_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

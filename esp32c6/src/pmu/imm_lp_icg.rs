@@ -28,7 +28,7 @@ pub type TIE_HIGH_LP_ROOTCLK_SEL_W<'a, const O: u8> =
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<IMM_LP_ICG_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

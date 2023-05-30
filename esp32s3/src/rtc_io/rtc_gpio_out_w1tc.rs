@@ -25,7 +25,7 @@ pub type RTC_GPIO_OUT_DATA_W1TC_W<'a, const O: u8> =
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<RTC_GPIO_OUT_W1TC_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

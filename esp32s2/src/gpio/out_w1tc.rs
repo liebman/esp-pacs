@@ -24,7 +24,7 @@ pub type OUT_W1TC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_W1TC_SPEC
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<OUT_W1TC_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

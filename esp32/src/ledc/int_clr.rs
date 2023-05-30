@@ -86,7 +86,7 @@ pub type DUTY_CHNG_END_LSCH7_INT_CLR_W<'a, const O: u8> =
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

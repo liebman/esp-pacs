@@ -42,7 +42,7 @@ pub type OUTFIFO_UDF_L3_W<'a, const O: u8> =
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<OUT_INT_CLR_CH_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

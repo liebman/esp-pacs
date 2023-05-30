@@ -30,7 +30,7 @@ pub type CH3_W<'a, const O: u8> = crate::BitWriter<'a, u32, REF_CNT_RST_SPEC, bo
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<REF_CNT_RST_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

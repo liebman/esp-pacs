@@ -24,7 +24,7 @@ pub type SET_FINISH_W<'a, const O: u8> = crate::BitWriter<'a, u32, SET_FINISH_SP
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<SET_FINISH_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {

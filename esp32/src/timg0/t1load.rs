@@ -24,7 +24,7 @@ pub type LOAD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, T1LOAD_SPEC, u32,
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<T1LOAD_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(write only register)")
+        write!(f, "(not readable)")
     }
 }
 impl W {
